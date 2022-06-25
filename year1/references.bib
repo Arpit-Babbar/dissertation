@@ -1,0 +1,156 @@
+@article{HENNEMANN2021109935,
+title = {A provably entropy stable subcell shock capturing approach for high order split form DG for the compressible Euler equations},
+journal = {Journal of Computational Physics},
+volume = {426},
+pages = {109935},
+year = {2021},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2020.109935},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999120307099},
+author = {Sebastian Hennemann and Andrés M. Rueda-Ramírez and Florian J. Hindenlang and Gregor J. Gassner},
+keywords = {Compressible Euler equations, Discontinuous Galerkin spectral element method, Shock capturing, Entropy stability, Computational robustness},
+abstract = {The main result in this paper is a provably entropy stable shock capturing approach for the high order entropy stable Discontinuous Galerkin Spectral Element Method (DGSEM) based on a hybrid blending with a subcell low order variant. Since it is possible to rewrite a high order summation-by-parts (SBP) operator into an equivalent conservative finite volume form, we were able to design a low order scheme directly with the Legendre-Gauss-Lobatto (LGL) nodes that is compatible to the discrete entropy analysis used for the proof of the entropy stable DGSEM. Furthermore, we present a hybrid low order/high order discretisation where it is possible to seamlessly blend between the two approaches, while still being provably entropy stable. With tensor products and careful design of the low order scheme on curved elements, we are able to extend the approach to three spatial dimensions on unstructured curvilinear hexahedral meshes. We validate our theoretical findings and demonstrate convergence order for smooth problems, conservation of the primary quantities and discrete entropy stability for an arbitrary blending on curvilinear grids. In practical simulations, we connect the blending factor to a local troubled element indicator that provides the control of the amount of low order dissipation injected into the high order scheme. We modified an existing shock indicator, which is based on the modal polynomial representation, to our provably stable hybrid scheme. The aim is to reduce the impact of the parameters as good as possible. We describe our indicator in detail and demonstrate its robustness in combination with the hybrid scheme, as it is possible to compute all the different test cases without changing the indicator. The test cases include e.g. the double Mach reflection setup, forward and backward facing steps with shock Mach numbers up to 100. The proposed approach is relatively straight forward to implement in an existing entropy stable DGSEM code as only modifications local to an element are necessary.}
+}
+@incollection{Persson2006,
+	series = {Aerospace {Sciences} {Meetings}},
+	title = {Sub-{Cell} {Shock} {Capturing} for {Discontinuous} {Galerkin} {Methods}},
+	url = {https://arc.aiaa.org/doi/10.2514/6.2006-112},
+	urldate = {2020-11-30},
+	booktitle = {44th {AIAA} {Aerospace} {Sciences} {Meeting} and {Exhibit}},
+	publisher = {American Institute of Aeronautics and Astronautics},
+	author = {Persson, Per-Olof and Peraire, Jaime},
+	month = jan,
+	year = {2006},
+}
+@article{zorio_approximate_2017,
+	title = {An {Approximate} {Lax}–{Wendroff}-{Type} {Procedure} for {High} {Order} {Accurate} {Schemes} for {Hyperbolic} {Conservation} {Laws}},
+	volume = {71},
+	issn = {0885-7474, 1573-7691},
+	url = {http://link.springer.com/10.1007/s10915-016-0298-2},
+	doi = {10.1007/s10915-016-0298-2},
+	language = {en},
+	number = {1},
+	urldate = {2021-07-27},
+	journal = {Journal of Scientific Computing},
+	author = {Zorío, D. and Baeza, A. and Mulet, P.},
+	month = apr,
+	year = {2017},
+	note = {bibtex: Zorio2017},
+	pages = {246--273},
+}
+@inproceedings{Huynh2007,
+	address = {Miami, FL},
+	title = {A {Flux} {Reconstruction} {Approach} to {High}-{Order} {Schemes} {Including} {Discontinuous} {Galerkin} {Methods}},
+	publisher = {AIAA},
+	author = {Huynh, H. T.},
+	month = jun,
+	year = {2007},
+}
+
+
+
+@ARTICLE{Felton2018-ip,
+  title         = "A positivity-preserving limiting strategy for
+                   locally-implicit {Lax-Wendroff} discontinuous Galerkin
+                   methods",
+  author        = "Felton, Camille and Harris, Mariana and Logemann, Caleb and
+                   Nelson, Stefan and Pelakh, Ian and Rossmanith, James A",
+  abstract      = "Nonlinear hyperbolic conservation laws admit singular
+                   solutions such as shockwaves (discontinuities in conserved
+                   variables), rarefaction waves (discontinuities in
+                   derivatives), and vacuum states (loss of strong
+                   hyperbolicity). When ostensibly high-order numerical methods
+                   are applied in such solution regimes, unphysical
+                   oscillations present themselves that can lead to large
+                   errors and a breakdown of the numerical simulation. In this
+                   work we develop a new Lax-Wendroff discontinuous Galerkin
+                   (LxW-DG) method with a limiting strategy that keeps the
+                   solution non-oscillatory and positivity-preserving for
+                   relevant variables, such as height in the shallow water
+                   equations and density and pressure in the compressible Euler
+                   equations. The proposed LxW-DG scheme updates the solution
+                   over each time-step with a locally-implicit predictor
+                   followed by an explicit corrector. The locally-implicit
+                   prediction phase is formulated in terms of primitive
+                   variables, which greatly simplifies the solver. The
+                   resulting system of nonlinear algebraic equations are
+                   approximately solved via a Picard iteration, where the
+                   number of iterations is equal to the order of accuracy of
+                   the method. The correction phase is an explicit evaluation
+                   formulated in terms of conservative variables in order to
+                   guarantee numerical conservation. In order to achieve full
+                   positivity-preservation, limiting is required in both the
+                   prediction and correction steps. The resulting scheme is
+                   applied to several standard test cases for the shallow water
+                   and compressible Euler equations. All of the presented
+                   examples are written in a freely available open-source
+                   Python code.",
+  month         =  jun,
+  year          =  2018,
+  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+  archivePrefix = "arXiv",
+  primaryClass  = "math.NA",
+  eprint        = "1806.06756"
+}
+@INPROCEEDINGS{Rueda-Ramirez2021-ib,
+  title      = "A subcell finite volume positivity-preserving limiter for
+                {DGSEM} discretizations of the Euler equations",
+  booktitle  = "14th {WCCM-ECCOMAS} Congress",
+  author     = "Rueda-Ram{\'\i}rez, A and Gassner, G",
+  publisher  = "CIMNE",
+  year       =  2021,
+  conference = "14th WCCM-ECCOMAS Congress"
+}
+@article{Berthon2006,
+  doi = {10.1007/s00211-006-0007-4},
+  url = {https://doi.org/10.1007/s00211-006-0007-4},
+  year = {2006},
+  month = jun,
+  publisher = {Springer Science and Business Media {LLC}},
+  volume = {104},
+  number = {1},
+  pages = {27--46},
+  author = {Christophe Berthon},
+  title = {Why the {MUSCL}{\textendash}Hancock Scheme is L1-stable},
+  journal = {Numerische Mathematik}
+}
+@article{Zhang2010b,
+	title = {On maximum-principle-satisfying high order schemes for scalar conservation laws},
+	volume = {229},
+	issn = {00219991},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021999109007165},
+	doi = {10.1016/j.jcp.2009.12.030},
+	language = {en},
+	number = {9},
+	urldate = {2019-02-14},
+	journal = {Journal of Computational Physics},
+	author = {Zhang, Xiangxiong and Shu, Chi-Wang},
+	month = may,
+	year = {2010},
+	pages = {3091--3120},
+}
+@article{Jackson2017,
+  doi = {10.1016/j.jcp.2016.12.058},
+  url = {https://doi.org/10.1016/j.jcp.2016.12.058},
+  year = {2017},
+  month = mar,
+  publisher = {Elsevier {BV}},
+  volume = {333},
+  pages = {409--413},
+  author = {Haran Jackson},
+  title = {On the eigenvalues of the {ADER}-{WENO} Galerkin predictor},
+  journal = {Journal of Computational Physics}
+}
+@article{Dumbser2009,
+  doi = {10.1016/j.jcp.2009.06.009},
+  url = {https://doi.org/10.1016/j.jcp.2009.06.009},
+  year = {2009},
+  month = oct,
+  publisher = {Elsevier {BV}},
+  volume = {228},
+  number = {18},
+  pages = {6991--7006},
+  author = {Michael Dumbser and Olindo Zanotti},
+  title = {Very high order {PNPM} schemes on unstructured meshes for the resistive relativistic {MHD} equations},
+  journal = {Journal of Computational Physics}
+}
