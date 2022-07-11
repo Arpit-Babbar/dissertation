@@ -44,8 +44,8 @@ for i in range(nd+2):
 
 plt.title("Solution points and subcells")
 plt.axis('off')
-plt.savefig('../figures/subcells.pdf')
-os.system('bash pdfbb ../figures/subcells.pdf')
+plt.savefig('../illustrations/subcells.pdf')
+os.system('bash pdfbb ../illustrations/subcells.pdf')
 
 plt.show()
 
