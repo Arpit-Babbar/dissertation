@@ -1,0 +1,414 @@
+@article{HENNEMANN2021109935,
+title = {A provably entropy stable subcell shock capturing approach for high order split form DG for the compressible Euler equations},
+journal = {Journal of Computational Physics},
+volume = {426},
+pages = {109935},
+year = {2021},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2020.109935},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999120307099},
+author = {Sebastian Hennemann and Andrés M. Rueda-Ramírez and Florian J. Hindenlang and Gregor J. Gassner},
+keywords = {Compressible Euler equations, Discontinuous Galerkin spectral element method, Shock capturing, Entropy stability, Computational robustness},
+abstract = {The main result in this paper is a provably entropy stable shock capturing approach for the high order entropy stable Discontinuous Galerkin Spectral Element Method (DGSEM) based on a hybrid blending with a subcell low order variant. Since it is possible to rewrite a high order summation-by-parts (SBP) operator into an equivalent conservative finite volume form, we were able to design a low order scheme directly with the Legendre-Gauss-Lobatto (LGL) nodes that is compatible to the discrete entropy analysis used for the proof of the entropy stable DGSEM. Furthermore, we present a hybrid low order/high order discretisation where it is possible to seamlessly blend between the two approaches, while still being provably entropy stable. With tensor products and careful design of the low order scheme on curved elements, we are able to extend the approach to three spatial dimensions on unstructured curvilinear hexahedral meshes. We validate our theoretical findings and demonstrate convergence order for smooth problems, conservation of the primary quantities and discrete entropy stability for an arbitrary blending on curvilinear grids. In practical simulations, we connect the blending factor to a local troubled element indicator that provides the control of the amount of low order dissipation injected into the high order scheme. We modified an existing shock indicator, which is based on the modal polynomial representation, to our provably stable hybrid scheme. The aim is to reduce the impact of the parameters as good as possible. We describe our indicator in detail and demonstrate its robustness in combination with the hybrid scheme, as it is possible to compute all the different test cases without changing the indicator. The test cases include e.g. the double Mach reflection setup, forward and backward facing steps with shock Mach numbers up to 100. The proposed approach is relatively straight forward to implement in an existing entropy stable DGSEM code as only modifications local to an element are necessary.}
+}
+@incollection{Persson2006,
+	series = {Aerospace {Sciences} {Meetings}},
+	title = {Sub-{Cell} {Shock} {Capturing} for {Discontinuous} {Galerkin} {Methods}},
+	url = {https://arc.aiaa.org/doi/10.2514/6.2006-112},
+	urldate = {2020-11-30},
+	booktitle = {44th {AIAA} {Aerospace} {Sciences} {Meeting} and {Exhibit}},
+	publisher = {American Institute of Aeronautics and Astronautics},
+	author = {Persson, Per-Olof and Peraire, Jaime},
+	month = jan,
+	year = {2006},
+}
+@article{zorio_approximate_2017,
+	title = {An {Approximate} {Lax}–{Wendroff}-{Type} {Procedure} for {High} {Order} {Accurate} {Schemes} for {Hyperbolic} {Conservation} {Laws}},
+	volume = {71},
+	issn = {0885-7474, 1573-7691},
+	url = {http://link.springer.com/10.1007/s10915-016-0298-2},
+	doi = {10.1007/s10915-016-0298-2},
+	language = {en},
+	number = {1},
+	urldate = {2021-07-27},
+	journal = {Journal of Scientific Computing},
+	author = {Zorío, D. and Baeza, A. and Mulet, P.},
+	month = apr,
+	year = {2017},
+	note = {bibtex: Zorio2017},
+	pages = {246--273},
+}
+@inproceedings{Huynh2007,
+	address = {Miami, FL},
+	title = {A {Flux} {Reconstruction} {Approach} to {High}-{Order} {Schemes} {Including} {Discontinuous} {Galerkin} {Methods}},
+	publisher = {AIAA},
+	author = {Huynh, H. T.},
+	month = jun,
+	year = {2007},
+}
+
+
+
+@ARTICLE{Felton2018-ip,
+  title         = "A positivity-preserving limiting strategy for
+                   locally-implicit {Lax-Wendroff} discontinuous Galerkin
+                   methods",
+  author        = "Felton, Camille and Harris, Mariana and Logemann, Caleb and
+                   Nelson, Stefan and Pelakh, Ian and Rossmanith, James A",
+  abstract      = "Nonlinear hyperbolic conservation laws admit singular
+                   solutions such as shockwaves (discontinuities in conserved
+                   variables), rarefaction waves (discontinuities in
+                   derivatives), and vacuum states (loss of strong
+                   hyperbolicity). When ostensibly high-order numerical methods
+                   are applied in such solution regimes, unphysical
+                   oscillations present themselves that can lead to large
+                   errors and a breakdown of the numerical simulation. In this
+                   work we develop a new Lax-Wendroff discontinuous Galerkin
+                   (LxW-DG) method with a limiting strategy that keeps the
+                   solution non-oscillatory and positivity-preserving for
+                   relevant variables, such as height in the shallow water
+                   equations and density and pressure in the compressible Euler
+                   equations. The proposed LxW-DG scheme updates the solution
+                   over each time-step with a locally-implicit predictor
+                   followed by an explicit corrector. The locally-implicit
+                   prediction phase is formulated in terms of primitive
+                   variables, which greatly simplifies the solver. The
+                   resulting system of nonlinear algebraic equations are
+                   approximately solved via a Picard iteration, where the
+                   number of iterations is equal to the order of accuracy of
+                   the method. The correction phase is an explicit evaluation
+                   formulated in terms of conservative variables in order to
+                   guarantee numerical conservation. In order to achieve full
+                   positivity-preservation, limiting is required in both the
+                   prediction and correction steps. The resulting scheme is
+                   applied to several standard test cases for the shallow water
+                   and compressible Euler equations. All of the presented
+                   examples are written in a freely available open-source
+                   Python code.",
+  month         =  jun,
+  year          =  2018,
+  copyright     = "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+  archivePrefix = "arXiv",
+  primaryClass  = "math.NA",
+  eprint        = "1806.06756"
+}
+@INPROCEEDINGS{Rueda-Ramirez2021-ib,
+  title      = "A subcell finite volume positivity-preserving limiter for
+                {DGSEM} discretizations of the Euler equations",
+  booktitle  = "14th {WCCM-ECCOMAS} Congress",
+  author     = "Rueda-Ram{\'\i}rez, A and Gassner, G",
+  publisher  = "CIMNE",
+  year       =  2021,
+  conference = "14th WCCM-ECCOMAS Congress"
+}
+@article{Berthon2006,
+  doi = {10.1007/s00211-006-0007-4},
+  url = {https://doi.org/10.1007/s00211-006-0007-4},
+  year = {2006},
+  month = jun,
+  publisher = {Springer Science and Business Media {LLC}},
+  volume = {104},
+  number = {1},
+  pages = {27--46},
+  author = {Christophe Berthon},
+  title = {Why the {MUSCL}{\textendash}Hancock Scheme is L1-stable},
+  journal = {Numerische Mathematik}
+}
+@article{Zhang2010b,
+	title = {On maximum-principle-satisfying high order schemes for scalar conservation laws},
+	volume = {229},
+	issn = {00219991},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021999109007165},
+	doi = {10.1016/j.jcp.2009.12.030},
+	language = {en},
+	number = {9},
+	urldate = {2019-02-14},
+	journal = {Journal of Computational Physics},
+	author = {Zhang, Xiangxiong and Shu, Chi-Wang},
+	month = may,
+	year = {2010},
+	pages = {3091--3120},
+}
+@article{Jackson2017,
+  doi = {10.1016/j.jcp.2016.12.058},
+  url = {https://doi.org/10.1016/j.jcp.2016.12.058},
+  year = {2017},
+  month = mar,
+  publisher = {Elsevier {BV}},
+  volume = {333},
+  pages = {409--413},
+  author = {Haran Jackson},
+  title = {On the eigenvalues of the {ADER}-{WENO} Galerkin predictor},
+  journal = {Journal of Computational Physics}
+}
+@article{Dumbser2009,
+  doi = {10.1016/j.jcp.2009.06.009},
+  url = {https://doi.org/10.1016/j.jcp.2009.06.009},
+  year = {2009},
+  month = oct,
+  publisher = {Elsevier {BV}},
+  volume = {228},
+  number = {18},
+  pages = {6991--7006},
+  author = {Michael Dumbser and Olindo Zanotti},
+  title = {Very high order {PNPM} schemes on unstructured meshes for the resistive relativistic {MHD} equations},
+  journal = {Journal of Computational Physics}
+}
+
+@article{Xu2019,
+	title = {The {$L^2$}-norm {Stability} {Analysis} of {Runge}--{Kutta} {Discontinuous} {Galerkin} {Methods} for {Linear} {Hyperbolic} {Equations}},
+	volume = {57},
+	issn = {0036-1429, 1095-7170},
+	url = {https://epubs.siam.org/doi/10.1137/18M1230700},
+	doi = {10.1137/18M1230700},
+	language = {en},
+	number = {4},
+	urldate = {2021-05-10},
+	journal = {SIAM Journal on Numerical Analysis},
+	author = {Xu, Yuan and Zhang, Qiang and Shu, Chi-wang and Wang, Haijin},
+	month = jan,
+	year = {2019},
+	note = {bibtex: Xu2019},
+	pages = {1574--1601},
+}
+
+@article{Qiu2005b,
+	title = {The discontinuous {Galerkin} method with {Lax}–{Wendroff} type time discretizations},
+	volume = {194},
+	issn = {00457825},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S004578250400533X},
+	doi = {10.1016/j.cma.2004.11.007},
+	language = {en},
+	number = {42-44},
+	urldate = {2021-07-27},
+	journal = {Computer Methods in Applied Mechanics and Engineering},
+	author = {Qiu, Jianxian and Dumbser, Michael and Shu, Chi-Wang},
+	month = oct,
+	year = {2005},
+	pages = {4528--4543},
+}
+
+@article{Shu1989,
+	title = {Efficient implementation of essentially non-oscillatory shock-capturing schemes, {II}},
+	volume = {83},
+	issn = {00219991},
+	url = {http://linkinghub.elsevier.com/retrieve/pii/0021999189902222},
+	doi = {10.1016/0021-9991(89)90222-2},
+	language = {en},
+	number = {1},
+	urldate = {2018-07-03},
+	journal = {Journal of Computational Physics},
+	author = {Shu, Chi-Wang and Osher, Stanley},
+	month = jul,
+	year = {1989},
+	pages = {32--78},
+}
+@article{Woodward1984,
+	title = {The numerical simulation of two-dimensional fluid flow with strong shocks},
+	volume = {54},
+	issn = {00219991},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/0021999184901426},
+	doi = {10.1016/0021-9991(84)90142-6},
+	language = {en},
+	number = {1},
+	urldate = {2019-08-09},
+	journal = {Journal of Computational Physics},
+	author = {Woodward, Paul and Colella, Phillip},
+	month = apr,
+	year = {1984},
+	pages = {115--173},
+}
+
+@incollection{SEDOV1959146,
+title = {CHAPTER IV - One-Dimensional Unsteady Motion of a Gas},
+editor = {L.I. SEDOV},
+booktitle = {Similarity and Dimensional Methods in Mechanics},
+publisher = {Academic Press},
+pages = {146-304},
+year = {1959},
+isbn = {978-1-4832-0088-0},
+doi = {https://doi.org/10.1016/B978-1-4832-0088-0.50011-6},
+url = {https://www.sciencedirect.com/science/article/pii/B9781483200880500116},
+author = {L.I. SEDOV}
+}
+
+@inproceedings{Linde1997,
+  doi = {10.2514/6.1997-2098},
+  url = {https://doi.org/10.2514/6.1997-2098},
+  year = {1997},
+  month = jun,
+  publisher = {American Institute of Aeronautics and Astronautics},
+  author = {Timur Linde and Philip Roe and Timur Linde and Philip Roe},
+  title = {Robust Euler codes},
+  booktitle = {13th Computational Fluid Dynamics Conference}
+}
+
+
+@article{LeVeque1996,
+	title = {High-{Resolution} {Conservative} {Algorithms} for {Advection} in {Incompressible} {Flow}},
+	volume = {33},
+	issn = {0036-1429, 1095-7170},
+	url = {http://epubs.siam.org/doi/10.1137/0733033},
+	doi = {10.1137/0733033},
+	language = {en},
+	number = {2},
+	urldate = {2021-08-27},
+	journal = {SIAM Journal on Numerical Analysis},
+	author = {LeVeque, Randall J.},
+	month = apr,
+	year = {1996},
+	note = {bibtex: LeVeque1996},
+	pages = {627--665},
+}
+
+@article{Jiang1996,
+	title = {Efficient {Implementation} of {Weighted} {ENO} {Schemes}},
+	volume = {126},
+	issn = {00219991},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021999196901308},
+	doi = {10.1006/jcph.1996.0130},
+	language = {en},
+	number = {1},
+	urldate = {2019-07-23},
+	journal = {Journal of Computational Physics},
+	author = {Jiang, Guang-Shan and Shu, Chi-Wang},
+	month = jun,
+	year = {1996},
+	pages = {202--228}
+}
+
+@article{b0ca7a5eeb40423caed7422ff5e0b525,
+title = "Numerical simulation of high mach number astrophysical jets with radiative cooling",
+abstract = "Computational fluid dynamics simulations using the WENO-LF method are applied to high Mach number nonrelativistic astrophysical jets, including the effects of radiative cooling. Our numerical methods have allowed us to simulate astrophysical jets at much higher Mach numbers than have been attained (Mach 20) in the literature. Our simulations of the HH 1-2 astrophysical jets are at Mach 80. Simulations at high Mach numbers and with radiative cooling are essential for achieving detailed agreement with the astrophysical images.",
+keywords = "Astrophysical jets, Radiative cooling, WENO method",
+author = "Youngsoo Ha and Carl Gardner and Anne Gelb and Shu, {Chi Wang}",
+note = "Funding Information: We would like to thank Jeff Hester for valuable discussions. The authors would like to acknowledge for the following: (1) Research supported in part by the BK21 project at KAIST (Youngsoo Ha); (2) Research supported in part by the Space Telescope Science Institute under grant HST-GO-09863.06-A (Carl L. Gardner); (3) Research supported in part by the National Science Foundation under grant DMS-0107428. (Anne Gelb); (4) Research supported in part by the Army Research Office under grant DAAD19-00-1-0405 and in part by the National Science Foundation under grant DMS-0207451 (Chi-Wang Shu).",
+year = "2005",
+month = jul,
+doi = "10.1007/s10915-004-4786-4",
+language = "English (US)",
+volume = "24",
+pages = "597--612",
+journal = "Journal of Scientific Computing",
+issn = "0885-7474",
+publisher = "Springer New York",
+number = "1",
+}
+
+@article{volkner2010,
+    author = {Springel, Volker},
+    title = "{E pur si muove: Galilean-invariant cosmological hydrodynamical simulations on a moving mesh}",
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    volume = {401},
+    number = {2},
+    pages = {791-851},
+    year = {2010},
+    month = {01},
+    abstract = "{Hydrodynamic cosmological simulations at present usually employ either the Lagrangian smoothed particle hydrodynamics (SPH) technique or Eulerian hydrodynamics on a Cartesian mesh with (optional) adaptive mesh refinement (AMR). Both of these methods have disadvantages that negatively impact their accuracy in certain situations, for example the suppression of fluid instabilities in the case of SPH, and the lack of Galilean invariance and the presence of overmixing in the case of AMR. We here propose a novel scheme which largely eliminates these weaknesses. It is based on a moving unstructured mesh defined by the Voronoi tessellation of a set of discrete points. The mesh is used to solve the hyperbolic conservation laws of ideal hydrodynamics with a finite-volume approach, based on a second-order unsplit Godunov scheme with an exact Riemann solver. The mesh-generating points can in principle be moved arbitrarily. If they are chosen to be stationary, the scheme is equivalent to an ordinary Eulerian method with second-order accuracy. If they instead move with the velocity of the local flow, one obtains a Lagrangian formulation of continuum hydrodynamics that does not suffer from the mesh distortion limitations inherent in other mesh-based Lagrangian schemes. In this mode, our new method is fully Galilean invariant, unlike ordinary Eulerian codes, a property that is of significant importance for cosmological simulations where highly supersonic bulk flows are common. In addition, the new scheme can adjust its spatial resolution automatically and continuously, and hence inherits the principal advantage of SPH for simulations of cosmological structure growth. The high accuracy of Eulerian methods in the treatment of shocks is also retained, while the treatment of contact discontinuities improves. We discuss how this approach is implemented in our new code arepo, both in 2D and in 3D, and is parallelized for distributed memory computers. We also discuss techniques for adaptive refinement or de-refinement of the unstructured mesh. We introduce an individual time-step approach for finite-volume hydrodynamics, and present a high-accuracy treatment of self-gravity for the gas that allows the new method to be seamlessly combined with a high-resolution treatment of collisionless dark matter. We use a suite of test problems to examine the performance of the new code and argue that the hydrodynamic moving-mesh scheme proposed here provides an attractive and competitive alternative to current SPH and Eulerian techniques.}",
+    issn = {0035-8711},
+    doi = {10.1111/j.1365-2966.2009.15715.x},
+    url = {https://doi.org/10.1111/j.1365-2966.2009.15715.x},
+    eprint = {https://academic.oup.com/mnras/article-pdf/401/2/791/3952227/mnras0401-0791.pdf},
+}
+
+@article{schaal2015,
+    author = {Schaal, Kevin and Bauer, Andreas and Chandrashekar, Praveen and Pakmor, Rüdiger and Klingenberg, Christian and Springel, Volker},
+    title = "{Astrophysical hydrodynamics with a high-order discontinuous Galerkin scheme and adaptive mesh refinement}",
+    journal = {Monthly Notices of the Royal Astronomical Society},
+    volume = {453},
+    number = {4},
+    pages = {4278-4300},
+    year = {2015},
+    month = {09},
+    abstract = "{Solving the Euler equations of ideal hydrodynamics as accurately and efficiently as possible is a key requirement in many astrophysical simulations. It is therefore important to continuously advance the numerical methods implemented in current astrophysical codes, especially also in light of evolving computer technology, which favours certain computational approaches over others. Here we introduce the new adaptive mesh refinement (AMR) code tenet, which employs a high-order discontinuous Galerkin (DG) scheme for hydrodynamics. The Euler equations in this method are solved in a weak formulation with a polynomial basis by means of explicit Runge–Kutta time integration and Gauss–Legendre quadrature. This approach offers significant advantages over commonly employed second-order finite-volume (FV) solvers. In particular, the higher order capability renders it computationally more efficient, in the sense that the same precision can be obtained at significantly less computational cost. Also, the DG scheme inherently conserves angular momentum in regions where no limiting takes place, and it typically produces much smaller numerical diffusion and advection errors than an FV approach. A further advantage lies in a more natural handling of AMR refinement boundaries, where a fall-back to first order can be avoided. Finally, DG requires no wide stencils at high order, and offers an improved data locality and a focus on local computations, which is favourable for current and upcoming highly parallel supercomputers. We describe the formulation and implementation details of our new code, and demonstrate its performance and accuracy with a set of two- and three-dimensional test problems. The results confirm that DG schemes have a high potential for astrophysical applications.}",
+    issn = {0035-8711},
+    doi = {10.1093/mnras/stv1859},
+    url = {https://doi.org/10.1093/mnras/stv1859},
+    eprint = {https://academic.oup.com/mnras/article-pdf/453/4/4278/8034398/stv1859.pdf},
+}
+
+
+@article{akkurt2022,
+title = {Cache blocking strategies applied to flux reconstruction},
+journal = {Computer Physics Communications},
+volume = {271},
+pages = {108193},
+year = {2022},
+issn = {0010-4655},
+doi = {https://doi.org/10.1016/j.cpc.2021.108193},
+url = {https://www.sciencedirect.com/science/article/pii/S0010465521003052},
+author = {Semih Akkurt and Freddie Witherden and Peter Vincent},
+keywords = {Cache blocking, Kernel fusion, Flux reconstruction, High-order, Computational fluid dynamics},
+abstract = {On modern hardware architectures, the performance of Flux Reconstruction (FR) methods can be limited by memory bandwidth. In a typical implementation, these methods are implemented as a chain of distinct kernels. Often, a dataset which has just been written in the main memory by a kernel is read back immediately by the next kernel. One way to avoid such a redundant expenditure of memory bandwidth is kernel fusion. However, on a practical level kernel fusion requires that the source for all kernels be available, thus preventing calls to certain third-party library functions. Moreover, it can add substantial complexity to a codebase. An alternative to full kernel fusion is cache blocking. But for this to be effective, CPU cache has to be meaningfully big. Historically, size of L1 and L2 caches prevented cache blocking for high-order CFD applications. However in recent years, size of L2 cache has grown from around 0.25 MiB to 1.25 MiB, and made it possible to apply cache blocking for high-order CFD codes. In this approach, kernels remain distinct, and are executed one after another on small chunks of data that can fit in the cache, as opposed to on full datasets. These chunks of data stay in the cache and whenever a kernel requests access to data that is already in the cache, memory bandwidth is conserved. In this study, a data structure that facilitates cache blocking is considered, and a range of kernel grouping configurations for an FR based Euler solver are examined. A theoretical study is conducted for hexahedral elements with no anti-aliasing at p=3 and p=4 in order to determine the predicted performance of a few kernel grouping configurations. Then, these candidates are implemented in the PyFR solver and the performance gains in practice are compared with the theoretical estimates that range between 2.05x and 2.50x. An inviscid Taylor-Green Vortex test case is used as a benchmark, and the most performant configuration leads to a speedup of approximately 2.81x in practice.}
+}
+
+@article{Julia-2017,
+    title={Julia: A fresh approach to numerical computing},
+    author={Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B},
+    journal={SIAM {R}eview},
+    volume={59},
+    number={1},
+    pages={65--98},
+    year={2017},
+    publisher={SIAM},
+    doi={10.1137/141000671},
+    url={https://epubs.siam.org/doi/10.1137/141000671}
+}
+
+@article{ranocha2022adaptive,
+  title={Adaptive numerical simulations with {T}rixi.jl:
+         {A} case study of {J}ulia for scientific computing},
+  author={Ranocha, Hendrik and Schlottke-Lakemper, Michael and Winters, Andrew Ross
+          and Faulhaber, Erik and Chan, Jesse and Gassner, Gregor},
+  journal={Proceedings of the JuliaCon Conferences},
+  volume={1},
+  number={1},
+  pages={77},
+  year={2022},
+  doi={10.21105/jcon.00077},
+  eprint={2108.06476},
+  eprinttype={arXiv},
+  eprintclass={cs.MS}
+}
+
+@article{oldpaper,
+title = {Lax-Wendroff flux reconstruction method for hyperbolic conservation laws},
+journal = {Journal of Computational Physics},
+pages = {111423},
+year = {2022},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2022.111423},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999122004855},
+author = {Arpit Babbar and Sudarshan Kumar Kenettinkara and Praveen Chandrashekar},
+keywords = {Conservation laws, Hyperbolic PDE, Lax-Wendroff, Flux reconstruction},
+abstract = {The Lax-Wendroff method is a single step method for evolving time dependent solutions governed by partial differential equations, in contrast to Runge-Kutta methods that need multiple stages per time step. We develop a flux reconstruction version of the method in combination with a Jacobian-free Lax-Wendroff procedure that is applicable to general hyperbolic conservation laws. The method is of collocation type, is quadrature free and can be cast in terms of matrix and vector operations. Special attention is paid to the construction of numerical flux, including for non-linear problems, resulting in higher CFL numbers than existing methods, which is shown through Fourier analysis and yielding uniform performance at all orders. Numerical results up to fifth order of accuracy for linear and non-linear problems are given to demonstrate the performance and accuracy of the method.}
+}
+
+@article{BASSI1997267,
+title = {A High-Order Accurate Discontinuous Finite Element Method for the Numerical Solution of the Compressible Navier–Stokes Equations},
+journal = {Journal of Computational Physics},
+volume = {131},
+number = {2},
+pages = {267-279},
+year = {1997},
+issn = {0021-9991},
+doi = {https://doi.org/10.1006/jcph.1996.5572},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999196955722},
+author = {F. Bassi and S. Rebay},
+abstract = {This paper deals with a high-order accurate discontinuous finite element method for the numerical solution of the compressible Navier–Stokes equations. We extend a discontinuous finite element discretization originally considered for hyperbolic systems such as the Euler equations to the case of the Navier–Stokes equations by treating the viscous terms with a mixed formulation. The method combines two key ideas which are at the basis of the finite volume and of the finite element method, the physics of wave propagation being accounted for by means of Riemann problems and accuracy being obtained by means of high-order polynomial approximations within elements. As a consequence the method is ideally suited to compute high-order accurate solution of the Navier–Stokes equations on unstructured grids. The performance of the proposed method is illustrated by computing the compressible viscous flow on a flat plate and around a NACA0012 airfoil for several flow regimes using constant, linear, quadratic, and cubic elements.}
+}
+
+@article{Kopriva2006,
+title = {Metric Identities and the Discontinuous Spectral Element Method on Curvilinear Meshes},
+journal = {Journal of Scientific Computing},
+volume = {26},
+number = {3},
+pages = {301-327},
+year = {2006},
+issn = {1573-7691},
+doi = {https://doi.org/10.1007/s10915-005-9070-8},
+url = {https://link.springer.com/article/10.1007/s10915-005-9070-8},
+author = {Kopriva, David A.},
+abstract = {We study how to approximate the metric terms that arise in the discontinuous spectral element (DSEM) approximation of hyperbolic systems of conservation laws when the element boundaries are curved. We first show that the metric terms can be written in three forms: the usual cross product and two curl forms. The first curl form is identical to the ``conservative'' form presented by Thomas and Lombard [(1979), AIAA J. 17(10), 1030--1037]. The second is a coordinate invariant form. We prove that in two space dimensions, the typical approximation of the cross product form does satisfy a discrete set of metric identities if the boundaries are isoparametric and the quadrature is sufficiently precise. We show that in three dimensions, this cross product form does not satisfy the metric identities, except in exceptional circumstances. Finally, we present approximations of the curl forms of the metric terms that satisfy the discrete metric identities. Two examples are presented to illustrate how the evaluation of the metric terms affects the satisfaction of the discrete metric identities, one in two space dimensions and the other in three.}
+}
+
