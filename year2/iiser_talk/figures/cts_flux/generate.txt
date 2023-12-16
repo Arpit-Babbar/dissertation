@@ -1,2 +1,0 @@
-On lwfr-arpit's branch - thesis_cts_flux, run
-sh thesis_data.sh

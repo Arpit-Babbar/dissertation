@@ -1,2 +1,0 @@
-In the lwfr-arpit branch - thesis_intro_fr, run
-sh thesis_data.sh
