@@ -51,10 +51,10 @@ real left_shock(real x)
 pen axis = linewidth(0.5) + linecap(2);
 draw( (xmin,0)--(xmax,0), axis);
 
-label("${u}_j^{*,+}$", (yi+2.5,5));
-label("${u}_j^{*,+}$", (yi-2.5,5));
-label("${u}_j^{n,+}$", (xmax-1.5,5));
-label("${u}_j^{n,-}$", (xmin+7,5));
+label("${u}_p^{*,+}$", (yi+2.5,5));
+label("${u}_p^{*,+}$", (yi-2.5,5));
+label("${u}_p^{n,+}$", (xmax-1.5,5));
+label("${u}_p^{n,-}$", (xmin+7,5));
 
 real T = 15.0;
 real a1 = 0.5;
@@ -68,26 +68,26 @@ for(a=a1; a<=a2; a+=da)
 }
 
 
-draw( Label("$x_{j+1/4}$", BeginPoint), graph(right_contact,right_centre,right_centre-0.4*T*4/3+0.17),dashed);
+draw( Label("$x_{p+1/4}$", BeginPoint), graph(right_contact,right_centre,right_centre-0.4*T*4/3+0.17),dashed);
 draw(graph(right_shock,right_centre,right_centre-0.4*T*4/6+0.08));
 
 for(a=a1; a<=a2; a+=da)
 {
    draw(graph(left_rarefaction,left_centre,left_centre+0.4*a*T*4/3));
 }
-draw(Label("$x_{j-1/4}$", BeginPoint), graph(left_contact,left_centre,left_centre-0.4*T*4/6+0.08),dashed);
+draw(Label("$x_{p-1/4}$", BeginPoint), graph(left_contact,left_centre,left_centre-0.4*T*4/6+0.08),dashed);
 draw(graph(left_shock,left_centre,left_centre-0.4*T*1.087));
 
 draw((xmin,-1.5)--(yi,-1.5), Arrows );
-label("$\mu_- \Delta x_j$", (0.5*(xmin+yi), -2.5));
+label("$\mu_- \Delta x_p$", (0.5*(xmin+yi), -2.5));
 
 draw((yi,-1.5)--(xmax,-1.5), Arrows );
-label("$\mu_+ \Delta x_j$", (0.5*(xmax+yi), -2.5));
+label("$\mu_+ \Delta x_p$", (0.5*(xmax+yi), -2.5));
 
 real ceiling_height = 0.8;
 
 draw( Label("$\frac{\Delta t}{2}$",EndPoint), (xmin,ceiling_height*T)--(xmax,ceiling_height*T), axis);
-draw( Label("$\tilde{x}_j$",BeginPoint), (yi,0)--(yi,ceiling_height*T), axis+dashed);
-draw( Label("$x_{j-1/2}$",BeginPoint), ( xmin,0)--( xmin,ceiling_height*T), axis+dashed);
-draw( Label("$x_{j+1/2}$",BeginPoint), ( xmax,0)--( xmax,ceiling_height*T), axis+dashed);
+draw( Label("$\tilde{x}_p$",BeginPoint), (yi,0)--(yi,ceiling_height*T), axis+dashed);
+draw( Label("$x_{p-1/2}$",BeginPoint), ( xmin,0)--( xmin,ceiling_height*T), axis+dashed);
+draw( Label("$x_{p+1/2}$",BeginPoint), ( xmax,0)--( xmax,ceiling_height*T), axis+dashed);
 

@@ -8,20 +8,30 @@
   <chapter*|Acknowledgements>
 
   I begin by thanking my advisor Praveen Chandrashekar for his mentoring,
-  teaching and generousity with sharing his expertise made this thesis
-  possible.
+  teaching and generously sharing his expertise which made this thesis
+  possible.\ 
+
+  Thank thesis monitoring committee for their attention and feedback.
 </body>
 
 <\initial>
   <\collection>
-    <associate|page-first|?>
+    <associate|chapter-nr|0>
+    <associate|font-base-size|12>
+    <associate|page-even|1in>
+    <associate|page-first|3>
     <associate|page-medium|paper>
+    <associate|page-odd|1in>
+    <associate|page-width-margin|false>
+    <associate|par-width|165mm>
+    <associate|section-nr|0>
+    <associate|subsection-nr|0>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|1>>
+    <associate|auto-1|<tuple|?|3>>
   </collection>
 </references>
 

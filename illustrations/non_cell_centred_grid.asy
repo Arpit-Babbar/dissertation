@@ -37,7 +37,7 @@ void make_grid(real a, real b, int n, bool to_label)
    pen pd = red+linewidth(6);
    dot(x, pd);
    if (to_label == true)
-   label("$x_{j}$", (x,-0.02)); // Put label slightly below
+   label("$x_{p}$", (x,-0.02)); // Put label slightly below
 }
 
 int label_index = 2;
@@ -84,6 +84,6 @@ for(int i=0; i<nc; ++i)
 
 
 int j = label_index;
-label("$j-\frac{1}{2}$", zc[j]+(-dx/2,-ymax), S);
-label("$j+\frac{1}{2}$", zc[j]+(+dx/2,-ymax), S);
+label("$p-\frac{1}{2}$", zc[j]+(-dx/2,-ymax), S);
+label("$p+\frac{1}{2}$", zc[j]+(+dx/2,-ymax), S);
 

@@ -1,35 +1,62 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.1>
 
 <project|main.tm>
 
-<style|<tuple|tmbook|style_common>>
+<style|<tuple|tmbook|style_common|preview-ref>>
 
 <\body>
   <\hide-preamble>
-    \;
+    <assign|correction|<macro|1|<with|color|red|<arg|1>>>>
   </hide-preamble>
 
-  <chapter*|Introduction>
+  <chapter|Introduction>
 
-  <with|color|red|Paper 1>
+  Hyperbolic conservation laws arise as models of physical systems
+  representing conservation of mass, momentum, and energy. They are routinely
+  solved for applications like Computational Fluid Dynamics (CFD),
+  astrophysics and weather modeling. Thus, development of efficient numerical
+  methods for solving these equations is crucial. The current state of
+  memory-bound HPC hardware<nbsp><cite|attig2011|subcommittee2014> makes a
+  strong case for development of high order discrete methods. By
+  incorporating more higher order terms, these methods can achieve greater
+  numerical accuracy per degree of freedom while minimizing memory usage and
+  data transfers. In particular, high order methods have higher arithmetic
+  intensity and are thus less likely to be memory-bound. The superior
+  accuracy, efficiency, and higher resolution of these methods also make them
+  a good fit for LES (Large Eddy Simulation) and DNS (Direct Numerical
+  Simulation) of turbulent flows, especially with unsteady vortices. Spectral
+  element methods like Flux Reconstruction (FR)<nbsp><cite|Huynh2007> and
+  Discontinuous Galerkin (DG)<nbsp><cite|cockburn2000> are high order methods
+  that have been successful in resolving advection-dominated
+  flows<nbsp><cite|witherden2014|Ranocha2022>. The neighbouring FR/DG
+  elements are coupled only through the numerical flux and thus bulk of
+  computations are local to the element, minimizing data transfers.
 
-  The numerical solution of hyperbolic PDE is usually based on the Godunov
-  approach where a Riemann problem is solved to estimate the numerical flux
-  which may be used in a finite volume or discontinuous Galerkin (DG) method.
-  The resulting set of ODE are then marched forward in time using a
-  multi-stage Runge-Kutta scheme under some CFL condition. For hyperbolic
-  problems, the spatial and time order are usually taken to be equal due to
-  the CFL condition <math|\<Delta\>*t=O<around|(|\<Delta\>*x|)>>, which
-  requires atleast as many stages as the order of the scheme. The need to
-  perform many stages of RK scheme means that costly limiters and data
-  exchange in case of parallel computations must be performed several times
-  for each time step<nbsp><cite|Dumbser2018>. There are also some order
-  barriers in the sense that at high orders, we need more stages than the
-  order of the method. In contrast to RK schemes, the Lax-Wendroff method
-  achieves high order accuracy in time with a single step but requires more
-  information to estimate the higher order time derivative terms in a Taylor
-  expansion. It is expect that the single stage nature of LW-type schemes can
-  make them more efficient than RK schemes<nbsp><cite|Qiu2005b>.
+  In comparison to traditional semi-discrete FR/DG schemes, which
+  <assign|Fq|<macro|<wide|F|~>>>mainly use Runge-Kutta (RK) time integration,
+  this work makes developments for Lax-Wendroff Flux Reconstruction (LWFR)
+  which is a spectral element solver for time dependent PDE that performs
+  high order evolution to the next time level in a single stage. The single
+  stage nature implies fewer applications of shock capturing and positivity
+  limiters, saving computational computation. Moreover, fewer stages minimize
+  the interelement communication<nbsp><cite|Dumbser2018>, making the method a
+  good fit for the modern hardware. There are also some order barriers in RK
+  methods in the sense that at high orders, we need more stages than the
+  order of the method. The LWFR method uses a Taylor series expansion in time
+  and there is no order barrier as any order of accuracy can be reached by
+  performing Taylor's expansion to the same and its single stage nature makes
+  it more efficient than RK schemes<nbsp><cite|Qiu2005b>.
+
+  In Sections<nbsp><reference|sec:intro.lw>,<nbsp><reference|sec:intro.fr>,
+  we do a literature review of Lax-Wendroff and Flux Reconstruction schemes
+  respectively. In Section<nbsp><reference|sec:intro.shock.capturing>, we
+  review various limiters/shock capturing techniques used for high order
+  methods in the literature. Section<nbsp><reference|sec:intro.contri> gives
+  an overview of the contributions made in this thesis and
+  Section<nbsp><reference|sec:intro.outline> gives an outline of the
+  subsequent chapters.
+
+  <section|Lax-Wendroff><label|sec:intro.lw>
 
   In the context of hyperbolic conservation laws, the Lax-Wendroff (LW) time
   discretization in conjunction with a wide range of spatial schemes were
@@ -70,11 +97,11 @@
   in<nbsp><cite|Toro2001> and for nonlinear systems
   in<nbsp><cite|Titarev2002>, following the idea of generalized Riemann
   problem (GRP)<nbsp><cite|Artzi2006|Han2010>. These are widely known as
-  arbitrary high order derivative (ADER) methods. Though its inception was in
-  the finite volume spatial setup, later it was extended to finite difference
-  and discontinuous Galerkin frameworks<nbsp><cite|Dumbser2006>. In the
-  sequel, several authors have contributed to this approach with the aim of
-  shaping up a compact single time step scheme,
+  arbitrary high order derivative (ADER) methods. Though their inception was
+  in the finite volume spatial setup, later they were extended to finite
+  difference and discontinuous Galerkin frameworks<nbsp><cite|Dumbser2006>.
+  In the sequel, several authors have contributed to this approach with the
+  aim of shaping up a compact single time step scheme,
   see<nbsp><cite|Titarev2005|Kaser2005|Dumbser2007|Castro2008> and references
   therein. In the flavour of ADER methods, Dumbser et al. proposed an
   efficient DG spatial solver in<nbsp><cite|Dumbser2008> and a finite
@@ -83,7 +110,7 @@
   the original ADER scheme with an element local space-time Galerkin
   predictor step and a discontinuous Galerkin corrector step, which are also
   found to be suitable for stiff source terms and further studied by Gassner
-  et al.in<nbsp><cite|Gassner2011a>. These methods have been extended to the
+  et al. in<nbsp><cite|Gassner2011a>. These methods have been extended to the
   divergence free MHD problems with a finite volume WENO spatial scheme
   in<nbsp><cite|Balsara2009a>. Through a modification of the method
   in<nbsp><cite|Dumbser2008|Gassner2011a>, Guthrey et al.
@@ -110,8 +137,19 @@
   form of flux function in the governing equation as it is free from Jacobian
   and other higher version of derivatives.
 
-  The flux reconstruction (FR) method<nbsp><cite|Huynh2007> is a class of
-  discontinuous Spectral Element Method for the discretization of
+  <section|Flux Reconstruction><label|sec:intro.fr>
+
+  Discontinuous Galerkin (DG) is a Spectral Element Method first introduced
+  by Reed and Hill<nbsp><cite|reed1973> for neutron transport equations and
+  developed for fluid dynamics equations by Cockburn and Shu and
+  others<nbsp><cite|cockburn2000>. The DG method uses an approximate solution
+  which is a polynomial within each element and is allowed to be
+  discontinuous across interfaces. The neighbouring DG elements are coupled
+  only through the numerical flux and thus bulk of computations are local to
+  the element, minimizing data transfers.
+
+  The Flux Reconstruction (FR) method<nbsp><cite|Huynh2007> is a class of
+  discontinuous Spectral Element Methods for the discretization of
   conservation laws. FR methods utilize a nodal basis which is usually based
   on some solution points like Gauss points, to approximate the solution with
   piecewise polynomials. The main idea is to construct a continuous
@@ -133,171 +171,55 @@
   solution points was pointed out, with Gauss-Legendre points being the most
   resistant to aliasing driven instabilities. In another study on accuracy
   with different choices of solution points<nbsp><cite|Witherden2021>, the
-  optimality of Gauss-Legendre points was again observed. The long term error
-  behaviour of FR schemes has been studied
-  in<nbsp><cite|Offner2019|Abgrall2020>, while dispersion and dissipation
-  errors have been analyzed in<nbsp><cite|Vincent2011|Asthana2015|Vermeire2017>.
-  The computationally efficient performance of FR has been noted
-  in<nbsp><cite|Vincent2016|Lopez2014|Vandenhoeck2019>, which is attributed
-  to the structured computation of finite element methods suitable for modern
-  hardware<nbsp><cite|Vincent2016>. The quadrature-free nature of FR methods
-  together with the ability to cast the operations as matrix-vector
-  operations that can be performed efficiently using optimized BLAS kernels
-  makes these methods ideal for use on modern vector
+  optimality of Gauss-Legendre points was again observed. In the more recent
+  works of<nbsp><cite|Cicchino2022a|Cicchino2022>, a nonlinearly stable FR
+  scheme was constructed in split form where a key idea was application of
+  correction functions to the volume terms. The long term error behaviour of
+  FR schemes has been studied in<nbsp><cite|Offner2019|Abgrall2020>, while
+  dispersion and dissipation errors have been analyzed
+  in<nbsp><cite|Vincent2011|Asthana2015|Vermeire2017>. The Flux
+  Reconstruction scheme has been used on curvilinear
+  grids<nbsp><cite|witherden2014|Abe2015|Cicchino2022>. The development of
+  Flux Reconstruction on curvilinear grids is primarily based on its
+  equivalence with the DG scheme; see<nbsp><cite|Kopriva2006|kopriva2010> for
+  the DG scheme on curvilinear grids. Thus, the study of free stream
+  conditions for the FR scheme on curvilinear grids are the same as
+  in<nbsp><cite|Kopriva2006>. The computationally efficient performance of FR
+  has been noted in<nbsp><cite|Vincent2016|Lopez2014|Vandenhoeck2019>, which
+  is attributed to the structured computation of finite element methods
+  suitable for modern hardware<nbsp><cite|Vincent2016>. The quadrature-free
+  nature of FR methods together with the ability to cast the operations as
+  matrix-vector operations that can be performed efficiently using optimized
+  BLAS kernels makes these methods ideal for use on modern vector
   processors<nbsp><cite|Vincent2016>.
 
-  In the present work, we combine the Lax-Wendroff method for time
-  discretization with the FR method for spatial discretization, since each of
-  these two methods have their advantages as discussed above. The flux
-  reconstruction schemes have been combined with the LW time discretization
-  in<nbsp><cite|Lou2020>, where the flux derivatives are computed in the
-  standard way by explicitly using chain rule of differentiation and making
-  use of the PDE. This is a tedious process that has to be performed for each
-  PDE system and leads to large amount of computations. The results
-  in<nbsp><cite|Burger2017> reveal that this approach would be
-  computationally more expensive and depends on the nature of flux in the
-  governing equation. In this work we propose to combine the approximate LW
-  procedure<nbsp><cite|Zorio2017> with the FR scheme in space which leads to
-  a general method that can be applied to any PDE system. No Jacobian or
-  other computations are required and only the flux function is used in this
-  method. The time derivatives of the flux in the Taylor expansion are
-  approximated using a finite difference method. This allows us to write a
-  generic solver that can easily applied to solve any PDE system. The single
-  step method is achieved by using an approximation to the time average flux.
-  A numerical flux is required for the time average flux and this needs to be
-  computed carefully in order to obtain good CFL numbers. In some previous
-  works, the solution at the current time level has been used to estimate the
-  dissipative part of the numerical flux; however, it reduces the CFL number
-  based on Fourier stability analysis and does not lead to an upwind flux,
-  even for the linear advection equation. Here we propose to use the time
-  average solution to compute the numerical flux, which leads to an upwind
-  scheme for linear problems, and also increases the CFL numbers, which are
-  comparable to other single step methods like ADER-DG scheme. An interesting
-  observation we make is that the method at fifth order has a mild
-  instability even though we use the CFL number determined from Fourier
-  stability analysis. This mild instability seems to be present even in some
-  RKDG schemes and in ADER-DG schemes. The central part of the numerical flux
-  can be computed either by extrapolating it from the solution points to the
-  faces or by directly estimating them at the faces by applying the
-  approximate Lax-Wendroff procedure. These two methods perform differently
-  for non-linear problems, with the extrapolation method leading to loss of
-  convergence rate at odd polynomial degrees and also having larger errors
-  compared to RK scheme. The alternate method proposed in this work performs
-  uniformly well at all polynomial degrees and shows comparable accuracy to
-  RK schemes. The LW method is also developed for hyperbolic systems like
-  Euler equations, where many commonly used numerical fluxes based on
-  approximate Riemann solvers like Roe, HLL, HLLC, can be used, along with
-  the modifications that enhance the CFL number. The method is described up
-  to fifth order accuracy and it is cast in terms of matrix-vector
-  operations. The new LW method is applied to linear and non-linear problems
-  in one and two dimensions and representative results are shown to exhibit
-  its accuracy and ability to compute smooth and discontinuous solutions.
+  <section|Shock capturing and admissibility preservation of FR
+  schemes><label|sec:intro.shock.capturing>
 
-  <with|color|red|Paper 2>
+  Despite the high accuracy of high order methods, lower order methods are
+  still routinely applied in practical applications, in part due to their
+  robustness. Solutions to hyperbolic conservation laws contain shocks in
+  many cases and it is well known that high order schemes produce spurious
+  oscillations in those cases. These oscillations can lead not only to
+  incorrect solutions but can also easily generate nonphysical solutions like
+  gases with negative density or pressure. In order to develop robust high
+  order methods for conservation laws, limiters have to be used which
+  adaptively add numerical dissipation in regions where numerical solution
+  has a high gradient, possibly because of a shock. Some of the limiters
+  like<nbsp><cite|Dumbser2014|Dumbser2019|dzanic2022|ramirez2021> have
+  inherent mechanisms that ensure physically admissible solutions while
+  others like<nbsp><cite|Cockburn1989a|Krivodonova2007|hennemann2021> can be
+  made admissibility preserving by relying on the admissibility preserving in
+  means property of the numerical scheme and using the scaling limiter
+  of<nbsp><cite|Zhang2010b> to guarantee admissibility of solutions.
 
-  The current state of memory-bound HPC hardware<nbsp><cite|attig2011|subcommittee2014>
-  makes a strong case for development of high-order discrete methods in
-  computational fluid dynamics (CFD). By incorporating more higher order
-  terms, these methods can achieve greater numerical accuracy per degree of
-  freedom while minimizing memory usage and data transfers. In particular,
-  higher order methods have higher arithmetic intensity and are thus less
-  likely to be memory-bound. However, lower order methods are still routinely
-  applied in practical applications, in part due to their robustness. This
-  work is in direction of using high order methods while retaining the
-  robustness properties of lower order methods.
-
-  Discontinuous Galerkin (DG) is a Spectral Element Method first introduced
-  by Reed and Hill<nbsp><cite|reed1973> for neutron transport equations and
-  developed for fluid dynamics equations by Cockburn and Shu and others,
-  see<nbsp><cite|cockburn2000> and the references therein. The DG method uses
-  an approximate solution which is a polynomial within each element and is
-  allowed to be discontinuous across interfaces. The neighbouring DG elements
-  are coupled only through the numerical flux and thus bulk of computations
-  are local to the element, minimizing data transfers.
-
-  Flux Reconstruction (FR) is also a class of discontinuous Spectral Element
-  Methods introduced by Huynh<nbsp><cite|Huynh2007>. FR method is obtained by
-  using the numerical flux and correction functions to construct a continuous
-  flux approximation and collocating the differential form of the equation.
-  Thus, FR is quadrature free and all local operations can be vectorized. The
-  choice of the correction function affects the accuracy and stability of the
-  method<nbsp><cite|Huynh2007|Vincent2011a|Vincent2015|Trojak2021>; by
-  properly choosing the correction function and solution points, FR method
-  can be shown to be equivalent to some discontinuous Galerkin and spectral
-  difference schemes<nbsp><cite|Huynh2007|Trojak2021>.
-
-  FR and DG are procedures for discretizing the equation in space and can be
-  used to obtain a system of ODEs in time, i.e., a semi-discretization of the
-  PDE. The standard approach to solve the semi-discretization is to use a
-  high order multi-stage Runge-Kutta method. In this approach, the spatial
-  discretization has to be performed in every RK stage and thus the expensive
-  operations of MPI communication and limiting have to be performed multiple
-  times per time step.
-
-  An alternative approach is to use a single-stage solver,
-  see<nbsp><cite|babbar2022> for a more in-depth review. ADER (Arbitrary high
-  order DERivative) schemes are one class of single-stage evolution methods
-  which originated as ADER Finite Volume (FV)
-  schemes<nbsp><cite|Titarev2002|Titarev2005> and are also used as ADER-DG
-  schemes<nbsp><cite|Dumbser2008|Dumbser2014>. Another class of single-stage
-  evolution methods are the Lax-Wendroff schemes which were originally
-  proposed in the finite difference framework in<nbsp><cite|Qiu2003> with the
-  WENO approximation of spatial derivatives<nbsp><cite|Shu1989> and later
-  extended to DG framework in<nbsp><cite|Qiu2005b>. These schemes were based
-  on computation of flux Jacobian which leads to a problem dependent and
-  expensive procedure especially for higher dimension equations with many
-  variables. A Jacobian free method, called
-  <with|font-shape|italic|approximate Lax-Wendroff>, using finite differences
-  in time was developed in<nbsp><cite|Zorio2017> and further studied in
-  several other works<nbsp><cite|Burger2017|Carrillo2021|Carrillo2021a>. In
-  <nbsp><cite|Lee2021>, the flux Jacobians were directly computed as finite
-  difference derivatives with a parameter <math|\<epsilon\>> for accuracy of
-  finite difference. In<nbsp><cite|Burger2017>, the approximate Lax-Wendroff
-  procedure was used in the DG framework and the performance benefit of
-  Jacobian free methods was observed.
-
-  In<nbsp><cite|babbar2022>, the present authors proposed a Lax-Wendroff Flux
-  Reconstruction (LWFR) scheme which used the approximate Lax-Wendroff
-  procedure of<nbsp><cite|Zorio2017> to obtain high order accuracy. The
-  numerical flux was carefully constructed in<nbsp><cite|babbar2022>; the
-  dissipative part of the numerical flux was computed with the time averaged
-  solution (called D2 dissipation) leading to an upwind flux in the linear
-  case and improved CFL numbers at no additional computational cost. The
-  central part of the numerical flux was computed by performing the
-  approximate Lax-Wendroff procedure at the faces (EA scheme) rather than
-  using the extrapolated time averaged flux from solution points (AE scheme).
-  It was observed that the EA scheme improved accuracy of the LWFR scheme and
-  some tests showed optimal order of convergence only with the EA scheme.
-  Thus, in this work, we use the LWFR scheme with numerical flux computed
-  with D2 dissipation and EA scheme.
-
-  Although arbitrary high order accuracy in smooth test cases and Wall Clock
-  Time (WCT) performance improvement over RKFR (Runge-Kutta Flux
-  Reconstruction) was observed for the LWFR scheme proposed
-  in<nbsp><cite|babbar2022>, robustness and maintaining high-order accuracy
-  in presence of discontinuities remained to be addressed. Solutions to
-  hyperbolic conservation laws contain shocks in many practical applications
-  and it is well known that high-order schemes produce spurious oscillations
-  in those cases. These oscillations can lead not only to incorrect solutions
-  but can also easily generate nonphysical solutions like gases with negative
-  density or pressure. Thus, these schemes require limiters which reduce the
-  higher order scheme to a robust lower order scheme in non-smooth regions.
-  In<nbsp><cite|babbar2022>, a TVB limiter was used which reduces the scheme
-  to first order or linear in FR elements using a minmod function
-  (Section<nbsp><reference|sec:tvd>). The TVB limiter is inadequate for the
-  following reasons - it doesn't preserve any subcell information other than
-  the element mean and trace values, and it is not provably admissibility
-  preserving for Lax-Wendroff schemes even when used with the scaling limiter
-  of Zhang and Shu<nbsp><cite|Zhang2010b>. The second issue has been
-  considered in<nbsp><cite|moe2017|Xu2022> by modifying the numerical flux to
-  obtain admissibility in means making the scaling limiter applicable.
-  In<nbsp><cite|moe2017>, admissibility in means is obtained by limiting the
-  numerical flux. In<nbsp><cite|Xu2022>, a third order maximum-principle
-  satisfying Lax-Wendroff DG scheme is constructed using the direct DG
-  numerical flux from<nbsp><cite|Chen2016>. We now give a brief literature
-  review of the schemes which deal with the first issue of TVB limiter which
-  is preservation of subcell information,
-  see<nbsp><cite|Vilar2019|Dumbser2014> for a more in-depth review.
+  In the pioneering work of<nbsp><cite|Cockburn1989a|Cockburn1991>, a Total
+  Variation Bounded (TVB) limiter was introduced which reduces the scheme to
+  first order or linear in certain elements using a minmod function to
+  enforce a local TVB property. The TVB limiter does not preserve any subcell
+  information other than the element mean and trace values, and there have
+  been several works that develop limiters that are better in this regard. We
+  now give a literature review of limiters that preserve subcell information.
 
   Moment limiters<nbsp><cite|Biswas1994|Burbeau2001|Krivodonova2007> can be
   seen as an extension of TVB limiters where coefficients in an orthonormal
@@ -312,7 +234,7 @@
   non-smooth, preserving the subcell information as the high order polynomial
   solution is still used. In<nbsp><cite|Persson2006>, an artificial viscosity
   model was introduced for the Runge-Kutta (RK) Discontinuous Galerkin (DG)
-  method to add dissipation to the higher order method based on a modal
+  method to add dissipation to the high order method based on a modal
   smoothness indicator. The indicator of<nbsp><cite|Persson2006> was further
   refined and detailed in<nbsp><cite|klockner2011>.
 
@@ -320,35 +242,35 @@
   the element into subcells which offers some advantages over artificial
   viscosity methods, including problem independence over boundary conditions
   and no additional time step restrictions, even when high dissipation is
-  required, as noted in<nbsp><cite|henemann2021>. In<nbsp><cite|Peraire2012>,
-  the modal smoothness indicator of<nbsp><cite|Persson2006> was used to adapt
-  local basis functions, e.g., switching to finite volume basis in the
-  presence of discontinuities. In<nbsp><cite|Peraire2013>, subcells were used
-  to assign different values to artificial viscosity within each element.
+  required<nbsp><cite|hennemann2021>. In<nbsp><cite|Peraire2012>, the modal
+  smoothness indicator of<nbsp><cite|Persson2006> was used to adapt local
+  basis functions, e.g., switching to finite volume basis in the presence of
+  discontinuities. In<nbsp><cite|Peraire2013>, subcells were used to assign
+  different values to artificial viscosity within each element.
   In<nbsp><cite|Sonntag2014|Rosa2018>, after having detected the troubled
   zones using the modal indicator of<nbsp><cite|Persson2006>, cells are
   subdivided into subcells, and a robust first-order finite volume scheme is
-  performed on the subgrid in troubled cells. In<nbsp><cite|henemann2021>,
+  performed on the subgrid in troubled cells. In<nbsp><cite|hennemann2021>,
   the modal smoothness indicator of<nbsp><cite|Persson2006> was used to
   perform limiting by blending a high order DG scheme with
   Gauss-Legendre-Lobatto (GLL) points with a lower order finite volume scheme
   on subcells. In<nbsp><cite|Ramirez2020>, the method
-  of<nbsp><cite|henemann2021> was extended to compressible
-  magnetohydrodynamics (MHD) and higher-order reconstruction on subcells was
-  used to improve accuracy. In<nbsp><cite|ramirez2021>, it was shown that the
-  subcell FV method of<nbsp><cite|henemann2021> can be made positivity
-  preserving by an <with|font-shape|italic|a posteriori> modification of the
-  blending coefficient. In<nbsp><cite|ramirez2022>, the subcell finite volume
-  method of<nbsp><cite|henemann2021> with Rusanov's
-  flux<nbsp><cite|Rusanov1962> was shown to be equivalent to the sparse
-  Invariant Domain Preserving method of Pazner<nbsp><cite|Pazner2021>.
+  of<nbsp><cite|hennemann2021> was extended to resistive magnetohydrodynamics
+  (MHD) and high order reconstruction on subcells was used to improve
+  accuracy. In<nbsp><cite|ramirez2021>, it was shown that the subcell FV
+  method of<nbsp><cite|hennemann2021> can be made positivity preserving by an
+  <with|font-shape|italic|a posteriori> modification of the blending
+  coefficient. In<nbsp><cite|ramirez2022>, the subcell finite volume method
+  of<nbsp><cite|hennemann2021> with Rusanov's flux<nbsp><cite|Rusanov1962>
+  was shown to be equivalent to the sparse Invariant Domain Preserving method
+  of Pazner<nbsp><cite|Pazner2021>.
 
   The approaches explained above can be classified as
   <with|font-shape|italic|a priori> limiters. We briefly discuss
-  <with|font-shape|italic|a posteriori> limiting techniques where, following
-  the solution update to time <math|t<rsup|n+1>>, admissibility checks are
-  performed, and lower-order re-updates are conducted in the elements that
-  fail these checks. One of these is the MOOD
+  <with|font-shape|italic|a posteriori> limiting techniques where the
+  solution is updated to time <math|t<rsup|n+1>>, and low order re-updates
+  are conducted in the elements that fail certain carefully chosen
+  admissibility checks. One of these is the MOOD
   technique<nbsp><cite|Clain2011|Diot2012|Diot2013> where the local
   re-updates are computed with reduced order of accuracy until the
   admissibility checks pass. In<nbsp><cite|Dumbser2014|Dumbser2019>, the
@@ -371,8 +293,67 @@
   damping term was introduced in the DG scheme to control spurious
   oscillations.
 
-  In this work, we use the <with|font-shape|italic|a priori> blending limiter
-  of<nbsp><cite|henemann2021> for LWFR as its choice of subcells gives a
+  <section|Contributions><label|sec:intro.contri>
+
+  <paragraph|Lax Wendroff Flux Reconstruction.>
+
+  We combine the Lax-Wendroff method for time discretization with the FR
+  method for spatial discretization in<nbsp><cite|babbar2022>, since each of
+  these two methods have their advantages as discussed in
+  Sections<nbsp><reference|sec:intro.lw>,<nbsp><reference|sec:intro.fr>. In
+  this work we propose to combine the approximate LW
+  procedure<nbsp><cite|Zorio2017> with the FR scheme in space which leads to
+  a general method that can be applied to any PDE system unlike the work
+  of<nbsp><cite|Lou2020>, where the flux derivatives are computed by using
+  chain rule of differentiation. The usage of chain rule
+  in<nbsp><cite|Lou2020> also leads to complicated tensorial quantities,
+  especially for large systems and high orders. In the previous works
+  like<nbsp><cite|Qiu2005b>, the solution at the current time level has been
+  used to estimate the dissipative part of the numerical flux; however, it
+  does not lead to an upwind flux, even for the linear advection equation.
+  Here we propose to use the time average solution to compute the numerical
+  flux, which leads to an upwind scheme for linear problems, and also
+  increases the CFL numbers, which are comparable to other single step
+  methods like ADER-DG scheme. We also show that the scheme is infact
+  equivalent to the ADER-DG scheme for linear problems. An interesting
+  observation we make is that the method at fifth order has a mild
+  instability even though we use the CFL number determined from Fourier
+  stability analysis. This mild instability seems to be present even in some
+  RKDG schemes. The central part of the numerical flux can be computed either
+  by extrapolating it from the solution points to the faces or by directly
+  estimating them at the faces by applying the approximate Lax-Wendroff
+  procedure. These two methods perform differently for non-linear problems,
+  with the extrapolation method leading to loss of convergence rate at odd
+  polynomial degrees and also having larger errors compared to RK scheme. The
+  alternate method proposed in this work performs uniformly well at all
+  polynomial degrees and shows comparable accuracy to RK schemes. The LW
+  method is developed for hyperbolic systems like Euler equations, where many
+  commonly used numerical fluxes based on approximate Riemann solvers like
+  Roe, HLL, HLLC, are used, along with the modifications that enhance the CFL
+  number. The method is described up to fifth order accuracy and it is cast
+  in terms of matrix-vector operations.
+
+  <paragraph|Subcell based blending limiter.>
+
+  The above developments were initially tested for nonsmooth problems by
+  using the TVB limiter<nbsp><cite|Cockburn1989a|Cockburn1991>. The TVB
+  limiter is a simple approach to reduce the scheme to first order or linear
+  in FR elements using a minmod function. It is inadequate when used with
+  LWFR for the following reasons - it does not preserve any subcell
+  information other than the element mean and trace values, and it is not
+  provably admissibility preserving for Lax-Wendroff schemes even when used
+  with the scaling limiter of Zhang and Shu<nbsp><cite|Zhang2010b>. The
+  schemes that deal with the first issue have been discussed in
+  Section<nbsp><reference|sec:intro.shock.capturing>. The second issue has
+  been considered in<nbsp><cite|moe2017|Xu2022> by modifying the numerical
+  flux to obtain admissibility in means making the scaling limiter
+  applicable. In<nbsp><cite|moe2017>, admissibility in means is obtained by
+  limiting the numerical flux. In<nbsp><cite|Xu2022>, a third order
+  maximum-principle satisfying Lax-Wendroff DG scheme is constructed using
+  the direct DG numerical flux from<nbsp><cite|Chen2016>.
+
+  We develop the <with|font-shape|italic|a priori> blending limiter
+  of<nbsp><cite|hennemann2021> for LWFR as its choice of subcells gives a
   natural correction to the time averaged numerical flux to obtain
   admissibility preservation in means. The key idea of the blending scheme is
   to reduce spurious oscillations by using a low order scheme in regions
@@ -383,9 +364,9 @@
   scheme. Special attention is also paid to improving accuracy to capture
   small scale structures. We use Gauss-Legendre (GL) solution points and
   subcells obtained from GL quadrature weights instead of the GLL points and
-  weights used in<nbsp><cite|henemann2021>. This is because of their accuracy
-  advantage as observed by us, and as reported in the literature. In the
-  non-linear stability analysis for E-fluxes in<nbsp><cite|Jameson2012>,
+  weights used in<nbsp><cite|hennemann2021>. This is because of their
+  accuracy advantage as observed by us, and as reported in the literature. In
+  the non-linear stability analysis for E-fluxes in<nbsp><cite|Jameson2012>,
   Gauss-Legendre points were found to be the most resistant to aliasing
   driven instability. In another study on accuracy with different choices of
   solution points<nbsp><cite|Witherden2021>, the optimality of Gauss-Legendre
@@ -393,11 +374,11 @@
   rates for some non-linear problems were observed only for Gauss-Legendre
   solution points.
 
-  As observed in<nbsp><cite|ramirez2021>, accuracy can be improved by
-  performing a higher order reconstruction on the subcells. Since LWFR is a
+  As observed in<nbsp><cite|Rueda2021>, accuracy can be improved by
+  performing a high order reconstruction on the subcells. Since LWFR is a
   single-stage method, we improve accuracy by using the single-stage, second
   order MUSCL-Hancock scheme<nbsp><cite|vanleer1984> on the subcells. As
-  explained in<nbsp><cite|henemann2021>, for a degree <math|N> DG method,
+  explained in<nbsp><cite|hennemann2021>, for a DG method of degree <math|N>,
   maintaining conservation requires the subcell sizes to be given by the
   <math|N+1> quadrature weights and the solution points to be the solution
   points of DG scheme. This implies that the subcells are non-uniform and the
@@ -418,12 +399,12 @@
   solution points neighboring the interfaces are admissible.
 
   In<nbsp><cite|ramirez2021>, the blending limiter
-  of<nbsp><cite|henemann2021> has been made admissibility preserving by
+  of<nbsp><cite|hennemann2021> has been made admissibility preserving by
   changing the blending coefficients in an <with|font-shape|italic|a
   posteriori> fashion. Since our choice of the blended numerical flux implies
-  lower order updates are admissible at all solution points, we could take
-  the same approach. In this work, we instead use the fact that, with the
-  blended numerical flux, admissibility of lower order scheme implies
+  the admissibility of lower order updates at all solution points, we could
+  take the same approach. In this work, we instead use the fact that, with
+  the blended numerical flux, admissibility of lower order scheme implies
   admissibility in the means of the blended scheme and thus the scaling
   limiter of<nbsp><cite|Zhang2010b> can now be used to obtain an
   admissibility preserving scheme. In<nbsp><cite|moe2017>, a correction has
@@ -432,16 +413,223 @@
   used to obtain an admissibility preserving Lax-Wendroff scheme. Our work
   differs from<nbsp><cite|moe2017> as we only target to ensure admissibility
   of the lower order scheme and the admissibility in means is consequently
-  obtained. This implies that our correction requires less storage and
-  doesn't require additional loops, minimizing memory reads.
+  obtained. This implies that our correction requires less storage and does
+  not require additional loops, minimizing memory reads.
+
+  <paragraph|Generalized admissibility preservation.>
+
+  The subcell based blending scheme suppresses spurious oscillations but also
+  gives a natural flux limiting procedure to ensure admissibility
+  preservation of the LWFR scheme. We also develop a
+  <with|font-shape|italic|generalized flux limiting> process that can also be
+  used when there is no subcell based limiting scheme. The initial argument
+  is similar to performing a decomposition of the cell average into
+  <with|font-shape|italic|fictitious finite volume updates> as
+  in<nbsp><cite|Zhang2010b|zhang2010c>. The difference
+  from<nbsp><cite|Zhang2010b> arises as some of the fictitious finite volume
+  updates involve the LW high order fluxes. Then, it is seen that, if the LW
+  numerical flux is limited to ensure that the updates with its fictitious
+  finite volume fluxes is admissible, the scheme will be admissibility
+  preserving in means. In addition to showing that our positivity preserving
+  framework preserves admissibility in the presence of shocks and
+  rarefactions, we also introduce the first LWFR scheme in the presence of
+  source terms. The approach involves adding time averages of the sources and
+  thus we also propose a source term limiting procedure so that admissibility
+  is maintained. The claim is validated on the Ten Moment equations, which
+  are derived by Levermore et al.<nbsp><cite|Levermore_1996> by taking a
+  Gaussian closure of the kinetic model.
+
+  <paragraph|Multiderivative Runge-Kutta.>
+
+  In<nbsp><cite|li2016>, a two stage fourth order Multiderivative Runge-Kutta
+  (MDRK) scheme was introduced for solving hyperbolic conservation laws by
+  solving a Generalized Riemann Problem (GRP). We show the first combination
+  of MDRK with a Flux Reconstruction scheme by using the scheme
+  of<nbsp><cite|li2016>. We also use the construction of the numerical flux
+  from<nbsp><cite|babbar2022>. In particular, we use the D2 dissipation and
+  show that it leads to enhanced Fourier CFL stability limiter. We also use
+  the <evaluate> scheme which leads to enhanced accuracy for non-linear
+  problems when using Gauss-Legendre solution points. We also develop
+  admissibility preserving subcell based blending scheme and show how it is
+  superior to other schemes like a TVB limiter.
+
+  <paragraph|Adaptive, curvilinear grids and time stepping.>
+
+  The LWFR scheme with the above features is further developed to incorporate
+  three new features:
+
+  <\enumerate>
+    <item>Ability to work on curvilinear, body-fitted grids
+
+    <item>Ability to work on locally and dynamically adapted grids with
+    hanging nodes
+
+    <item>Automatic error based time step computation
+  </enumerate>
+
+  Curvilinear grids are defined in terms of a tensor product polynomial map
+  from a reference element to the physical element. The conservation law is
+  transformed to the coordinates of the reference element and then the LWFR
+  procedure is applied leading to a collocation method that has similar
+  structure as on Cartesian grids. This structure also facilitates the
+  extension of the provably admissibility preserving subcell based blending
+  scheme to curvilinear grids. The FR formulation on curvilinear grids is
+  based on its equivalence with the DG scheme, see<nbsp><cite|Kopriva2006>,
+  which also obtained certain metric identities that are required for
+  preservation of constant solutions, that is, free stream preservation. See
+  references in<nbsp><cite|Kopriva2006> for a review of earlier study of
+  metric terms in the context of other higher order schemes like finite
+  difference schemes. The free stream preserving conditions for the LWFR
+  scheme are proven to be the same discrete metric identities as that
+  of<nbsp><cite|Kopriva2006>. The only requirement for the required metric
+  identities in two dimensions is that the mappings used to define the
+  curvilinear elements must have degree less than or equal to the degree of
+  polynomials used to approximate the solution.
+
+  In many problems, there are non-trivial and sharp solution features only in
+  some localized parts of the domain and these features can move with respect
+  to time. Using a uniform mesh to resolve small scale features is
+  computationally expensive and adaptive mesh refinement (AMR) is thus very
+  useful. In this work, we perform adaptive mesh refinement based on some
+  local error or solution smoothness indicator. Elements with high error
+  indicator are flagged for refinement and those with low values are flagged
+  for coarsening. A consequence of this procedure is that we get
+  non-conformal elements with hanging nodes which is not a major problem with
+  discontinuous Galerkin type methods, except that one has to ensure
+  conservation is satisfied. For discontinuous Galerkin methods based on
+  quadrature, conservation is ensured by performing quadrature on the cell
+  faces from the refined side of the face<nbsp><cite|schaal2015|Zanotti2015>.
+  For FR type methods which are of collocation type, we need numerical fluxes
+  at certain points on the element faces, which have to computed on a refined
+  face without loss of accuracy and such that conservation is also satisfied.
+  For the LWFR scheme, we use the Mortar Element
+  Method<nbsp><cite|Kopriva1996|Kopriva2002> to compute the solution and
+  fluxes at non-conformal faces. The resulting method is conservative and
+  also preserves free-stream condition on curvilinear, adapted grids.
+
+  The choice of time step is restricted by a CFL-type condition in order to
+  satisfy linear stability and some other non-linear stability requirements
+  like maintaining positive solutions. Linear stability analysis can be
+  performed on uniform Cartesian grids only, leading to some CFL-type
+  condition which depends on wave speed estimates. In practice these
+  conditions are then also used for curvilinear grids but they may not be
+  optimal and may require tuning the time step for each problem by adding a
+  safety factor. Thus, automatic time step selection methods based on some
+  error estimates become very relevant for curvilinear grids. Error based
+  time stepping methods are already developed for ODE solvers; and by using a
+  method of lines approach to convert partial differential equations to a
+  system of ordinary differential equations, error-based time stepping
+  schemes of ODE solvers have been applied to partial differential
+  equations<nbsp><cite|berzins1995|ketcheson2020|ware1995> and recent
+  application to CFD problems can be found
+  in<nbsp><cite|Ranocha2021|ranocha2023>. The LWFR scheme makes use of a
+  Taylor expansion in time of the time averaged flux; by truncating the
+  Taylor expansion at one order lower, we can obtain two levels of
+  approximation, whose difference is used as a local error indicator to adapt
+  the time step. As a consequence the user does not need to specify a CFL
+  number, but only needs to give some error tolerances based on which the
+  time step is automatically decreased or increased.
+
+  <paragraph|Parabolic equations.>
+
+  We extend the LWFR scheme of to second order parabolic equations on
+  curvilinear meshes by making use of the BR1 scheme. The BR1 is known to
+  retain the superior properties of FR/DG, is applicable to underresolved
+  turbulent simulations<nbsp><cite|Gassner2012>, and was proven to be stable
+  in<nbsp><cite|Gassner_Winters_Hindenlang_Kopriva_2018>. We use the error
+  based time stepping developed for LWFR, which is especially relevant here
+  since a Fourier CFL stability limit of LWFR is also not known for second
+  order PDE. This is the first extension of a high order Lax-Wendroff to
+  second order equations. The ADER schemes, which are another class of single
+  stage solvers have also been extended to solve second order PDE
+  in<nbsp><cite|Fambri2017> by including additional diffusion in the
+  numerical flux in contrast to the BR1 scheme used here. This is the first
+  work where any single stage method has been combined with the BR1 scheme.
+
+  <section|Outline><label|sec:intro.outline>
+
+  The rest of the thesis is organized as follows:
+
+  Chapter<nbsp><reference|ch:con.law> introduces the basic notations to
+  describe the relevant equations of motion. These include first order
+  hyperbolic systems like compressible Euler's equations and the ten moment
+  problem of gas dynamics, but also second order equations like compressible
+  Navier-Stokes equations.
+
+  Chapter<nbsp><reference|ch:fvm.dg> describes the spatial discretization
+  using Flux Reconstruction for hyperbolic conservation laws. The description
+  of finite volume and Discontinuous Galerkin methods for hyperbolic
+  conservation laws is also provided.
+
+  Chapter<nbsp><reference|ch:lwfr> describes the core Lax-Wendroff Flux
+  Reconstruction scheme using the approximate Lax-Wendroff procedure. The D2
+  dissipation to compute the dissipative part of numerical flux is introduced
+  along with a Fourier stability analysis showing enhancement of CFL numbers
+  in comparison to previous works. The computation of <evaluate> scheme to
+  compute the central part of numerical flux is also introduced which
+  enhances accuracy for nonlinear problems. The scheme is described for 1-D
+  and 2-D and numerically validated for accuracy and stability with various
+  scalar problems and Euler's system of equations.
+
+  Chapter<nbsp><reference|ch:lw.subcell.limiter> describes the subcell based
+  blending limiter for LWFR. In the direction of robustness, provable
+  admissibility preservation is obtained by careful construction of the
+  <with|font-shape|italic|blended numerical flux>. In the direction of
+  accuracy, Gauss-Legendre points are used and MUSCL-Hancock reconstruction
+  is performed on the subcells. An admissibility preserving MUSCL-Hancock
+  reconstruction scheme is developed for non-cell centred grids that
+  naturally arise as subcells to ensure the conservation property. The claims
+  are verified by numerical experiments on Euler's equations. The
+  admissibility preservation is verified by problems that have shocks with
+  very high pressure ratios. The accuracy improvement is verified on problems
+  that have small scale structures along with strong shocks.
+
+  Chapter<nbsp><reference|ch:10mom> introduces a generalized admissibility
+  preserving framework for LWFR schemes extending the scaling limiter of
+  Zhang and Shu. The framework is extended to equations with source terms
+  maintaining admissibility. The admissibility preservation is verified by
+  numerical results on Ten Moment equations of gas dynamics.
+
+  Chapter<nbsp><reference|ch:mdrk> introduces a two stage, fourth order
+  multiderivative Runge-Kutta (MDRK) method in Flux Reconstruction framework
+  by writing each stage as an evolution involving a time average flux. The
+  time average flux is approximated by performing the LWFR procedure at each
+  stage. The D2 dissipation and <evaluate> flux are introduced for MDRK
+  enhancing stability and accuracy. The blending limiter is applied at each
+  stage to obtained a provably admissibility preserving scheme. The scheme
+  and claims are validated by a recent test suite for high order methods on
+  Euler's equations.
+
+  Chapter<nbsp><reference|ch:curved.meshes> extends LWFR to adaptively
+  refined curvilinear meshes. The mortar element method is developed for LWFR
+  to obtain a scheme that is conservative, free stream and admissibility
+  preserving. A Fourier CFL stability analysis does not apply to curvilinear
+  meshes and thus an error based time stepping method is introduced. The
+  scheme is validated by numerical experiments on Compressible Euler's
+  equations. The time stepping method is shown to be of superior performance
+  in comparison to CFL based time stepping even though it requires less fine
+  tuning.
+
+  Chapter<nbsp><reference|ch:parabolic> extends the LWFR scheme to
+  advection-diffusion equations by using the BR1 (Bassi-Rebay) scheme. The
+  scheme is numerically validated on numerically experiments on compressible
+  Navier Stokes equations on curvilinear meshes by comparing the obtained
+  numerical solutions with reference solutions.
 </body>
 
 <\initial>
   <\collection>
     <associate|chapter-nr|0>
+    <associate|font-base-size|12>
     <associate|info-flag|minimal>
-    <associate|page-first|9>
+    <associate|page-even|1in>
+    <associate|page-first|20>
     <associate|page-medium|paper>
+    <associate|page-odd|1in>
+    <associate|page-right|auto>
+    <associate|page-screen-margin|false>
+    <associate|page-width-margin|false>
+    <associate|par-width|165mm>
     <associate|preamble|false>
     <associate|section-nr|0>
     <associate|subsection-nr|0>
@@ -450,13 +638,35 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|9>>
+    <associate|auto-1|<tuple|1|21>>
+    <associate|auto-2|<tuple|1.1|21>>
+    <associate|auto-3|<tuple|1.2|23>>
+    <associate|auto-4|<tuple|1.3|24>>
+    <associate|auto-5|<tuple|1.4|25>>
+    <associate|auto-6|<tuple|1.5|29>>
+    <associate|sec:intro.contri|<tuple|1.4|25>>
+    <associate|sec:intro.fr|<tuple|1.2|23>>
+    <associate|sec:intro.lw|<tuple|1.1|21>>
+    <associate|sec:intro.outline|<tuple|1.5|29>>
+    <associate|sec:intro.shock.capturing|<tuple|1.3|24>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      attig2011
+
+      subcommittee2014
+
+      Huynh2007
+
+      cockburn2000
+
+      witherden2014
+
+      Ranocha2022
+
       Dumbser2018
 
       Qiu2005b
@@ -541,6 +751,10 @@
 
       Carrillo2021a
 
+      reed1973
+
+      cockburn2000
+
       Huynh2007
 
       Huynh2007
@@ -563,6 +777,10 @@
 
       Witherden2021
 
+      Cicchino2022a
+
+      Cicchino2022
+
       Offner2019
 
       Abgrall2020
@@ -572,6 +790,18 @@
       Asthana2015
 
       Vermeire2017
+
+      witherden2014
+
+      Abe2015
+
+      Cicchino2022
+
+      Kopriva2006
+
+      kopriva2010
+
+      Kopriva2006
 
       Vincent2016
 
@@ -583,87 +813,25 @@
 
       Vincent2016
 
-      Lou2020
-
-      Burger2017
-
-      Zorio2017
-
-      attig2011
-
-      subcommittee2014
-
-      reed1973
-
-      cockburn2000
-
-      Huynh2007
-
-      Huynh2007
-
-      Vincent2011a
-
-      Vincent2015
-
-      Trojak2021
-
-      Huynh2007
-
-      Trojak2021
-
-      babbar2022
-
-      Titarev2002
-
-      Titarev2005
-
-      Dumbser2008
-
       Dumbser2014
 
-      Qiu2003
+      Dumbser2019
 
-      Shu1989
+      dzanic2022
 
-      Qiu2005b
+      ramirez2021
 
-      Zorio2017
+      Cockburn1989a
 
-      Burger2017
+      Krivodonova2007
 
-      Carrillo2021
-
-      Carrillo2021a
-
-      Lee2021
-
-      Burger2017
-
-      babbar2022
-
-      Zorio2017
-
-      babbar2022
-
-      babbar2022
-
-      babbar2022
+      hennemann2021
 
       Zhang2010b
 
-      moe2017
+      Cockburn1989a
 
-      Xu2022
-
-      moe2017
-
-      Xu2022
-
-      Chen2016
-
-      Vilar2019
-
-      Dumbser2014
+      Cockburn1991
 
       Biswas1994
 
@@ -681,7 +849,7 @@
 
       klockner2011
 
-      henemann2021
+      hennemann2021
 
       Peraire2012
 
@@ -695,21 +863,21 @@
 
       Persson2006
 
-      henemann2021
+      hennemann2021
 
       Persson2006
 
       Ramirez2020
 
-      henemann2021
+      hennemann2021
 
       ramirez2021
 
-      henemann2021
+      hennemann2021
 
       ramirez2022
 
-      henemann2021
+      hennemann2021
 
       Rusanov1962
 
@@ -735,9 +903,39 @@
 
       Lu2021
 
-      henemann2021
+      babbar2022
 
-      henemann2021
+      Zorio2017
+
+      Lou2020
+
+      Qiu2005b
+
+      babbar2024equivalence
+
+      Cockburn1989a
+
+      Cockburn1991
+
+      babbar2022
+
+      Zhang2010b
+
+      moe2017
+
+      Xu2022
+
+      moe2017
+
+      Xu2022
+
+      Chen2016
+
+      babbar2023admissibility
+
+      hennemann2021
+
+      hennemann2021
 
       Jameson2012
 
@@ -745,11 +943,11 @@
 
       babbar2022
 
-      ramirez2021
+      Rueda2021
 
       vanleer1984
 
-      henemann2021
+      hennemann2021
 
       Berthon2006
 
@@ -757,7 +955,7 @@
 
       ramirez2021
 
-      henemann2021
+      hennemann2021
 
       Zhang2010b
 
@@ -766,11 +964,100 @@
       Zhang2010b
 
       moe2017
+
+      babbar2024generalized
+
+      babbar2023admissibility
+
+      Zhang2010b
+
+      zhang2010c
+
+      Zhang2010b
+
+      babbar2023admissibility
+
+      Levermore_1996
+
+      li2016
+
+      babbar2024multiderivative
+
+      li2016
+
+      babbar2022
+
+      babbar2022
+
+      babbar2022
+
+      babbar2023admissibility
+
+      babbar2024curved
+
+      babbar2023admissibility
+
+      Kopriva2006
+
+      Kopriva2006
+
+      Kopriva2006
+
+      schaal2015
+
+      Zanotti2015
+
+      Kopriva1996
+
+      Kopriva2002
+
+      berzins1995
+
+      ketcheson2020
+
+      ware1995
+
+      Ranocha2021
+
+      ranocha2023
+
+      babbar2024laxwendroff
+
+      babbar2022
+
+      babbar2024curved
+
+      Gassner2012
+
+      Gassner_Winters_Hindenlang_Kopriva_2018
+
+      babbar2024laxwendroff
+
+      babbar2024curved
+
+      Fambri2017
     </associate>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Introduction>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|1.<space|2spc>Introduction>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <pageref|auto-1><vspace|0.5fn>
+
+      1.1.<space|2spc>Lax-Wendroff <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2>
+
+      1.2.<space|2spc>Flux Reconstruction
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>
+
+      1.3.<space|2spc>Shock capturing and admissibility preservation of FR
+      schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>
+
+      1.4.<space|2spc>Contributions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5>
+
+      1.5.<space|2spc>Outline <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6>
     </associate>
   </collection>
 </auxiliary>

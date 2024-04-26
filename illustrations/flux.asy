@@ -142,4 +142,4 @@ for(int i=0; i<n; ++i)
    dot((x,f3(x)), pd+blue);
 }
 
-label("${\color{red}F_h^\delta}, {\color{black}F_h}$", (1.5,1.5));
+label("${\color{red}f_h^\delta}, {\color{black}f_h}$", (1.5,1.5));
