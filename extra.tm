@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1>
 
 <style|<tuple|tmbook|old-lengths|preview-ref|style_common>>
 
@@ -102,6 +102,71 @@
     # Source - <hlink|Numeration of subequation like 1a, 1b etc - General -
     GNU TeXmacs Forum|http://forum.texmacs.cn/t/numeration-of-subequation-like-1a-1b-etc/332/2>
   </hide-preamble>
+
+  <subsection|Entropy condition>
+
+  To single out solutions of interest, we restrict attention to weak
+  solutions realizable as limits <math|<around*|(|\<epsilon\>\<rightarrow\>0|)>>
+  of smooth solutions of an augmented system
+
+  <\equation>
+    \<partial\><rsub|t> <value|uu>+<value|Div><value|pf><around*|(|<value|uu>|)>=<with|font-series|bold|R><rsup|\<epsilon\>><label|eq:regularized.con.law>
+  </equation>
+
+  where <math|\<epsilon\>\<gtr\>0>, represents a small-scale parameter
+  corresponding, in the applications, to the viscosity, capillarity, etc. of
+  the physical medium under consideration. For simplicity, we take
+  <math|<with|font-series|bold|R><rsup|\<epsilon\>>=\<epsilon\>*\<mathLaplace\><value|uu>>
+  (cf. <cite|LeFloch2002> for conditions required in the general case). The
+  idea is that, in the limit as <math|\<epsilon\>\<rightarrow\>0> the weak
+  solution will satisfy an additional principal, which is usually called an
+  <with|font-shape|italic|entropy condition>. We introduce the notion for a
+  general system of conservation laws as follows.
+
+  Assume that we have a strictly convex function
+  <math|\<eta\>=\<eta\><around*|(|<value|uu>|)>> called the
+  <with|font-shape|italic|entropy function> and associated
+  <with|font-shape|italic|entropy fluxes>
+  <math|<bq>=<around*|(|q<rsub|i>|)><rsub|i=1><rsup|d>> satisfying
+
+  <\equation*>
+    *\<eta\><rprime|'><around*|(|<value|uu>|)>*<value|pf><rsub|i><rprime|'><around*|(|<value|uu>|)>=q<rsub|i><rprime|'><around*|(|<value|uu>|)>,<space|2em>1\<leq\>i\<leq\>d
+  </equation*>
+
+  The set <math|<around*|(|\<eta\>,<bq>|)>> is called an
+  <with|font-shape|italic|entropy pair>. We multiply the augmented
+  system<nbsp><eqref|eq:regularized.con.law> by
+  <math|\<eta\><rprime|'><around*|(|<value|uu>|)>> to get
+
+  <\equation*>
+    <tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|\<eta\><rprime|'><around*|(|<value|uu>|)>*\<partial\><rsub|t>
+    <value|uu>+\<eta\><rprime|'><around*|(|<value|uu>|)>*<big|sum><rsub|i=1><rsup|d><value|pf><rprime|'><rsub|i><around*|(|<value|uu>|)>\<cdot\>\<partial\><rsub|x<rsub|i>>*<value|uu>>|<cell|=>|<cell|\<epsilon\>*\<eta\><rprime|'><around*|(|<value|uu>|)>*\<mathLaplace\>*<value|uu>>>|<row|<cell|>|<cell|=>|<cell|\<epsilon\>*<value|Div>*<around*|[|\<eta\><rprime|'><around*|(|<value|uu>|)>*\<nabla\>*<value|uu>|]>-<wide*|\<epsilon\>*<around*|(|\<nabla\>*<value|uu>|)><rsup|T>*\<eta\><rprime|''><around*|(|<value|uu>|)>*\<nabla\>*<value|uu>|\<wide-underbrace\>><rsub|\<geq\>0>>>>>>
+  </equation*>
+
+  where the inequality below underbraces follows of convexity of
+  <math|\<eta\>>. Thus, we have the inequality
+
+  <\equation*>
+    \<partial\><rsub|t> \<eta\><around*|(|<value|uu>|)>+<value|Div><bq><around*|(|<value|uu>|)>\<leq\>\<epsilon\>*<value|Div>*<around*|[|\<eta\><rprime|'><around*|(|<value|uu>|)>*\<nabla\>*<value|uu>|]>
+  </equation*>
+
+  Then, as <math|\<epsilon\>\<rightarrow\>0>, the following entropy
+  inequality is obtained
+
+  <\equation>
+    \<partial\><rsub|t>*\<eta\><around*|(|<value|uu>|)>+<value|Div><bq><around*|(|<value|uu>|)>\<leq\>0<label|eq:entropy.condition>
+  </equation>
+
+  In a weak sense, the inequality is given by
+
+  <\equation>
+    <big|int><rsub|0><rsup|\<infty\>><big|int><rsub|\<bbb-R\><rsup|d>><around*|(|\<eta\><around*|(|<value|uu>|)>*\<partial\><rsub|t>*\<phi\>+<big|sum><rsub|i=1><rsup|d>q<rsub|i><around*|(|<value|uu>|)>*\<partial\><rsub|x<rsub|i>>*\<phi\>|)>*<value|ud>t*<value|ud><bx>+<big|int><rsub|\<bbb-R\><rsup|d>>\<eta\><around*|(|<value|uu><rsub|0><around*|(|<bx>|)>|)>*\<phi\><around*|(|<bx>,0|)>*<value|ud><bx>\<geq\>0
+  </equation>
+
+  for all <math|\<phi\>\<in\>C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsub|+>|)>>,
+  with <math|\<phi\><around*|(|<bx>,t|)>\<geq\>0>. The solution
+  <math|<value|uu>> is called an <with|font-shape|italic|entropy solution> if
+  it satisfies the above inequality for every convex entropy.
 
   <section|Some scalar numerical fluxes>
 
@@ -482,13 +547,16 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|?>>
-    <associate|auto-2|<tuple|2|?>>
-    <associate|ch.num:godnnov.explicit|<tuple|1|?>>
-    <associate|eq:dg.physical|<tuple|4|1>>
-    <associate|eq:gradient.transform.noncons|<tuple|3|1>>
-    <associate|eq:kopriva.identities|<tuple|4|1>>
-    <associate|eq:rusanov.flux.physical|<tuple|6|1>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|1|3>>
+    <associate|auto-3|<tuple|2|?>>
+    <associate|ch.num:godnnov.explicit|<tuple|4|2>>
+    <associate|eq:dg.physical|<tuple|7|4>>
+    <associate|eq:entropy.condition|<tuple|2|?>>
+    <associate|eq:gradient.transform.noncons|<tuple|6|4>>
+    <associate|eq:kopriva.identities|<tuple|7|4>>
+    <associate|eq:regularized.con.law|<tuple|1|?>>
+    <associate|eq:rusanov.flux.physical|<tuple|9|4>>
   </collection>
 </references>
 
@@ -498,6 +566,14 @@
       kopriva2009
 
       Ranocha2022
+    </associate>
+    <\associate|toc>
+      1.<space|2spc>Some scalar numerical fluxes
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1>
+
+      2.<space|2spc>2 DG schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2>
     </associate>
   </collection>
 </auxiliary>

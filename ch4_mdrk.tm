@@ -29,13 +29,13 @@
   of<nbsp><cite|li2016> in the form of
 
   <\eqnarray*>
-    <tformat|<table|<row|<cell|<value|uus>>|<cell|=>|<cell|<value|uu><rsup|n>-\<mathLaplace\>t*\<partial\><rsub|x>*<value|F1><label|eq:mdrk.intro.us.evolution><eq-number>>>|<row|<cell|<value|uu><rsup|n+1>>|<cell|=>|<cell|<value|uu><rsup|n>-\<mathLaplace\>t*\<partial\><rsub|x>*<value|F2>>>>>
+    <tformat|<table|<row|<cell|<value|uus>>|<cell|=>|<cell|<value|uu><rsup|n>-<frac|\<mathLaplace\>t|2>*\<partial\><rsub|x>*<value|F1><label|eq:mdrk.intro.us.evolution><eq-number>>>|<row|<cell|<value|uu><rsup|n+1>>|<cell|=>|<cell|<value|uu><rsup|n>-\<mathLaplace\>t*\<partial\><rsub|x>*<value|F2>>>>>
   </eqnarray*>
 
   where
 
   <\equation*>
-    \<partial\><rsub|x>*<value|F1>=\<partial\><rsub|x>*<value|F1><around*|(|<value|uu><rsup|n>|)>\<approx\>\<partial\><rsub|x>*<big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1/2>><value|pf>*<ud>t,<space|2em>\<partial\><rsub|x>*<value|F2>=\<partial\><rsub|x>*<value|F2><around*|(|<value|uu><rsup|n>,<value|uus>|)>\<approx\>\<partial\><rsub|x>*<big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1>><value|pf>*<ud>t
+    \<partial\><rsub|x>*<value|F1>=\<partial\><rsub|x>*<value|F1><around*|(|<value|uu><rsup|n>|)>\<approx\><frac|1|\<mathLaplace\>t/2>*\<partial\><rsub|x>*<big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1/2>><value|pf>*<ud>t,<space|2em>\<partial\><rsub|x>*<value|F2>=\<partial\><rsub|x>*<value|F2><around*|(|<value|uu><rsup|n>,<value|uus>|)>\<approx\><frac|1|\<mathLaplace\>t>*\<partial\><rsub|x>*<big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1>><value|pf>*<ud>t
   </equation*>
 
   The method is two-stage; in the first stage, <math|<value|F1>> is locally
@@ -54,15 +54,15 @@
   Chapter<nbsp><reference|ch:lw.subcell.limiter>. The scheme is validated
   with a modern test suite for high order methods<nbsp><cite|Pan2016>.
 
-  The MDRK scheme in FR framework is introduced in
-  Section<nbsp><reference|sec:mdrk>. In particular,
-  Section<nbsp><reference|sec:mdrk.alw> discusses approximate Lax-Wendroff
-  procedure applied to MDRK, Sections<nbsp><reference|sec:mdrk.numflux>
-  discuss the D2 dissipation for computing the dissipative part of the
-  numerical flux to enhance Fourier CFL stability limit and
-  Section<nbsp><reference|sec:mdrk.ea> discusses the <evaluate> scheme for
-  computing the central part of numerical flux to enhance stability. The
-  Fourier stability analysis is performed in
+  The rest of the chapter is organized as follows. The MDRK scheme in FR
+  framework is introduced in Section<nbsp><reference|sec:mdrk>. In
+  particular, Section<nbsp><reference|sec:mdrk.alw> discusses the approximate
+  Lax-Wendroff procedure applied to MDRK,
+  Sections<nbsp><reference|sec:mdrk.numflux> discuss the D2 dissipation for
+  computing the dissipative part of the numerical flux to enhance Fourier CFL
+  stability limit and Section<nbsp><reference|sec:mdrk.ea> discusses the
+  <evaluate> scheme for computing the central part of numerical flux to
+  enhance stability. The Fourier stability analysis is performed in
   Section<nbsp><reference|sec:mdrk.fourier> to demonstrate the improved
   stability of D2 dissipation. In Section<nbsp><reference|sec:mdrk.blending>,
   we show how the admissibility preserving blending limiter of
@@ -74,8 +74,8 @@
 
   <section|Multi-derivative Runge-Kutta FR scheme><label|sec:mdrk>
 
-  Multiderivative Runge-Kutta (MDRK)<nbsp><cite|obrechkoff1940neue> methods
-  were initially developed to solve systems of ODE like
+  Multiderivative Runge-Kutta<nbsp><cite|obrechkoff1940neue> methods were
+  initially developed to solve systems of ODE like
 
   <\equation>
     <label|eq:ode.L><dv|<value|uu>|t>=<value|bL><around*|(|<value|uu>|)>
@@ -84,8 +84,8 @@
   that use temporal derivatives of <math|<value|bL>>. They were first used
   for temporal discretization of hyperbolic conservation laws
   in<nbsp><cite|Seal2013> by using Weighted Essentially Non-Oscillatary
-  (WENO)<nbsp><cite|Shu1989> and Discontinuous Galerkin
-  (DG)<nbsp><cite|cockburn2000> methods for spatial discretization.\ 
+  (WENO)<nbsp><cite|Shu1989> and Discontinuous
+  Galerkin<nbsp><cite|cockburn2000> methods for spatial discretization.
 
   In this work, we use the two stage fourth order multiderivative Runge-Kutta
   method from<nbsp><cite|li2016>. For the system of
@@ -93,7 +93,7 @@
   from <math|t<rsup|n>> to <math|t<rsup|n+1>> is given by
 
   <\equation*>
-    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<cwith|1|1|1|1|cell-halign|r>|<cwith|2|2|1|1|cell-halign|r>|<cwith|2|2|3|3|cell-halign|l>|<table|<row|<cell|<value|uu><rsup|\<ast\>>>|<cell|=>|<cell|<value|uu><rsup|n>+<frac|1|2>*\<mathLaplace\>t*<value|bL><around*|(|<value|uu><rsup|n>|)>+<frac|1|8>*<dv|<value|bL>|t><around*|(|<value|uu><rsup|n>|)>>>|<row|<cell|<value|uu><rsup|n+1>>|<cell|=>|<cell|<value|uu><rsup|n>+\<mathLaplace\>t*<value|bL><around*|(|<value|uu><rsup|n>|)>+<frac|1|6>*\<mathLaplace\>t<rsup|2>*<around*|(|<dv|<value|bL>|t><around*|(|<value|uu><rsup|n>|)>+2*<dv|<value|bL>|t><around*|(|<value|uus>|)>|)>>>>>>
+    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<cwith|1|1|1|1|cell-halign|r>|<cwith|2|2|1|1|cell-halign|r>|<cwith|2|2|3|3|cell-halign|l>|<table|<row|<cell|<value|uus>>|<cell|=>|<cell|<value|uu><rsup|n>+<frac|1|2>*\<mathLaplace\>t*<value|bL><around*|(|<value|uu><rsup|n>|)>+<frac|\<mathLaplace\>t<rsup|2>|8>*<dv|<value|bL>|t><around*|(|<value|uu><rsup|n>|)>>>|<row|<cell|<value|uu><rsup|n+1>>|<cell|=>|<cell|<value|uu><rsup|n>+\<mathLaplace\>t*<value|bL><around*|(|<value|uu><rsup|n>|)>+<frac|\<mathLaplace\>t<rsup|2>|6>*<around*|(|<dv|<value|bL>|t><around*|(|<value|uu><rsup|n>|)>+2*<dv|<value|bL>|t><around*|(|<value|uus>|)>|)>>>>>>
   </equation*>
 
   In order to solve the 1-D conservation law<nbsp><eqref|eq:con.law> using
@@ -114,26 +114,27 @@
   (Appendix<nbsp><reference|sec:formal.accuracy>) is obtained from
 
   <\equation*>
-    \<partial\><rsub|x>*<value|F2>=\<partial\><rsub|x><big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1>><value|pf>+O<around*|(|\<mathLaplace\>t<rsup|4>|)>
+    \<partial\><rsub|x>*<value|F2>=<frac|1|\<mathLaplace\>t>*\<partial\><rsub|x><big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1>><value|pf>+O<around*|(|\<mathLaplace\>t<rsup|4>|)>
   </equation*>
 
-  The idea is to use<nbsp><eqref|eq:mdrk.f2.defn> to obtain solution update
-  at the nodes is written as a collocation scheme
+  The idea is to use<nbsp>(<reference|eq:mdrk.mdrk.first.stage><nbsp><reference|eq:mdrk.mdrk.second.stage>)
+  to obtain solution update at the nodes written as a collocation scheme
 
   <\equation>
-    <tabular*|<tformat|<cwith|1|1|1|1|cell-halign|l>|<table|<row|<cell|<value|uep><rsup|n+1>>|<cell|=>|<cell|<value|uep><rsup|n>-<frac|\<Delta\>t|2*\<Delta\>x<rsub|e>>*<od|<value|F1><rsub|h>|\<xi\>><around|(|\<xi\><rsub|p>|)>>>|<row|<cell|<value|uep><rsup|n+1>>|<cell|=>|<cell|<value|uep><rsup|n>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<od|<value|F><rsub|h>|\<xi\>><around|(|\<xi\><rsub|p>|)>>>>>>,<space|2em>0\<le\>p\<le\>N<label|eq:mdrk.uplwfr>
+    <tabular*|<tformat|<cwith|1|1|1|1|cell-halign|l>|<table|<row|<cell|<value|uep><rsup|\<ast\>>>|<cell|=>|<cell|<value|uep><rsup|n>-<frac|\<Delta\>t|2*\<Delta\>x<rsub|e>>*<od|<value|F1><rsub|h>|\<xi\>><around|(|\<xi\><rsub|p>|)>>>|<row|<cell|<value|uep><rsup|n+1>>|<cell|=>|<cell|<value|uep><rsup|n>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<od|<value|F2><rsub|h>|\<xi\>><around|(|\<xi\><rsub|p>|)>>>>>>,<space|2em>0\<le\>p\<le\>N<label|eq:mdrk.uplwfr>
   </equation>
 
-  where we take <math|N=3> to get fourth order accuracy. As was the case for
-  Chapter<nbsp><reference|ch:lwfr>, the major work is in the construction of
-  the time average flux approximations <math|<value|F1><rsub|h>,<value|F><rsub|h>>
-  which is explained in subsequent sections.
+  where we take <math|N=3> to get fourth order accuracy in both space and
+  time. As was the case for Chapter<nbsp><reference|ch:lwfr>, the major work
+  is in the construction of the time average flux approximations
+  <math|<value|F1><rsub|h>,<value|F2><rsub|h>> which is explained in
+  subsequent sections.
 
   <subsection|Conservation property>
 
   The computation of correct weak solutions for non-linear conservation laws
   in the presence of discontinuous solutions requires the use of conservative
-  numerical schemes. In order to see conservation property
+  numerical schemes. In order to see the conservation property
   of<nbsp><eqref|eq:mdrk.uplwfr>, multiply each equation by the quadrature
   weights associated with the solution points and sum over all the points in
   the <math|e<rsup|th>> element,
@@ -144,8 +145,8 @@
 
   The correction functions are of degree <math|N+1> and thus the fluxes
   <math|<value|F1><rsub|h>,<value|F2><rsub|h>> are polynomials of degree
-  <math|\<le\>N+1>. If the quadrature is exact for polynomials of degree
-  atleast <math|N>, which is true for both GLL and GL points, then the
+  <math|\<le\>N+1>. If the quadrature is exact for polynomials of degree at
+  least <math|N>, which is true for both GLL and GL points, then the
   quadrature is exact for the flux derivative term and we can write it as an
   integral, which leads to
 
@@ -168,28 +169,28 @@
   we compute <math|<value|F1><rsub|h>> which is then used to evolve to
   <math|<value|uus>>. In the second stage<nbsp><eqref|eq:mdrk.mdrk.second.stage>,
   <math|<value|uu><rsup|n>,<value|uus>> are used to compute
-  <math|<value|F><rsub|h>> which is used from evolution to
+  <math|<value|F2><rsub|h>> which is used for evolution to
   <math|<value|uu><rsup|n+1>>. The procedure for both
-  <math|<value|F1><rsub|h>,<value|F><rsub|h>> is the same, and is infact the
-  same as the Steps 1-4 in Section<nbsp><reference|sec:reconstruction>. The
-  explanation is not described but for readability, we briefly mention that
-  the steps are the following.
+  <math|<value|F1><rsub|h>,<value|F2><rsub|h>> is the same, and is in fact
+  the same as Steps 1-4 in Section<nbsp><reference|sec:reconstruction>. The
+  procedure is not fully described but for readability, we briefly mention
+  that the steps are the following.
 
   <\enumerate>
     <item>Approximate Lax-Wendroff procedure<nbsp>(Section<nbsp><reference|sec:alw>)
-    to approximate time average fluxes <math|<value|F1><rsub|h>,<value|F><rsub|h>>
+    to approximate time average fluxes <math|<value|F1><rsub|h>,<value|F2><rsub|h>>
     at all solution points.
 
     <item>Use Lagrange interpolation to construct discontinuous time average
-    flux approximations<nbsp><math|<value|F1><rsub|h><rsup|\<delta\>>,<value|F><rsub|h><rsup|\<delta\>>><nbsp><eqref|eq:lwfr.time.average.cts>.
+    flux approximations<nbsp><math|<value|F1><rsub|h><rsup|\<delta\>>,<value|F2><rsub|h><rsup|\<delta\>>><nbsp><eqref|eq:lwfr.time.average.cts>.
 
     <item>Use FR correction functions <math|g<rsub|L>,g<rsub|R>><nbsp><eqref|eq:fvm.fr.corr.functions>
     to construct to continuous time average
-    fluxes<nbsp><math|<value|F1><rsub|h>,<value|F><rsub|h>><nbsp><eqref|eq:frcontflux>.
+    fluxes<nbsp><math|<value|F1><rsub|h>,<value|F2><rsub|h>><nbsp><eqref|eq:frcontflux>.
 
-    <item>Plug continuous fluxes <math|<value|F1><rsub|h>,<value|F><rsub|h>>
+    <item>Plug continuous fluxes <math|<value|F1><rsub|h>,<value|F2><rsub|h>>
     into<nbsp><eqref|eq:mdrk.uplwfr> to get an LWFR scheme using matrix
-    vector operations<nbsp><eqref|eq:mdrk.fder>.
+    vector operations<nbsp><eqref|eq:fder>.
   </enumerate>
 
   <subsection|Approximate Lax-Wendroff procedure><label|sec:mdrk.alw>
@@ -218,7 +219,7 @@
   <paragraph|First stage.>
 
   <\equation>
-    <value|F1>\<assign\><value|pf><around*|(|<bu><rsup|n>|)>+<frac|1|4>*\<mathLaplace\>t*<pdv||t>*<value|pf><around*|(|<bu><rsup|n>|)>=<frac|1|\<mathLaplace\>t/2>*<big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1/2>><value|pf><around*|(|<bu>|)>*<value|ud>t
+    <value|F1>\<assign\><value|pf><around*|(|<bu><rsup|n>|)>+<frac|1|4>*\<mathLaplace\>t*<pdv||t>*<value|pf><around*|(|<bu><rsup|n>|)>\<approx\><frac|1|\<mathLaplace\>t/2>*<big|int><rsub|t<rsup|n>><rsup|t<rsup|n+1/2>><value|pf><around*|(|<bu>|)>*<value|ud>t
   </equation>
 
   To obtain fourth order accuracy, the approximation for
@@ -233,7 +234,7 @@
   Thus, the time averaged flux is computed as
 
   <\equation*>
-    <vF><rsup|\<ast\>>=<vf>+<frac|1|4>*<vf><rsup|<around*|(|1|)>>
+    <vF>=<vf>+<frac|1|4>*<vf><rsup|<around*|(|1|)>>
   </equation*>
 
   where
@@ -247,7 +248,7 @@
   The time averaged flux is computed as
 
   <\equation*>
-    <vF>=<vf>+<frac|1|6>*<around*|(|<vf><rsup|<around|(|1|)>>+2*<value|vfs><rsup|<around*|(|1|)>>|)>
+    <vF><rsup|\<ast\>>=<vf>+<frac|1|6>*<around*|(|<vf><rsup|<around|(|1|)>>+2*<value|vfs><rsup|<around*|(|1|)>>|)>
   </equation*>
 
   where
@@ -274,7 +275,7 @@
   in<nbsp>Section<nbsp><reference|sec:numflux>
 
   <\equation>
-    <eqsplit|<tformat|<table|<row|<cell|<value|F><rsub|<eph>>>|<cell|=<half>*<around|[|<value|F><rsub|<eph>><rsup|\<ast\>->+<value|F><rsub|<eph>><rsup|\<ast\>+>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|+>,t<rsub|n>|)>-<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|->,t<rsub|n>|)>|]>>>|<row|<cell|<value|F><rsub|<eph>><rsup|>>|<cell|=<half>*<around|[|<value|F><rsub|<eph>><rsup|->+<value|F><rsub|<eph>><rsup|+>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|+>,t<rsub|n>|)>-<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|->,t<rsub|n>|)>|]>>>>>><label|eq:mdrk.nfdiss1>
+    <eqsplit|<tformat|<table|<row|<cell|<value|F1><rsub|<eph>>>|<cell|=<half>*<around|[|<value|F1m><rsub|<eph>>+<value|F1p><rsub|<eph>>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|+>,t<rsub|n>|)>-<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|->,t<rsub|n>|)>|]>>>|<row|<cell|<value|F2><rsub|<eph>><rsup|>>|<cell|=<half>*<around|[|<value|F2m><rsub|<value|eph>>+<value|F2p><rsub|<value|eph>>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|+>,t<rsub|n>|)>-<value|uu><rsub|h><around|(|x<rsub|<eph>><rsup|->,t<rsub|n>|)>|]>>>>>><label|eq:mdrk.nfdiss1>
   </equation>
 
   which consists of a central flux and a dissipative part. As in
@@ -289,39 +290,41 @@
   of<nbsp>Section<nbsp><reference|sec:numflux>
 
   <\equation>
-    <eqsplit|<tformat|<table|<row|<cell|<value|F><rsub|<eph>><rsup|\<ast\>>>|<cell|=<half>*<around|[|<value|F><rsub|<eph>><rsup|\<ast\>->+<value|F><rsub|<eph>><rsup|\<ast\>+>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uU><rsub|<eph>><rsup|\<ast\>+>-<value|uU><rsub|<eph>><rsup|\<ast\>->|]>>>|<row|<cell|<value|F><rsub|<eph>>>|<cell|=<half>*<around|[|<value|F><rsub|<eph>><rsup|->+<value|F><rsub|<eph>><rsup|+>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uU><rsub|<eph>><rsup|+>-<value|uU><rsub|<eph>><rsup|->|]>>>>>><label|eq:mdrk.nfdiss2>
+    <eqsplit|<tformat|<table|<row|<cell|<value|F1><rsub|<eph>>>|<cell|=<half>*<around|[|<value|F1m><rsub|<eph>>+<value|F1p><rsub|<eph>>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uU1p><rsub|<value|eph>>-<value|uU1m><rsub|<value|eph>>|]>>>|<row|<cell|<value|F2><rsub|<eph>>>|<cell|=<half>*<around|[|<value|F2m><rsub|<value|eph>>+<value|F2p><rsub|<value|eph>>|]>-<half>*\<lambda\><rsub|<eph>>*<around|[|<value|uU2p><rsub|<value|eph>>-<value|uU2m><rsub|<value|eph>>|]>>>>>><label|eq:mdrk.nfdiss2>
   </equation>
 
   where
 
   <\equation>
-    <eqsplit|<tformat|<table|<row|<cell|<value|uU><rsup|\<ast\>>>|<cell|=<vu>+<frac|1|4>*<vu><rsup|<around|(|1|)>>>>|<row|<cell|<value|uU>>|<cell|=<vu>+<frac|1|6>*<around*|(|<vu><rsup|<around|(|1|)>>+2*<value|vus><rsup|<around*|(|1|)>>|)>>>>>><label|eq:mdrk.tavgsol>
+    <eqsplit|<tformat|<table|<row|<cell|<value|uU1>>|<cell|=<vu>+<frac|1|4>*<vu><rsup|<around|(|1|)>>>>|<row|<cell|<value|uU2>>|<cell|=<vu>+<frac|1|6>*<around*|(|<vu><rsup|<around|(|1|)>>+2*<value|vus><rsup|<around*|(|1|)>>|)>>>>>><label|eq:mdrk.tavgsol>
   </equation>
 
   are the time average solutions. Following Chapter<nbsp><reference|ch:lwfr>,
   we will refer to the above two forms of dissipation as D1 and D2,
   respectively. The dissipation model D2 is not computationally expensive
   compared to the D1 model since all the quantities required to compute the
-  time average solution <math|<value|uU>> are available during the
-  Lax-Wendroff procedure. It remains to explain how to compute
-  <math|<value|F><rsub|<eph>><rsup|\<pm\>>> appearing in the central part of
-  the numerical flux. There were two ways introduced for Lax-Wendroff in
-  Chapter<nbsp><reference|ch:lwfr> to compute the central flux, termed
-  <extrapolate> and <evaluate>. We explain how the two apply to MDRK in the
-  next two subsections.
+  time average solutions <math|<value|uU1>,<value|uU2>> are available during
+  the Lax-Wendroff procedure. It remains to explain how to compute
+  <math|<value|F1pm><rsub|<value|eph>>,<value|F2pm><rsub|<value|eph>>>
+  appearing in the central part of the numerical flux. There were two ways
+  introduced for Lax-Wendroff in Chapter<nbsp><reference|ch:lwfr> to compute
+  the central flux, termed <extrapolate> and <evaluate>. We explain how the
+  two apply to MDRK in the next two subsections.
 
   <subsection|Numerical flux \U average and extrapolate to face
   (AE)><label|sec:mdrk.ae>
 
-  In each element, the time average flux <math|<value|F><rsub|h><rsup|\<delta\>>>
-  corresponding to each stage has been constructed using the Lax-Wendroff
+  In each element, the time average fluxes
+  <math|<value|F1><rsub|h><rsup|\<delta\>>,<value|F2><rsub|h><rsup|\<delta\>>>
+  corresponding to each stage have been constructed using the Lax-Wendroff
   procedure. The simplest approximation that can be used for
-  <math|<value|F><rsub|<eph>><rsup|\<pm\>>> in the central part of the
-  numerical flux is to extrapolate the flux
-  <math|<value|F><rsub|h><rsup|\<delta\>>> to the faces
+  <math|<value|F1pm><rsub|<value|eph>>,<value|F2pm><rsub|<value|eph>>> in the
+  central part of the numerical flux is to extrapolate the fluxes
+  <math|<value|F1><rsub|h><rsup|\<delta\>>,<value|F2><rsub|h><rsup|\<delta\>>>to
+  the faces
 
   <\equation*>
-    <value|F><rsub|<eph>><rsup|\<pm\>>=<value|F><rsub|h><rsup|\<delta\>><around|(|x<rsub|<eph>><rsup|\<pm\>>|)>
+    <value|F1pm><rsub|<value|eph>>,<value|F2pm><rsub|<value|eph>>=<value|F1><rsub|h><rsup|\<delta\>><around|(|x<rsub|<eph>><rsup|\<pm\>>|)>,<value|F2><rsub|h><rsup|\<delta\>><around|(|x<rsub|<eph>><rsup|\<pm\>>|)>
   </equation*>
 
   As in Chapter<nbsp><reference|ch:lwfr>, we will refer to this approach with
@@ -347,13 +350,13 @@
   <paragraph|Stage 1.>
 
   <\eqnarray*>
-    <tformat|<cwith|2|2|1|1|cell-halign|r>|<cwith|1|1|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<table|<row|<cell|<value|uu><rsub|\<alpha\>><rsup|\<pm\>>>|<cell|=>|<cell|<vV><rsub|\<alpha\>><rsup|\<top\>><around*|(|<vu>\<pm\><vu><rsup|<around|(|1|)>>|)>>>|<row|<cell|<value|pf><rsup|<around|(|1|)>><rsub|\<alpha\>>>|<cell|=>|<cell|<frac|1|12>*<around*|[|-<value|pf><around*|(|<value|uu><rsup|+2><rsub|\<alpha\>>|)>+8*<value|pf><around*|(|<value|uu><rsup|+><rsub|\<alpha\>>|)>-8*<value|pf><around*|(|<value|uu><rsup|-><rsub|\<alpha\>>|)>+<value|pf><around*|(|<value|uu><rsup|-2><rsub|\<alpha\>>|)>|]>>>|<row|<cell|<value|F><rsub|\<alpha\>><rsup|\<ast\>>>|<cell|=>|<cell|<value|pf><around|(|<value|uu><rsub|\<alpha\>>|)>+<frac|1|4>*<value|pf><rsup|<around|(|1|)>><rsub|\<alpha\>>>>>>
+    <tformat|<cwith|2|2|1|1|cell-halign|r>|<cwith|1|1|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<table|<row|<cell|<value|uu><rsub|\<alpha\>><rsup|\<pm\>>>|<cell|=>|<cell|<vV><rsub|\<alpha\>><rsup|\<top\>><around*|(|<vu>\<pm\><vu><rsup|<around|(|1|)>>|)>>>|<row|<cell|<value|pf><rsup|<around|(|1|)>><rsub|\<alpha\>>>|<cell|=>|<cell|<frac|1|12>*<around*|[|-<value|pf><around*|(|<value|uu><rsup|+2><rsub|\<alpha\>>|)>+8*<value|pf><around*|(|<value|uu><rsup|+><rsub|\<alpha\>>|)>-8*<value|pf><around*|(|<value|uu><rsup|-><rsub|\<alpha\>>|)>+<value|pf><around*|(|<value|uu><rsup|-2><rsub|\<alpha\>>|)>|]>>>|<row|<cell|<value|F1><rsub|\<alpha\>>>|<cell|=>|<cell|<value|pf><around|(|<value|uu><rsub|\<alpha\>>|)>+<frac|1|4>*<value|pf><rsup|<around|(|1|)>><rsub|\<alpha\>>>>>>
   </eqnarray*>
 
   <paragraph|Stage 2.>
 
   <\eqnarray*>
-    <tformat|<table|<row|<cell|<value|uu><rsub|\<alpha\>><rsup|\<ast\>\<pm\>>>|<cell|=>|<cell|<vV><rsub|\<alpha\>><rsup|\<top\>><around*|(|<value|vus>\<pm\><value|vus><rsup|<around|(|1|)>>|)>>>|<row|<cell|<value|uu><rsub|\<alpha\>><rsup|\<ast\>\<pm\>2>>|<cell|=>|<cell|<vV><rsub|\<alpha\>><rsup|\<top\>><around*|(|<value|vus>\<pm\>2*<value|vus><rsup|<around|(|1|)>>|)>>>|<row|<cell|<value|pf><rsup|\<ast\><around|(|1|)>><rsub|\<alpha\>>>|<cell|=>|<cell|<frac|1|12>*<around*|[|-<value|pf><around*|(|<value|uu><rsup|\<ast\>+2><rsub|\<alpha\>>|)>+8*<value|pf><around*|(|<value|uu><rsup|\<ast\>+><rsub|\<alpha\>>|)>-8*<value|pf><around*|(|<value|uu><rsup|\<ast\>-><rsub|\<alpha\>>|)>+<value|pf><around*|(|<value|uu><rsup|\<ast\>-2><rsub|\<alpha\>>|)>|]>>>|<row|<cell|<value|F><rsub|\<alpha\>>>|<cell|=>|<cell|<value|pf><around|(|<value|uu><rsub|\<alpha\>>|)>+<frac|1|6>*<around*|(|<value|pf><rsup|<around|(|1|)>><rsub|\<alpha\>>+2*<value|pf><rsup|\<ast\><around*|(|1|)>>|)>>>>>
+    <tformat|<table|<row|<cell|<value|uu><rsub|\<alpha\>><rsup|\<ast\>\<pm\>>>|<cell|=>|<cell|<vV><rsub|\<alpha\>><rsup|\<top\>><around*|(|<value|vus>\<pm\><value|vus><rsup|<around|(|1|)>>|)>>>|<row|<cell|<value|uu><rsub|\<alpha\>><rsup|\<ast\>\<pm\>2>>|<cell|=>|<cell|<vV><rsub|\<alpha\>><rsup|\<top\>><around*|(|<value|vus>\<pm\>2*<value|vus><rsup|<around|(|1|)>>|)>>>|<row|<cell|<value|pf><rsup|\<ast\><around|(|1|)>><rsub|\<alpha\>>>|<cell|=>|<cell|<frac|1|12>*<around*|[|-<value|pf><around*|(|<value|uu><rsup|\<ast\>+2><rsub|\<alpha\>>|)>+8*<value|pf><around*|(|<value|uu><rsup|\<ast\>+><rsub|\<alpha\>>|)>-8*<value|pf><around*|(|<value|uu><rsup|\<ast\>-><rsub|\<alpha\>>|)>+<value|pf><around*|(|<value|uu><rsup|\<ast\>-2><rsub|\<alpha\>>|)>|]>>>|<row|<cell|<value|F2><rsub|\<alpha\>>>|<cell|=>|<cell|<value|pf><around|(|<value|uu><rsub|\<alpha\>>|)>+<frac|1|6>*<around*|(|<value|pf><rsup|<around|(|1|)>><rsub|\<alpha\>>+2*<value|pf><rsup|\<ast\><around*|(|1|)>><rsub|\<alpha\>>|)>>>>>
   </eqnarray*>
 
   <\remark>
@@ -366,31 +369,28 @@
   same finite difference formulae for the time derivatives of the flux which
   are used at the solution points, are also used at the faces. The numerical
   flux is computed using the time average flux built as above at the faces;
-  the central part of the flux <math|<value|F><rsub|<eph>><rsup|\<pm\>>> in
-  equations<nbsp><eqref|eq:mdrk.nfdiss1>,<nbsp><eqref|eq:mdrk.nfdiss2> are
+  the central parts of the fluxes <math|<value|F1pm><rsub|<value|eph>>,<value|F2pm><rsub|<value|eph>>>
+  in equations<nbsp><eqref|eq:mdrk.nfdiss1>,<nbsp><eqref|eq:mdrk.nfdiss2> are
   computed as
 
   <\equation*>
-    <value|F><rsub|<eph>><rsup|->=<around|(|<value|F><rsub|R>|)><rsub|e>,<space|2em><value|F><rsub|<eph>><rsup|+>=<around|(|<value|F><rsub|L>|)><rsub|e+1>
+    <tabular*|<tformat|<table|<row|<cell|<value|F1m><rsub|<value|eph>>=<around|(|<value|F1><rsub|R>|)><rsub|e>,<space|2em><value|F1p><rsub|<value|eph>>=<around|(|<value|F1><rsub|L>|)><rsub|e+1>>>|<row|<cell|<value|F2m><rsub|<value|eph>>=<around*|(|<value|F2><rsub|R>|)><rsub|e>,<space|2em><value|F2p><rsub|<value|eph>>=<around*|(|<value|F2><rsub|R>|)><rsub|e+1>>>>>>
   </equation*>
 
-  We will refer to this method with the abbreviation <evaluate>. The
-  dissipative part of the flux is computed using either the solution at time
-  <math|t<rsub|n>> or the time average solution, which are extrapolated to
-  the faces, leading to the D1 and D2 models, respectively.
+  We will refer to this method with the abbreviation <evaluate>.
 
   <section|Fourier stability analysis><label|sec:mdrk.fourier>
 
   We now perform Fourier stability analysis of the MDRK scheme applied to the
-  linear advection equation <math|u<rsub|t>+a*u<rsub|x>=0> where <math|a> is
-  the constant advection speed. We will assume that the advection speed
+  linear advection equation, <math|u<rsub|t>+a*u<rsub|x>=0>, where <math|a>
+  is the constant advection speed. We will assume that the advection speed
   <math|a> is positive and denote the CFL number by
 
   <\equation*>
     \<sigma\>=<frac|a*\<Delta\>t|\<Delta\>x>
   </equation*>
 
-  We will perform the CFL stability analysis for the MDRK scheme with D2
+  We will perform the stability analysis for the MDRK scheme with D2
   dissipation flux<nbsp><eqref|eq:mdrk.nfdiss2> and thus will like to write
   the two stage scheme as
 
@@ -407,55 +407,55 @@
   We will try to write the first stage as
 
   <\equation>
-    <vu><rsub|e><rsup|\<ast\>>=-\<sigma\>*<vA><rsup|\<ast\>><rsub|-1>*<vu><rsub|e-1><rsup|n>+<around*|(|1-\<sigma\>*<vA><rsub|0><rsup|\<ast\>>|)>*<vu><rsub|e><rsup|n>-\<sigma\>*<vA><rsub|+1><rsup|\<ast\>>*<vu><rsub|e+1><rsup|n><label|eq:mdrk.A0A1.matrices>
+    <vu><rsub|e><rsup|\<ast\>>=-\<sigma\>*<value|vA1><rsub|-1>*<vu><rsub|e-1><rsup|n>+<around*|(|1-\<sigma\>*<value|vA1><rsub|0>|)>*<vu><rsub|e><rsup|n>-\<sigma\>*<value|vA1><rsub|+1>*<vu><rsub|e+1><rsup|n><label|eq:mdrk.A0A1.matrices>
   </equation>
 
-  Since <math|f<rsub|t>=a*u<rsub|t>>, the time average flux for first stage
-  at all solution points is given by
+  Since <math|f<rsub|t>=a*u<rsub|t>>, the time average flux for the first
+  stage at all solution points is given by
 
   <\equation*>
-    <vF><rsub|e><rsup|\<ast\>>=a*<vU><rsub|e><rsup|\<ast\>><space|1em>where<space|1em><vU><rsub|e><rsup|\<ast\>>=<vT><rsup|\<ast\>>*<vu><rsub|e><space|1em>and<space|1em><vT><rsup|\<ast\>>=<vI>-<frac|\<sigma\>|4>*<vD>
+    <value|vF1><rsub|e>=a*<value|vU1><rsub|e><space|1em>where<space|1em><value|vU1><rsub|e>=<value|vT1>*<vu><rsub|e><space|1em>and<space|1em><value|vT1>=<vI>-<frac|\<sigma\>|4>*<vD>
   </equation*>
 
-  The extrapolation to the cell boundaries are given by
+  The extrapolations to the cell boundaries are given by
 
   <\equation*>
-    F<rsub|h><rsup|\<ast\>,\<delta\>><around|(|x<rsub|<value|emh>><rsup|+>|)>=<vV><rsub|L><rsup|T>*<vF><rsub|e><rsup|\<ast\>>,<space|2em>F<rsub|h><rsup|\<ast\>,\<delta\>><around|(|x<rsub|<value|eph>><rsup|+>|)>=<vV><rsub|R><rsup|T>*<vF><rsub|e><rsup|\<ast\>>
+    <value|sF1><rsup|\<delta\>><rsub|h><around|(|x<rsub|<value|emh>><rsup|+>|)>=<vV><rsub|L><rsup|T>*<value|vF1><rsub|e>,<space|2em><value|sF1><rsup|\<delta\>><rsub|h><around|(|x<rsub|<value|eph>><rsup|+>|)>=<vV><rsub|R><rsup|T>*<value|vF1><rsub|e>
   </equation*>
 
   The D2 dissipation numerical flux is given by
 
   <\equation*>
-    <vF><rsub|<value|eph>><rsup|\<ast\>>=<vV><rsub|R><rsup|T>*<vF><rsub|e><rsup|\<ast\>>=a*<vV><rsub|R><rsup|T>*<vT><rsup|\<ast\>>*<vu><rsub|e>
+    <value|vF1><rsub|<value|eph>>=<vV><rsub|R><rsup|T>*<value|vF1><rsub|e>=a*<vV><rsub|R><rsup|T>*<value|vT1>*<vu><rsub|e>
   </equation*>
 
   and the flux differences at the face as
 
   <\equation*>
-    F<rsub|<value|emh>><rsup|\<ast\>>-F<rsub|h><rsup|\<ast\>,\<delta\>><around|(|x<rsub|<value|emh>><rsup|->|)>=a*<vV><rsub|R><rsup|T>**<vu><rsub|e-1>-a*<vV><rsub|L><rsup|T>*<vT><rsup|\<ast\>>*<vu><rsub|e>,<space|2em>F<rsub|<value|eph>><rsup|\<ast\>>-F<rsub|h><rsup|\<ast\>,\<delta\>><around|(|x<rsub|<value|eph>><rsup|->|)>=0
+    <value|sF1><rsub|<value|emh>>-<value|sF1><rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|emh>><rsup|+>|)>=a*<vV><rsub|R><rsup|T>**<vu><rsub|e-1>-a*<vV><rsub|L><rsup|T>*<value|vT1>*<vu><rsub|e>,<space|2em><value|sF1><rsub|<value|eph>>-<value|sF1><rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|eph>><rsup|->|)>=0
   </equation*>
 
   so that the flux derivative at the solution points is given by
 
   <\equation*>
-    \<partial\><rsub|\<xi\>>*<vF><rsub|h><rsup|\<ast\>>=<vb><rsub|L>*<around*|(|a*<vV><rsub|R><rsup|T>*<vT><rsup|\<ast\>>*<vu><rsub|e-1>-a*<vV><rsub|L><rsup|T>*<vT><rsup|\<ast\>>*<vu><rsub|e>|)>+a*<vD>*<vT><rsup|\<ast\>>*<vu><rsub|e>=a*<vb><rsub|L>*<vV><rsub|R><rsup|T>*<vT><rsup|\<ast\>>*<vu><rsub|e-1>+a*<around*|(|<vD>*<vT><rsup|\<ast\>>-<vb><rsub|L>*<vV><rsub|L><rsup|T>*<vT><rsup|\<ast\>>|)>*<vu><rsub|e>
+    <tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|\<partial\><rsub|\<xi\>>*<value|vF1><rsub|h><rsup|>>|<cell|=>|<cell|<vb><rsub|L>*<around*|(|a<vV><rsub|R><rsup|T>*<value|vT1>*<vu><rsub|e-1>-a<vV><rsub|L><rsup|T>*<value|vT1>*<vu><rsub|e>|)>+a*<vD>*<value|vT1>*<vu><rsub|e>>>|<row|<cell|>|<cell|=>|<cell|a*<vb><rsub|L>*<vV><rsub|R><rsup|T>*<value|vT1>*<vu><rsub|e-1>+a*<around*|(|<vD>*<value|vT1>-<vb><rsub|L>*<vV><rsub|L><rsup|T>*<value|vT1>|)>*<vu><rsub|e>>>>>>
   </equation*>
 
   Since the evolution to <math|<vu><rsup|\<ast\>>> is given by
 
   <\equation>
-    <vu><rsup|\<ast\>>=<vu><rsup|n>-<frac|\<mathLaplace\>t/2|\<mathLaplace\>x<rsub|e>>*\<partial\><rsub|\<xi\>>*<vF><rsub|h><rsup|\<ast\>><label|eq:mdrk.us.fourier>
+    <vu><rsup|\<ast\>>=<vu><rsup|n>-<frac|\<mathLaplace\>t/2|\<mathLaplace\>x<rsub|e>>*\<partial\><rsub|\<xi\>>*<value|vF1><rsub|h><label|eq:mdrk.us.fourier>
   </equation>
 
   the matrices in<nbsp><eqref|eq:mdrk.A0A1.matrices> are given by
 
   <\equation>
-    <vA><rsub|-1><rsup|\<ast\>>=<frac|1|2>*<vb><rsub|L>*<vV><rsub|R><rsup|T>*<vT><rsup|\<ast\>>,<space|2em><vA><rsub|0><rsup|\<ast\>>=<frac|1|2>*<around*|(|<vD>*<vT><rsup|\<ast\>>-<vb><rsub|L>*<vV><rsub|L><rsup|T>*<vT><rsup|\<ast\>>|)>,<space|2em><vA><rsub|+1><rsup|\<ast\>>=0<label|eq:mdrk.A.star.defn>
+    <value|vA1><rsub|-1>=<frac|1|2>*<vb><rsub|L>*<vV><rsub|R><rsup|T>*<value|vT1>,<space|2em><value|vA1><rsub|0>=<frac|1|2>*<around*|(|<vD>*<value|vT1>-<vb><rsub|L>*<vV><rsub|L><rsup|T>*<value|vT1>|)>,<space|2em><value|vA1><rsub|+1>=0<label|eq:mdrk.A.star.defn>
   </equation>
 
   The upwind character of the D2 dissipation flux leads to
-  <math|<vA><rsub|+1><rsup|\<ast\>>=0> and the right cell does not appear in
-  the update equation.
+  <math|<value|vA1><rsub|+1>=0> and the right cell does not appear in the
+  update equation.
 
   <subsection|Stage 2>
 
@@ -463,56 +463,56 @@
   used to obtain <math|<vu><rsup|n+1>>. In this case,
 
   <\equation*>
-    <vF><rsup|2><rsub|e>=a*<vU><rsub|e><rsup|2>,<space|2em><vU><rsub|e><rsup|2>=<vu><rsub|e><rsup|n>-<frac|1|6>*\<sigma\>*<vD>*<vu><rsub|e><rsup|n>-<frac|1|3>*\<sigma\>*<vD>*<vu><rsub|e><rsup|\<ast\>>=<vT><rsup|2>*<vu><rsub|e><rsup|n>+<vT><rsup|2,\<ast\>>*<vu><rsub|e><rsup|\<ast\>>
+    <value|vF2><rsub|e>=a*<value|vU2><rsub|e>,<space|2em><value|vU2><rsub|e>=<vu><rsub|e><rsup|n>-<frac|1|6>*\<sigma\>*<vD>*<vu><rsub|e><rsup|n>-<frac|1|3>*\<sigma\>*<vD>*<vu><rsub|e><rsup|\<ast\>>=<value|vT2>*<vu><rsub|e><rsup|n>+<value|vT2s>*<vu><rsub|e><rsup|\<ast\>>
   </equation*>
 
   where
 
   <\equation*>
-    <vT><rsup|2>=<vI>-<frac|1|6>*\<sigma\>*<vD>,<space|2em><vT><rsup|2,\<ast\>>=-<frac|1|3>*\<sigma\>*<vD>
+    <value|vT2>=<vI>-<frac|1|6>*\<sigma\>*<vD>,<space|2em><value|vT2s>=-<frac|1|3>*\<sigma\>*<vD>
   </equation*>
 
   The numerical fluxes are given by
 
   <\equation*>
-    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<cwith|5|5|3|3|cell-halign|l>|<cwith|4|4|3|3|cell-halign|l>|<cwith|2|2|1|1|cell-halign|r>|<cwith|3|3|1|1|cell-halign|r>|<cwith|4|4|1|1|cell-halign|r>|<table|<row|<cell|<vF><rsub|<eph>>>|<cell|=>|<cell|<frac|1|2>*<around*|[|<vV><rsub|R><rsup|T>*<vF><rsub|e><rsup|2>+<vV><rsub|L><rsup|T>*<vF><rsub|e+1><rsup|2>|]>-<frac|1|2>*a*<around*|(|<vV><rsub|L><rsup|T>*<vU><rsup|2><rsub|e+1>-<vV><rsub|R><rsup|T>*<vU><rsup|2><rsub|e>|)>>>|<row|<cell|>|<cell|=>|<cell|<frac|1|2>*a*<around*|[|<vV><rsub|R><rsup|T>*<vU><rsup|2><rsub|e>+<vV><rsub|L><rsup|T>*<vU><rsup|2><rsub|e+1>|]>-<frac|1|2>*a*<around*|(|<vV><rsub|L><rsup|T>*<vU><rsup|2><rsub|e+1>-<vV><rsub|R><rsup|T>*<vU><rsup|2><rsub|e>|)>>>|<row|<cell|>|<cell|=>|<cell|a*<vV><rsub|R><rsup|T>*<vU><rsub|e><rsup|2>>>|<row|<cell|>|<cell|>|<cell|>>|<row|<cell|<vF><rsub|<value|emh>>>|<cell|=>|<cell|a*<vV><rsub|R><rsup|T>*<vU><rsub|e-1><rsup|2>>>>>>
+    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<cwith|5|5|3|3|cell-halign|l>|<cwith|4|4|3|3|cell-halign|l>|<cwith|2|2|1|1|cell-halign|r>|<cwith|3|3|1|1|cell-halign|r>|<cwith|4|4|1|1|cell-halign|r>|<table|<row|<cell|<value|vF2><rsub|<eph>>>|<cell|=>|<cell|<value|half>*<around*|[|<vV><rsub|R><rsup|T>*<value|vF2><rsub|e>+<vV><rsub|L><rsup|T>*<value|vF2><rsub|e+1>|]>-<value|half>*a*<around*|(|<vV><rsub|L><rsup|T>*<value|vU2><rsub|e+1>-<vV><rsub|R><rsup|T>*<value|vU2><rsub|e>|)>>>|<row|<cell|>|<cell|=>|<cell|<value|half>*a*<around*|[|<vV><rsub|R><rsup|T>*<value|vU2><rsub|e>+<vV><rsub|L><rsup|T>*<value|vU2><rsub|e+1>|]>-<value|half>*a*<around*|(|<vV><rsub|L><rsup|T>*<value|vU2><rsub|e+1>-<vV><rsub|R><rsup|T>*<value|vU2><rsub|e>|)>>>|<row|<cell|>|<cell|=>|<cell|a*<vV><rsub|R><rsup|T>*<value|vU2><rsub|e>>>|<row|<cell|>|<cell|>|<cell|>>|<row|<cell|<value|vF2><rsub|<value|emh>>>|<cell|=>|<cell|a*<vV><rsub|R><rsup|T>*<value|vU2><rsub|e-1>>>>>>
   </equation*>
 
   and the face extrapolations are
 
   <\equation*>
-    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<table|<row|<cell|F<rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|eph>><rsup|->|)>>|<cell|=>|<cell|<vV><rsub|R><rsup|T>*<vF><rsub|e><rsup|2>>|<cell|=>|<cell|a*<vV><rsub|R><rsup|T>*<vU><rsub|e><rsup|2>>>|<row|<cell|F<rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|emh>><rsup|+>|)>>|<cell|=>|<cell|<vV><rsub|L><rsup|T>*<vF><rsub|e><rsup|2>>|<cell|=>|<cell|a*<vV><rsub|L><rsup|T>*<vU><rsub|e><rsup|2>>>>>>
+    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<table|<row|<cell|<sF2><rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|eph>><rsup|->|)>>|<cell|=>|<cell|<vV><rsub|R><rsup|T>*<value|vF2><rsub|e>>|<cell|=>|<cell|a*<vV><rsub|R><rsup|T>*<value|vU2><rsub|e>>>|<row|<cell|<sF2><rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|emh>><rsup|+>|)>>|<cell|=>|<cell|<vV><rsub|L><rsup|T>*<value|vF2><rsub|e>>|<cell|=>|<cell|a*<vV><rsub|L><rsup|T>*<value|vU2><rsub|e>>>>>>
   </equation*>
 
   Thus, the flux difference at the faces is
 
   <\equation>
-    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|F<rsub|<value|eph>>-F<rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|eph>><rsup|->|)>>|<cell|=>|<cell|0>>|<row|<cell|F<rsub|<emh>>-F<rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|emh>><rsup|+>|)>>|<cell|=>|<cell|a*<around*|(|<vV><rsub|R><rsup|T>*<vU><rsub|e-1><rsup|2>-<vV><rsub|L><rsup|T>*<vU><rsub|e><rsup|2>|)>>>>>>
+    <tabular*|<tformat|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<value|sF2><rsub|<value|eph>>-<sF2><rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|eph>><rsup|->|)>>|<cell|=>|<cell|0>>|<row|<cell|<value|sF2><rsub|<emh>>-<sF2><rsub|h><rsup|\<delta\>><around|(|x<rsub|<value|emh>><rsup|+>|)>>|<cell|=>|<cell|a*<around*|(|<vV><rsub|R><rsup|T>*<value|vU2><rsub|e-1>-<vV><rsub|L><rsup|T>*<value|vU2><rsub|e>|)>>>>>>
   </equation>
 
   the flux derivative at the solution points is given by
 
   <\equation>
-    <tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|\<partial\><rsub|\<xi\>>*<vF><rsub|h>>|<cell|=>|<cell|a*<vD>*<vU><rsup|2><rsub|e>+a*<vb><rsub|L>*<around*|(|<vV><rsub|R><rsup|T>*<vU><rsub|e-1><rsup|2>-<vV><rsub|L><rsup|T>*<vU><rsub|e><rsup|2>|)>>>|<row|<cell|>|<cell|=>|<cell|a*<vb><rsub|L>*<vV><rsub|R><rsup|T>*<vU><rsub|e-1><rsup|2>+a*<around*|(|<vD>-<vb><rsub|L>*<vV><rsub|L><rsup|T>|)>*<vU><rsup|2><rsub|e>>>>>>
+    <tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|\<partial\><rsub|\<xi\>>*<value|vF2><rsub|h>>|<cell|=>|<cell|a*<vD>*<value|vU2><rsub|e>+a*<vb><rsub|L>*<around*|(|<vV><rsub|R><rsup|T>*<value|vU2><rsub|e-1>-<vV><rsub|L><rsup|T>*<value|vU2><rsub|e>|)>>>|<row|<cell|>|<cell|=>|<cell|a*<vb><rsub|L>*<vV><rsub|R><rsup|T>*<value|vU2><rsub|e-1>+a*<around*|(|<vD>-<vb><rsub|L>*<vV><rsub|L><rsup|T>|)>*<value|vU2><rsub|e>>>>>>
   </equation>
 
-  We now expand <math|<vU><rsub|e><rsup|2>> in terms of
-  <math|<vu><rsub|e><rsup|n>> as follows
+  We now expand <value|vU2><rsub|e> in terms of <math|<vu><rsub|e><rsup|n>>
+  as follows
 
   <\equation*>
-    <vU><rsub|e><rsup|2>=<vT><rsup|2>*<vu><rsub|e><rsup|n>+<vT><rsup|2,\<ast\>>*<vu><rsub|e><rsup|\<ast\>>
+    <vU><rsub|e><rsup|2>=<value|vT2>*<vu><rsub|e><rsup|n>+<value|vT2s>*<vu><rsub|e><rsup|\<ast\>>
   </equation*>
 
   where
 
   <\equation*>
-    <vT><rsup|2>=<vI>-<frac|1|6>*\<sigma\>*<vD>,<space|2em><vT><rsup|2,\<ast\>>=-<frac|1|3>*\<sigma\>*<vD>
+    <value|vT2>=<vI>-<frac|1|6>*\<sigma\>*<vD>,<space|2em><value|vT2s>=-<frac|1|3>*\<sigma\>*<vD>
   </equation*>
 
   Thus, by
 
   <\equation*>
-    <vu><rsup|n+1>=<vu><rsup|n>-<frac|\<mathLaplace\>t/2|\<mathLaplace\>x<rsub|e>>*\<partial\><rsub|\<xi\>>*<vF><rsub|h>
+    <vu><rsup|n+1>=<vu><rsup|n>-<frac|\<mathLaplace\>t|\<mathLaplace\>x<rsub|e>>*\<partial\><rsub|\<xi\>>*<value|vF2><rsub|h>
   </equation*>
 
   and also expanding <math|<vu><rsup|\<ast\>>>
@@ -520,10 +520,10 @@
   in<nbsp><eqref|eq:mdrk.2stage.update.eqn> are given by
 
   <\equation*>
-    <tabular*|<tformat|<cwith|4|4|1|1|cell-halign|l>|<cwith|3|3|1|1|cell-halign|r>|<cwith|2|2|1|1|cell-halign|r>|<cwith|1|1|1|1|cell-halign|r>|<cwith|4|4|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<vA><rsub|-2>>|<cell|=>|<cell|-<vb><rsub|L>*<vV><rsub|R><rsup|T>*<vT><rsup|2,\<ast\>>*<vA><rsup|\<ast\>><rsub|-1>>>|<row|<cell|<vA><rsub|-1>>|<cell|=>|<cell|<vb><rsub|L>*<vV><rsub|R><rsup|T>*<around*|(|<vT><rsup|2>+<vT><rsup|2,\<ast\>>*<around*|(|1-\<sigma\>*<vA><rsub|0><rsup|\<ast\>>|)>|)>-\<sigma\>*<around*|(|*<vD>-<vb><rsub|L>*<vV><rsub|L><rsup|T>|)>*<vT><rsup|2,\<ast\>>*<vA><rsup|\<ast\>><rsub|-1>>>|<row|<cell|<vA><rsub|0>>|<cell|=>|<cell|-<around*|(|<vD>-<vb><rsub|L>*<vV><rsub|L><rsup|T>|)>*<around*|(|<vT><rsup|2>+<vT><rsup|2,\<ast\>>*<around*|(|1-\<sigma\>*<vA><rsub|0><rsup|\<ast\>>|)>|)>>>|<row|<cell|<vA><rsub|+1>=<vA><rsub|+2>>|<cell|=>|<cell|0>>>>>
+    <tabular*|<tformat|<cwith|4|4|1|1|cell-halign|l>|<cwith|3|3|1|1|cell-halign|r>|<cwith|2|2|1|1|cell-halign|r>|<cwith|1|1|1|1|cell-halign|r>|<cwith|4|4|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<vA><rsub|-2>>|<cell|=>|<cell|-<vb><rsub|L>*<vV><rsub|R><rsup|T>*<value|vT2s>*<value|vA1><rsub|-1>>>|<row|<cell|<vA><rsub|-1>>|<cell|=>|<cell|<vb><rsub|L>*<vV><rsub|R><rsup|T>*<around*|(|<value|vT2>+<value|vT2s>*<around*|(|1-\<sigma\>*<value|vA1><rsub|0>|)>|)>-\<sigma\>*<around*|(|*<vD>-<vb><rsub|L>*<vV><rsub|L><rsup|T>|)>*<vT><rsup|<around*|(|2,\<ast\>|)>>*<value|vA1><rsub|-1>>>|<row|<cell|<vA><rsub|0>>|<cell|=>|<cell|-<around*|(|<vD>-<vb><rsub|L>*<vV><rsub|L><rsup|T>|)>*<around*|(|<value|vT2>+<value|vT2s>*<around*|(|<vI>-\<sigma\>*<value|vA1><rsub|0>|)>|)>>>|<row|<cell|<vA><rsub|+1>=<vA><rsub|+2>>|<cell|=>|<cell|0>>>>>
   </equation*>
 
-  where <math|<vA><rsub|i><rsup|\<ast\>>> are defined
+  where <math|<value|vA1><rsub|i>> are defined
   in<nbsp><eqref|eq:mdrk.A.star.defn>. The upwind character of D2 flux is the
   reason why we have <math|<vA><rsub|+1>=<vA><rsub|+2>=0>.
 
@@ -535,13 +535,19 @@
   equation<nbsp><eqref|eq:mdrk.2stage.update.eqn>, we get
 
   <\equation*>
-    <tabular*|<tformat|<table|<row|<cell|<wide|<vu>|^><rsub|k><rsup|n+1>=H<around*|(|\<sigma\>,k|)>*<wide|<vu>|^><rsub|k><rsup|n>>>|<row|<cell|<vH>=-\<sigma\><rsup|2>*<vA><rsub|-2>*exp<around*|(|-2*i*\<kappa\>|)>-\<sigma\>*<vA><rsub|-1>exp<around*|(|-i*\<kappa\>|)>+<vI>-\<sigma\>*<vA><rsub|0>-\<sigma\>*<vA><rsub|+1>exp<around*|(|i*\<kappa\>|)>-\<sigma\><rsup|2>*<vA><rsub|+2>*exp<around*|(|2*i*\<kappa\>|)>>>>>>
+    <wide|<vu>|^><rsub|k><rsup|n+1>=H<around*|(|\<sigma\>,k|)>*<wide|<vu>|^><rsub|k><rsup|n>
   </equation*>
 
-  where <math|\<kappa\>=k*\<mathLaplace\>x> is the non-dimensional wave
-  number. The explicit expression of <math|<vH>> is then used to numerically
-  compute the CFL number as in Section<nbsp><reference|sec:four1d>. The
-  results of this numerical investigation of stability are shown in
+  where
+
+  <\equation*>
+    <vH>=-\<sigma\><rsup|2>*<vA><rsub|-2>*exp<around*|(|-2*i*\<kappa\>|)>-\<sigma\>*<vA><rsub|-1>exp<around*|(|-i*\<kappa\>|)>+<vI>-\<sigma\>*<vA><rsub|0>-\<sigma\>*<vA><rsub|+1>exp<around*|(|i*\<kappa\>|)>-\<sigma\><rsup|2>*<vA><rsub|+2>*exp<around*|(|2*i*\<kappa\>|)>
+  </equation*>
+
+  and <math|\<kappa\>=k*\<mathLaplace\>x> is the non-dimensional wave number.
+  The explicit expression of <math|<vH>> is then used to numerically compute
+  the CFL number as in Section<nbsp><reference|sec:four1d>. The results of
+  this numerical investigation of stability are shown in
   Table<nbsp><reference|tab:mdrk.cfl> for two correction functions with
   polynomial degree <math|N=3>. The comparison is made with CFL numbers of
   MDRK-D1<nbsp><eqref|eq:mdrk.nfdiss1> which are experimentally obtained from
@@ -549,15 +555,17 @@
   i.e., using time step size that is slightly larger than these numbers
   causes the solution to blow up.
 
-  <big-table|<center|<block|<tformat|<cwith|2|2|2|2|cell-halign|c>|<cwith|3|3|2|2|cell-halign|c>|<cwith|3|3|3|3|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|2|2|4|4|cell-halign|c>|<cwith|3|3|4|4|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|1|1|4|4|cell-halign|c>|<cwith|1|1|3|3|cell-halign|c>|<table|<row|<cell|Correction>|<cell|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|D1>>|<row|<cell|<around*|(|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<table|<row|<cell|Experimentally>>|<row|<cell|obtained>>>>>|)>>>>>>>|<cell|D2>|<cell|<math|<frac|<text|D2>|<text|D1>>>>>|<row|<cell|Radau>|<cell|\<approx\>0.09>|<cell|0.107>|<cell|1.19>>|<row|<cell|<math|<value|g2>>>|<cell|\<approx\>0.16>|<cell|0.224>|<cell|1.4>>>>>>|<caption-detailed|CFL
+  <big-table|<center|<block|<tformat|<cwith|2|2|2|2|cell-halign|c>|<cwith|3|3|2|2|cell-halign|c>|<cwith|3|3|3|3|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|2|2|4|4|cell-halign|c>|<cwith|3|3|4|4|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|1|1|4|4|cell-halign|c>|<cwith|1|1|3|3|cell-halign|c>|<cwith|2|2|5|5|cell-halign|c>|<cwith|3|3|5|5|cell-halign|c>|<cwith|2|2|6|6|cell-halign|c>|<cwith|3|3|6|6|cell-halign|c>|<table|<row|<cell|Correction>|<cell|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|D1>>|<row|<cell|<around*|(|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<table|<row|<cell|Experimentally>>|<row|<cell|obtained>>>>>|)>>>>>>>|<cell|D2>|<cell|<math|<frac|<text|D2>|<text|D1>>>>|<cell|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<table|<row|<cell|LW-D2>>|<row|<cell|(<math|N=3>)>>>>>>|<cell|<frac|MDRK-D2|LW-D2>>>|<row|<cell|Radau>|<cell|\<approx\>0.09>|<cell|0.107>|<cell|1.19>|<cell|0.103>|<cell|1.04>>|<row|<cell|<math|<value|g2>>>|<cell|\<approx\>0.16>|<cell|0.224>|<cell|1.4>|<cell|0.170>|<cell|1.31>>>>>>|<caption-detailed|CFL
   numbers for MDRK scheme with Radau and <math|<value|g2>> correction
   functions.|CFL numbers for MDRK scheme.><label|tab:mdrk.cfl>>
 
   We see that dissipation model D2 has a higher CFL number compared to
   dissipation model D1. The CFL numbers for the <math|g<rsub|2>> correction
   function are also significantly higher than those for the Radau correction
-  function. The optimality of these CFL numbers has been verified by
-  experiment on the linear advection test
+  function. The MDRK scheme also has higher CFL numbers than the single stage
+  LW method for degree <math|N=3>, which is especially true with the
+  <math|<value|g2>> correction function. The optimality of these CFL numbers
+  has been verified by experiment on the linear advection test
   case<nbsp>(Section<nbsp><reference|sec:mdrk.cla>), i.e., the solution
   eventually blows up if the time step is slightly higher than what is
   allowed by the CFL condition.
@@ -574,20 +582,20 @@
   Let us write the MDRK update equation<nbsp><eqref|eq:mdrk.uplwfr>
 
   <\equation>
-    <vu><rsup|H,\<ast\>><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<vR><rsup|\<ast\>,H><rsub|e>,<space|2em><vu><rsup|H,n+1><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<vR><rsup|H><rsub|e><label|eq:mdrk.ho.method>
+    <vu><rsup|H,\<ast\>><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<vR><rsup|H><rsub|e>,<space|2em><vu><rsup|H,n+1><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<vR><rsup|\<ast\>,H><rsub|e><label|eq:mdrk.ho.method>
   </equation>
 
   where <math|<vu><rsub|e>> is the vector of nodal values in the element. We
   use the lower order schemes as
 
   <\equation>
-    <label|eq:mdrk.lo.method><vu><rsup|L,\<ast\>><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<vR><rsup|\<ast\>,L><rsub|e>,<space|2em><vu><rsup|L,n+1><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<vR><rsup|L><rsub|e>
+    <label|eq:mdrk.lo.method><vu><rsup|L,\<ast\>><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<vR><rsup|L><rsub|e>,<space|2em><vu><rsup|L,n+1><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<vR><rsup|\<ast\>,L><rsub|e>
   </equation>
 
   Then the two-stage blended scheme is given by
 
   <\equation>
-    <tabular*|<tformat|<cwith|1|1|1|1|cell-halign|r>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<vu><rsup|\<ast\>><rsub|e>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<vu><rsup|H,\<ast\>><rsub|e>+\<alpha\><rsub|e>*<vu><rsup|L,\<ast\>><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|[|<around|(|1-\<alpha\><rsub|e>|)>*<vR><rsup|\<ast\>,H><rsub|e>+\<alpha\><rsub|e>*<vR><rsup|\<ast\>,L><rsub|e>|]>>>|<row|<cell|<vu><rsup|n+1><rsub|e>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<vu><rsup|H,n+1><rsub|e>+\<alpha\><rsub|e>*<vu><rsup|L,n+1><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<around|[|<around|(|1-\<alpha\><rsub|e>|)>*<vR><rsup|n+1,H><rsub|e>+\<alpha\><rsub|e>*<vR><rsup|n+1,L><rsub|e>|]>>>>>><label|eq:mdrk.blended.scheme>
+    <tabular*|<tformat|<cwith|1|1|1|1|cell-halign|r>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<vu><rsup|\<ast\>><rsub|e>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<vu><rsup|H,\<ast\>><rsub|e>+\<alpha\><rsub|e>*<vu><rsup|L,\<ast\>><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|[|<around|(|1-\<alpha\><rsub|e>|)>*<vR><rsup|H><rsub|e>+\<alpha\><rsub|e>*<vR><rsup|L><rsub|e>|]>>>|<row|<cell|<vu><rsup|n+1><rsub|e>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<vu><rsup|H,n+1><rsub|e>+\<alpha\><rsub|e>*<vu><rsup|L,n+1><rsub|e>=<vu><rsup|n><rsub|e>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<around|[|<around|(|1-\<alpha\><rsub|e>|)>*<vR><rsup|\<ast\>,H><rsub|e>+\<alpha\><rsub|e>*<vR><rsup|\<ast\>,L><rsub|e>|]>>>>>><label|eq:mdrk.blended.scheme>
   </equation>
 
   where <math|\<alpha\><rsub|e>\<in\><around|[|0,1|]>> must be chosen based
@@ -603,10 +611,10 @@
   Section<nbsp><reference|sec:blending.scheme>. However, there is one thing
   that we would like to clarify in the structure of the lower order
   method<nbsp><eqref|eq:mdrk.lo.method>. In the first stage, the lower order
-  residual <math|<vR><rsup|\<ast\>,L><rsub|e>> performs evolution from time
+  residual <math|<vR><rsup|L><rsub|e>> performs evolution from time
   <math|t<rsup|n>> to <math|t<rsup|<value|nph>>> while, in the second stage,
-  <math|<vR><rsup|L><rsub|e>> performs evolution from <math|t<rsup|n>> to
-  <math|t<rsup|n+1>>. Intuition may suggest evolving from
+  <math|<vR><rsup|\<ast\>,L><rsub|e>> performs evolution from
+  <math|t<rsup|n>> to <math|t<rsup|n+1>>. Intuition may suggest evolving from
   <math|t<rsup|<value|nph>>> to <math|t<rsup|n+1>> in the next stage, but
   that will violate the conservation property because of the expression of
   second stage of MDRK<nbsp>(<reference|eq:mdrk.mdrk.second.stage>,<nbsp><reference|eq:mdrk.ho.method>).
@@ -621,19 +629,19 @@
   solution in each of the subcells by a finite volume scheme,
 
   <\equation>
-    <tabular|<tformat|<table|<row|<cell|<value|uez><rsup|L,\<ast\>>>|<cell|=>|<cell|<value|uez><rsup|n>-<frac|\<Delta\>t/2|w<rsub|0>*\<Delta\>x<rsub|e>>*<around|[|<value|pf><rsub|<half>><rsup|e>-<value|F><rsub|<emh>><rsup|\<ast\>>|]>>>|<row|<cell|<value|uep><rsup|L,\<ast\>>>|<cell|=>|<cell|<value|uep><rsup|n>-<frac|\<Delta\>t/2|w<rsub|p>*\<Delta\>x<rsub|e>>*<around|[|<value|pf><rsub|<value|pph>><rsup|e>-<value|pf><rsub|<value|pmh>><rsup|e>|]>,<space|2em>1\<le\>p\<le\>N-1>>|<row|<cell|<value|ueN><rsup|L,\<ast\>>>|<cell|=>|<cell|<value|ueN><rsup|n>-<frac|\<Delta\>t/2|w<rsub|N>*\<Delta\>x<rsub|e>>*<around|[|<value|F><rsub|<eph>><rsup|\<ast\>>-<value|pf><rsub|<Nmh>><rsup|e>|]>>>>>><label|eq:mdrk.low.order.update>
+    <tabular|<tformat|<table|<row|<cell|<value|uez><rsup|L,\<ast\>>>|<cell|=>|<cell|<value|uez><rsup|n>-<frac|\<Delta\>t/2|w<rsub|0>*\<Delta\>x<rsub|e>>*<around|[|<value|pf><rsub|<half>><rsup|e>-<value|F1><rsub|<value|emh>>|]>>>|<row|<cell|<value|uep><rsup|L,\<ast\>>>|<cell|=>|<cell|<value|uep><rsup|n>-<frac|\<Delta\>t/2|w<rsub|p>*\<Delta\>x<rsub|e>>*<around|[|<value|pf><rsub|<value|pph>><rsup|e>-<value|pf><rsub|<value|pmh>><rsup|e>|]>,<space|2em>1\<le\>p\<le\>N-1>>|<row|<cell|<value|ueN><rsup|L,\<ast\>>>|<cell|=>|<cell|<value|ueN><rsup|n>-<frac|\<Delta\>t/2|w<rsub|N>*\<Delta\>x<rsub|e>>*<around|[|<value|F1><rsub|<eph>>-<value|pf><rsub|<Nmh>><rsup|e>|]>>>>>><label|eq:mdrk.low.order.update>
   </equation>
 
-  The inter-element fluxes <math|<value|F><rsub|<eph>><rsup|\<ast\>>> used in
-  the low order scheme are same as those used in the high order MDRK scheme
-  in equation<nbsp><eqref|eq:mdrk.f2.defn>. As in
+  The inter-element fluxes <math|<value|F1><rsub|<eph>>> used in the low
+  order scheme are same as those used in the high order MDRK scheme in
+  equation<nbsp><eqref|eq:mdrk.f2.defn>. As in
   Chapter<nbsp><reference|ch:lw.subcell.limiter>, Rusanov's
   flux<nbsp><cite|Rusanov1962> will be used for the inter-element fluxes and
   in the lower order scheme. The element mean value obtained by the low order
   scheme satisfies
 
   <\equation>
-    <label|eq:mdrk.low.order.cell.avg.update><au><rsub|e><rsup|L,\<ast\>>=<big|sum><rsub|p=0><rsup|N><value|uep><rsup|L,\<ast\>>*w<rsub|p>=<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F><rsub|<eph>><rsup|\<ast\>>-<value|F><rsub|<emh>><rsup|\<ast\>>|)>
+    <au><rsub|e><rsup|L,\<ast\>>=<big|sum><rsub|p=0><rsup|N><value|uep><rsup|L,\<ast\>>*w<rsub|p>=<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F1><rsub|<eph>>-<value|F1><rsub|<value|emh>>|)><label|eq:mdrk.low.order.cell.avg.update>
   </equation>
 
   which is identical to the update equation by the MDRK scheme given in
@@ -641,7 +649,7 @@
   scheme evolves according to
 
   <\eqnarray*>
-    <tformat|<table|<row|<cell|<au><rsub|e><rsup|\<ast\>>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<around|(|<au><rsub|e>|)><rsup|H,\<ast\>>+\<alpha\><rsub|e>*<around|(|<au><rsub|e>|)><rsup|L,\<ast\>>>>|<row|<cell|>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<around*|[|<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F><rsub|<eph>><rsup|\<ast\>>-<value|F><rsub|<emh>><rsup|\<ast\>>|)>|]>+\<alpha\><rsub|e>*<around*|[|<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F><rsub|<eph>><rsup|\<ast\>>-<value|F><rsub|<emh>><rsup|\<ast\>>|)>|]>>>|<row|<cell|>|<cell|=>|<cell|<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F><rsub|<eph>><rsup|\<ast\>>-<value|F><rsub|<emh>><rsup|\<ast\>>|)>>>>>
+    <tformat|<table|<row|<cell|<au><rsub|e><rsup|\<ast\>>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<around|(|<au><rsub|e>|)><rsup|H,\<ast\>>+\<alpha\><rsub|e>*<around|(|<au><rsub|e>|)><rsup|L,\<ast\>>>>|<row|<cell|>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|e>|)>*<around*|[|<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F1><rsub|<eph>>-<value|F1><rsub|<value|emh>>|)>|]>+\<alpha\><rsub|e>*<around*|[|<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F1><rsub|<eph>>-<value|F1><rsub|<value|emh>>|)>|]>>>|<row|<cell|>|<cell|=>|<cell|<au><rsub|e><rsup|n>-<frac|\<Delta\>t/2|\<Delta\>x<rsub|e>>*<around|(|<value|F1><rsub|<eph>>-<value|F1><rsub|<value|emh>>|)>>>>>
   </eqnarray*>
 
   and hence the blended scheme is also conservative. The similar arguments
@@ -664,10 +672,10 @@
   oscillations is to take
 
   <\equation>
-    <label|eq:mdrk.Fblend><tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<cwith|1|1|1|1|cell-halign|r>|<cwith|2|2|1|1|cell-halign|r>|<table|<row|<cell|<value|F><rsub|<eph>>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|<eph>>|)>*<value|F><rsup|HO\<ast\>><rsub|<value|eph>>+\<alpha\><rsub|<eph>>*<value|pf><rsub|<eph>>>>|<row|<cell|<value|F><rsub|<eph>>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|<eph>>|)>*<value|F2><rsub|<eph>><rsup|HO>+\<alpha\><rsub|<eph>>*<value|pf><rsub|<eph>>>>>>>
+    <label|eq:mdrk.Fblend><tabular*|<tformat|<cwith|1|1|1|1|cell-halign|r>|<cwith|2|2|1|1|cell-halign|r>|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<value|F1><rsub|<eph>>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|<eph>>|)>*<value|F1ho><rsub|<value|eph>>+\<alpha\><rsub|<eph>>*<value|pf><rsub|<eph>>>>|<row|<cell|<value|F2><rsub|<eph>>>|<cell|=>|<cell|<around|(|1-\<alpha\><rsub|<eph>>|)>*<value|F2ho><rsub|<value|eph>>+\<alpha\><rsub|<eph>>*<value|pf><rsub|<eph>>>>>>>
   </equation>
 
-  where <math|<value|F><rsup|HO\<ast\>><rsub|<value|eph>>,<value|F2><rsub|<value|eph>><rsup|HO>>
+  where <math|<value|F1ho><rsub|<value|eph>>,<value|F2ho><rsub|<value|eph>>>
   are the high order inter-element time-averaged numerical fluxes used in the
   MDRK scheme<nbsp><eqref|eq:mdrk.nfdiss2> and <math|<value|pf><rsub|<eph>>>
   is a lower order flux at the face <math|x<rsub|<eph>>> shared between FR
@@ -675,9 +683,9 @@
   The construction of specific lower order schemes as first order
   (Section<nbsp><reference|sec:fo>) or MUSCL-Hancock
   (Section<nbsp><reference|sec:mh>) remains as in
-  Chapter<nbsp><reference|ch:lw.subcell.limiter>, and the same goes for goes
-  for flux limiting of<nbsp><eqref|eq:mdrk.Fblend> to enforce admissibility
-  in means (Definition<nbsp><reference|defn:mean.pres>). Once admissibility
+  Chapter<nbsp><reference|ch:lw.subcell.limiter>, and the same goes for flux
+  limiting of<nbsp><eqref|eq:mdrk.Fblend> to enforce admissibility in means
+  (Definition<nbsp><reference|defn:mean.pres>). Once admissibility
   preservation in means is obtained, the scaling limiter
   of<nbsp><cite|Zhang2010b> (Appendix<nbsp><reference|app:scaling.limiter>),
   is used to obtain an admissibility preserving scheme
@@ -687,7 +695,7 @@
 
   In this section, we test the MDRK scheme with numerical experiments using
   polynomial degree <math|N=3> in all results. Most of the test cases from
-  the previous chapters were tried and were seen to validate our claims; but
+  the previous chapters were tried and were seen to validate our claims, but
   we only show the important results here. We also tested all the benchmark
   problems for higher order methods in<nbsp><cite|Pan2016>, and show some of
   the results from there.
@@ -695,8 +703,8 @@
   <subsection|Scalar equations>
 
   We perform convergence tests with scalar equations. The MDRK scheme with D1
-  and D2 dissipation are tested using the optimal CFL numbers from
-  Table<nbsp><reference|tab:mdrk.cfl>. We make comparison with RKFR scheme
+  and D2 dissipation is tested using the optimal CFL numbers from
+  Table<nbsp><reference|tab:mdrk.cfl>. We make a comparison with RKFR scheme
   with polynomial degree <math|N=3> described in
   Section<nbsp><reference|sec:rk> using the SSPRK scheme
   from<nbsp><cite|Spiteri2002>. The CFL number for the fourth order RK scheme
@@ -822,7 +830,7 @@
   (Table<nbsp><reference|tab:mdrk.cfl>). The coefficient
   <math|<value|Cs>=0.98> is used in tests, unless specified otherwise.
 
-  <subsubsection|Blast>
+  <subsubsection|Blast wave>
 
   This test is as described in Section<nbsp><reference|sec:blast>. As in the
   case of the LWFR scheme, the numerical solutions give negative pressure if
@@ -856,27 +864,24 @@
 
   This is an extension of the Shu-Osher (Section<nbsp><reference|sec:shuosher>)
   problem given by Titarev and Toro<nbsp><cite|Titarev2004> and the initial
-  data comprises of a severely oscillatory wave interacting with a shock.
-  This problem tests the ability of a high-order numerical scheme to capture
-  the extremely high frequency waves. The smooth density profile passes
-  through the shock and appears on the other side, and its accurate
-  computation is challenging due to numerical dissipation. Due to presence of
-  both spurious oscillations and smooth extrema, this becomes a good test for
-  testing robustness and accuracy of limiters. We discretize the spatial
-  domain with 800 cells using polynomial degree <math|N=3> and compare
-  blending schemes. As expected, the MUSCL-Hancock (MH) blending scheme is
-  superior to the First Order (FO) blending scheme and has nearly resolved in
-  the smooth extrema.
-
-  The initial condition is given by
+  data comprises of a severely oscillatory wave interacting with a shock
 
   <\equation*>
     <around*|(|\<rho\>,v,p|)>=<choice|<tformat|<table|<row|<cell|<around*|(|1.515695,0.523346,1.805|)>,>|<cell|<space|2em>>|<cell|-5\<leq\>x\<leq\>-4.5>>|<row|<cell|<around*|(|1+0.1*sin<around*|(|20*\<pi\>*x|)>,0,1|)>,>|<cell|>|<cell|-4.5\<less\>x\<leq\>5>>>>>
   </equation*>
 
-  The physical domain is <math|<around*|[|-5,5|]>> and a grid of 800 elements
-  is used. The density profile at <math|t=5> is shown in
-  Figure<nbsp><reference|fig:mdrk.titarev.toro>.
+  The physical domain is <math|<around*|[|-5,5|]>> and transmissive boundary
+  condition is used at both ends. This problem tests the ability of a
+  high-order numerical scheme to capture the extremely high frequency waves.
+  The smooth density profile passes through the shock and appears on the
+  other side, and its accurate computation is challenging due to numerical
+  dissipation. Due to presence of both spurious oscillations and smooth
+  extrema, this becomes a good test for testing robustness and accuracy of
+  limiters. We discretize the spatial domain with 800 cells using polynomial
+  degree <math|N=3> and compare blending schemes. The density profile at
+  <math|t=5> is shown in Figure<nbsp><reference|fig:mdrk.titarev.toro>. As
+  expected, the MUSCL-Hancock (MH) blending scheme is superior to the First
+  Order (FO) blending scheme and has nearly resolved the smooth extrema.
 
   <big-figure|<tabular|<tformat|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<table|<row|<\cell>
     <image|figures/mdrk/euler1d/titarev_toro.pdf|0.43par|||>
@@ -925,13 +930,12 @@
   preservation corrections are not applied. The density and pressure profiles
   at <math|t=0.001> are obtained using blending schemes are shown in
   Figure<nbsp><reference|fig:mdrk.sedov.blast>. In
-  Chapter<nbsp><reference|ch:lw.subcell.limiter>,<nbsp><cite|babbar2023admissibility>,
-  the TVB limiter was not used in this test as the proof of admissibility
-  preservation depended on the blending scheme. Here, by using the
-  generalized admissibility preserving scheme
-  of<nbsp>Chapter<nbsp><reference|ch:10mom>,<nbsp><cite|babbar2024generalized>,
+  Chapter<nbsp><reference|ch:lw.subcell.limiter>, the TVB limiter was not
+  used in this test as the proof of admissibility preservation depended on
+  the blending scheme. Here, by using the generalized admissibility
+  preserving scheme of<nbsp>Chapter<nbsp><reference|ch:10mom>,<nbsp><cite|babbar2024generalized>,
   we are able to use the TVB limiter. However, as expected, the TVB limiter
-  is less accurate and unable to control the oscillations..
+  is less accurate and unable to control the oscillations.
 
   <big-figure|<tabular|<tformat|<cwith|1|1|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<table|<row|<\cell>
     <image|figures/mdrk/euler1d/sedov1d_density.pdf|0.45par|||>
@@ -950,13 +954,13 @@
   <subsection|2-D Euler's equations>
 
   We consider the two-dimensional Euler equations of gas dynamics given
-  by<nbsp><eqref|eq:2deuler>. The time step size in computed as
-  in<nbsp><eqref|eq:mdrk.time.step.2d> with CFL=0.107
+  by<nbsp><eqref|eq:2deuler>. The time step size is computed as
+  in<nbsp><eqref|eq:time.step.2d> with CFL=0.107
   (Table<nbsp><reference|tab:mdrk.cfl>) and <math|<value|Cs>=0.98> unless
   otherwise specified.
 
   As in Chapter<nbsp><reference|ch:lw.subcell.limiter>, for verification of
-  some our numerical results and to demonstrate the accuracy gain observed
+  some of our numerical results and to demonstrate the accuracy gain observed
   in<nbsp><cite|babbar2023admissibility> of using MUSCL-Hancock
   reconstruction using Gauss-Legendre points, we will compare our results
   with the first order blending scheme using Gauss-Legendre-Lobatto (GLL)
@@ -968,7 +972,7 @@
 
   <subsubsection|Double Mach reflection>
 
-  The description and significance of this test has been given in
+  The description and significance of this test have been given in
   Section<nbsp><reference|sec:dmr>. The simulation is run on a mesh of
   <math|600\<times\>150> elements using degree <math|N=3> polynomials up to
   time <math|t=0.2>. In Figure<nbsp><reference|fig:mdrk.dmr>, we compare the
@@ -985,7 +989,7 @@
   <subsubsection|Rotational low density problem>
 
   These problems are taken from<nbsp><cite|Pan2016> where the solution
-  consists of hurricane-like flow evolution, and has one-point vacuum in the
+  consists of hurricane-like flow evolution and has one-point vacuum in the
   center with rotational velocity field. The initial condition is given by
 
   <\equation*>
@@ -1032,14 +1036,13 @@
     </equation*>
 
     and the solution has one-point vacuum at the origin <math|r=0>. This is
-    typical hurricane-like solution that behaves highly singular,
-    particularly near the origin <math|r=0>. There are two issues here
-    challenging the numerical schemes: one is the presence of the vacuum
-    state which examines whether a high order scheme can keep the positivity
-    preserving property; the other is the rotational velocity field for
-    testing whether a numerical scheme can preserve the symmetry. In this
-    regime, we take <math|v<rsub|0>=10> on the computational domain
-    <math|<around*|[|-1,1|]><rsup|2>> with
+    typical hurricane-like solution that is singular, particularly near the
+    origin <math|r=0>. There are two issues here challenging the numerical
+    schemes: one is the presence of the vacuum state which examines whether a
+    high order scheme can keep the positivity preserving property; the other
+    is the rotational velocity field for testing whether a numerical scheme
+    can preserve the symmetry. In this regime, we take <math|v<rsub|0>=10> on
+    the computational domain <math|<around*|[|-1,1|]><rsup|2>> with
     <math|\<Delta\>x=\<mathLaplace\>y=1/100>. The boundary condition is given
     by the far field solution in<nbsp><eqref|eq:mdrk.far.field.solution>.
 
@@ -1100,33 +1103,18 @@
 
   This test case is as described in Section<nbsp><reference|sec:2drp>. The
   simulations are performed with transmissive boundary conditions on an
-  enlarged domain upto time <math|t=0.25>. The density profiles obtained from
-  the MUSCL-Hancock blending scheme and <with|font-family|tt|Trixi.jl> are
-  shown in Figure<nbsp><reference|fig:mdrk.rp2d>. We see that both schemes
-  give similar resolution in most regions. As in LWFR scheme, the
+  enlarged domain up to time <math|t=0.25>. The density profiles obtained
+  from the MUSCL-Hancock blending scheme and <with|font-family|tt|Trixi.jl>
+  are shown in Figure<nbsp><reference|fig:mdrk.rp2d>. We see that both
+  schemes give similar resolution in most regions. As in LWFR scheme, the
   MUSCL-Hancock blending scheme gives better resolution of the small scale
   structures arising across the slip lines.
 
-  <big-figure|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<cwith|3|3|2|2|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<table|<row|<\cell>
-    <image|figures/mdrk/euler2d/rp2d/old_paper/trixi.png|0.45par|||>
-  </cell>|<\cell>
-    <image|figures/mdrk/euler2d/rp2d/old_paper/mdrk.png|0.45par|||>
-  </cell>>|<row|<\cell>
-    (a)
-  </cell>|<\cell>
-    (b)
-  </cell>>|<row|<\cell>
-    <image|figures/mdrk/euler2d/rp2d/old_paper/trixi_zoom.png|0.45par|||>
-  </cell>|<\cell>
-    <image|figures/mdrk/euler2d/rp2d/old_paper/mdrk_zoom.png|0.45par|||>
-  </cell>>|<row|<\cell>
-    (c)
-  </cell>|<\cell>
-    (d)
-  </cell>>>>><label|fig:mdrk.rp2d>|<caption-detailed|2-D Riemann problem,
-  density plots of numerical solution at <math|t=0.25> for degree <math|N=3>
-  on a <math|256\<times\>256> mesh (a) <verbatim|Trixi.jl>, (b) MDRK, (c)
-  <verbatim|Trixi.jl> zoomed, (d) MDRK zoomed|2-D Riemann problem, MDRK.>>
+  <big-figure|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/mdrk/euler2d/rp2d/old_paper/trixi_zoom.png|0.45par|||>>|<cell|<image|figures/mdrk/euler2d/rp2d/old_paper/mdrk_zoom.png|0.45par|||>>>|<row|<cell|(a)
+  <verbatim|Trixi.jl>>|<cell|(b) MDRK>>>>><label|fig:mdrk.rp2d>|<caption-detailed|2-D
+  Riemann problem, density plots of numerical solution at <math|t=0.25> for
+  degree <math|N=3> on a <math|256\<times\>256> mesh (a) <verbatim|Trixi.jl>,
+  (b) MDRK|2-D Riemann problem, MDRK.>>
 
   <subsubsection|Rayleigh-Taylor instability>
 
@@ -1140,7 +1128,7 @@
 
   The implementation of MDRK with source terms is based
   on<nbsp><cite|babbar2024generalized> where an approximate Lax-Wendroff
-  procedure is also applied on the source term. The following description is
+  procedure is also applied to the source term. The following description is
   taken from<nbsp><cite|Pan2016>. The Rayleigh-Taylor instability happens on
   the interface between fluids with different densities when an acceleration
   is directed from the heavy fluid to the light one. The instability with
@@ -1229,7 +1217,7 @@
     <associate|font-base-size|12>
     <associate|info-flag|short>
     <associate|page-even|1in>
-    <associate|page-first|142>
+    <associate|page-first|129>
     <associate|page-medium|paper>
     <associate|page-odd|1in>
     <associate|page-screen-margin|false>
@@ -1243,97 +1231,97 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|7|143>>
-    <associate|auto-10|<tuple|7.3|148>>
-    <associate|auto-11|<tuple|7.3.1|149>>
-    <associate|auto-12|<tuple|7.3.2|149>>
-    <associate|auto-13|<tuple|7.1|151>>
-    <associate|auto-14|<tuple|7.4|151>>
-    <associate|auto-15|<tuple|7.5|153>>
-    <associate|auto-16|<tuple|7.5.1|153>>
-    <associate|auto-17|<tuple|7.5.1.1|153>>
-    <associate|auto-18|<tuple|7.1|154>>
-    <associate|auto-19|<tuple|7.5.1.2|154>>
-    <associate|auto-2|<tuple|7.1|143>>
-    <associate|auto-20|<tuple|7.2|154>>
-    <associate|auto-21|<tuple|7.5.1.3|155>>
-    <associate|auto-22|<tuple|7.3|155>>
-    <associate|auto-23|<tuple|7.4|155>>
-    <associate|auto-24|<tuple|7.5.2|155>>
-    <associate|auto-25|<tuple|7.5.2.1|156>>
-    <associate|auto-26|<tuple|7.5|156>>
-    <associate|auto-27|<tuple|7.5.2.2|156>>
-    <associate|auto-28|<tuple|7.6|157>>
-    <associate|auto-29|<tuple|7.5.2.3|157>>
-    <associate|auto-3|<tuple|7.2|144>>
-    <associate|auto-30|<tuple|7.7|158>>
-    <associate|auto-31|<tuple|7.5.2.4|158>>
-    <associate|auto-32|<tuple|7.8|158>>
-    <associate|auto-33|<tuple|7.5.3|158>>
-    <associate|auto-34|<tuple|7.5.3.1|159>>
-    <associate|auto-35|<tuple|7.9|159>>
-    <associate|auto-36|<tuple|7.5.3.2|159>>
-    <associate|auto-37|<tuple|7.10|161>>
-    <associate|auto-38|<tuple|7.11|161>>
-    <associate|auto-39|<tuple|7.5.3.3|161>>
-    <associate|auto-4|<tuple|7.2.1|145>>
-    <associate|auto-40|<tuple|7.12|162>>
-    <associate|auto-41|<tuple|7.5.3.4|162>>
-    <associate|auto-42|<tuple|7.13|163>>
-    <associate|auto-43|<tuple|7.6|163>>
-    <associate|auto-5|<tuple|7.2.2|145>>
-    <associate|auto-6|<tuple|7.2.3|146>>
-    <associate|auto-7|<tuple|7.2.4|147>>
-    <associate|auto-8|<tuple|7.2.5|147>>
-    <associate|auto-9|<tuple|7.2.6|148>>
-    <associate|ch:mdrk|<tuple|7|143>>
-    <associate|eq:mdrk.2stage.update.eqn|<tuple|7.13|149>>
-    <associate|eq:mdrk.A.star.defn|<tuple|7.16|149>>
-    <associate|eq:mdrk.A0A1.matrices|<tuple|7.14|149>>
-    <associate|eq:mdrk.Fblend|<tuple|7.24|153>>
-    <associate|eq:mdrk.blended.scheme|<tuple|7.21|151>>
-    <associate|eq:mdrk.f2.defn|<tuple|7.5|144>>
-    <associate|eq:mdrk.far.field.solution|<tuple|7.25|160>>
-    <associate|eq:mdrk.ho.method|<tuple|7.19|151>>
-    <associate|eq:mdrk.intro.us.evolution|<tuple|7.1|143>>
-    <associate|eq:mdrk.lo.method|<tuple|7.20|151>>
-    <associate|eq:mdrk.low.order.cell.avg.update|<tuple|7.23|152>>
-    <associate|eq:mdrk.low.order.update|<tuple|7.22|152>>
-    <associate|eq:mdrk.mdrk.first.stage|<tuple|7.2|144>>
-    <associate|eq:mdrk.mdrk.second.stage|<tuple|7.3|144>>
-    <associate|eq:mdrk.nfdiss1|<tuple|7.10|147>>
-    <associate|eq:mdrk.nfdiss2|<tuple|7.11|147>>
-    <associate|eq:mdrk.tavgsol|<tuple|7.12|147>>
-    <associate|eq:mdrk.uplwfr|<tuple|7.6|144>>
-    <associate|eq:mdrk.upmean|<tuple|7.8|145>>
-    <associate|eq:mdrk.us.fourier|<tuple|7.15|149>>
-    <associate|eq:ode.L|<tuple|7.2|144>>
-    <associate|fig:mdrk.blast|<tuple|7.5|156>>
-    <associate|fig:mdrk.burg1|<tuple|7.3|155>>
-    <associate|fig:mdrk.burg2|<tuple|7.4|155>>
-    <associate|fig:mdrk.cla1|<tuple|7.1|154>>
-    <associate|fig:mdrk.dmr|<tuple|7.9|159>>
-    <associate|fig:mdrk.high.density|<tuple|7.7|158>>
-    <associate|fig:mdrk.hurricane.critical|<tuple|7.10|161>>
-    <associate|fig:mdrk.rayleigh.taylor|<tuple|7.13|163>>
-    <associate|fig:mdrk.rotational.all.speed|<tuple|7.11|161>>
-    <associate|fig:mdrk.rp2d|<tuple|7.12|162>>
-    <associate|fig:mdrk.sedov.blast|<tuple|7.8|158>>
-    <associate|fig:mdrk.titarev.toro|<tuple|7.6|157>>
-    <associate|fig:mdrk.vla2|<tuple|7.2|154>>
-    <associate|sec:mdrk|<tuple|7.2|144>>
-    <associate|sec:mdrk.ae|<tuple|7.2.5|147>>
-    <associate|sec:mdrk.alw|<tuple|7.2.3|146>>
-    <associate|sec:mdrk.blending|<tuple|7.4|151>>
-    <associate|sec:mdrk.cla|<tuple|7.5.1.1|153>>
-    <associate|sec:mdrk.conclusion|<tuple|7.6|163>>
-    <associate|sec:mdrk.ea|<tuple|7.2.6|148>>
-    <associate|sec:mdrk.fourier|<tuple|7.3|148>>
-    <associate|sec:mdrk.num|<tuple|7.5|153>>
-    <associate|sec:mdrk.numflux|<tuple|7.2.4|147>>
-    <associate|sec:mdrk.reconstruction|<tuple|7.2.2|145>>
-    <associate|sec:mdrk.res1dsys|<tuple|7.5.2|155>>
-    <associate|tab:mdrk.cfl|<tuple|7.1|151>>
+    <associate|auto-1|<tuple|7|129>>
+    <associate|auto-10|<tuple|7.3|135>>
+    <associate|auto-11|<tuple|7.3.1|135>>
+    <associate|auto-12|<tuple|7.3.2|136>>
+    <associate|auto-13|<tuple|7.1|137>>
+    <associate|auto-14|<tuple|7.4|138>>
+    <associate|auto-15|<tuple|7.5|140>>
+    <associate|auto-16|<tuple|7.5.1|140>>
+    <associate|auto-17|<tuple|7.5.1.1|140>>
+    <associate|auto-18|<tuple|7.1|140>>
+    <associate|auto-19|<tuple|7.5.1.2|140>>
+    <associate|auto-2|<tuple|7.1|129>>
+    <associate|auto-20|<tuple|7.2|141>>
+    <associate|auto-21|<tuple|7.5.1.3|141>>
+    <associate|auto-22|<tuple|7.3|141>>
+    <associate|auto-23|<tuple|7.4|142>>
+    <associate|auto-24|<tuple|7.5.2|142>>
+    <associate|auto-25|<tuple|7.5.2.1|142>>
+    <associate|auto-26|<tuple|7.5|142>>
+    <associate|auto-27|<tuple|7.5.2.2|143>>
+    <associate|auto-28|<tuple|7.6|143>>
+    <associate|auto-29|<tuple|7.5.2.3|143>>
+    <associate|auto-3|<tuple|7.2|130>>
+    <associate|auto-30|<tuple|7.7|144>>
+    <associate|auto-31|<tuple|7.5.2.4|144>>
+    <associate|auto-32|<tuple|7.8|144>>
+    <associate|auto-33|<tuple|7.5.3|145>>
+    <associate|auto-34|<tuple|7.5.3.1|145>>
+    <associate|auto-35|<tuple|7.9|145>>
+    <associate|auto-36|<tuple|7.5.3.2|145>>
+    <associate|auto-37|<tuple|7.10|147>>
+    <associate|auto-38|<tuple|7.11|147>>
+    <associate|auto-39|<tuple|7.5.3.3|147>>
+    <associate|auto-4|<tuple|7.2.1|131>>
+    <associate|auto-40|<tuple|7.12|148>>
+    <associate|auto-41|<tuple|7.5.3.4|148>>
+    <associate|auto-42|<tuple|7.13|149>>
+    <associate|auto-43|<tuple|7.6|149>>
+    <associate|auto-5|<tuple|7.2.2|131>>
+    <associate|auto-6|<tuple|7.2.3|132>>
+    <associate|auto-7|<tuple|7.2.4|133>>
+    <associate|auto-8|<tuple|7.2.5|133>>
+    <associate|auto-9|<tuple|7.2.6|134>>
+    <associate|ch:mdrk|<tuple|7|129>>
+    <associate|eq:mdrk.2stage.update.eqn|<tuple|7.13|135>>
+    <associate|eq:mdrk.A.star.defn|<tuple|7.16|136>>
+    <associate|eq:mdrk.A0A1.matrices|<tuple|7.14|135>>
+    <associate|eq:mdrk.Fblend|<tuple|7.24|139>>
+    <associate|eq:mdrk.blended.scheme|<tuple|7.21|138>>
+    <associate|eq:mdrk.f2.defn|<tuple|7.5|130>>
+    <associate|eq:mdrk.far.field.solution|<tuple|7.25|146>>
+    <associate|eq:mdrk.ho.method|<tuple|7.19|138>>
+    <associate|eq:mdrk.intro.us.evolution|<tuple|7.1|129>>
+    <associate|eq:mdrk.lo.method|<tuple|7.20|138>>
+    <associate|eq:mdrk.low.order.cell.avg.update|<tuple|7.23|139>>
+    <associate|eq:mdrk.low.order.update|<tuple|7.22|138>>
+    <associate|eq:mdrk.mdrk.first.stage|<tuple|7.2|130>>
+    <associate|eq:mdrk.mdrk.second.stage|<tuple|7.3|130>>
+    <associate|eq:mdrk.nfdiss1|<tuple|7.10|133>>
+    <associate|eq:mdrk.nfdiss2|<tuple|7.11|133>>
+    <associate|eq:mdrk.tavgsol|<tuple|7.12|133>>
+    <associate|eq:mdrk.uplwfr|<tuple|7.6|130>>
+    <associate|eq:mdrk.upmean|<tuple|7.8|131>>
+    <associate|eq:mdrk.us.fourier|<tuple|7.15|135>>
+    <associate|eq:ode.L|<tuple|7.2|130>>
+    <associate|fig:mdrk.blast|<tuple|7.5|142>>
+    <associate|fig:mdrk.burg1|<tuple|7.3|141>>
+    <associate|fig:mdrk.burg2|<tuple|7.4|142>>
+    <associate|fig:mdrk.cla1|<tuple|7.1|140>>
+    <associate|fig:mdrk.dmr|<tuple|7.9|145>>
+    <associate|fig:mdrk.high.density|<tuple|7.7|144>>
+    <associate|fig:mdrk.hurricane.critical|<tuple|7.10|147>>
+    <associate|fig:mdrk.rayleigh.taylor|<tuple|7.13|149>>
+    <associate|fig:mdrk.rotational.all.speed|<tuple|7.11|147>>
+    <associate|fig:mdrk.rp2d|<tuple|7.12|148>>
+    <associate|fig:mdrk.sedov.blast|<tuple|7.8|144>>
+    <associate|fig:mdrk.titarev.toro|<tuple|7.6|143>>
+    <associate|fig:mdrk.vla2|<tuple|7.2|141>>
+    <associate|sec:mdrk|<tuple|7.2|130>>
+    <associate|sec:mdrk.ae|<tuple|7.2.5|133>>
+    <associate|sec:mdrk.alw|<tuple|7.2.3|132>>
+    <associate|sec:mdrk.blending|<tuple|7.4|138>>
+    <associate|sec:mdrk.cla|<tuple|7.5.1.1|140>>
+    <associate|sec:mdrk.conclusion|<tuple|7.6|149>>
+    <associate|sec:mdrk.ea|<tuple|7.2.6|134>>
+    <associate|sec:mdrk.fourier|<tuple|7.3|135>>
+    <associate|sec:mdrk.num|<tuple|7.5|140>>
+    <associate|sec:mdrk.numflux|<tuple|7.2.4|133>>
+    <associate|sec:mdrk.reconstruction|<tuple|7.2.2|131>>
+    <associate|sec:mdrk.res1dsys|<tuple|7.5.2|142>>
+    <associate|tab:mdrk.cfl|<tuple|7.1|137>>
   </collection>
 </references>
 
@@ -1379,8 +1367,6 @@
       Titarev2004
 
       Tang2006
-
-      babbar2023admissibility
 
       babbar2024generalized
 
@@ -1539,7 +1525,7 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-24>>
 
-      <with|par-left|<quote|2tab>|7.5.2.1.<space|2spc>Blast
+      <with|par-left|<quote|2tab>|7.5.2.1.<space|2spc>Blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-25>>
 

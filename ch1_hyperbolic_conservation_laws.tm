@@ -1,4 +1,4 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.4>
 
 <project|main.tm>
 
@@ -38,8 +38,8 @@
   <math|i<rsup|th>> direction. The equations<nbsp><eqref|eq:intro.con.law>
   are called a <with|font-shape|italic|system of conservation laws>. By
   fundamental theorem of calculus, <math|<value|uu>> is a classical
-  <math|C<rsup|1>> solution to<nbsp><eqref|eq:intro.u> if and only if for any
-  open set <math|\<Omega\><rprime|'>\<subset\>\<Omega\>>
+  <math|C<rsup|1>> solution to<nbsp><eqref|eq:intro.con.law> if and only if
+  for any open set <math|\<Omega\><rprime|'>\<subset\>\<Omega\>>
 
   <\equation>
     <dv||t>*<big|int><rsub|\<Omega\><rprime|'>><value|uu><around*|(|<bx>,t|)>*<value|ud><bx>=-<big|int><rsub|\<partial\>\<Omega\><rprime|'>><value|pf>\<cdot\><value|bn>*<value|ud>S=-<big|int><rsub|\<partial\>\<Omega\><rprime|'>><value|pf><rsub|i>*n<rsub|i>*<value|ud>S<label|eq:integral.con.law>
@@ -47,10 +47,11 @@
 
   where <math|<value|bn>=<around*|(|n<rsub|i>|)><rsub|i=1><rsup|d>> is the
   outward unit normal across <math|\<partial\>\<Omega\><rprime|'>>. The
-  integral equation<nbsp><eqref|eq:integral.con.law> says that rate of change
-  of <math|<value|uu>> in any volume <math|\<Omega\><rprime|'>\<subset\>\<Omega\>>
-  depends only on the flux through the boundary
-  <math|\<partial\>\<Omega\><rprime|'>> which is
+  equation<nbsp><eqref|eq:integral.con.law> is called the
+  <with|font-shape|italic|integral form of<nbsp><eqref|eq:intro.con.law>> and
+  it says that rate of change of <math|<value|uu>> in any volume
+  <math|\<Omega\><rprime|'>\<subset\>\<Omega\>> depends only on the flux
+  through the boundary <math|\<partial\>\<Omega\><rprime|'>> which is
   why<nbsp><eqref|eq:intro.con.law> is called a conservation law. This
   integral form of conservation law is how the
   equation<nbsp><eqref|eq:intro.u> is usually derived; e.g., Euler's
@@ -63,7 +64,8 @@
     Let <bA><math|<rsub|i><around*|(|<value|uu>|)>\<assign\><value|pf><rsub|i><rprime|'><around*|(|<value|uu>|)>>
     be the flux Jacobians. Then the system<nbsp><eqref|eq:intro.con.law> is
     called hyperbolic if, for any <math|<value|uu>\<in\><Uad>\<subset\>\<bbb-R\><rsup|m>>
-    and and any <math|<value|bn>\<in\>\<bbb-R\><rsup|d>>, the matrix
+    and any <math|<value|bn>\<in\>\<bbb-R\><rsup|d>/<around*|{|<value|bzero>|}>>,
+    the matrix
 
     <\equation*>
       <bA><around*|(|<value|uu>,<value|bn>|)>\<assign\><big|sum><rsub|i=1><rsup|d><bA><rsub|i><around*|(|<value|uu>|)>*n<rsub|i>
@@ -95,7 +97,7 @@
     and linearly degenerate when
 
     <\equation>
-      <label|eq:linearly.degenerate>\<nabla\>\<lambda\><rsub|i><around*|(|<value|uu>|)>\<cdot\>r<rsub|i><around*|(|<value|uu>|)>\<neq\>0,<space|2em><value|uu>\<in\><Uad>
+      <label|eq:linearly.degenerate>\<nabla\>\<lambda\><rsub|i><around*|(|<value|uu>|)>\<cdot\>r<rsub|i><around*|(|<value|uu>|)>=0,<space|2em>\<forall\><value|uu>\<in\><Uad>
     </equation>
   </definition>
 
@@ -107,8 +109,7 @@
   </equation>
 
   where <math|<value|uu><rsub|0>:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-R\><rsup|m>>
-  and boundary conditions on <math|\<partial\>\<Omega\>> which will are
-  weakly enforced through the flux <math|<value|pf>>.
+  and boundary conditions on <math|\<partial\>\<Omega\>>.
 
   <subsection|Weak formulation>
 
@@ -140,7 +141,7 @@
 
   The weak formulation<nbsp><eqref|eq:weak.form> is obtained by taking the
   inner product of<nbsp><eqref|eq:intro.con.law> with a test function
-  <math|<with|font-series|bold|\<phi\>>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsub|+>|)>>
+  <math|<with|font-series|bold|\<phi\>>\<in\>C<rsup|\<infty\>><rsub|c><around*|(|\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsub|+>|)>>
   and performing integration by parts in space and time. As desired, the weak
   formulation allows for solutions with less regularity and every
   <math|C<rsup|1>> solution of<nbsp><eqref|eq:intro.con.law>
@@ -162,7 +163,7 @@
     <label|thm:rh><with|font-series|bold|(Rankine-Hugoniot (RH) condition).>
     Consider a <math|<value|uu>\<in\>L<rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsub|+>,<Uad>|)>>
     that has a surface of discontinuity <math|\<Gamma\>> and is smooth
-    everywhere else . Then, <math|<value|uu>> is a solution
+    everywhere else. Then, <math|<value|uu>> is a solution
     of<nbsp><eqref|eq:weak.form> if and only if it
     satisfies<nbsp><eqref|eq:intro.con.law> in regions of smoothness and
 
@@ -173,12 +174,9 @@
     across the surface of discontinuity <math|\<Gamma\>>.
   </theorem>
 
-  The condition<nbsp><eqref|eq:weak.form> is not enough to get unique
-  solutions, and thus additional <with|font-shape|italic|entropy conditions>
-  are imposed to get the physically correct solution. In the 1-D case where
-  dimension <math|d=1>, the <math|\<Gamma\>> can be parametrized as
-  <math|<around*|(|\<xi\><around*|(|t|)>,t|)>>. Thus, the normal in
-  <math|<around*|(|t,x|)>> plane is given by
+  In the 1-D case where dimension <math|d=1>, the <math|\<Gamma\>> can be
+  parametrized as <math|<around*|(|\<xi\><around*|(|t|)>,t|)>>. Thus, the
+  normal in <math|<around*|(|t,x|)>> plane is given by
   <math|<wide|<value|bn>|~>=<around*|(|1,-s|)>> with
   <math|s=<value|ud>\<xi\>/<value|ud>t> being the speed of the discontinuity.
   Thus, the RH condition<nbsp><eqref|eq:rh.cond> becomes
@@ -186,71 +184,6 @@
   <\equation>
     s*<around*|(|<value|uu><rsub|+>-<value|uu><rsub|->|)>=<value|pf><around*|(|<value|uu><rsub|+>|)>-<value|pf><around*|(|<value|uu><rsub|->|)><label|eq:1d.rh>
   </equation>
-
-  <subsection|Entropy condition>
-
-  To single out solutions of interest, we restrict attention to weak
-  solutions realizable as limits <math|<around*|(|\<epsilon\>\<rightarrow\>0|)>>
-  of smooth solutions of an augmented system
-
-  <\equation>
-    \<partial\><rsub|t> <value|uu>+<value|Div><value|pf><around*|(|<value|uu>|)>=<with|font-series|bold|R><rsup|\<epsilon\>><label|eq:regularized.con.law>
-  </equation>
-
-  where <math|\<epsilon\>\<gtr\>0>, represents a small-scale parameter
-  corresponding, in the applications, to the viscosity, capillarity, etc. of
-  the physical medium under consideration. For simplicity, we take
-  <math|<with|font-series|bold|R><rsup|\<epsilon\>>=\<epsilon\>*\<mathLaplace\><value|uu>>
-  (cf. <cite|LeFloch2002> for conditions required in the general case). The
-  idea is that, in the limit as <math|\<epsilon\>\<rightarrow\>0> the weak
-  solution will satisfy an additional principal, which is usually called an
-  <with|font-shape|italic|entropy condition>. We introduce the notion for a
-  general system of conservation laws as follows.
-
-  Assume that we have a strictly convex function
-  <math|\<eta\>=\<eta\><around*|(|<value|uu>|)>> called the
-  <with|font-shape|italic|entropy function> and associated
-  <with|font-shape|italic|entropy fluxes>
-  <math|<bq>=<around*|(|q<rsub|i>|)><rsub|i=1><rsup|d>> satisfying
-
-  <\equation*>
-    *\<eta\><rprime|'><around*|(|<value|uu>|)>*<value|pf><rsub|i><rprime|'><around*|(|<value|uu>|)>=q<rsub|i><rprime|'><around*|(|<value|uu>|)>,<space|2em>1\<leq\>i\<leq\>d
-  </equation*>
-
-  The set <math|<around*|(|\<eta\>,<bq>|)>> is called an
-  <with|font-shape|italic|entropy pair>. We multiply the augmented
-  system<nbsp><eqref|eq:regularized.con.law> by
-  <math|\<eta\><rprime|'><around*|(|<value|uu>|)>> to get
-
-  <\equation*>
-    <tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|\<eta\><rprime|'><around*|(|<value|uu>|)>*\<partial\><rsub|t>
-    <value|uu>+\<eta\><rprime|'><around*|(|<value|uu>|)>*<big|sum><rsub|i=1><rsup|d><value|pf><rprime|'><rsub|i><around*|(|<value|uu>|)>\<cdot\>\<partial\><rsub|x<rsub|i>>*<value|uu>>|<cell|=>|<cell|\<epsilon\>*\<eta\><rprime|'><around*|(|<value|uu>|)>*\<mathLaplace\>*<value|uu>>>|<row|<cell|>|<cell|=>|<cell|\<epsilon\>*<value|Div>*<around*|[|\<eta\><rprime|'><around*|(|<value|uu>|)>*\<nabla\>*<value|uu>|]>-<wide*|\<epsilon\>*<around*|(|\<nabla\>*<value|uu>|)><rsup|T>*\<eta\><rprime|''><around*|(|<value|uu>|)>*\<nabla\>*<value|uu>|\<wide-underbrace\>><rsub|\<geq\>0>>>>>>
-  </equation*>
-
-  where the inequality below underbraces follows of convexity of
-  <math|\<eta\>>. Thus, we have the inequality
-
-  <\equation*>
-    \<partial\><rsub|t> \<eta\><around*|(|<value|uu>|)>+<value|Div><bq><around*|(|<value|uu>|)>\<leq\>\<epsilon\>*<value|Div>*<around*|[|\<eta\><rprime|'><around*|(|<value|uu>|)>*\<nabla\>*<value|uu>|]>
-  </equation*>
-
-  Then, as <math|\<epsilon\>\<rightarrow\>0>, the following entropy
-  inequality is obtained
-
-  <\equation>
-    \<partial\><rsub|t>*\<eta\><around*|(|<value|uu>|)>+<value|Div><bq><around*|(|<value|uu>|)>\<leq\>0<label|eq:entropy.condition>
-  </equation>
-
-  In a weak sense, the inequality is given by
-
-  <\equation>
-    <big|int><rsub|0><rsup|\<infty\>><big|int><rsub|\<bbb-R\><rsup|d>><around*|(|\<eta\><around*|(|<value|uu>|)>*\<partial\><rsub|t>*\<phi\>+<big|sum><rsub|i=1><rsup|d>q<rsub|i><around*|(|<value|uu>|)>*\<partial\><rsub|x<rsub|i>>*\<phi\>|)>*<value|ud>t*<value|ud><bx>+<big|int><rsub|\<bbb-R\><rsup|d>>\<eta\><around*|(|<value|uu><rsub|0><around*|(|<bx>|)>|)>*\<phi\><around*|(|<bx>,0|)>*<value|ud><bx>\<geq\>0
-  </equation>
-
-  for all <math|\<phi\>\<in\>C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsub|+>|)>>,
-  with <math|\<phi\><around*|(|<bx>,t|)>\<geq\>0>. The solution
-  <math|<value|uu>> is called an <with|font-shape|italic|entropy solution> if
-  it satisfies the above inequality for every convex entropy.
 
   <subsection|The Riemann problem><label|sec:riemann.problem>
 
@@ -272,7 +205,7 @@
   also central in the theory as it exhibits many important features
   encountered with general solutions of<nbsp><eqref|eq:intro.con.law>.
 
-  <big-figure|<image|illustrations\\ch1_hyperbolic_conservation_laws-image-1.png|0.7par|||><label|fig:sol.struc>|<caption-detailed|Solution
+  <big-figure|<image|illustrations/ch1_hyperbolic_conservation_laws-image-1.png|0.7par|||><label|fig:sol.struc>|<caption-detailed|Solution
   structure for the Riemann problem of a system of conservation laws. The
   illustration is from<nbsp><cite|raythesis>.|Solution structure for the
   Riemann problem of a system of conservation laws.>>
@@ -303,10 +236,7 @@
       \<lambda\><rsub|i><around*|(|<value|uu><rsub|->|)>\<gtr\>S<rsub|i>\<gtr\>\<lambda\><rsub|i><around*|(|<value|uu><rsub|+>|)>
     </equation*>
 
-    This relation can be deduced from the entropy
-    condition<nbsp><eqref|eq:entropy.condition> and the arguments in the
-    proof of Theorem<nbsp><reference|thm:rh> for a convex flux. As shown in
-    Figure<nbsp><reference|fig:chars>a, the
+    As shown in Figure<nbsp><reference|fig:chars>a, the
     <with|font-shape|italic|characteristic> lines
     <math|<value|ud>x/<value|ud>t=\<lambda\><rsub|i>> on both sides collide
     leading to the shock wave <math|<value|ud>x/<value|ud>t=S<rsub|i>>.
@@ -333,7 +263,7 @@
     <math|\<lambda\><rsub|i>>-wave corresponds to a rarefaction, if it
     connects two states <math|<value|uu><rsub|->> and
     <math|<value|uu><rsub|+>> through a smooth transition in a genuinely
-    nonlinear field. As shown in Figure<nbsp><reference|fig:chars>b, the
+    nonlinear field. As shown in Figure<nbsp><reference|fig:chars>c, the
     characteristic lines corresponding to a rarefaction diverge from each
     other, i.e.,
 
@@ -343,11 +273,11 @@
   </itemize>
 
   <big-figure|<center|<wide-tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|1|1|3|3|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<\cell>
-    <image|illustrations\\shock.png|0.3par|||>
+    <image|illustrations/shock.png|0.3par|||>
   </cell>|<\cell>
-    <image|illustrations\\contact.png|0.3par|||>
+    <image|illustrations/contact.png|0.3par|||>
   </cell>|<\cell>
-    <image|illustrations\\rarefaction.png|0.3par|||>
+    <image|illustrations/rarefaction.png|0.3par|||>
   </cell>>|<row|<\cell>
     (a) Shock wave
   </cell>|<\cell>
@@ -367,7 +297,7 @@
     <label|eq:3deuler>\<partial\><rsub|t>*<matrix|<tformat|<table|<row|<cell|\<rho\>>>|<row|<cell|\<rho\>*<bv>>>|<row|<cell|E>>>>>+<value|Div><matrix|<tformat|<table|<row|<cell|\<rho\>*<bv>>>|<row|<cell|\<rho\>*<bv>\<otimes\><bv>+p*I>>|<row|<cell|<bv>*<around*|(|E+p|)>>>>>>=<value|bzero>,<space|1em>I=<around*|(|\<delta\><rsub|i\<nocomma\>j>|)><rsub|<tabular*|<tformat|<table|<row|<cell|1\<leq\>i,j\<leq\>3>>>>>>
   </equation>
 
-  The conservative variable is thus given by
+  The conservative variables are thus given by
   <math|<value|uu>=<around*|(|\<rho\>,\<rho\>*<bv>,E|)>=<around*|(|\<rho\>,\<rho\>*v<rsub|1>,\<rho\>*v<rsub|2>,\<rho\>*v<rsub|3>,E|)>>
   where <math|\<rho\>,<bv>,p,E> denote the fluid density, velocity, pressure
   and total energy per unit volume. For a polytropic gas, an equation of
@@ -375,13 +305,17 @@
   is given by
 
   <\equation>
-    <label|eq:2dstate>E=E<around|(|\<rho\>,u,v,p|)>=<frac|p|\<gamma\>-1>+<frac|1|2>*\<rho\>*<around*|\||<bv>|\|><rsup|2>
+    <label|eq:2dstate>E=E<around|(|\<rho\>,<bv>,p|)>=<frac|p|\<gamma\>-1>+<frac|1|2>*\<rho\>*<around*|\||<bv>|\|><rsup|2>
   </equation>
 
-  and the admissible set<nbsp><eqref|eq:intro.u> where
-  <math|\<gamma\>\<gtr\>1> is the adiabatic constant, that will usually be
-  considered to be 1.4, which is the typical value for air. The admissible
-  set is given by <math|<Uad>=<around*|{|<value|uu>:\<rho\><around*|(|<value|uu>|)>,p<around*|(|<value|uu>|)>\<gtr\>0|}>>.
+  where <math|\<gamma\>\<gtr\>1> is the adiabatic constant, which will
+  usually be considered to be 1.4, the typical value for air. The admissible
+  set is given by
+
+  <\equation*>
+    <Uad>=<around*|{|<value|uu>=<around*|(|\<rho\>,\<rho\>*<bv>,E|)>:\<rho\>\<gtr\>0,p=<around*|(|\<gamma\>-1|)>*<around*|(|E-<frac|1|2>*\<rho\>*<around*|\||<bv>|\|><rsup|2>|)>\<gtr\>0|}>
+  </equation*>
+
   Defining the flux Jacobian <math|<with|font-series|bold|<bA><rsub|i>><around*|(|<value|uu>|)>=<value|pf><rsub|i><rprime|'><around*|(|<value|uu>|)>>
   for <math|i=1,2,3>, we consider the matrix
 
@@ -397,11 +331,11 @@
   </equation*>
 
   where <math|v<rsub|n>=<bv>\<cdot\><value|bn>>,
-  <math|a=<sqrt|\<gamma\>*p/\<rho\>>> is the speed of sound in air and
+  <math|a=<sqrt|\<gamma\>*p/\<rho\>>> is the speed of sound and
   <math|H=<around*|(|\<gamma\>-1|)><rsup|-1>*a<rsup|2>+<around*|\||<bv>|\|><rsup|2>/2>
   is the specific enthalpy. Assuming the solution is admissible (i.e.,
   <math|\<rho\>,p\<gtr\>0>), the eigenvalues are real and the corresponding
-  eigenvectors are linearly-independent. Thus, Euler's
+  eigenvectors are linearly independent. Thus, Euler's
   equations<nbsp><eqref|eq:3deuler> form a hyperbolic system. In this work,
   we will be restricted to the 2-D compressible Euler's equations which are
   given by
@@ -432,9 +366,9 @@
   and heat flux <math|<bQ>> given by Newtonian and Fourier constitutive
   relations respectively
 
-  <\equation*>
-    <with|font-series|bold|\<tau\>>=\<mu\>*<around*|(|\<nabla\>*<value|uu>+<around*|(|\<nabla\>*<value|uu>|)><rsup|T>|)>-<frac|2|3>*\<mu\>*<around*|(|<value|Div><value|uu>|)>*I,<space|2em><bQ>=<around*|(|Q<rsub|1>,Q<rsub|2>,Q<rsub|3>|)>=-\<kappa\>*\<nabla\>\<theta\>
-  </equation*>
+  <\equation>
+    <with|font-series|bold|\<tau\>>=\<mu\>*<around*|(|\<nabla\>*<bv>+<around*|(|\<nabla\>*<bv>|)><rsup|T>|)>-<frac|2|3>*\<mu\>*<around*|(|\<nabla\>\<cdot\><bv>|)>*I,<space|2em><bQ>=<around*|(|Q<rsub|1>,Q<rsub|2>,Q<rsub|3>|)>=-\<kappa\>*\<nabla\>\<theta\><label|eq:big.tau>
+  </equation>
 
   Here, <math|I=<around*|(|\<delta\><rsub|i\<nocomma\>j>|)><rsub|1\<leq\>i,j\<leq\>3>>,
   <math|\<mu\>> is the coefficient of dynamic viscosity and <math|\<kappa\>>
@@ -466,7 +400,7 @@
   coefficient of kinematic viscosity given the free stream density
   <math|\<rho\><rsub|0>>. The Reynolds number can be seen as a measure of the
   ratio of advection and diffusion. High Reynolds number flows are advection
-  dominated flows, while low reynolds number flows are diffusion dominated.
+  dominated flows, while low Reynolds number flows are diffusion dominated.
 
   In this work, we will be restricted to the Navier-Stokes equations in two
   dimensions which are given by
@@ -475,7 +409,18 @@
     <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<table|<row|<cell|<pd||t><around*|(|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<table|<row|<cell|\<rho\>>>|<row|<cell|\<rho\>*u>>|<row|<cell|\<rho\>*v>>|<row|<cell|E>>>>>|)>+<pd||x><around*|(|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<table|<row|<cell|\<rho\>*u>>|<row|<cell|p+\<rho\>*u<rsup|2>>>|<row|<cell|\<rho\>*u*v>>|<row|<cell|<around|(|E+p|)>*u>>>>>|)>+<pd||y><around*|(|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<table|<row|<cell|\<rho\>*v>>|<row|<cell|\<rho\>*u*v>>|<row|<cell|p+\<rho\>*v<rsup|2>>>|<row|<cell|<around|(|E+p|)>*v>>>>>|)>>>|<row|<cell|>>|<row|<cell|<space|2em>=<pdv||x><around*|(|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<table|<row|<cell|0>>|<row|<cell|\<tau\><rsub|11>>>|<row|<cell|\<tau\><rsub|12>>>|<row|<cell|u*\<tau\><rsub|11>+u<rsub|2>*\<tau\><rsub|12>-Q<rsub|1>>>>>>|)>+<pdv||y><around*|(|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<table|<row|<cell|0>>|<row|<cell|\<tau\><rsub|21>>>|<row|<cell|\<tau\><rsub|22>>>|<row|<cell|u<rsub|1>*\<tau\><rsub|21>+u<rsub|2>*\<tau\><rsub|22>-Q<rsub|2>>>>>>|)>>>>>><label|eq:2dns>
   </equation>
 
-  where <math|u,v=v<rsub|1>,v<rsub|2>>.
+  where <math|u,v=v<rsub|1>,v<rsub|2>> and from<nbsp><eqref|eq:big.tau>
+
+  <\equation*>
+    \<tau\><rsub|11>=<frac|4|3>*\<mu\>*\<partial\><rsub|x>*u-<frac|2|3>*\<mu\>*\<partial\><rsub|y>*v,<space|1em>\<tau\><rsub|12>=\<tau\><rsub|21>=\<mu\>*<around*|(|\<partial\><rsub|y>*u+\<partial\><rsub|x>*v|)>,<space|1em>\<tau\><rsub|22>=<frac|4|3>*\<mu\>*\<partial\><rsub|y>*v-<frac|2|3>*\<mu\>*\<partial\><rsub|x>*u
+  </equation*>
+
+  <\equation*>
+    Q<rsub|1>=-\<kappa\>*\<partial\><rsub|x>*\<theta\>,<space|1em>Q<rsub|2>=-\<kappa\>*\<partial\><rsub|y>*\<theta\>
+  </equation*>
+
+  where <math|\<theta\>> is the temperature specified by ideal gas law
+  <math|p=\<rho\>*R*\<theta\>>.
 </body>
 
 <\initial>
@@ -484,7 +429,7 @@
     <associate|font-base-size|12>
     <associate|info-flag|minimal>
     <associate|page-even|1in>
-    <associate|page-first|30>
+    <associate|page-first|13>
     <associate|page-medium|paper>
     <associate|page-odd|1in>
     <associate|page-right|auto>
@@ -499,38 +444,36 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|2|31>>
-    <associate|auto-2|<tuple|2.1|31>>
-    <associate|auto-3|<tuple|2.1.1|32>>
-    <associate|auto-4|<tuple|2.1.2|33>>
-    <associate|auto-5|<tuple|2.1.3|34>>
-    <associate|auto-6|<tuple|2.1|34>>
-    <associate|auto-7|<tuple|2.2|35>>
-    <associate|auto-8|<tuple|2.2|35>>
-    <associate|auto-9|<tuple|2.3|36>>
-    <associate|ch:con.law|<tuple|2|31>>
-    <associate|defn:hyperbolic|<tuple|2.1|31>>
-    <associate|eq:1d.rh|<tuple|2.9|33>>
-    <associate|eq:2deuler|<tuple|2.16|36>>
-    <associate|eq:2dns|<tuple|2.18|37>>
-    <associate|eq:2dstate|<tuple|2.15|35>>
-    <associate|eq:3deuler|<tuple|2.14|35>>
-    <associate|eq:3dns|<tuple|2.17|36>>
-    <associate|eq:cauchy.problem|<tuple|2.6|32>>
-    <associate|eq:entropy.condition|<tuple|2.11|33>>
-    <associate|eq:genuinely.nonlinear|<tuple|2.4|32>>
-    <associate|eq:integral.con.law|<tuple|2.3|31>>
-    <associate|eq:intro.con.law|<tuple|2.2|31>>
-    <associate|eq:intro.rp|<tuple|2.13|34>>
-    <associate|eq:intro.u|<tuple|2.1|31>>
-    <associate|eq:linearly.degenerate|<tuple|2.5|32>>
-    <associate|eq:regularized.con.law|<tuple|2.10|33>>
-    <associate|eq:rh.cond|<tuple|2.8|32>>
-    <associate|eq:weak.form|<tuple|2.7|32>>
-    <associate|fig:chars|<tuple|2.2|35>>
-    <associate|fig:sol.struc|<tuple|2.1|34>>
-    <associate|sec:riemann.problem|<tuple|2.1.3|34>>
-    <associate|thm:rh|<tuple|2.4|32>>
+    <associate|auto-1|<tuple|2|13>>
+    <associate|auto-2|<tuple|2.1|13>>
+    <associate|auto-3|<tuple|2.1.1|14>>
+    <associate|auto-4|<tuple|2.1.2|15>>
+    <associate|auto-5|<tuple|2.1|15>>
+    <associate|auto-6|<tuple|2.2|16>>
+    <associate|auto-7|<tuple|2.2|17>>
+    <associate|auto-8|<tuple|2.3|18>>
+    <associate|ch:con.law|<tuple|2|13>>
+    <associate|defn:hyperbolic|<tuple|2.1|13>>
+    <associate|eq:1d.rh|<tuple|2.9|15>>
+    <associate|eq:2deuler|<tuple|2.13|17>>
+    <associate|eq:2dns|<tuple|2.16|19>>
+    <associate|eq:2dstate|<tuple|2.12|17>>
+    <associate|eq:3deuler|<tuple|2.11|17>>
+    <associate|eq:3dns|<tuple|2.14|18>>
+    <associate|eq:big.tau|<tuple|2.15|18>>
+    <associate|eq:cauchy.problem|<tuple|2.6|14>>
+    <associate|eq:genuinely.nonlinear|<tuple|2.4|14>>
+    <associate|eq:integral.con.law|<tuple|2.3|13>>
+    <associate|eq:intro.con.law|<tuple|2.2|13>>
+    <associate|eq:intro.rp|<tuple|2.10|15>>
+    <associate|eq:intro.u|<tuple|2.1|13>>
+    <associate|eq:linearly.degenerate|<tuple|2.5|14>>
+    <associate|eq:rh.cond|<tuple|2.8|14>>
+    <associate|eq:weak.form|<tuple|2.7|14>>
+    <associate|fig:chars|<tuple|2.2|16>>
+    <associate|fig:sol.struc|<tuple|2.1|15>>
+    <associate|sec:riemann.problem|<tuple|2.1.2|15>>
+    <associate|thm:rh|<tuple|2.4|14>>
   </collection>
 </references>
 
@@ -539,22 +482,22 @@
     <\associate|bib>
       LeFloch2002
 
-      LeFloch2002
-
       raythesis
 
       LeFloch2002
+
+      raythesis
     </associate>
     <\associate|figure>
       <tuple|normal|<\surround|<hidden-binding|<tuple>|2.1>|>
         Solution structure for the Riemann problem of a system of
         conservation laws.
-      </surround>|<pageref|auto-6>>
+      </surround>|<pageref|auto-5>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|2.2>|>
         Characteristic lines for simple waves forming the solution to a
         Riemann problem.
-      </surround>|<pageref|auto-7>>
+      </surround>|<pageref|auto-6>>
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|2.<space|2spc>Equations
@@ -569,21 +512,17 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      <with|par-left|<quote|1tab>|2.1.2.<space|2spc>Entropy condition
+      <with|par-left|<quote|1tab>|2.1.2.<space|2spc>The Riemann problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>>
 
-      <with|par-left|<quote|1tab>|2.1.3.<space|2spc>The Riemann problem
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5>>
-
       2.2.<space|2spc>Compressible Euler's equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>
+      <no-break><pageref|auto-7>
 
       2.3.<space|2spc>Compressible Navier-Stokes equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9>
+      <no-break><pageref|auto-8>
     </associate>
   </collection>
 </auxiliary>

@@ -43,7 +43,7 @@
                    (LxW-DG) method with a limiting strategy that keeps the
                    solution non-oscillatory and positivity-preserving for
                    relevant variables, such as height in the shallow water
-                   equations and density and pressure in the compressible Euler
+                   equations and density and pressure in the compressible {E}uler
                    equations. The proposed LxW-DG scheme updates the solution
                    over each time-step with a locally-implicit predictor
                    followed by an explicit corrector. The locally-implicit
@@ -58,7 +58,7 @@
                    positivity-preservation, limiting is required in both the
                    prediction and correction steps. The resulting scheme is
                    applied to several standard test cases for the shallow water
-                   and compressible Euler equations. All of the presented
+                   and compressible {E}uler equations. All of the presented
                    examples are written in a freely available open-source
                    Python code.",
   month         =  jun,
@@ -79,7 +79,7 @@
   number = {1},
   pages = {27--46},
   author = {Christophe Berthon},
-  title = {Why the {MUSCL}{\textendash}Hancock Scheme is L1-stable},
+  title = {Why the {MUSCL}{\textendash}Hancock Scheme is {L}1-stable},
   journal = {Numerische Mathematik}
 }
 @article{Zhang2010b,
@@ -106,7 +106,7 @@
   volume = {333},
   pages = {409--413},
   author = {Haran Jackson},
-  title = {On the eigenvalues of the {ADER}-{WENO} Galerkin predictor},
+  title = {On the eigenvalues of the {ADER}-{{WENO}} Galerkin predictor},
   journal = {Journal of Computational Physics}
 }
 @article{Dumbser2009,
@@ -132,7 +132,7 @@
 	language = {en},
 	number = {4},
 	urldate = {2021-05-10},
-	journal = {SIAM Journal on Numerical Analysis},
+	journal = {{SIAM} Journal on Numerical Analysis},
 	author = {Xu, Yuan and Zhang, Qiang and Shu, Chi-wang and Wang, Haijin},
 	month = jan,
 	year = {2019},
@@ -222,7 +222,7 @@ isbn = {0070287619},
   month = jun,
   publisher = {American Institute of Aeronautics and Astronautics},
   author = {Timur Linde and Philip Roe and Timur Linde and Philip Roe},
-  title = {Robust Euler codes},
+  title = {Robust {E}uler codes},
   booktitle = {13th Computational Fluid Dynamics Conference}
 }
 
@@ -236,7 +236,7 @@ isbn = {0070287619},
 	language = {en},
 	number = {2},
 	urldate = {2021-08-27},
-	journal = {SIAM Journal on Numerical Analysis},
+	journal = {{SIAM} Journal on Numerical Analysis},
 	author = {LeVeque, Randall J.},
 	month = apr,
 	year = {1996},
@@ -268,7 +268,7 @@ isbn = {0070287619},
     pages = {791-851},
     year = {2010},
     month = {01},
-    abstract = "{Hydrodynamic cosmological simulations at present usually employ either the Lagrangian smoothed particle hydrodynamics (SPH) technique or Eulerian hydrodynamics on a Cartesian mesh with (optional) adaptive mesh refinement (AMR). Both of these methods have disadvantages that negatively impact their accuracy in certain situations, for example the suppression of fluid instabilities in the case of SPH, and the lack of Galilean invariance and the presence of overmixing in the case of AMR. We here propose a novel scheme which largely eliminates these weaknesses. It is based on a moving unstructured mesh defined by the Voronoi tessellation of a set of discrete points. The mesh is used to solve the hyperbolic conservation laws of ideal hydrodynamics with a finite-volume approach, based on a second-order unsplit Godunov scheme with an exact Riemann solver. The mesh-generating points can in principle be moved arbitrarily. If they are chosen to be stationary, the scheme is equivalent to an ordinary Eulerian method with second-order accuracy. If they instead move with the velocity of the local flow, one obtains a Lagrangian formulation of continuum hydrodynamics that does not suffer from the mesh distortion limitations inherent in other mesh-based Lagrangian schemes. In this mode, our new method is fully Galilean invariant, unlike ordinary Eulerian codes, a property that is of significant importance for cosmological simulations where highly supersonic bulk flows are common. In addition, the new scheme can adjust its spatial resolution automatically and continuously, and hence inherits the principal advantage of SPH for simulations of cosmological structure growth. The high accuracy of Eulerian methods in the treatment of shocks is also retained, while the treatment of contact discontinuities improves. We discuss how this approach is implemented in our new code arepo, both in 2D and in 3D, and is parallelized for distributed memory computers. We also discuss techniques for adaptive refinement or de-refinement of the unstructured mesh. We introduce an individual time-step approach for finite-volume hydrodynamics, and present a high-accuracy treatment of self-gravity for the gas that allows the new method to be seamlessly combined with a high-resolution treatment of collisionless dark matter. We use a suite of test problems to examine the performance of the new code and argue that the hydrodynamic moving-mesh scheme proposed here provides an attractive and competitive alternative to current SPH and Eulerian techniques.}",
+    abstract = "{Hydrodynamic cosmological simulations at present usually employ either the Lagrangian smoothed particle hydrodynamics (SPH) technique or Eulerian hydrodynamics on a Cartesian mesh with (optional) adaptive mesh refinement (AMR). Both of these methods have disadvantages that negatively impact their accuracy in certain situations, for example the suppression of fluid instabilities in the case of SPH, and the lack of Galilean invariance and the presence of overmixing in the case of AMR. We here propose a novel scheme which largely eliminates these weaknesses. It is based on a moving unstructured mesh defined by the Voronoi tessellation of a set of discrete points. The mesh is used to solve the hyperbolic conservation laws of ideal hydrodynamics with a finite-volume approach, based on a second-order unsplit Godunov scheme with an exact {Riemann} solver. The mesh-generating points can in principle be moved arbitrarily. If they are chosen to be stationary, the scheme is equivalent to an ordinary Eulerian method with second-order accuracy. If they instead move with the velocity of the local flow, one obtains a Lagrangian formulation of continuum hydrodynamics that does not suffer from the mesh distortion limitations inherent in other mesh-based Lagrangian schemes. In this mode, our new method is fully Galilean invariant, unlike ordinary Eulerian codes, a property that is of significant importance for cosmological simulations where highly supersonic bulk flows are common. In addition, the new scheme can adjust its spatial resolution automatically and continuously, and hence inherits the principal advantage of SPH for simulations of cosmological structure growth. The high accuracy of Eulerian methods in the treatment of shocks is also retained, while the treatment of contact discontinuities improves. We discuss how this approach is implemented in our new code arepo, both in 2D and in 3D, and is parallelized for distributed memory computers. We also discuss techniques for adaptive refinement or de-refinement of the unstructured mesh. We introduce an individual time-step approach for finite-volume hydrodynamics, and present a high-accuracy treatment of self-gravity for the gas that allows the new method to be seamlessly combined with a high-resolution treatment of collisionless dark matter. We use a suite of test problems to examine the performance of the new code and argue that the hydrodynamic moving-mesh scheme proposed here provides an attractive and competitive alternative to current SPH and Eulerian techniques.}",
     issn = {0035-8711},
     doi = {10.1111/j.1365-2966.2009.15715.x},
     url = {https://doi.org/10.1111/j.1365-2966.2009.15715.x},
@@ -284,7 +284,7 @@ isbn = {0070287619},
     pages = {4278-4300},
     year = {2015},
     month = {09},
-    abstract = "{Solving the Euler equations of ideal hydrodynamics as accurately and efficiently as possible is a key requirement in many astrophysical simulations. It is therefore important to continuously advance the numerical methods implemented in current astrophysical codes, especially also in light of evolving computer technology, which favours certain computational approaches over others. Here we introduce the new adaptive mesh refinement (AMR) code tenet, which employs a high-order discontinuous Galerkin (DG) scheme for hydrodynamics. The Euler equations in this method are solved in a weak formulation with a polynomial basis by means of explicit Runge–Kutta time integration and Gauss–Legendre quadrature. This approach offers significant advantages over commonly employed second-order finite-volume (FV) solvers. In particular, the higher order capability renders it computationally more efficient, in the sense that the same precision can be obtained at significantly less computational cost. Also, the DG scheme inherently conserves angular momentum in regions where no limiting takes place, and it typically produces much smaller numerical diffusion and advection errors than an FV approach. A further advantage lies in a more natural handling of AMR refinement boundaries, where a fall-back to first order can be avoided. Finally, DG requires no wide stencils at high order, and offers an improved data locality and a focus on local computations, which is favourable for current and upcoming highly parallel supercomputers. We describe the formulation and implementation details of our new code, and demonstrate its performance and accuracy with a set of two- and three-dimensional test problems. The results confirm that DG schemes have a high potential for astrophysical applications.}",
+    abstract = "{Solving the {E}uler equations of ideal hydrodynamics as accurately and efficiently as possible is a key requirement in many astrophysical simulations. It is therefore important to continuously advance the numerical methods implemented in current astrophysical codes, especially also in light of evolving computer technology, which favours certain computational approaches over others. Here we introduce the new adaptive mesh refinement (AMR) code tenet, which employs a high-order discontinuous Galerkin (DG) scheme for hydrodynamics. The {E}uler equations in this method are solved in a weak formulation with a polynomial basis by means of explicit Runge–Kutta time integration and Gauss–Legendre quadrature. This approach offers significant advantages over commonly employed second-order finite-volume (FV) solvers. In particular, the higher order capability renders it computationally more efficient, in the sense that the same precision can be obtained at significantly less computational cost. Also, the DG scheme inherently conserves angular momentum in regions where no limiting takes place, and it typically produces much smaller numerical diffusion and advection errors than an FV approach. A further advantage lies in a more natural handling of AMR refinement boundaries, where a fall-back to first order can be avoided. Finally, DG requires no wide stencils at high order, and offers an improved data locality and a focus on local computations, which is favourable for current and upcoming highly parallel supercomputers. We describe the formulation and implementation details of our new code, and demonstrate its performance and accuracy with a set of two- and three-dimensional test problems. The results confirm that DG schemes have a high potential for astrophysical applications.}",
     issn = {0035-8711},
     doi = {10.1093/mnras/stv1859},
     url = {https://doi.org/10.1093/mnras/stv1859},
@@ -293,7 +293,7 @@ isbn = {0070287619},
 
 
 @article{akkurt2022,
-title = {Cache blocking strategies applied to flux reconstruction},
+title = {Cache blocking strategies applied to {F}lux {R}econstruction},
 journal = {Computer Physics Communications},
 volume = {271},
 pages = {108193},
@@ -302,25 +302,25 @@ issn = {0010-4655},
 doi = {https://doi.org/10.1016/j.cpc.2021.108193},
 url = {https://www.sciencedirect.com/science/article/pii/S0010465521003052},
 author = {Semih Akkurt and Freddie Witherden and Peter Vincent},
-keywords = {Cache blocking, Kernel fusion, Flux reconstruction, High-order, Computational fluid dynamics},
-abstract = {On modern hardware architectures, the performance of Flux Reconstruction (FR) methods can be limited by memory bandwidth. In a typical implementation, these methods are implemented as a chain of distinct kernels. Often, a dataset which has just been written in the main memory by a kernel is read back immediately by the next kernel. One way to avoid such a redundant expenditure of memory bandwidth is kernel fusion. However, on a practical level kernel fusion requires that the source for all kernels be available, thus preventing calls to certain third-party library functions. Moreover, it can add substantial complexity to a codebase. An alternative to full kernel fusion is cache blocking. But for this to be effective, CPU cache has to be meaningfully big. Historically, size of L1 and L2 caches prevented cache blocking for high-order CFD applications. However in recent years, size of L2 cache has grown from around 0.25 MiB to 1.25 MiB, and made it possible to apply cache blocking for high-order CFD codes. In this approach, kernels remain distinct, and are executed one after another on small chunks of data that can fit in the cache, as opposed to on full datasets. These chunks of data stay in the cache and whenever a kernel requests access to data that is already in the cache, memory bandwidth is conserved. In this study, a data structure that facilitates cache blocking is considered, and a range of kernel grouping configurations for an FR based Euler solver are examined. A theoretical study is conducted for hexahedral elements with no anti-aliasing at p=3 and p=4 in order to determine the predicted performance of a few kernel grouping configurations. Then, these candidates are implemented in the PyFR solver and the performance gains in practice are compared with the theoretical estimates that range between 2.05x and 2.50x. An inviscid Taylor-Green Vortex test case is used as a benchmark, and the most performant configuration leads to a speedup of approximately 2.81x in practice.}
+keywords = {Cache blocking, Kernel fusion, {F}lux {R}econstruction, High-order, Computational fluid dynamics},
+abstract = {On modern hardware architectures, the performance of {F}lux {R}econstruction (FR) methods can be limited by memory bandwidth. In a typical implementation, these methods are implemented as a chain of distinct kernels. Often, a dataset which has just been written in the main memory by a kernel is read back immediately by the next kernel. One way to avoid such a redundant expenditure of memory bandwidth is kernel fusion. However, on a practical level kernel fusion requires that the source for all kernels be available, thus preventing calls to certain third-party library functions. Moreover, it can add substantial complexity to a codebase. An alternative to full kernel fusion is cache blocking. But for this to be effective, CPU cache has to be meaningfully big. Historically, size of {L}1 and L2 caches prevented cache blocking for high-order CFD applications. However in recent years, size of L2 cache has grown from around 0.25 MiB to 1.25 MiB, and made it possible to apply cache blocking for high-order CFD codes. In this approach, kernels remain distinct, and are executed one after another on small chunks of data that can fit in the cache, as opposed to on full datasets. These chunks of data stay in the cache and whenever a kernel requests access to data that is already in the cache, memory bandwidth is conserved. In this study, a data structure that facilitates cache blocking is considered, and a range of kernel grouping configurations for an FR based {E}uler solver are examined. A theoretical study is conducted for hexahedral elements with no anti-aliasing at p=3 and p=4 in order to determine the predicted performance of a few kernel grouping configurations. Then, these candidates are implemented in the PyFR solver and the performance gains in practice are compared with the theoretical estimates that range between 2.05x and 2.50x. An inviscid Taylor-Green Vortex test case is used as a benchmark, and the most performant configuration leads to a speedup of approximately 2.81x in practice.}
 }
 
 @article{Julia-2017,
     title={Julia: A fresh approach to numerical computing},
     author={Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B},
-    journal={SIAM {R}eview},
+    journal={{SIAM} {R}eview},
     volume={59},
     number={1},
     pages={65--98},
     year={2017},
-    publisher={SIAM},
+    publisher={{SIAM}},
     doi={10.1137/141000671},
     url={https://epubs.siam.org/doi/10.1137/141000671}
 }
 
 @article{babbar2022,
-title = {Lax-Wendroff flux reconstruction method for hyperbolic conservation laws},
+title = {Lax-Wendroff {F}lux {R}econstruction method for hyperbolic conservation laws},
 journal = {Journal of Computational Physics},
 pages = {111423},
 year = {2022},
@@ -328,12 +328,12 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2022.111423},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999122004855},
 author = {Arpit Babbar and Sudarshan Kumar Kenettinkara and Praveen Chandrashekar},
-keywords = {Conservation laws, Hyperbolic PDE, Lax-Wendroff, Flux reconstruction},
-abstract = {The Lax-Wendroff method is a single step method for evolving time dependent solutions governed by partial differential equations, in contrast to Runge-Kutta methods that need multiple stages per time step. We develop a flux reconstruction version of the method in combination with a Jacobian-free Lax-Wendroff procedure that is applicable to general hyperbolic conservation laws. The method is of collocation type, is quadrature free and can be cast in terms of matrix and vector operations. Special attention is paid to the construction of numerical flux, including for non-linear problems, resulting in higher CFL numbers than existing methods, which is shown through Fourier analysis and yielding uniform performance at all orders. Numerical results up to fifth order of accuracy for linear and non-linear problems are given to demonstrate the performance and accuracy of the method.}
+keywords = {Conservation laws, Hyperbolic PDE, Lax-Wendroff, {F}lux {R}econstruction},
+abstract = {The Lax-Wendroff method is a single step method for evolving time dependent solutions governed by partial differential equations, in contrast to Runge-Kutta methods that need multiple stages per time step. We develop a {F}lux {R}econstruction version of the method in combination with a Jacobian-free Lax-Wendroff procedure that is applicable to general hyperbolic conservation laws. The method is of collocation type, is quadrature free and can be cast in terms of matrix and vector operations. Special attention is paid to the construction of numerical flux, including for non-linear problems, resulting in higher CFL numbers than existing methods, which is shown through Fourier analysis and yielding uniform performance at all orders. Numerical results up to fifth order of accuracy for linear and non-linear problems are given to demonstrate the performance and accuracy of the method.}
 }
 
 @article{BASSI1997267,
-title = {A High-Order Accurate Discontinuous Finite Element Method for the Numerical Solution of the Compressible Navier–Stokes Equations},
+title = {A High-Order Accurate Discontinuous Finite Element Method for the Numerical Solution of the Compressible {N}avier–{S}tokes Equations},
 journal = {Journal of Computational Physics},
 volume = {131},
 number = {2},
@@ -343,7 +343,7 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1006/jcph.1996.5572},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999196955722},
 author = {F. Bassi and S. Rebay},
-abstract = {This paper deals with a high-order accurate discontinuous finite element method for the numerical solution of the compressible Navier–Stokes equations. We extend a discontinuous finite element discretization originally considered for hyperbolic systems such as the Euler equations to the case of the Navier–Stokes equations by treating the viscous terms with a mixed formulation. The method combines two key ideas which are at the basis of the finite volume and of the finite element method, the physics of wave propagation being accounted for by means of Riemann problems and accuracy being obtained by means of high-order polynomial approximations within elements. As a consequence the method is ideally suited to compute high-order accurate solution of the Navier–Stokes equations on unstructured grids. The performance of the proposed method is illustrated by computing the compressible viscous flow on a flat plate and around a NACA0012 airfoil for several flow regimes using constant, linear, quadratic, and cubic elements.}
+abstract = {This paper deals with a high-order accurate discontinuous finite element method for the numerical solution of the compressible {N}avier–{S}tokes equations. We extend a discontinuous finite element discretization originally considered for hyperbolic systems such as the {E}uler equations to the case of the {N}avier–{S}tokes equations by treating the viscous terms with a mixed formulation. The method combines two key ideas which are at the basis of the finite volume and of the finite element method, the physics of wave propagation being accounted for by means of {Riemann} problems and accuracy being obtained by means of high-order polynomial approximations within elements. As a consequence the method is ideally suited to compute high-order accurate solution of the {N}avier–{S}tokes equations on unstructured grids. The performance of the proposed method is illustrated by computing the compressible viscous flow on a flat plate and around a NACA0012 airfoil for several flow regimes using constant, linear, quadratic, and cubic elements.}
 }
 
 @article{Kopriva2006,
@@ -377,7 +377,7 @@ abstract = {We study how to approximate the metric terms that arise in the disco
 }
 
 @misc{babbar2023admissibility,
-      title={Admissibility preserving subcell limiter for Lax-Wendroff flux reconstruction}, 
+      title={Admissibility preserving subcell limiter for {L}ax-{W}endroff {F}lux {R}econstruction}, 
       author={Arpit Babbar and Sudarshan Kumar Kenettinkara and Praveen Chandrashekar},
       year={2023},
       eprint={2305.10781},
@@ -455,7 +455,7 @@ abstract = {In this paper, we develop a fully discrete entropy preserving ADER-D
 }
 
 @article{ranocha2020,
-title = {Fully discrete explicit locally entropy-stable schemes for the compressible Euler and Navier–Stokes equations},
+title = {Fully discrete explicit locally entropy-stable schemes for the compressible {E}uler and {N}avier–{S}tokes equations},
 journal = {Computers & Mathematics with Applications},
 volume = {80},
 number = {5},
@@ -465,8 +465,8 @@ issn = {0898-1221},
 doi = {https://doi.org/10.1016/j.camwa.2020.06.016},
 url = {https://www.sciencedirect.com/science/article/pii/S0898122120302650},
 author = {Hendrik Ranocha and Lisandro Dalcin and Matteo Parsani},
-keywords = {Entropy stability, Relaxation methods, -adaptive spatial discretizations, Compressible Euler equations, Compressible Navier–Stokes equations, Conservation laws},
-abstract = {Recently, relaxation methods have been developed to guarantee the preservation of a single global functional of the solution of an ordinary differential equation. Here, we generalize this approach to guarantee local entropy inequalities for finitely many convex functionals (entropies) and apply the resulting methods to the compressible Euler and Navier–Stokes equations. Based on the unstructured hp-adaptive SSDC framework of entropy conservative or dissipative semidiscretizations using summation-by-parts and simultaneous-approximation-term operators, we develop the first discretizations for compressible computational fluid dynamics that are primary conservative, locally entropy stable in the fully discrete sense under a usual CFL condition, explicit except for the parallelizable solution of a single scalar equation per element, and arbitrarily high-order accurate in space and time. We demonstrate the accuracy and the robustness of the fully-discrete explicit locally entropy-stable solver for a set of test cases of increasing complexity.}
+keywords = {Entropy stability, Relaxation methods, -adaptive spatial discretizations, Compressible {E}uler equations, Compressible {N}avier–{S}tokes equations, Conservation laws},
+abstract = {Recently, relaxation methods have been developed to guarantee the preservation of a single global functional of the solution of an ordinary differential equation. Here, we generalize this approach to guarantee local entropy inequalities for finitely many convex functionals (entropies) and apply the resulting methods to the compressible {E}uler and {N}avier–{S}tokes equations. Based on the unstructured hp-adaptive SSDC framework of entropy conservative or dissipative semidiscretizations using summation-by-parts and simultaneous-approximation-term operators, we develop the first discretizations for compressible computational fluid dynamics that are primary conservative, locally entropy stable in the fully discrete sense under a usual CFL condition, explicit except for the parallelizable solution of a single scalar equation per element, and arbitrarily high-order accurate in space and time. We demonstrate the accuracy and the robustness of the fully-discrete explicit locally entropy-stable solver for a set of test cases of increasing complexity.}
 }
 @Article{dumbsercfl2009,
 AUTHOR = {M. Dumbser, D.S. Balsara},
@@ -488,7 +488,7 @@ author = {Ranocha, Hendrik and Winters, Andrew and Castro, Guillermo and Dalcin,
 year = {2023},
 month = {05},
 pages = {},
-title = {On Error-Based Step Size Control for Discontinuous Galerkin Methods for Compressible Fluid Dynamics},
+title = {On Error-Based Step Size Control for Discontinuous {G}alerkin Methods for Compressible Fluid Dynamics},
 journal = {Communications on Applied Mathematics and Computation},
 doi = {10.1007/s42967-023-00264-y}
 }
@@ -525,7 +525,7 @@ author = {Kopriva, David and Gassner, Gregor},
 year = {2010},
 month = {08},
 pages = {136-155},
-title = {On the Quadrature and Weak Form Choices in Collocation Type Discontinuous Galerkin Spectral Element Methods},
+title = {On the Quadrature and Weak Form Choices in Collocation Type Discontinuous {G}alerkin Spectral Element Methods},
 volume = {44},
 journal = {J. Sci. Comput.},
 doi = {10.1007/s10915-010-9372-3}
@@ -533,8 +533,8 @@ doi = {10.1007/s10915-010-9372-3}
 
 @article{ha2005,
 title = "Numerical simulation of high mach number astrophysical jets with radiative cooling",
-abstract = "Computational fluid dynamics simulations using the WENO-LF method are applied to high Mach number nonrelativistic astrophysical jets, including the effects of radiative cooling. Our numerical methods have allowed us to simulate astrophysical jets at much higher Mach numbers than have been attained (Mach 20) in the literature. Our simulations of the HH 1-2 astrophysical jets are at Mach 80. Simulations at high Mach numbers and with radiative cooling are essential for achieving detailed agreement with the astrophysical images.",
-keywords = "Astrophysical jets, Radiative cooling, WENO method",
+abstract = "Computational fluid dynamics simulations using the {WENO}-LF method are applied to high Mach number nonrelativistic astrophysical jets, including the effects of radiative cooling. Our numerical methods have allowed us to simulate astrophysical jets at much higher Mach numbers than have been attained (Mach 20) in the literature. Our simulations of the HH 1-2 astrophysical jets are at Mach 80. Simulations at high Mach numbers and with radiative cooling are essential for achieving detailed agreement with the astrophysical images.",
+keywords = "Astrophysical jets, Radiative cooling, {WENO} method",
 author = "Youngsoo Ha and Carl Gardner and Anne Gelb and Shu, Chi Wang",
 year = "2005",
 month = jul,
@@ -549,7 +549,7 @@ number = "1",
 }
 
 @article{zhang2010c,
-title = {On positivity-preserving high order discontinuous Galerkin schemes for compressible Euler equations on rectangular meshes},
+title = {On positivity-preserving high order discontinuous {G}alerkin schemes for compressible {E}uler equations on rectangular meshes},
 journal = {Journal of Computational Physics},
 volume = {229},
 number = {23},
@@ -559,10 +559,10 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2010.08.016},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999110004535},
 author = {Xiangxiong Zhang and Chi-Wang Shu},
-keywords = {Hyperbolic conservation laws, Discontinuous Galerkin method, Positivity preserving, High order accuracy, Compressible Euler equations
+keywords = {Hyperbolic conservation laws, Discontinuous {G}alerkin method, Positivity preserving, High order accuracy, Compressible {E}uler equations
 , Gas dynamics, Finite volume scheme, Essentially non-oscillatory scheme, Weighted essentially non-oscillatory scheme},
-abstract = {We construct uniformly high order accurate discontinuous Galerkin (DG) schemes which preserve positivity of density and pressure for
-Euler equations of compressible gas dynamics. The same framework also applies to high order accurate finite volume (e.g. essentially non-oscillatory (ENO) or weighted ENO (WENO)) schemes. Motivated by Perthame and Shu (1996) [20] and Zhang and Shu (2010) [26], a general framework, for arbitrary order of accuracy, is established to construct a positivity preserving limiter for the finite volume and DG methods with first order Euler forward time discretization solving one-dimensional compressible Euler equations. The limiter can be proven to maintain high order accuracy and is easy to implement. Strong stability preserving (SSP) high order time discretizations will keep the positivity property. Following the idea in Zhang and Shu (2010) [26], we extend this framework to higher dimensions on rectangular meshes in a straightforward way. Numerical tests for the third order DG method are reported to demonstrate the effectiveness of the methods.}
+abstract = {We construct uniformly high order accurate discontinuous {G}alerkin (DG) schemes which preserve positivity of density and pressure for
+{E}uler equations of compressible gas dynamics. The same framework also applies to high order accurate finite volume (e.g. essentially non-oscillatory (ENO) or weighted ENO ({WENO})) schemes. Motivated by Perthame and Shu (1996) [20] and Zhang and Shu (2010) [26], a general framework, for arbitrary order of accuracy, is established to construct a positivity preserving limiter for the finite volume and DG methods with first order {E}uler forward time discretization solving one-dimensional compressible {E}uler equations. The limiter can be proven to maintain high order accuracy and is easy to implement. Strong stability preserving (SSP) high order time discretizations will keep the positivity property. Following the idea in Zhang and Shu (2010) [26], we extend this framework to higher dimensions on rectangular meshes in a straightforward way. Numerical tests for the third order DG method are reported to demonstrate the effectiveness of the methods.}
 }
 
 @article{emery1968,
@@ -576,8 +576,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/0021-9991(68)90060-0},
 url = {https://www.sciencedirect.com/science/article/pii/0021999168900600},
 author = {Ashley F Emery},
-abstract = {An evaluation was made of five algorithms for ideal inviscid flow: Lax's, Rusanov's, Landshoff's, the Lax-Wendroff, and Richtmyer's.
-These algorithms were compared on the basis of ease of coding, spatial and temporal resolution, and execution time. The comparisons were drawn through studies of a one-dimensional reflected shock wave, a flat-faced step in supersonic flow, and passage of a normal shock wave over a stationary cone. Lax's method was found to be the easiest to implement and of good resolution; Rusanov's to be the most versatile and of better resolution; and a modified version of the Lax-Wendroff to yield the best resolution but to be the most difficult and time-consuming to use.}
+abstract = {An evaluation was made of five algorithms for ideal inviscid flow: Lax's, Rusanov's, Landshoff's, the {L}ax-{W}endroff, and Richtmyer's.
+These algorithms were compared on the basis of ease of coding, spatial and temporal resolution, and execution time. The comparisons were drawn through studies of a one-dimensional reflected shock wave, a flat-faced step in supersonic flow, and passage of a normal shock wave over a stationary cone. Lax's method was found to be the easiest to implement and of good resolution; Rusanov's to be the most versatile and of better resolution; and a modified version of the {L}ax-{W}endroff to yield the best resolution but to be the most difficult and time-consuming to use.}
 }
 
 @article{su2,
@@ -625,7 +625,7 @@ eprint = {
 
 @incollection{Persson2006,
 	series = {Aerospace {Sciences} {Meetings}},
-	title = {Sub-{Cell} {Shock} {Capturing} for {Discontinuous} {Galerkin} {Methods}},
+	title = {Sub-{Cell} {Shock} {Capturing} for {Discontinuous} {{G}alerkin} {Methods}},
 	url = {https://arc.aiaa.org/doi/10.2514/6.2006-112},
 	urldate = {2020-11-30},
 	booktitle = {44th {AIAA} {Aerospace} {Sciences} {Meeting} and {Exhibit}},
@@ -640,7 +640,7 @@ author = {Klöckner, Andreas and Warburton, Tim and Hesthaven, Jan},
 year = {2011},
 month = {02},
 pages = {},
-title = {Viscous Shock Capturing in a Time-Explicit Discontinuous Galerkin Method},
+title = {Viscous Shock Capturing in a Time-Explicit Discontinuous {G}alerkin Method},
 volume = {6},
 journal = {Mathematical Modelling of Natural Phenomena},
 doi = {10.1051/mmnp/20116303}
@@ -657,7 +657,7 @@ doi = {10.1051/mmnp/20116303}
 }
 
 @article{moe2017,
-  title={Positivity-Preserving Discontinuous Galerkin Methods with Lax–Wendroff Time Discretizations},
+  title={Positivity-Preserving Discontinuous {G}alerkin Methods with Lax–Wendroff Time Discretizations},
   author={Scott A. Moe and James A. Rossmanith and David C. Seal},
   journal={Journal of Scientific Computing},
   year={2017},
@@ -707,7 +707,7 @@ abstract = {We present a Chebyshev multidomain method that can solve systems of 
   language  = "en"
 }
 @article{bohm2020,
-title = {An entropy stable nodal discontinuous Galerkin method for the resistive MHD equations. Part I: Theory and numerical verification},
+title = {An entropy stable nodal discontinuous {G}alerkin method for the resistive MHD equations. Part I: Theory and numerical verification},
 journal = {Journal of Computational Physics},
 volume = {422},
 pages = {108076},
@@ -716,8 +716,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2018.06.027},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999118304054},
 author = {Marvin Bohm and Andrew R. Winters and Gregor J. Gassner and Dominik Derigs and Florian Hindenlang and Joachim Saur},
-keywords = {Resistive magnetohydrodynamics, Entropy stability, Discontinuous Galerkin spectral element method, Hyperbolic divergence cleaning, Curvilinear hexahedral mesh, Summation-by-parts},
-abstract = {The first paper of this series presents a discretely entropy stable discontinuous Galerkin (DG) method for the resistive magnetohydrodynamics (MHD) equations on three-dimensional curvilinear unstructured hexahedral meshes. Compared to other fluid dynamics systems such as the shallow water equations or the compressible Navier–Stokes equations, the resistive MHD equations need special considerations because of the divergence-free constraint on the magnetic field. For instance, it is well known that for the symmetrization of the ideal MHD system as well as the continuous entropy analysis a non-conservative term proportional to the divergence of the magnetic field, typically referred to as the Powell term, must be included. As a consequence, the mimicry of the continuous entropy analysis in the discrete sense demands a suitable DG approximation of the non-conservative terms in addition to the ideal MHD terms. This paper focuses on the resistive MHD equations: Our first contribution is a proof that the resistive terms are symmetric and positive-definite when formulated in entropy space as gradients of the entropy variables, which enables us to show that the entropy inequality holds for the resistive MHD equations. This continuous analysis is the key for our DG discretization and guides the path for the construction of an approximation that discretely mimics the entropy inequality, typically termed entropy stability. Our second contribution is a detailed derivation and analysis of the discretization on three-dimensional curvilinear meshes. The discrete analysis relies on the summation-by-parts property, which is satisfied by the DG spectral element method (DGSEM) with Legendre–Gauss–Lobatto (LGL) nodes. Although the divergence-free constraint is included in the non-conservative terms, the resulting method has no particular treatment of the magnetic field divergence errors, which might pollute the solution quality. Our final contribution is the extension of the standard resistive MHD equations and our DG approximation with a divergence cleaning mechanism that is based on a generalized Lagrange multiplier (GLM). As a conclusion to the first part of this series, we provide detailed numerical validations of our DGSEM method that underline our theoretical derivations. In addition, we show a numerical example where the entropy stable DGSEM demonstrates increased robustness compared to the standard DGSEM.}
+keywords = {Resistive magnetohydrodynamics, Entropy stability, Discontinuous {G}alerkin spectral element method, Hyperbolic divergence cleaning, Curvilinear hexahedral mesh, Summation-by-parts},
+abstract = {The first paper of this series presents a discretely entropy stable discontinuous {G}alerkin (DG) method for the resistive magnetohydrodynamics (MHD) equations on three-dimensional curvilinear unstructured hexahedral meshes. Compared to other fluid dynamics systems such as the shallow water equations or the compressible {N}avier–{S}tokes equations, the resistive MHD equations need special considerations because of the divergence-free constraint on the magnetic field. For instance, it is well known that for the symmetrization of the ideal MHD system as well as the continuous entropy analysis a non-conservative term proportional to the divergence of the magnetic field, typically referred to as the Powell term, must be included. As a consequence, the mimicry of the continuous entropy analysis in the discrete sense demands a suitable DG approximation of the non-conservative terms in addition to the ideal MHD terms. This paper focuses on the resistive MHD equations: Our first contribution is a proof that the resistive terms are symmetric and positive-definite when formulated in entropy space as gradients of the entropy variables, which enables us to show that the entropy inequality holds for the resistive MHD equations. This continuous analysis is the key for our DG discretization and guides the path for the construction of an approximation that discretely mimics the entropy inequality, typically termed entropy stability. Our second contribution is a detailed derivation and analysis of the discretization on three-dimensional curvilinear meshes. The discrete analysis relies on the summation-by-parts property, which is satisfied by the DG spectral element method (DGSEM) with Legendre–Gauss–Lobatto (LGL) nodes. Although the divergence-free constraint is included in the non-conservative terms, the resulting method has no particular treatment of the magnetic field divergence errors, which might pollute the solution quality. Our final contribution is the extension of the standard resistive MHD equations and our DG approximation with a divergence cleaning mechanism that is based on a generalized Lagrange multiplier (GLM). As a conclusion to the first part of this series, we provide detailed numerical validations of our DGSEM method that underline our theoretical derivations. In addition, we show a numerical example where the entropy stable DGSEM demonstrates increased robustness compared to the standard DGSEM.}
 }
 
 @article{Cui2023,
@@ -730,12 +730,12 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2022.111882},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999122009457},
 author = {Shumo Cui and Shengrong Ding and Kailiang Wu},
-keywords = {Optimal convex decomposition, Bound-preserving schemes, Hyperbolic conservation laws, Discontinuous Galerkin methods, Multidimensional},
-abstract = {Since proposed in Zhang and Shu (2010) [1], the Zhang–Shu framework has attracted extensive attention and motivated many bound-preserving (BP) high-order discontinuous Galerkin and finite volume schemes for various hyperbolic equations. A key ingredient in the framework is the decomposition of the cell averages of the numerical solution into a convex combination of the solution values at certain quadrature points, which helps to rewrite high-order schemes as convex combinations of formally first-order schemes. The classic convex decomposition originally proposed by Zhang and Shu has been widely used over the past decade. It was verified, only for the 1D quadratic and cubic polynomial spaces, that the classic decomposition is optimal in the sense of achieving the mildest BP CFL condition. Yet, it remained unclear whether the classic decomposition is optimal in multiple dimensions. In this paper, we find that the classic multidimensional decomposition based on the tensor product of Gauss–Lobatto and Gauss quadratures is generally not optimal, and we discover a novel alternative decomposition for the 2D and 3D polynomial spaces of total degree up to 2 and 3, respectively, on Cartesian meshes. Our new decomposition allows a larger BP time step-size than the classic one, and moreover, it is rigorously proved to be optimal to attain the mildest BP CFL condition, yet requires much fewer nodes. The discovery of such an optimal convex decomposition is highly nontrivial yet meaningful, as it may lead to an improvement of high-order BP schemes for a large class of hyperbolic or convection-dominated equations, at the cost of only a slight and local modification to the implementation code. Several numerical examples are provided to further validate the advantages of using our optimal decomposition over the classic one in terms of efficiency.}
+keywords = {Optimal convex decomposition, Bound-preserving schemes, Hyperbolic conservation laws, Discontinuous {G}alerkin methods, Multidimensional},
+abstract = {Since proposed in Zhang and Shu (2010) [1], the Zhang–Shu framework has attracted extensive attention and motivated many bound-preserving (BP) high-order discontinuous {G}alerkin and finite volume schemes for various hyperbolic equations. A key ingredient in the framework is the decomposition of the cell averages of the numerical solution into a convex combination of the solution values at certain quadrature points, which helps to rewrite high-order schemes as convex combinations of formally first-order schemes. The classic convex decomposition originally proposed by Zhang and Shu has been widely used over the past decade. It was verified, only for the 1D quadratic and cubic polynomial spaces, that the classic decomposition is optimal in the sense of achieving the mildest BP CFL condition. Yet, it remained unclear whether the classic decomposition is optimal in multiple dimensions. In this paper, we find that the classic multidimensional decomposition based on the tensor product of Gauss–Lobatto and Gauss quadratures is generally not optimal, and we discover a novel alternative decomposition for the 2D and 3D polynomial spaces of total degree up to 2 and 3, respectively, on Cartesian meshes. Our new decomposition allows a larger BP time step-size than the classic one, and moreover, it is rigorously proved to be optimal to attain the mildest BP CFL condition, yet requires much fewer nodes. The discovery of such an optimal convex decomposition is highly nontrivial yet meaningful, as it may lead to an improvement of high-order BP schemes for a large class of hyperbolic or convection-dominated equations, at the cost of only a slight and local modification to the implementation code. Several numerical examples are provided to further validate the advantages of using our optimal decomposition over the classic one in terms of efficiency.}
 }
 @ARTICLE{Kopriva2019,
   title     = "Free-stream preservation for curved geometrically non-conforming
-               discontinuous Galerkin spectral elements",
+               discontinuous {G}alerkin spectral elements",
   author    = "Kopriva, David A and Hindenlang, Florian J and Bolemann, Thomas
                and Gassner, Gregor J",
   journal   = "J. Sci. Comput.",
@@ -752,7 +752,7 @@ abstract = {Since proposed in Zhang and Shu (2010) [1], the Zhang–Shu framewor
 @article{berzins1995,
 author = {Berzins, M.},
 title = {Temporal Error Control for Convection-Dominated Equations in Two Space Dimensions},
-journal = {SIAM Journal on Scientific Computing},
+journal = {{SIAM} Journal on Scientific Computing},
 volume = {16},
 number = {3},
 pages = {558-580},
@@ -813,7 +813,7 @@ author = {P. Bogacki and L.F. Shampine}
 }
 
 @article{Rueda2021,
-title = {An entropy stable nodal discontinuous Galerkin method for the resistive MHD equations. Part II: Subcell finite volume shock capturing},
+title = {An entropy stable nodal discontinuous {G}alerkin method for the resistive MHD equations. Part II: Subcell finite volume shock capturing},
 journal = {Journal of Computational Physics},
 volume = {444},
 pages = {110580},
@@ -822,8 +822,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2021.110580},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999121004757},
 author = {Andrés M. Rueda-Ramírez and Sebastian Hennemann and Florian J. Hindenlang and Andrew R. Winters and Gregor J. Gassner},
-keywords = {Compressible magnetohydrodynamics, Shock capturing, Entropy stability, Discontinuous Galerkin spectral element methods},
-abstract = {The second paper of this series presents two robust entropy stable shock-capturing methods for discontinuous Galerkin spectral element (DGSEM) discretizations of the compressible magneto-hydrodynamics (MHD) equations. Specifically, we use the resistive GLM-MHD equations, which include a divergence cleaning mechanism that is based on a generalized Lagrange multiplier (GLM). For the continuous entropy analysis to hold, and due to the divergence-free constraint on the magnetic field, the GLM-MHD system requires the use of non-conservative terms, which need special treatment. Hennemann et al. (2020) [25] recently presented an entropy stable shock-capturing strategy for DGSEM discretizations of the Euler equations that blends the DGSEM scheme with a subcell first-order finite volume (FV) method. Our first contribution is the extension of the method of Hennemann et al. to systems with non-conservative terms, such as the GLM-MHD equations. In our approach, the advective and non-conservative terms of the equations are discretized with a hybrid FV/DGSEM scheme, whereas the visco-resistive terms are discretized only with the high-order DGSEM method. We prove that the extended method is semi-discretely entropy stable on three-dimensional unstructured curvilinear meshes. Our second contribution is the derivation and analysis of a second entropy stable shock-capturing method that provides enhanced resolution by using a subcell reconstruction procedure that is carefully built to ensure entropy stability. We provide a numerical verification of the properties of the hybrid FV/DGSEM schemes on curvilinear meshes and show their robustness and accuracy with common benchmark cases, such as the Orszag-Tang vortex and the GEM (Geospace Environmental Modeling) reconnection challenge. Finally, we simulate a space physics application: the interaction of Jupiter's magnetic field with the plasma torus generated by the moon Io.}
+keywords = {Compressible magnetohydrodynamics, Shock capturing, Entropy stability, Discontinuous {G}alerkin spectral element methods},
+abstract = {The second paper of this series presents two robust entropy stable shock-capturing methods for discontinuous {G}alerkin spectral element (DGSEM) discretizations of the compressible magneto-hydrodynamics (MHD) equations. Specifically, we use the resistive GLM-MHD equations, which include a divergence cleaning mechanism that is based on a generalized Lagrange multiplier (GLM). For the continuous entropy analysis to hold, and due to the divergence-free constraint on the magnetic field, the GLM-MHD system requires the use of non-conservative terms, which need special treatment. Hennemann et al. (2020) [25] recently presented an entropy stable shock-capturing strategy for DGSEM discretizations of the {E}uler equations that blends the DGSEM scheme with a subcell first-order finite volume (FV) method. Our first contribution is the extension of the method of Hennemann et al. to systems with non-conservative terms, such as the GLM-MHD equations. In our approach, the advective and non-conservative terms of the equations are discretized with a hybrid FV/DGSEM scheme, whereas the visco-resistive terms are discretized only with the high-order DGSEM method. We prove that the extended method is semi-discretely entropy stable on three-dimensional unstructured curvilinear meshes. Our second contribution is the derivation and analysis of a second entropy stable shock-capturing method that provides enhanced resolution by using a subcell reconstruction procedure that is carefully built to ensure entropy stability. We provide a numerical verification of the properties of the hybrid FV/DGSEM schemes on curvilinear meshes and show their robustness and accuracy with common benchmark cases, such as the Orszag-Tang vortex and the GEM (Geospace Environmental Modeling) reconnection challenge. Finally, we simulate a space physics application: the interaction of Jupiter's magnetic field with the plasma torus generated by the moon Io.}
 }
 
 @article{attig2011,
@@ -855,10 +855,10 @@ abstract = {The second paper of this series presents two robust entropy stable s
 @book{cockburn2000,
         address = {Berlin, Heidelberg},
         series = {Lecture {Notes} in {Computational} {Science} and {Engineering}},
-        title = {Discontinuous {Galerkin} {Methods}: {Theory}, {Computation} and {Applications}},
+        title = {Discontinuous {{G}alerkin} {Methods}: {Theory}, {Computation} and {Applications}},
         volume = {11},
         isbn = {978-3-642-64098-8 978-3-642-59721-3},
-        shorttitle = {Discontinuous {Galerkin} {Methods}},
+        shorttitle = {Discontinuous {{G}alerkin} {Methods}},
         url = {https://link.springer.com/10.1007/978-3-642-59721-3},
         language = {en},
         urldate = {2023-05-16},
@@ -877,7 +877,7 @@ abstract = {The second paper of this series presents two robust entropy stable s
         issn = {0885-7474, 1573-7691},
         url = {https://link.springer.com/article/10.1007/s10915-010-9420-z},
         doi = {10.1007/s10915-010-9420-z},
-        abstract = {The flux reconstruction approach to high-order methods is robust, efficient, simple to implement, and allows various high-order schemes, such as the nodal discontinuous Galerkin method and the spectral difference method, to be cast within a single unifying framework. Utilizing a flux reconstruction formulation, it has been proved (for one-dimensional linear advection) that the spectral difference method is stable for all orders of accuracy in a norm of Sobolev type, provided that the interior flux collocation points are located at zeros of the corresponding Legendre polynomials. In this article the aforementioned result is extended in order to develop a new class of one-dimensional energy stable flux reconstruction schemes. The energy stable schemes are parameterized by a single scalar quantity, which if chosen judiciously leads to the recovery of various well known high-order methods (including a particular nodal discontinuous Galerkin method and a particular spectral difference method). The analysis offers significant insight into why certain flux reconstruction schemes are stable, whereas others are not. Also, from a practical standpoint, the analysis provides a simple prescription for implementing an infinite range of energy stable high-order methods via the intuitive flux reconstruction approach.},
+        abstract = {The {F}lux {R}econstruction approach to high-order methods is robust, efficient, simple to implement, and allows various high-order schemes, such as the nodal discontinuous {G}alerkin method and the spectral difference method, to be cast within a single unifying framework. Utilizing a {F}lux {R}econstruction formulation, it has been proved (for one-dimensional linear advection) that the spectral difference method is stable for all orders of accuracy in a norm of Sobolev type, provided that the interior flux collocation points are located at zeros of the corresponding Legendre polynomials. In this article the aforementioned result is extended in order to develop a new class of one-dimensional energy stable {F}lux {R}econstruction schemes. The energy stable schemes are parameterized by a single scalar quantity, which if chosen judiciously leads to the recovery of various well known high-order methods (including a particular nodal discontinuous {G}alerkin method and a particular spectral difference method). The analysis offers significant insight into why certain {F}lux {R}econstruction schemes are stable, whereas others are not. Also, from a practical standpoint, the analysis provides a simple prescription for implementing an infinite range of energy stable high-order methods via the intuitive {F}lux {R}econstruction approach.},
         language = {en},
         number = {1},
         urldate = {2018-02-12},
@@ -899,11 +899,11 @@ abstract = {The second paper of this series presents two robust entropy stable s
         author = {Vincent, P. E. and Farrington, A. M. and Witherden, F. D. and Jameson, A.},
         month = nov,
         year = {2015},
-        keywords = {Discontinuous Galerkin method, Energy stability, Flux Reconstruction, High-order methods, Spectral difference method},
+        keywords = {Discontinuous {G}alerkin method, Energy stability, {F}lux {R}econstruction, High-order methods, Spectral difference method},
         pages = {248--272},
 }
 @article{Trojak2021,
-        title = {A new family of weighted one-parameter flux reconstruction schemes},
+        title = {A new family of weighted one-parameter {F}lux {R}econstruction schemes},
         volume = {222},
         issn = {0045-7930},
         url = {https://www.sciencedirect.com/science/article/pii/S0045793021000840},
@@ -947,13 +947,13 @@ abstract = {The second paper of this series presents two robust entropy stable s
 
 @Article{Dumbser2014,
   author =       {M. Dumbser and O. Zanotti and R. Loub\`{e}re and S. Diot},
-  title =        {{A posteriori subcell limiting of the discontinuous Galerkin finite element method for hyperbolic conservation laws}},
+  title =        {{A posteriori subcell limiting of the discontinuous {G}alerkin finite element method for hyperbolic conservation laws}},
   journal =      jcp,
   year =         2014,
   volume =       278,
   pages =        {47--75}}
 @article{Qiu2003,
-        title = {Finite {Difference} {WENO} {Schemes} with {Lax}--{Wendroff}-{Type} {Time} {Discretizations}},
+        title = {Finite {Difference} {{WENO}} {Schemes} with {Lax}--{Wendroff}-{Type} {Time} {Discretizations}},
         volume = {24},
         issn = {1064-8275, 1095-7197},
         url = {http://epubs.siam.org/doi/10.1137/S1064827502412504},
@@ -961,7 +961,7 @@ abstract = {The second paper of this series presents two robust entropy stable s
         language = {en},
         number = {6},
         urldate = {2021-08-11},
-        journal = {SIAM Journal on Scientific Computing},
+        journal = {{SIAM} Journal on Scientific Computing},
         author = {Qiu, Jianxian and Shu, Chi-Wang},
         month = jan,
         year = {2003},
@@ -1013,7 +1013,7 @@ abstract = {The second paper of this series presents two robust entropy stable s
         pages = {110063},
 }
 @article{Burger2017,
-        title = {Approximate {Lax}–{Wendroff} discontinuous {Galerkin} methods for hyperbolic conservation laws},
+        title = {Approximate {Lax}–{Wendroff} discontinuous {{G}alerkin} methods for hyperbolic conservation laws},
         volume = {74},
         issn = {08981221},
         url = {https://linkinghub.elsevier.com/retrieve/pii/S089812211730367X},
@@ -1028,7 +1028,7 @@ abstract = {The second paper of this series presents two robust entropy stable s
         pages = {1288--1310},
 }
 @article{Cicchino2022,
-title = {Provably stable flux reconstruction high-order methods on curvilinear elements},
+title = {Provably stable {F}lux {R}econstruction high-order methods on curvilinear elements},
 journal = {Journal of Computational Physics},
 volume = {463},
 pages = {111259},
@@ -1037,11 +1037,11 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2022.111259},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999122003217},
 author = {Alexander Cicchino and David C. {Del Rey Fernández} and Siva Nadarajah and Jesse Chan and Mark H. Carpenter},
-keywords = {High-order, Flux reconstruction, Discontinuous Galerkin, Summation-by-parts},
-abstract = {Provably stable flux reconstruction (FR) schemes are derived for partial differential equations cast in curvilinear coordinates. Specifically, energy stable flux reconstruction (ESFR) schemes are considered as they allow for design flexibility as well as stability proofs for the linear advection problem on affine elements. Additionally, the curvilinear metric split-form for a linear physical flux is examined as it enables the development of energy stability proofs. The first critical step proves, that in curvilinear coordinates, the discontinuous Galerkin (DG) conservative and non-conservative forms are inherently different–even under exact integration and analytically exact metric terms. This analysis demonstrates that the split form is essential to developing provably stable DG schemes on curvilinear coordinates and motivates the construction of metric dependent ESFR correction functions in each element. Furthermore, the provably stable FR schemes differ from schemes in the literature that only apply the ESFR correction functions to surface terms or on the conservative form, and instead incorporate the ESFR correction functions on the full split form of the equations. It is demonstrated that the scheme is divergent when the correction functions are only used for surface reconstruction in curvilinear coordinates. We numerically verify the stability claims for our proposed FR split forms and compare them to ESFR schemes in the literature. Lastly, the newly proposed provably stable FR schemes are shown to obtain optimal orders of convergence. The scheme loses the orders of accuracy at the equivalent correction parameter value c as that of the one-dimensional ESFR scheme.}
+keywords = {High-order, {F}lux {R}econstruction, Discontinuous {G}alerkin, Summation-by-parts},
+abstract = {Provably stable {F}lux {R}econstruction (FR) schemes are derived for partial differential equations cast in curvilinear coordinates. Specifically, energy stable {F}lux {R}econstruction (ESFR) schemes are considered as they allow for design flexibility as well as stability proofs for the linear advection problem on affine elements. Additionally, the curvilinear metric split-form for a linear physical flux is examined as it enables the development of energy stability proofs. The first critical step proves, that in curvilinear coordinates, the discontinuous {G}alerkin (DG) conservative and non-conservative forms are inherently different–even under exact integration and analytically exact metric terms. This analysis demonstrates that the split form is essential to developing provably stable DG schemes on curvilinear coordinates and motivates the construction of metric dependent ESFR correction functions in each element. Furthermore, the provably stable FR schemes differ from schemes in the literature that only apply the ESFR correction functions to surface terms or on the conservative form, and instead incorporate the ESFR correction functions on the full split form of the equations. It is demonstrated that the scheme is divergent when the correction functions are only used for surface reconstruction in curvilinear coordinates. We numerically verify the stability claims for our proposed FR split forms and compare them to ESFR schemes in the literature. Lastly, the newly proposed provably stable FR schemes are shown to obtain optimal orders of convergence. The scheme loses the orders of accuracy at the equivalent correction parameter value c as that of the one-dimensional ESFR scheme.}
 }
 @article{Abe2015,
-title = {On the freestream preservation of high-order conservative flux-reconstruction schemes},
+title = {On the freestream preservation of high-order conservative {F}lux-{R}econstruction schemes},
 journal = {Journal of Computational Physics},
 volume = {281},
 pages = {28-54},
@@ -1050,8 +1050,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2014.10.011},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999114006937},
 author = {Yoshiaki Abe and Takanori Haga and Taku Nonomura and Kozo Fujii},
-keywords = {Flux-reconstruction scheme, Geometric conservation law, Freestream preservation, High-order unstructured scheme, Conservative metric, Aliasing error},
-abstract = {The appropriate procedure for constructing the symmetric conservative metric is presented with which both the freestream preservation and global conservation properties are satisfied in the high-order conservative flux-reconstruction scheme on a three-dimensional stationary-curvilinear grid. A freestream preservation test is conducted, and the symmetric conservative metric constructed by the appropriate procedure preserves the freestream regardless of the order of shape functions, while other metrics cannot always preserve the freestream. Also a convecting vortex is computed on three-dimensional wavy grids, and the formal order of accuracy is achieved when the symmetric conservative metric is appropriately constructed, while it is not when they are inappropriately constructed. In addition, although the sufficient condition for the freestream preservation with the nonconservative (cross product form) metric was reported in the previous study to be that the order of solution polynomial has to be greater than or equal to the twice of the order of a shape function, a special case is newly found in the present study: when the Radau polynomial is used for the correction function, the freestream is preserved even if the solution order is lower than the known condition. Using the properties of Legendre polynomials, the mechanism for this special case is analytically explained, considering the cancellation of aliasing errors.}
+keywords = {{F}lux-{R}econstruction scheme, Geometric conservation law, Freestream preservation, High-order unstructured scheme, Conservative metric, Aliasing error},
+abstract = {The appropriate procedure for constructing the symmetric conservative metric is presented with which both the freestream preservation and global conservation properties are satisfied in the high-order conservative {F}lux-{R}econstruction scheme on a three-dimensional stationary-curvilinear grid. A freestream preservation test is conducted, and the symmetric conservative metric constructed by the appropriate procedure preserves the freestream regardless of the order of shape functions, while other metrics cannot always preserve the freestream. Also a convecting vortex is computed on three-dimensional wavy grids, and the formal order of accuracy is achieved when the symmetric conservative metric is appropriately constructed, while it is not when they are inappropriately constructed. In addition, although the sufficient condition for the freestream preservation with the nonconservative (cross product form) metric was reported in the previous study to be that the order of solution polynomial has to be greater than or equal to the twice of the order of a shape function, a special case is newly found in the present study: when the Radau polynomial is used for the correction function, the freestream is preserved even if the solution order is lower than the known condition. Using the properties of Legendre polynomials, the mechanism for this special case is analytically explained, considering the cancellation of aliasing errors.}
 }
 @article{Kopriva2002,
 author = {Kopriva, David A. and Woodruff, Stephen L. and Hussaini, M. Y.},
@@ -1060,11 +1060,11 @@ journal = {International Journal for Numerical Methods in Engineering},
 volume = {53},
 number = {1},
 pages = {105-122},
-keywords = {discontinuous Galerkin, spectral methods, Maxwell's equations},
+keywords = {discontinuous {G}alerkin, spectral methods, Maxwell's equations},
 doi = {https://doi.org/10.1002/nme.394},
 url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.394},
 eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.394},
-abstract = {Abstract In this paper we solve electromagnetic scattering problems by approximating Maxwell's equations in the time-domain with a high-order quadrilateral discontinuous spectral element method (DSEM). The method is a collocation form of the discontinuous Galerkin method for hyperbolic systems where the solution is approximated by a tensor product Legendre expansion and inner products are replaced with Gauss–Legendre quadratures. To increase flexibility of the method, we use a mortar element method to couple element faces. Mortars provide a means for coupling element faces along which the polynomial orders differ, which allows the flexibility to choose the approximation order within an element by considering only local resolution requirements. Mortars also permit local subdivision of a mesh by connecting element faces that do not share a full side. We present evidence showing that the convergence of the non-conforming approximations is spectral along with examples of their use. Copyright © 2001 John Wiley \& Sons, Ltd.},
+abstract = {Abstract In this paper we solve electromagnetic scattering problems by approximating Maxwell's equations in the time-domain with a high-order quadrilateral discontinuous spectral element method (DSEM). The method is a collocation form of the discontinuous {G}alerkin method for hyperbolic systems where the solution is approximated by a tensor product Legendre expansion and inner products are replaced with Gauss–Legendre quadratures. To increase flexibility of the method, we use a mortar element method to couple element faces. Mortars provide a means for coupling element faces along which the polynomial orders differ, which allows the flexibility to choose the approximation order within an element by considering only local resolution requirements. Mortars also permit local subdivision of a mesh by connecting element faces that do not share a full side. We present evidence showing that the convergence of the non-conforming approximations is spectral along with examples of their use. Copyright © 2001 John Wiley \& Sons, Ltd.},
 year = {2002}
 }
 
@@ -1078,7 +1078,7 @@ year = {2002}
   number = {3},
   pages = {1272--1292},
   author = {G. Mengaldo and D. De Grazia and P. E. Vincent and S. J. Sherwin},
-  title = {On the Connections Between Discontinuous Galerkin and Flux Reconstruction Schemes: Extension to Curvilinear Meshes},
+  title = {On the Connections Between Discontinuous {G}alerkin and {F}lux {R}econstruction Schemes: Extension to Curvilinear Meshes},
   journal = {Journal of Scientific Computing}
 }
 @article{Semplice2018,
@@ -1139,12 +1139,12 @@ abstract = {The aim of this work is the development of an automatic, adaptive me
   number = {2},
   pages = {692--724},
   author = {M. Semplice and A. Coco and G. Russo},
-  title = {Adaptive Mesh Refinement for Hyperbolic Systems Based on Third-Order Compact {WENO} Reconstruction},
+  title = {Adaptive Mesh Refinement for Hyperbolic Systems Based on Third-Order Compact {{WENO}} Reconstruction},
   journal = {Journal of Scientific Computing}
 }
 
 @article{Cicchino2022a,
-title = {Nonlinearly stable flux reconstruction high-order methods in split form},
+title = {Nonlinearly stable {F}lux {R}econstruction high-order methods in split form},
 journal = {Journal of Computational Physics},
 volume = {458},
 pages = {111094},
@@ -1153,8 +1153,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2022.111094},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999122001565},
 author = {Alexander Cicchino and Siva Nadarajah and David C. {Del Rey Fernández}},
-keywords = {Discontinuous Galerkin, Energy stable flux reconstruction, Summation-by-parts, Entropy stability, Discrete conservation, Split operator formulation},
-abstract = {The flux reconstruction (FR) method has gained popularity in the research community as it recovers promising high-order methods through modally filtered correction fields, such as the discontinuous Galerkin method, amongst others, on unstructured grids over complex geometries. Moreover, FR schemes, specifically energy stable FR (ESFR) schemes also known as Vincent-Castonguay-Jameson-Huynh schemes, have proven attractive as they allow for design flexibility as well as stability proofs for the linear advection problem on affine elements. Additionally, split forms have recently seen a resurgence in research activity due to their resultant nonlinear (entropy) stability proofs. This paper derives for the first time nonlinearly stable ESFR schemes in split form that enable nonlinear stability proofs for, uncollocated, modal, ESFR split forms with different volume and surface cubature nodes. The critical enabling technology is applying the splitting to the discrete stiffness operator. This naturally leads to appropriate surface and numerical fluxes, enabling both entropy stability and conservation proofs. When these schemes are recast in strong form, they differ from schemes found in the ESFR literature as the ESFR correction functions are incorporated on the volume integral. Furthermore, numerical experiments are conducted for Burgers' equation verifying that the new class of proposed ESFR split forms is nonlinearly stable in contrast to the standard split form ESFR approach. Lastly, the new ESFR split form is shown to obtain the correct orders of accuracy.}
+keywords = {Discontinuous {G}alerkin, Energy stable {F}lux {R}econstruction, Summation-by-parts, Entropy stability, Discrete conservation, Split operator formulation},
+abstract = {The {F}lux {R}econstruction (FR) method has gained popularity in the research community as it recovers promising high-order methods through modally filtered correction fields, such as the discontinuous {G}alerkin method, amongst others, on unstructured grids over complex geometries. Moreover, FR schemes, specifically energy stable FR (ESFR) schemes also known as Vincent-Castonguay-Jameson-Huynh schemes, have proven attractive as they allow for design flexibility as well as stability proofs for the linear advection problem on affine elements. Additionally, split forms have recently seen a resurgence in research activity due to their resultant nonlinear (entropy) stability proofs. This paper derives for the first time nonlinearly stable ESFR schemes in split form that enable nonlinear stability proofs for, uncollocated, modal, ESFR split forms with different volume and surface cubature nodes. The critical enabling technology is applying the splitting to the discrete stiffness operator. This naturally leads to appropriate surface and numerical fluxes, enabling both entropy stability and conservation proofs. When these schemes are recast in strong form, they differ from schemes found in the ESFR literature as the ESFR correction functions are incorporated on the volume integral. Furthermore, numerical experiments are conducted for Burgers' equation verifying that the new class of proposed ESFR split forms is nonlinearly stable in contrast to the standard split form ESFR approach. Lastly, the new ESFR split form is shown to obtain the correct orders of accuracy.}
 }
 @inproceedings{Maday1988,
   title={Nonconforming mortar element methods: Application to spectral discretizations},
@@ -1193,7 +1193,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
         pages = {321--351},
 }
 @article{Gassner2011a,
-	title = {Explicit one-step time discretizations for discontinuous {Galerkin} and finite volume schemes based on local predictors},
+	title = {Explicit one-step time discretizations for discontinuous {{G}alerkin} and finite volume schemes based on local predictors},
 	volume = {230},
 	issn = {00219991},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021999110005802},
@@ -1209,7 +1209,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 }
 @article{Cockburn1991,
      author = {Cockburn, Bernardo and Shu, Chi-Wang},
-     title = {The Runge-Kutta local projection $P^1$-discontinuous-Galerkin finite element method for scalar conservation laws},
+     title = {The Runge-Kutta local projection $P^1$-discontinuous-{G}alerkin finite element method for scalar conservation laws},
      journal = {ESAIM: Mathematical Modelling and Numerical Analysis - Mod\'elisation Math\'ematique et Analyse Num\'erique},
      pages = {337--361},
      publisher = {AFCET - Gauthier-Villars},
@@ -1225,7 +1225,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Cockburn1989a,
-	title = {{TVB} {Runge}-{Kutta} local projection discontinuous {Galerkin} finite element method for conservation laws. {II}. {General} framework},
+	title = {{TVB} {Runge}-{Kutta} local projection discontinuous {{G}alerkin} finite element method for conservation laws. {II}. {General} framework},
 	volume = {52},
 	issn = {0025-5718},
 	url = {http://www.ams.org/jourcgi/jour-getitem?pii=S0025-5718-1989-0983311-4},
@@ -1260,7 +1260,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	doi = {10.1137/S003614450036757X},
 	number = {1},
 	urldate = {2021-10-29},
-	journal = {SIAM Review},
+	journal = {{SIAM} Review},
 	author = {Gottlieb, Sigal and Shu, Chi-Wang and Tadmor, Eitan},
 	month = jan,
 	year = {2001},
@@ -1284,7 +1284,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {770--775},
 }
 @article{Cockburn1989,
-	title = {{TVB} {Runge}-{Kutta} local projection discontinuous {Galerkin} finite element method for conservation laws {III}: {One}-dimensional systems},
+	title = {{TVB} {Runge}-{Kutta} local projection discontinuous {{G}alerkin} finite element method for conservation laws {III}: {One}-dimensional systems},
 	volume = {84},
 	issn = {00219991},
 	url = {http://linkinghub.elsevier.com/retrieve/pii/0021999189901836},
@@ -1308,7 +1308,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {2},
 	urldate = {2018-07-03},
-	journal = {SIAM Journal on Numerical Analysis},
+	journal = {{SIAM} Journal on Numerical Analysis},
 	author = {Spiteri, Raymond J. and Ruuth, Steven J.},
 	month = jan,
 	year = {2002},
@@ -1324,14 +1324,14 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {6},
 	urldate = {2021-12-14},
-	journal = {SIAM Journal on Scientific Computing},
+	journal = {{SIAM} Journal on Scientific Computing},
 	author = {Carpenter, Mark H. and Gottlieb, David and Abarbanel, Saul and Don, Wai-Sun},
 	month = nov,
 	year = {1995},
 	pages = {1241--1252},
 }
 @article{Guo2015,
-	title = {A {New} {Lax}–{Wendroff} {Discontinuous} {Galerkin} {Method} with {Superconvergence}},
+	title = {A {New} {Lax}–{Wendroff} {Discontinuous} {{G}alerkin} {Method} with {Superconvergence}},
 	volume = {65},
 	issn = {0885-7474, 1573-7691},
 	url = {http://link.springer.com/10.1007/s10915-014-9968-0},
@@ -1346,7 +1346,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {299--326}
 }
 @article{Offner2019,
-	title = {Error {Boundedness} of {Discontinuous} {Galerkin} {Methods} with {Variable} {Coefficients}},
+	title = {Error {Boundedness} of {Discontinuous} {{G}alerkin} {Methods} with {Variable} {Coefficients}},
 	volume = {79},
 	issn = {1573-7691},
 	url = {https://doi.org/10.1007/s10915-018-00902-1},
@@ -1420,7 +1420,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 }
 @book{Toro2009,
 	address = {Berlin, Heidelberg},
-	title = {Riemann {Solvers} and {Numerical} {Methods} for {Fluid} {Dynamics}},
+	title = {{Riemann} {Solvers} and {Numerical} {Methods} for {Fluid} {Dynamics}},
 	isbn = {978-3-540-25202-3 978-3-540-49834-6},
 	url = {http://link.springer.com/10.1007/b79761},
 	language = {en},
@@ -1455,7 +1455,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	doi = {10.1137/141000671},
 	number = {1},
 	urldate = {2021-12-19},
-	journal = {SIAM Review},
+	journal = {{SIAM} Review},
 	author = {Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.},
 	month = jan,
 	year = {2017},
@@ -1470,7 +1470,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {6},
 	urldate = {2019-01-29},
-	journal = {SIAM Journal on Scientific Computing},
+	journal = {{SIAM} Journal on Scientific Computing},
 	author = {Batten, P. and Clarke, N. and Lambert, C. and Causon, D. M.},
 	month = nov,
 	year = {1997},
@@ -1528,7 +1528,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {1},
 	urldate = {2019-07-06},
-	journal = {SIAM Review},
+	journal = {{SIAM} Review},
 	author = {Harten, Amiram and Lax, Peter D. and Leer, Bram van},
 	month = jan,
 	year = {1983},
@@ -1543,26 +1543,26 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {2},
 	urldate = {2019-03-28},
-	journal = {SIAM Journal on Numerical Analysis},
+	journal = {{SIAM} Journal on Numerical Analysis},
 	author = {Einfeldt, Bernd},
 	month = apr,
 	year = {1988},
 	pages = {294--318},
 }
 @article{Guermond2016,
-	title = {Fast estimation from above of the maximum wave speed in the {Riemann} problem for the {Euler} equations},
+	title = {Fast estimation from above of the maximum wave speed in the {Riemann} problem for the {{E}uler} equations},
 	volume = {321},
 	issn = {0021-9991},
 	url = {https://doi.org/10.1016/j.jcp.2016.05.054},
 	doi = {10.1016/j.jcp.2016.05.054},
-	abstract = {This paper is concerned with the construction of a fast algorithm for computing the maximum speed of propagation in the Riemann solution for the Euler system of gas dynamics with the co-volume equation of state. The novelty in the algorithm is that it stops when a guaranteed upper bound for the maximum speed is reached with a prescribed accuracy. The convergence rate of the algorithm is cubic and the bound is guaranteed for gasses with the co-volume equation of state and the heat capacity ratio γ in the range ( 1 , 5 / 3 .},
+	abstract = {This paper is concerned with the construction of a fast algorithm for computing the maximum speed of propagation in the {Riemann} solution for the {E}uler system of gas dynamics with the co-volume equation of state. The novelty in the algorithm is that it stops when a guaranteed upper bound for the maximum speed is reached with a prescribed accuracy. The convergence rate of the algorithm is cubic and the bound is guaranteed for gasses with the co-volume equation of state and the heat capacity ratio γ in the range ( 1 , 5 / 3 .},
 	number = {C},
 	urldate = {2021-10-13},
 	journal = {Journal of Computational Physics},
 	author = {Guermond, Jean-Luc and Popov, Bojan},
 	month = sep,
 	year = {2016},
-	keywords = {Co-volume equation of state, Euler system of gas dynamics, Maximum speed of propagation, Riemann problem},
+	keywords = {Co-volume equation of state, {E}uler system of gas dynamics, Maximum speed of propagation, {Riemann} problem},
 	pages = {908--926},
 }
 @article{Toro2020,
@@ -1587,7 +1587,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	issn = {0938-1287, 1432-2153},
 	url = {https://link.springer.com/article/10.1007/BF01414629},
 	doi = {10.1007/BF01414629},
-	abstract = {The missing contact surface in the approximate Riemann solver of Harten, Lax, and van Leer is restored. This is achieved following the same principles as in the original solver. We also present new ways of obtaining wave-speed estimates. The resulting solver is as accurate and robust as the exact Riemann solver, but it is simpler and computationally more efficient than the latter, particulaly for non-ideal gases. The improved Riemann solver is implemented in the second-order WAF method and tested for one-dimensional problems with exact solutions and for a two-dimensional problem with experimental results.},
+	abstract = {The missing contact surface in the approximate {Riemann} solver of Harten, Lax, and van Leer is restored. This is achieved following the same principles as in the original solver. We also present new ways of obtaining wave-speed estimates. The resulting solver is as accurate and robust as the exact {Riemann} solver, but it is simpler and computationally more efficient than the latter, particulaly for non-ideal gases. The improved Riemann solver is implemented in the second-order WAF method and tested for one-dimensional problems with exact solutions and for a two-dimensional problem with experimental results.},
 	language = {en},
 	number = {1},
 	urldate = {2017-12-28},
@@ -1624,7 +1624,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {2},
 	urldate = {2021-08-11},
-	journal = {SIAM Journal on Scientific Computing},
+	journal = {{SIAM} Journal on Scientific Computing},
 	author = {Jiang, Yan and Shu, Chi-Wang and Zhang, Mengping},
 	month = jan,
 	year = {2013},
@@ -1632,7 +1632,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 }
 
 @article{Dumbser2008,
-	title = {A unified framework for the construction of one-step finite volume and discontinuous {Galerkin} schemes on unstructured meshes},
+	title = {A unified framework for the construction of one-step finite volume and discontinuous {{G}alerkin} schemes on unstructured meshes},
 	volume = {227},
 	issn = {00219991},
 	url = {http://linkinghub.elsevier.com/retrieve/pii/S0021999108002829},
@@ -1649,7 +1649,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Balsara2009a,
-	title = {Efficient, high accuracy {ADER}-{WENO} schemes for hydrodynamics and divergence-free magnetohydrodynamics},
+	title = {Efficient, high accuracy {ADER}-{{WENO}} schemes for hydrodynamics and divergence-free magnetohydrodynamics},
 	volume = {228},
 	issn = {00219991},
 	url = {http://linkinghub.elsevier.com/retrieve/pii/S0021999108006396},
@@ -1666,21 +1666,21 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Guthrey2019,
-	title = {The {Regionally} {Implicit} {Discontinuous} {Galerkin} {Method}: {Improving} the {Stability} of {DG}-{FEM}},
+	title = {The {Regionally} {Implicit} {Discontinuous} {{G}alerkin} {Method}: {Improving} the {Stability} of {DG}-{FEM}},
 	volume = {57},
 	issn = {0036-1429, 1095-7170},
-	shorttitle = {The {Regionally} {Implicit} {Discontinuous} {Galerkin} {Method}},
+	shorttitle = {The {Regionally} {Implicit} {Discontinuous} {{G}alerkin} {Method}},
 	url = {https://epubs.siam.org/doi/10.1137/17M1156174},
 	doi = {10.1137/17M1156174},
 	language = {en},
 	number = {3},
 	urldate = {2021-08-13},
-	journal = {SIAM Journal on Numerical Analysis},
+	journal = {{SIAM} Journal on Numerical Analysis},
 	author = {Guthrey, Pierson T. and Rossmanith, James A.},
 	month = jan,
 	year = {2019},
 	pages = {1263--1288},
-	file = {Submitted Version:/Users/praveen/Zotero/storage/DW72YEJX/Guthrey and Rossmanith - 2019 - The Regionally Implicit Discontinuous Galerkin Met.pdf:application/pdf},
+	file = {Submitted Version:/Users/praveen/Zotero/storage/DW72YEJX/Guthrey and Rossmanith - 2019 - The Regionally Implicit Discontinuous {G}alerkin Met.pdf:application/pdf},
 }
 
 
@@ -1770,7 +1770,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Dumbser2006,
-	title = {Building {Blocks} for {Arbitrary} {High} {Order} {Discontinuous} {Galerkin} {Schemes}},
+	title = {Building {Blocks} for {Arbitrary} {High} {Order} {Discontinuous} {{G}alerkin} {Schemes}},
 	volume = {27},
 	issn = {0885-7474, 1573-7691},
 	url = {http://link.springer.com/10.1007/s10915-005-9025-0},
@@ -1785,7 +1785,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {215--230},
 }
 @article{Dumbser2018,
-	title = {Efficient {Implementation} of {ADER} {Discontinuous} {Galerkin} {Schemes} for a {Scalable} {Hyperbolic} {PDE} {Engine}},
+	title = {Efficient {Implementation} of {ADER} {Discontinuous} {{G}alerkin} {Schemes} for a {Scalable} {Hyperbolic} {PDE} {Engine}},
 	volume = {7},
 	copyright = {http://creativecommons.org/licenses/by/3.0/},
 	url = {https://www.mdpi.com/2075-1680/7/3/63},
@@ -1800,7 +1800,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {63},
 }
 @article{Safjan1995,
-	title = {High-{Order} {Taylor}-{Galerkin} {Methods} for {Linear} {Hyperbolic} {Systems}},
+	title = {High-{Order} {Taylor}-{{G}alerkin} {Methods} for {Linear} {Hyperbolic} {Systems}},
 	volume = {120},
 	issn = {00219991},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/S002199918571159X},
@@ -1817,7 +1817,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Tabarrok1994,
-	title = {Semi-implicit {Taylor}—{Galerkin} finite element methods for incompressible viscous flows},
+	title = {Semi-implicit {Taylor}—{{G}alerkin} finite element methods for incompressible viscous flows},
 	volume = {117},
 	issn = {00457825},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/0045782594901252},
@@ -1834,7 +1834,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Youn1995,
-	title = {A new direct higher-order {Taylor}-{Galerkin} finite element method},
+	title = {A new direct higher-order {Taylor}-{{G}alerkin} finite element method},
 	volume = {56},
 	issn = {00457949},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/004579499400561G},
@@ -1851,7 +1851,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Choe1991,
-	title = {The {Taylor}-{Galerkin} discontinuous finite element method—{An} explicit scheme for nonlinear hyperbolic conservation laws},
+	title = {The {Taylor}-{{G}alerkin} discontinuous finite element method—{An} explicit scheme for nonlinear hyperbolic conservation laws},
 	volume = {10},
 	issn = {0168874X},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/0168874X9190012N},
@@ -1868,7 +1868,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Choe1992,
-	title = {The discontinuous finite element method with the {Taylor}-{Galerkin} approach for nonlinear hyperbolic conservation laws},
+	title = {The discontinuous finite element method with the {Taylor}-{{G}alerkin} approach for nonlinear hyperbolic conservation laws},
 	volume = {95},
 	issn = {00457825},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/004578259290138A},
@@ -1883,7 +1883,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {141--167}
 }
 @article{Qiu2007,
-	title = {A {Numerical} {Comparison} of the {Lax}–{Wendroff} {Discontinuous} {Galerkin} {Method} {Based} on {Different} {Numerical} {Fluxes}},
+	title = {A {Numerical} {Comparison} of the {Lax}–{Wendroff} {Discontinuous} {{G}alerkin} {Method} {Based} on {Different} {Numerical} {Fluxes}},
 	volume = {30},
 	issn = {0885-7474, 1573-7691},
 	url = {http://link.springer.com/10.1007/s10915-006-9109-5},
@@ -1898,7 +1898,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {345--367}
 }
 @article{Cockburn1998a,
-	title = {The {Local} {Discontinuous} {Galerkin} {Method} for {Time}-{Dependent} {Convection}-{Diffusion} {Systems}},
+	title = {The {Local} {Discontinuous} {{G}alerkin} {Method} for {Time}-{Dependent} {Convection}-{Diffusion} {Systems}},
 	volume = {35},
 	issn = {0036-1429, 1095-7170},
 	url = {http://epubs.siam.org/doi/10.1137/S0036142997316712},
@@ -1906,17 +1906,17 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	language = {en},
 	number = {6},
 	urldate = {2019-10-02},
-	journal = {SIAM Journal on Numerical Analysis},
+	journal = {{SIAM} Journal on Numerical Analysis},
 	author = {Cockburn, Bernardo and Shu, Chi-Wang},
 	month = dec,
 	year = {1998},
 	pages = {2440--2463},
-	file = {Submitted Version:/Users/praveen/Zotero/storage/327G54HE/Cockburn and Shu - 1998 - The Local Discontinuous Galerkin Method for Time-D.pdf:application/pdf}
+	file = {Submitted Version:/Users/praveen/Zotero/storage/327G54HE/Cockburn and Shu - 1998 - The Local Discontinuous {G}alerkin Method for Time-D.pdf:application/pdf}
 }
 
 
 @article{Sun2017,
-	title = {Stability analysis and error estimates of {Lax}–{Wendroff} discontinuous {Galerkin} methods for linear conservation laws},
+	title = {Stability analysis and error estimates of {Lax}–{Wendroff} discontinuous {{G}alerkin} methods for linear conservation laws},
 	volume = {51},
 	issn = {0764-583X, 1290-3841},
 	url = {http://www.esaim-m2an.org/10.1051/m2an/2016049},
@@ -1970,7 +1970,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	author = {Montecinos, Gino I. and Balsara, Dinshaw S.},
 	month = apr,
 	year = {2020},
-	keywords = {ADER schemes, Finite volume schemes, Generalized Riemann Problems, stiff source terms},
+	keywords = {ADER schemes, Finite volume schemes, Generalized {Riemann} Problems, stiff source terms},
 	pages = {104490},
 }
 @article{Jameson2012,
@@ -1991,7 +1991,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Witherden2021,
-	title = {On nodal point sets for flux reconstruction},
+	title = {On nodal point sets for {F}lux {R}econstruction},
 	volume = {381},
 	issn = {03770427},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/S0377042720303058},
@@ -2007,7 +2007,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Vincent2011,
-	title = {Insights from von {Neumann} analysis of high-order flux reconstruction schemes},
+	title = {Insights from von {Neumann} analysis of high-order {F}lux {R}econstruction schemes},
 	volume = {230},
 	issn = {0021-9991},
 	url = {http://www.sciencedirect.com/science/article/pii/S0021999111004323},
@@ -2018,7 +2018,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	author = {Vincent, P. E. and Castonguay, P. and Jameson, A.},
 	month = sep,
 	year = {2011},
-	keywords = {High-order methods, Flux reconstruction, Dispersion, Dissipation, Nodal discontinuous Galerkin method, Spectral difference method},
+	keywords = {High-order methods, {F}lux {R}econstruction, Dispersion, Dissipation, Nodal discontinuous {G}alerkin method, Spectral difference method},
 	pages = {8134--8154},
 }
 
@@ -2041,7 +2041,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Vermeire2017,
-	title = {On the behaviour of fully-discrete flux reconstruction schemes},
+	title = {On the behaviour of fully-discrete {F}lux {R}econstruction schemes},
 	volume = {315},
 	issn = {00457825},
 	url = {http://linkinghub.elsevier.com/retrieve/pii/S0045782516304455},
@@ -2074,7 +2074,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 
 
 @article{Vandenhoeck2019,
-	title = {Implicit high-order flux reconstruction solver for high-speed compressible flows},
+	title = {Implicit high-order {F}lux {R}econstruction solver for high-speed compressible flows},
 	volume = {242},
 	issn = {00104655},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/S0010465519301328},
@@ -2108,7 +2108,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 @inproceedings{Abgrall2020,
 	address = {Springfield},
 	series = {{AIMS} on applied mathematics},
-	title = {Error boundedness of correction procedure via {Reconstruction}/{Flux} reconstruction and the connection to residual distribution schemes},
+	title = {Error boundedness of correction procedure via {Reconstruction}/{Flux} {R}econstruction and the connection to residual distribution schemes},
 	volume = {10},
 	booktitle = {Hyperbolic problems: {Theory}, numerics, applications},
 	publisher = {American Institute of Mathematical Sciences},
@@ -2118,7 +2118,7 @@ abstract = {The flux reconstruction (FR) method has gained popularity in the res
 	pages = {215--222},
 }
 @article{hennemann2021,
-title = {A provably entropy stable subcell shock capturing approach for high order split form DG for the compressible Euler equations},
+title = {A provably entropy stable subcell shock capturing approach for high order split form DG for the compressible {E}uler equations},
 journal = {Journal of Computational Physics},
 volume = {426},
 pages = {109935},
@@ -2127,8 +2127,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2020.109935},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999120307099},
 author = {Sebastian Hennemann and Andrés M. Rueda-Ramírez and Florian J. Hindenlang and Gregor J. Gassner},
-keywords = {Compressible Euler equations, Discontinuous Galerkin spectral element method, Shock capturing, Entropy stability, Computational robustness},
-abstract = {The main result in this paper is a provably entropy stable shock capturing approach for the high order entropy stable Discontinuous Galerkin Spectral Element Method (DGSEM) based on a hybrid blending with a subcell low order variant. Since it is possible to rewrite a high order summation-by-parts (SBP) operator into an equivalent conservative finite volume form, we were able to design a low order scheme directly with the Legendre-Gauss-Lobatto (LGL) nodes that is compatible to the discrete entropy analysis used for the proof of the entropy stable DGSEM. Furthermore, we present a hybrid low order/high order discretisation where it is possible to seamlessly blend between the two approaches, while still being provably entropy stable. With tensor products and careful design of the low order scheme on curved elements, we are able to extend the approach to three spatial dimensions on unstructured curvilinear hexahedral meshes. We validate our theoretical findings and demonstrate convergence order for smooth problems, conservation of the primary quantities and discrete entropy stability for an arbitrary blending on curvilinear grids. In practical simulations, we connect the blending factor to a local troubled element indicator that provides the control of the amount of low order dissipation injected into the high order scheme. We modified an existing shock indicator, which is based on the modal polynomial representation, to our provably stable hybrid scheme. The aim is to reduce the impact of the parameters as good as possible. We describe our indicator in detail and demonstrate its robustness in combination with the hybrid scheme, as it is possible to compute all the different test cases without changing the indicator. The test cases include e.g. the double Mach reflection setup, forward and backward facing steps with shock Mach numbers up to 100. The proposed approach is relatively straight forward to implement in an existing entropy stable DGSEM code as only modifications local to an element are necessary.}
+keywords = {Compressible {E}uler equations, Discontinuous {G}alerkin spectral element method, Shock capturing, Entropy stability, Computational robustness},
+abstract = {The main result in this paper is a provably entropy stable shock capturing approach for the high order entropy stable Discontinuous {G}alerkin Spectral Element Method (DGSEM) based on a hybrid blending with a subcell low order variant. Since it is possible to rewrite a high order summation-by-parts (SBP) operator into an equivalent conservative finite volume form, we were able to design a low order scheme directly with the Legendre-Gauss-Lobatto (LGL) nodes that is compatible to the discrete entropy analysis used for the proof of the entropy stable DGSEM. Furthermore, we present a hybrid low order/high order discretisation where it is possible to seamlessly blend between the two approaches, while still being provably entropy stable. With tensor products and careful design of the low order scheme on curved elements, we are able to extend the approach to three spatial dimensions on unstructured curvilinear hexahedral meshes. We validate our theoretical findings and demonstrate convergence order for smooth problems, conservation of the primary quantities and discrete entropy stability for an arbitrary blending on curvilinear grids. In practical simulations, we connect the blending factor to a local troubled element indicator that provides the control of the amount of low order dissipation injected into the high order scheme. We modified an existing shock indicator, which is based on the modal polynomial representation, to our provably stable hybrid scheme. The aim is to reduce the impact of the parameters as good as possible. We describe our indicator in detail and demonstrate its robustness in combination with the hybrid scheme, as it is possible to compute all the different test cases without changing the indicator. The test cases include e.g. the double Mach reflection setup, forward and backward facing steps with shock Mach numbers up to 100. The proposed approach is relatively straight forward to implement in an existing entropy stable DGSEM code as only modifications local to an element are necessary.}
 }
 @article{vanleer1984,
 author = {van Leer, Bram},
@@ -2137,7 +2137,7 @@ month = {03},
 pages = {1-20},
 title = {On the Relation Between the Upwind-Differencing Schemes of Godunov, Engquist–Osher and Roe},
 volume = {5},
-journal = {SIAM Journal on Scientific and Statistical Computing},
+journal = {{SIAM} Journal on Scientific and Statistical Computing},
 doi = {10.1137/0905001}
 }
 @article{vanleer1977,
@@ -2197,7 +2197,7 @@ url = {https://www.sciencedirect.com/science/article/pii/B9781483200880500116},
 author = {L.I. SEDOV}
 }
 @article{Glimm1985,
-title = {Front tracking and two-dimensional Riemann problems},
+title = {Front tracking and two-dimensional {Riemann} problems},
 journal = {Advances in Applied Mathematics},
 volume = {6},
 number = {3},
@@ -2207,13 +2207,13 @@ issn = {0196-8858},
 doi = {https://doi.org/10.1016/0196-8858(85)90014-4},
 url = {https://www.sciencedirect.com/science/article/pii/0196885885900144},
 author = {James Glimm and Christian Klingenberg and Oliver McBryan and Bradley Plohr and David Sharp and Sara Yaniv},
-abstract = {A substantial improvement in resolution has been achieved for the computation of jump discontinuities in gas dynamics using the method of front tracking. The essential feature of this method is that a lower dimensional grid is fitted to and follows the discontinuous waves. At the intersection points of these discontinuities, two-dimensional Riemann problems occur. In this paper we study such two-dimensional Riemann problems from both numerical and theoretical points of view. Specifically included is a numerical solution for the Mach reflection, a general classification scheme for two-dimensional elementary waves, and a discussion of problems and conjectures in this area.}
+abstract = {A substantial improvement in resolution has been achieved for the computation of jump discontinuities in gas dynamics using the method of front tracking. The essential feature of this method is that a lower dimensional grid is fitted to and follows the discontinuous waves. At the intersection points of these discontinuities, two-dimensional {Riemann} problems occur. In this paper we study such two-dimensional {Riemann} problems from both numerical and theoretical points of view. Specifically included is a numerical solution for the Mach reflection, a general classification scheme for two-dimensional elementary waves, and a discussion of problems and conjectures in this area.}
 }
 
 @article{Zhang1990,
-  title={Conjecture on the structure of solutions of the Riemann problem for two-dimensional gas dynamics systems},
+  title={Conjecture on the structure of solutions of the {Riemann} problem for two-dimensional gas dynamics systems},
   author={Tong Zhang and Yuxi Zheng},
-  journal={Siam Journal on Mathematical Analysis},
+  journal={{SIAM} Journal on Mathematical Analysis},
   year={1990},
   volume={21},
   pages={593-630}
@@ -2221,8 +2221,8 @@ abstract = {A substantial improvement in resolution has been achieved for the co
 
 @article{Lax1998,
 author = {Lax, Peter D. and Liu, Xu-Dong},
-title = {Solution of Two-Dimensional Riemann Problems of Gas Dynamics by Positive Schemes},
-journal = {SIAM Journal on Scientific Computing},
+title = {Solution of Two-Dimensional {Riemann} Problems of Gas Dynamics by Positive Schemes},
+journal = {{SIAM} Journal on Scientific Computing},
 volume = {19},
 number = {2},
 pages = {319-340},
@@ -2244,7 +2244,7 @@ eprint = {
 
 }
 ,
-    abstract = { The positivity principle and positive schemes to solve multidimensional hyperbolic systems of conservation laws have been introduced in [X.-D. Liu and P. D. Lax, J. Fluid Dynam., 5 (1996), pp. 133--156]. Some numerical experiments presented there show how well the method works. In this paper we use positive schemes to solve Riemann problems for two-dimensional gas dynamics. }
+    abstract = { The positivity principle and positive schemes to solve multidimensional hyperbolic systems of conservation laws have been introduced in [X.-D. Liu and P. D. {L}ax, J. Fluid Dynam., 5 (1996), pp. 133--156]. Some numerical experiments presented there show how well the method works. In this paper we use positive schemes to solve {Riemann} problems for two-dimensional gas dynamics. }
 }
 @article{Volker2010,
     author = {Springel, Volker},
@@ -2281,7 +2281,7 @@ eprint = {
 	year = {1951},
 }
 @article{zhang2012,
-title = {Positivity-preserving high order finite difference WENO schemes for compressible Euler equations},
+title = {Positivity-preserving high order finite difference {WENO} schemes for compressible {E}uler equations},
 journal = {Journal of Computational Physics},
 volume = {231},
 number = {5},
@@ -2291,11 +2291,11 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2011.11.020},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999111006759},
 author = {Xiangxiong Zhang and Chi-Wang Shu},
-keywords = {Positivity preserving, High order accuracy, Compressible Euler equations, Gas dynamics, Finite difference scheme, Essentially non-oscillatory scheme, Weighted essentially non-oscillatory scheme},
-abstract = {In Zhang and Shu (2010) [20], Zhang and Shu (2011) [21] and Zhang et al. (in press) [23], we constructed uniformly high order accurate discontinuous Galerkin (DG) and finite volume schemes which preserve positivity of density and pressure for the Euler equations of compressible gas dynamics. In this paper, we present an extension of this framework to construct positivity-preserving high order essentially non-oscillatory (ENO) and weighted essentially non-oscillatory (WENO) finite difference schemes for compressible Euler equations. General equations of state and source terms are also discussed. Numerical tests of the fifth order finite difference WENO scheme are reported to demonstrate the good behavior of such schemes.}
+keywords = {Positivity preserving, High order accuracy, Compressible {E}uler equations, Gas dynamics, Finite difference scheme, Essentially non-oscillatory scheme, Weighted essentially non-oscillatory scheme},
+abstract = {In Zhang and Shu (2010) [20], Zhang and Shu (2011) [21] and Zhang et al. (in press) [23], we constructed uniformly high order accurate discontinuous {G}alerkin (DG) and finite volume schemes which preserve positivity of density and pressure for the {E}uler equations of compressible gas dynamics. In this paper, we present an extension of this framework to construct positivity-preserving high order essentially non-oscillatory (ENO) and weighted essentially non-oscillatory ({WENO}) finite difference schemes for compressible {E}uler equations. General equations of state and source terms are also discussed. Numerical tests of the fifth order finite difference {WENO} scheme are reported to demonstrate the good behavior of such schemes.}
 }
 @article{Xu2022,
-title = {Third order maximum-principle-satisfying and positivity-preserving Lax-Wendroff discontinuous Galerkin methods for hyperbolic conservation laws},
+title = {Third order maximum-principle-satisfying and positivity-preserving {L}ax-{W}endroff discontinuous {G}alerkin methods for hyperbolic conservation laws},
 journal = {Journal of Computational Physics},
 volume = {470},
 pages = {111591},
@@ -2304,12 +2304,12 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2022.111591},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999122006532},
 author = {Ziyao Xu and Chi-Wang Shu},
-keywords = {Maximum-principle-satisfying, Positivity-preserving, Lax-Wendroff discontinuous Galerkin methods (LWDG), Scalar conservation laws, Euler equations},
-abstract = {There have been intensive studies on maximum-principle-satisfying and positivity-preserving methods for hyperbolic conservation laws. Most of them are based on the method of lines type time marching approaches, e.g. the Runge-Kutta methods, multi-step methods and backward Euler method. As an alternative, the Lax-Wendroff time marching approach utilizes the information of PDEs in the Taylor expansion of the solution in time, hence it is a high order and single-stage method. In this work, we propose third order maximum-principle-satisfying and positivity-preserving schemes for scalar conservation laws and the Euler equations based on the Lax-Wendroff time discretization and discontinuous Galerkin spatial discretization. The accuracy and effectiveness of the maximum-principle-satisfying and positivity-preserving techniques are demonstrated by ample numerical tests.}
+keywords = {Maximum-principle-satisfying, Positivity-preserving, {L}ax-{W}endroff discontinuous {G}alerkin methods (LWDG), Scalar conservation laws, {E}uler equations},
+abstract = {There have been intensive studies on maximum-principle-satisfying and positivity-preserving methods for hyperbolic conservation laws. Most of them are based on the method of lines type time marching approaches, e.g. the {R}unge-{K}utta methods, multi-step methods and backward {E}uler method. As an alternative, the {L}ax-{W}endroff time marching approach utilizes the information of PDEs in the Taylor expansion of the solution in time, hence it is a high order and single-stage method. In this work, we propose third order maximum-principle-satisfying and positivity-preserving schemes for scalar conservation laws and the {E}uler equations based on the {L}ax-{W}endroff time discretization and discontinuous {G}alerkin spatial discretization. The accuracy and effectiveness of the maximum-principle-satisfying and positivity-preserving techniques are demonstrated by ample numerical tests.}
 }
 
 @article{Chen2016,
-title = {Third order maximum-principle-satisfying direct discontinuous Galerkin methods for time dependent convection diffusion equations on unstructured triangular meshes},
+title = {Third order maximum-principle-satisfying direct discontinuous {G}alerkin methods for time dependent convection diffusion equations on unstructured triangular meshes},
 journal = {Journal of Computational Physics},
 volume = {308},
 pages = {198-217},
@@ -2318,11 +2318,11 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2015.12.039},
 url = {https://www.sciencedirect.com/science/article/pii/S002199911500858X},
 author = {Zheng Chen and Hongying Huang and Jue Yan},
-keywords = {Discontinuous Galerkin methods, Convection diffusion equation, Maximum principle, Positivity preserving, Incompressible Navier–Stokes equations},
-abstract = {We develop 3rd order maximum-principle-satisfying direct discontinuous Galerkin methods [8], [9], [19], [21] for convection diffusion equations on unstructured triangular mesh. We carefully calculate the normal derivative numerical flux across element edges and prove that, with proper choice of parameter pair (β0,β1) in the numerical flux formula, the quadratic polynomial solution satisfies strict maximum principle. The polynomial solution is bounded within the given range and third order accuracy is maintained. There is no geometric restriction on the meshes and obtuse triangles are allowed in the partition. A sequence of numerical examples are carried out to demonstrate the accuracy and capability of the maximum-principle-satisfying limiter.}
+keywords = {Discontinuous {G}alerkin methods, Convection diffusion equation, Maximum principle, Positivity preserving, Incompressible {N}avier–{S}tokes equations},
+abstract = {We develop 3rd order maximum-principle-satisfying direct discontinuous {G}alerkin methods [8], [9], [19], [21] for convection diffusion equations on unstructured triangular mesh. We carefully calculate the normal derivative numerical flux across element edges and prove that, with proper choice of parameter pair (β0,β1) in the numerical flux formula, the quadratic polynomial solution satisfies strict maximum principle. The polynomial solution is bounded within the given range and third order accuracy is maintained. There is no geometric restriction on the meshes and obtuse triangles are allowed in the partition. A sequence of numerical examples are carried out to demonstrate the accuracy and capability of the maximum-principle-satisfying limiter.}
 }
 @article{Vilar2019,
-	title = {A posteriori correction of high-order discontinuous {Galerkin} scheme through subcell finite volume formulation and flux reconstruction},
+	title = {A posteriori correction of high-order discontinuous {{G}alerkin} scheme through subcell finite volume formulation and {F}lux {R}econstruction},
 	volume = {387},
 	issn = {00219991},
 	url = {https://linkinghub.elsevier.com/retrieve/pii/S0021999118307174},
@@ -2347,10 +2347,10 @@ issn = {0168-9274},
 doi = {https://doi.org/10.1016/0168-9274(94)90029-9},
 url = {https://www.sciencedirect.com/science/article/pii/0168927494900299},
 author = {Rupak Biswas and Karen D. Devine and Joseph E. Flaherty},
-abstract = {We construct parallel finite element methods for the solution of hyperbolic conservation laws in one and two dimensions. Spatial discretization is performed by a discontinuous Galerkin finite element method using a basis of piecewise Legendre polynomials. Temporal discretization utilizes a Runge-Kutta method. Dissipative fluxes and projection limiting prevent oscillations near solution discontinuities. A posteriori estimates of spatial are obtained by a p-refinement technique using superconvergence at Radau points. The resulting methods is of high order and may be parallelized efficiently on MIMD computers. We compare results using different limiting schemes and demonstrate parallel efficiency through computations on an NCUBE/2 hypercube. We also present results using adaptive h- and p-refinement to reduce the computational costof the method.}
+abstract = {We construct parallel finite element methods for the solution of hyperbolic conservation laws in one and two dimensions. Spatial discretization is performed by a discontinuous {G}alerkin finite element method using a basis of piecewise Legendre polynomials. Temporal discretization utilizes a {R}unge-{K}utta method. Dissipative fluxes and projection limiting prevent oscillations near solution discontinuities. A posteriori estimates of spatial are obtained by a p-refinement technique using superconvergence at Radau points. The resulting methods is of high order and may be parallelized efficiently on MIMD computers. We compare results using different limiting schemes and demonstrate parallel efficiency through computations on an NCUBE/2 hypercube. We also present results using adaptive h- and p-refinement to reduce the computational costof the method.}
 }
 @article{Burbeau2001,
-title = {A Problem-Independent Limiter for High-Order Runge–Kutta Discontinuous Galerkin Methods},
+title = {A Problem-Independent Limiter for High-Order {R}unge–{K}utta Discontinuous {G}alerkin Methods},
 journal = {Journal of Computational Physics},
 volume = {169},
 number = {1},
@@ -2360,11 +2360,11 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1006/jcph.2001.6718},
 url = {https://www.sciencedirect.com/science/article/pii/S002199910196718X},
 author = {A. Burbeau and P. Sagaut and Ch.-H. Bruneau},
-abstract = {This paper is devoted to the use of discontinuous Galerkin methods to solve hyperbolic conservation laws. The emphasis is laid on the elaboration of slope limiters to enforce nonlinear stability for shock-capturing. The objectives are to derive problem-independent methods that maintain high-order of accuracy in regions where the solution is smooth, and in the neighborhood of shock waves. The aim is also to define a way of taking into account high-order space discretization in limiting process, to make use of all the expansion terms of the approximate solution. A new slope limiter is first presented for one-dimensional problems and any order of approximation. Next, it is extended to bidimensional problems, for unstructured triangular meshes. The new method is totally free of problem-dependence. Numerical experiments show its capacity to preserve the accuracy of discontinuous Galerkin method in smooth regions, and to capture strong shocks.}
+abstract = {This paper is devoted to the use of discontinuous {G}alerkin methods to solve hyperbolic conservation laws. The emphasis is laid on the elaboration of slope limiters to enforce nonlinear stability for shock-capturing. The objectives are to derive problem-independent methods that maintain high-order of accuracy in regions where the solution is smooth, and in the neighborhood of shock waves. The aim is also to define a way of taking into account high-order space discretization in limiting process, to make use of all the expansion terms of the approximate solution. A new slope limiter is first presented for one-dimensional problems and any order of approximation. Next, it is extended to bidimensional problems, for unstructured triangular meshes. The new method is totally free of problem-dependence. Numerical experiments show its capacity to preserve the accuracy of discontinuous {G}alerkin method in smooth regions, and to capture strong shocks.}
 }
 
 @article{Krivodonova2007,
-title = {Limiters for high-order discontinuous Galerkin methods},
+title = {Limiters for high-order discontinuous {G}alerkin methods},
 journal = {Journal of Computational Physics},
 volume = {226},
 number = {1},
@@ -2374,13 +2374,13 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2007.05.011},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999107002136},
 author = {Lilia Krivodonova},
-keywords = {Limiters, High-resolution schemes, Discontinuous Galerkin methods, Euler equations},
-abstract = {We describe a limiter for the discontinuous Galerkin method that retains as high an order as possible, and does not automatically reduce to first order. The limiter is a generalization of the limiter introduced in [R. Biswas, K. Devine, J.E. Flaherty, Parallel adaptive finite element methods for conservation laws, Applied Numerical Mathematics 14 (1994) 255–284]. We present the one-dimensional case and extend it to two-dimensional problems on tensor-product meshes. Computational results for examples with both smooth and discontinuous solutions are shown.}
+keywords = {Limiters, High-resolution schemes, Discontinuous {G}alerkin methods, {E}uler equations},
+abstract = {We describe a limiter for the discontinuous {G}alerkin method that retains as high an order as possible, and does not automatically reduce to first order. The limiter is a generalization of the limiter introduced in [R. Biswas, K. Devine, J.E. Flaherty, Parallel adaptive finite element methods for conservation laws, Applied Numerical Mathematics 14 (1994) 255–284]. We present the one-dimensional case and extend it to two-dimensional problems on tensor-product meshes. Computational results for examples with both smooth and discontinuous solutions are shown.}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @Article{Qiu2005,
   author = 	 {J. Qiu and C.-W. Shu},
-  title = 	 {{Runge Kutta discontinuous Galerkin method using WENO limiters}},
+  title = 	 {{{R}unge {K}utta discontinuous {G}alerkin method using {WENO} limiters}},
   journal = 	 siam1,
   year = 	 2005,
   volume = 	 26,
@@ -2397,7 +2397,7 @@ abstract = {We describe a limiter for the discontinuous Galerkin method that ret
 
 @Article{Peraire2012,
   author = 	 {A. Huerta and E. Casoni and J. Peraire},
-  title = 	 {{A simple shock-capturing technique for high-order discontinuous Galerkin methods}},
+  title = 	 {{A simple shock-capturing technique for high-order discontinuous {G}alerkin methods}},
   journal = 	 ijnmf,
   volume =       69,
   year = 	 2012,
@@ -2405,7 +2405,7 @@ abstract = {We describe a limiter for the discontinuous Galerkin method that ret
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @Article{Peraire2013,
   author = 	 {E. Casoni and J. Peraire and A. Huerta},
-  title = 	 {{One-dimensional shock-capturing for high-order discontinuous Galerkin methods}},
+  title = 	 {{One-dimensional shock-capturing for high-order discontinuous {G}alerkin methods}},
   journal = 	 ijnmf,
   volume =       71,
   year = 	 2013,
@@ -2413,7 +2413,7 @@ abstract = {We describe a limiter for the discontinuous Galerkin method that ret
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @InProceedings{Sonntag2014,
   author = 	 {M. Sonntag and C. D. Munz},
-  title = 	 {{Shock capturing for discontinuous Galerkin methods using finite volume subcells}},
+  title = 	 {{Shock capturing for discontinuous {G}alerkin methods using finite volume subcells}},
   booktitle = 	 {Finite Volumes for Complex Applications VII},
   publisher =    {Springer},
   year = 	 2014,
@@ -2429,7 +2429,7 @@ abstract = {We describe a limiter for the discontinuous Galerkin method that ret
   pages = 	 {113--135}}
 
 @article{Ramirez2020,
-  title={An Entropy Stable Nodal Discontinuous Galerkin Method for the resistive MHD Equations. Part II: Subcell Finite Volume Shock Capturing},
+  title={An Entropy Stable Nodal Discontinuous {G}alerkin Method for the resistive {MHD} Equations. Part {II}: Subcell Finite Volume Shock Capturing},
   author={Andr'es M. Rueda-Ram'irez and Sebastian Hennemann and Florian Hindenlang and Andrew R. Winters and Gregor J. Gassner},
   journal={J. Comput. Phys.},
   year={2020},
@@ -2438,7 +2438,7 @@ abstract = {We describe a limiter for the discontinuous Galerkin method that ret
 }
 @INPROCEEDINGS{ramirez2021,
   title      = "A subcell finite volume positivity-preserving limiter for
-                {DGSEM} discretizations of the Euler equations",
+                {DGSEM} discretizations of the {E}uler equations",
   booktitle  = "14th {WCCM-ECCOMAS} Congress",
   author     = "Rueda-Ram{\'\i}rez, A and Gassner, G",
   publisher  = "CIMNE",
@@ -2463,7 +2463,7 @@ abstract = {We describe a limiter for the discontinuous Galerkin method that ret
 
 @Article{Dumbser2019,
   author = 	 {M. Dumbser and R. Loub\`{e}re},
-  title = 	 {{A simple robust and accurate a posteriorisub-cell finite volume limiter for the discontinuousGalerkin method on unstructured meshes}},
+  title = 	 {{A simple robust and accurate a posteriorisub-cell finite volume limiter for the discontinuous{G}alerkin method on unstructured meshes}},
   journal = 	 jcp,
   year = 	 2016,
   volume = 	 319,
@@ -2478,13 +2478,13 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2022.111501},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999122005630},
 author = {T. Dzanic and F.D. Witherden},
-keywords = {Spectral element methods, Shock capturing, Filtering, Hyperbolic systems, Discontinuous Galerkin, Flux reconstruction},
-abstract = {In this work, we present a positivity-preserving entropy-based adaptive filtering method for shock capturing in discontinuous spectral element methods. By adapting the filter strength to enforce positivity and a local discrete minimum entropy principle, the resulting approach can robustly resolve strong discontinuities with sub-element resolution, does not require problem-dependent parameter tuning, and can be easily implemented on general unstructured meshes with relatively low computational cost. The efficacy of the approach is shown in numerical experiments on hyperbolic and mixed hyperbolic-parabolic conservation laws such as the Euler and Navier-Stokes equations for problems including extreme shocks, shock-vortex interactions, and complex compressible turbulent flows.}
+keywords = {Spectral element methods, Shock capturing, Filtering, Hyperbolic systems, Discontinuous {G}alerkin, {F}lux {R}econstruction},
+abstract = {In this work, we present a positivity-preserving entropy-based adaptive filtering method for shock capturing in discontinuous spectral element methods. By adapting the filter strength to enforce positivity and a local discrete minimum entropy principle, the resulting approach can robustly resolve strong discontinuities with sub-element resolution, does not require problem-dependent parameter tuning, and can be easily implemented on general unstructured meshes with relatively low computational cost. The efficacy of the approach is shown in numerical experiments on hyperbolic and mixed hyperbolic-parabolic conservation laws such as the {E}uler and Navier-Stokes equations for problems including extreme shocks, shock-vortex interactions, and complex compressible turbulent flows.}
 }
 @article{Lu2021,
 author = {Lu, Jianfang and Liu, Yong and Shu, Chi-Wang},
-title = {An Oscillation-free Discontinuous Galerkin Method for Scalar Hyperbolic Conservation Laws},
-journal = {SIAM Journal on Numerical Analysis},
+title = {An Oscillation-free Discontinuous {G}alerkin Method for Scalar Hyperbolic Conservation Laws},
+journal = {{SIAM} Journal on Numerical Analysis},
 volume = {59},
 number = {3},
 pages = {1299-1324},
@@ -2493,10 +2493,10 @@ doi = {10.1137/20M1354192},
 URL = {https://doi.org/10.1137/20M1354192},
 eprint = {https://doi.org/10.1137/20M1354192}
 ,
-    abstract = { In this paper, we propose a novel discontinuous Galerkin (DG) method to control the spurious oscillations when solving the scalar hyperbolic conservation laws. Usually, the high order linear numerical schemes would generate spurious oscillations when the solution of the hyperbolic conservation laws contains discontinuities. The spurious oscillations may be harmful to the numerical simulation, as it not only generates some artificial structures not belonging to the problems, but also causes many overshoots and undershoots that make the numerical scheme less robust. To overcome this difficulty, in this paper we introduce a numerical damping term to control spurious oscillations based on the classic DG formulation. In comparison to the classic DG method, the proposed DG method still maintains many good properties, such as the extremely local data structure, conservation, \$L^2\$-boundedness, optimal error estimates, and superconvergence. We also provide some numerical examples to show the good performance of the proposed DG scheme and verify our theoretical results. }
+    abstract = { In this paper, we propose a novel discontinuous {G}alerkin (DG) method to control the spurious oscillations when solving the scalar hyperbolic conservation laws. Usually, the high order linear numerical schemes would generate spurious oscillations when the solution of the hyperbolic conservation laws contains discontinuities. The spurious oscillations may be harmful to the numerical simulation, as it not only generates some artificial structures not belonging to the problems, but also causes many overshoots and undershoots that make the numerical scheme less robust. To overcome this difficulty, in this paper we introduce a numerical damping term to control spurious oscillations based on the classic DG formulation. In comparison to the classic DG method, the proposed DG method still maintains many good properties, such as the extremely local data structure, conservation, \$L^2\$-boundedness, optimal error estimates, and superconvergence. We also provide some numerical examples to show the good performance of the proposed DG scheme and verify our theoretical results. }
 }
 @article{ramirez2022,
-title = {Subcell limiting strategies for discontinuous Galerkin spectral element methods},
+title = {Subcell limiting strategies for discontinuous {G}alerkin spectral element methods},
 journal = {Computers \& Fluids},
 volume = {247},
 pages = {105627},
@@ -2505,11 +2505,11 @@ issn = {0045-7930},
 doi = {https://doi.org/10.1016/j.compfluid.2022.105627},
 url = {https://www.sciencedirect.com/science/article/pii/S0045793022002262},
 author = {Andrés M. Rueda-Ramírez and Will Pazner and Gregor J. Gassner},
-keywords = {Entropy stability, Invariant domain preservation, Discontinuous Galerkin spectral element methods subcell limiting, Shock capturing},
-abstract = {We present a general family of subcell limiting strategies to construct robust high-order accurate nodal discontinuous Galerkin (DG) schemes. The main strategy is to construct compatible low order finite volume (FV) type discretizations that allow for convex blending with the high-order variant with the goal of guaranteeing additional properties, such as bounds on physical quantities and/or guaranteed entropy dissipation. For an implementation of this main strategy, four main ingredients are identified that may be combined in a flexible manner: (i) a nodal high-order DG method on Legendre–Gauss–Lobatto nodes, (ii) a compatible robust subcell FV scheme, (iii) a convex combination strategy for the two schemes, which can be element-wise or subcell-wise, and (iv) a strategy to compute the convex blending factors, which can be either based on heuristic troubled-cell indicators, or using ideas from flux-corrected transport methods. By carefully designing the metric terms of the subcell FV method, the resulting methods can be used on unstructured curvilinear meshes, are locally conservative, can handle strong shocks efficiently while directly guaranteeing physical bounds on quantities such as density, pressure or entropy. We further show that it is possible to choose the four ingredients to recover existing methods such as a provably entropy dissipative subcell shock-capturing approach or a sparse invariant domain preserving approach. We test the versatility of the presented strategies and mix and match the four ingredients to solve challenging simulation setups, such as the KPP problem (a hyperbolic conservation law with non-convex flux function), turbulent and hypersonic Euler simulations, and MHD problems featuring shocks and turbulence.}
+keywords = {Entropy stability, Invariant domain preservation, Discontinuous {G}alerkin spectral element methods subcell limiting, Shock capturing},
+abstract = {We present a general family of subcell limiting strategies to construct robust high-order accurate nodal discontinuous {G}alerkin (DG) schemes. The main strategy is to construct compatible low order finite volume (FV) type discretizations that allow for convex blending with the high-order variant with the goal of guaranteeing additional properties, such as bounds on physical quantities and/or guaranteed entropy dissipation. For an implementation of this main strategy, four main ingredients are identified that may be combined in a flexible manner: (i) a nodal high-order DG method on Legendre–Gauss–Lobatto nodes, (ii) a compatible robust subcell FV scheme, (iii) a convex combination strategy for the two schemes, which can be element-wise or subcell-wise, and (iv) a strategy to compute the convex blending factors, which can be either based on heuristic troubled-cell indicators, or using ideas from flux-corrected transport methods. By carefully designing the metric terms of the subcell FV method, the resulting methods can be used on unstructured curvilinear meshes, are locally conservative, can handle strong shocks efficiently while directly guaranteeing physical bounds on quantities such as density, pressure or entropy. We further show that it is possible to choose the four ingredients to recover existing methods such as a provably entropy dissipative subcell shock-capturing approach or a sparse invariant domain preserving approach. We test the versatility of the presented strategies and mix and match the four ingredients to solve challenging simulation setups, such as the KPP problem (a hyperbolic conservation law with non-convex flux function), turbulent and hypersonic {E}uler simulations, and MHD problems featuring shocks and turbulence.}
 }
 @article{Pazner2021,
-title = {Sparse invariant domain preserving discontinuous Galerkin methods with subcell convex limiting},
+title = {Sparse invariant domain preserving discontinuous {G}alerkin methods with subcell convex limiting},
 journal = {Computer Methods in Applied Mechanics and Engineering},
 volume = {382},
 pages = {113876},
@@ -2518,8 +2518,8 @@ issn = {0045-7825},
 doi = {https://doi.org/10.1016/j.cma.2021.113876},
 url = {https://www.sciencedirect.com/science/article/pii/S0045782521002139},
 author = {Will Pazner},
-keywords = {Discontinuous Galerkin, Flux corrected transport, Invariant domain preserving, Convex limiting},
-abstract = {In this paper, we develop high-order nodal discontinuous Galerkin (DG) methods for hyperbolic conservation laws that satisfy invariant domain preserving properties using subcell flux corrections and convex limiting. These methods are based on a subcell flux corrected transport (FCT) methodology that involves blending a high-order target scheme with a robust, low-order invariant domain preserving method that is obtained using a graph viscosity technique. The new low-order discretizations are based on sparse stencils which do not increase with the polynomial degree of the high-order DG method. As a result, the accuracy of the low-order method does not degrade when used with high-order target methods. The method is applied to both scalar conservation laws, for which the discrete maximum principle is naturally enforced, and to systems of conservation laws such as the Euler equations, for which positivity of density and a minimum principle for specific entropy are enforced. Numerical results are presented on a number of benchmark test cases.}
+keywords = {Discontinuous {G}alerkin, Flux corrected transport, Invariant domain preserving, Convex limiting},
+abstract = {In this paper, we develop high-order nodal discontinuous {G}alerkin (DG) methods for hyperbolic conservation laws that satisfy invariant domain preserving properties using subcell flux corrections and convex limiting. These methods are based on a subcell flux corrected transport (FCT) methodology that involves blending a high-order target scheme with a robust, low-order invariant domain preserving method that is obtained using a graph viscosity technique. The new low-order discretizations are based on sparse stencils which do not increase with the polynomial degree of the high-order DG method. As a result, the accuracy of the low-order method does not degrade when used with high-order target methods. The method is applied to both scalar conservation laws, for which the discrete maximum principle is naturally enforced, and to systems of conservation laws such as the {E}uler equations, for which positivity of density and a minimum principle for specific entropy are enforced. Numerical results are presented on a number of benchmark test cases.}
 }
 @article{schlottkelakemper2021purely,
   title={A purely hyperbolic discontinuous {G}alerkin approach for
@@ -2539,7 +2539,7 @@ abstract = {In this paper, we develop high-order nodal discontinuous Galerkin (D
 }
 
 @article{Kozdon2018,
-  title = {An Energy Stable Approach for Discretizing Hyperbolic Equations with Nonconforming Discontinuous Galerkin Methods},
+  title = {An Energy Stable Approach for Discretizing Hyperbolic Equations with Nonconforming Discontinuous {G}alerkin Methods},
   volume = {76},
   ISSN = {1573-7691},
   url = {http://dx.doi.org/10.1007/s10915-018-0682-1},
@@ -2566,20 +2566,20 @@ abstract = {In this paper, we develop high-order nodal discontinuous Galerkin (D
 
 @article{Grazia2014,
 author = {De Grazia, D. and Mengaldo, G. and Moxey, D. and Vincent, P. E. and Sherwin, S. J.},
-title = {Connections between the discontinuous Galerkin method and high-order flux reconstruction schemes},
+title = {Connections between the discontinuous {G}alerkin method and high-order {F}lux {R}econstruction schemes},
 volume = {75},
 number = {12},
 pages = {860-877},
-keywords = {flux reconstruction, spectral/hp element methods, discontinuous Galerkin, tensor-product grids, collocation},
+keywords = {{F}lux {R}econstruction, spectral/hp element methods, discontinuous {G}alerkin, tensor-product grids, collocation},
 doi = {https://doi.org/10.1002/fld.3915},
 url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.3915},
 eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/fld.3915},
-abstract = {SUMMARYWith high-order methods becoming more widely adopted throughout the field of computational fluid dynamics, the development of new computationally efficient algorithms has increased tremendously in recent years. One of the most recent methods to be developed is the flux reconstruction approach, which allows various well-known high-order schemes to be cast within a single unifying framework. Whilst a connection between flux reconstruction and the more widely adopted discontinuous Galerkin method has been established elsewhere, it still remains to fully investigate the explicit connections between the many popular variants of the discontinuous Galerkin method and the flux reconstruction approach. In this work, we closely examine the connections between three nodal versions of tensor-product discontinuous Galerkin spectral element approximations and two types of flux reconstruction schemes for solving systems of conservation laws on quadrilateral meshes. The different types of discontinuous Galerkin approximations arise from the choice of the solution nodes of the Lagrange basis representing the solution and from the quadrature approximation used to integrate the mass matrix and the other terms of the discretization. By considering both linear and nonlinear advection equations on a regular grid, we examine the mathematical properties that connect these discretizations. These arguments are further confirmed by the results of an empirical numerical study. Copyright © 2014 John Wiley \& Sons, Ltd.},
+abstract = {SUMMARYWith high-order methods becoming more widely adopted throughout the field of computational fluid dynamics, the development of new computationally efficient algorithms has increased tremendously in recent years. One of the most recent methods to be developed is the {F}lux {R}econstruction approach, which allows various well-known high-order schemes to be cast within a single unifying framework. Whilst a connection between {F}lux {R}econstruction and the more widely adopted discontinuous {G}alerkin method has been established elsewhere, it still remains to fully investigate the explicit connections between the many popular variants of the discontinuous {G}alerkin method and the {F}lux {R}econstruction approach. In this work, we closely examine the connections between three nodal versions of tensor-product discontinuous {G}alerkin spectral element approximations and two types of {F}lux {R}econstruction schemes for solving systems of conservation laws on quadrilateral meshes. The different types of discontinuous {G}alerkin approximations arise from the choice of the solution nodes of the Lagrange basis representing the solution and from the quadrature approximation used to integrate the mass matrix and the other terms of the discretization. By considering both linear and nonlinear advection equations on a regular grid, we examine the mathematical properties that connect these discretizations. These arguments are further confirmed by the results of an empirical numerical study. Copyright © 2014 John Wiley \& Sons, Ltd.},
 year = {2014}
 }
 
 @misc{babbar2024generalized,
-      title={Generalized framework for admissibility preserving Lax-Wendroff Flux Reconstruction for hyperbolic conservation laws with source terms}, 
+      title={Generalized framework for admissibility preserving {L}ax-{W}endroff {F}lux {R}econstruction for hyperbolic conservation laws with source terms}, 
       author={Arpit Babbar and Praveen Chandrashekar},
       year={2024},
       eprint={2402.01442},
@@ -2592,7 +2592,7 @@ author = {Shi, Jing and Zhang, Yong-Tao and Shu, Chi-Wang},
 year = {2003},
 month = {04},
 pages = {690-696},
-title = {Resolution of high order WENO schemes for complicated flow structures},
+title = {Resolution of high order {WENO} schemes for complicated flow structures},
 volume = {186},
 journal = {Journal of Computational Physics},
 doi = {10.1016/S0021-9991(03)00094-9}
@@ -2620,8 +2620,8 @@ doi = {10.1007/s10915-013-9787-8}
 
 @article{li2016,
 author = {Li, Jiequan and Du, Zhifang},
-title = {A Two-Stage Fourth Order Time-Accurate Discretization for Lax--Wendroff Type Flow Solvers I. Hyperbolic Conservation Laws},
-journal = {SIAM Journal on Scientific Computing},
+title = {A Two-Stage Fourth Order Time-Accurate Discretization for {L}ax--{W}endroff Type Flow Solvers I. Hyperbolic Conservation Laws},
+journal = {{SIAM} Journal on Scientific Computing},
 volume = {38},
 number = {5},
 pages = {A3046-A3069},
@@ -2643,7 +2643,7 @@ eprint = {
 
 }
 ,
-    abstract = { In this paper we develop a novel two-stage fourth order time-accurate discretization for time-dependent flow problems, particularly for hyperbolic conservation laws. Different from the classical Runge--Kutta (R--K) temporal discretization for first order Riemann solvers as building blocks, the current approach is solely associated with Lax--Wendroff (L--W) type schemes as the building blocks. As a result, a two-stage procedure can be constructed to achieve a fourth order temporal accuracy, rather than using the well-developed four-stage procedure for R--K methods. The generalized Riemann problem (GRP) solver is taken as a representative of L--W type schemes for the construction of a two-stage fourth order scheme. }
+    abstract = { In this paper we develop a novel two-stage fourth order time-accurate discretization for time-dependent flow problems, particularly for hyperbolic conservation laws. Different from the classical {R}unge--{K}utta (R--K) temporal discretization for first order {Riemann} solvers as building blocks, the current approach is solely associated with {L}ax--{W}endroff (L--W) type schemes as the building blocks. As a result, a two-stage procedure can be constructed to achieve a fourth order temporal accuracy, rather than using the well-developed four-stage procedure for R--K methods. The generalized {Riemann} problem (GRP) solver is taken as a representative of L--W type schemes for the construction of a two-stage fourth order scheme. }
 }
 
 @article{Pan2016,
@@ -2651,13 +2651,13 @@ author = {Pan, Liang and Li, Jiequan and Xu, Kun},
 year = {2016},
 month = {09},
 pages = {},
-title = {A Few Benchmark Test Cases for Higher-Order Euler Solvers},
+title = {A Few Benchmark Test Cases for Higher-Order {E}uler Solvers},
 volume = {10},
 journal = {Numerical Mathematics: Theory, Methods and Applications},
 doi = {10.4208/nmtma.2017.0018}
 }
 @article{Zhang1997,
-title = {Exact spiral solutions of the two-dimensional Euler equations},
+title = {Exact spiral solutions of the two-dimensional {E}uler equations},
 journal = {Discrete and Continuous Dynamical Systems},
 volume = {3},
 number = {1},
@@ -2671,7 +2671,7 @@ keywords = {Axisymmetry, explicit solutions, compressible, incompressible, self-
 }
 
 @article{Tang2006,
-title = {A note on the conservative schemes for the Euler equations},
+title = {A note on the conservative schemes for the {E}uler equations},
 journal = {Journal of Computational Physics},
 volume = {218},
 number = {2},
@@ -2681,12 +2681,12 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2006.03.035},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999106001896},
 author = {Huazhong Tang and Tiegang Liu},
-keywords = {High resolution schemes, Godunov scheme, The Euler equations, Rarefaction wave, Shock wave},
+keywords = {High resolution schemes, Godunov scheme, The {E}uler equations, Rarefaction wave, Shock wave},
 abstract = {This note gives a numerical investigation for the popular high resolution conservative schemes when applied to inviscid, compressible, perfect gas flows with an initial high density ratio as well as a high pressure ratio. The results show that they work very inefficiently and may give inaccurate numerical results even over a very fine mesh when applied to such a problem. Numerical tests show that increasing the order of accuracy of the numerical schemes does not help much in improving the numerical results. How to cure this difficulty is still open.}
 }
 
 @article{Titarev2004,
-title = {Finite-volume WENO schemes for three-dimensional conservation laws},
+title = {Finite-volume {WENO} schemes for three-dimensional conservation laws},
 journal = {Journal of Computational Physics},
 volume = {201},
 number = {1},
@@ -2697,11 +2697,11 @@ doi = {https://doi.org/10.1016/j.jcp.2004.05.015},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999104002281},
 author = {V.A. Titarev and E.F. Toro},
 keywords = {High-order schemes, Weighted essentially non-oscillatory, HLLC flux, FORCE flux, MUSTA flux, Two and three space dimensions},
-abstract = {In this paper we firstly carry out an extension of the finite-volume WENO schemes to three space dimensions and higher orders of accuracy. Secondly, we propose to use more accurate fluxes as the building block. These are the HLLC and MUSTA fluxes [Multi-stage predictor–corrector fluxes for hyperbolic equations, 2003; Restoration of the contact surface in the HLL Riemann solver, Report CoA 9204, June 1992; J. Shock Waves 4 (1994) 25]. The numerical results suggest that the new WENO-HLLC and WENO-MUSTA schemes compare satisfactorily with the state-of-the-art finite-volume scheme of Shi et al. [J. Comput. Phys. 175 (2002) 108].}
+abstract = {In this paper we firstly carry out an extension of the finite-volume {WENO} schemes to three space dimensions and higher orders of accuracy. Secondly, we propose to use more accurate fluxes as the building block. These are the HLLC and MUSTA fluxes [Multi-stage predictor–corrector fluxes for hyperbolic equations, 2003; Restoration of the contact surface in the HLL {Riemann} solver, Report CoA 9204, June 1992; J. Shock Waves 4 (1994) 25]. The numerical results suggest that the new {WENO}-HLLC and {WENO}-MUSTA schemes compare satisfactorily with the state-of-the-art finite-volume scheme of Shi et al. [J. Comput. Phys. 175 (2002) 108].}
 }
 
 @article{Biswas2021,
-title = {Entropy stable discontinuous Galerkin methods for ten-moment Gaussian closure equations},
+title = {Entropy stable discontinuous {G}alerkin methods for ten-moment Gaussian closure equations},
 journal = {Journal of Computational Physics},
 volume = {431},
 pages = {110148},
@@ -2710,8 +2710,8 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/j.jcp.2021.110148},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999121000401},
 author = {Biswarup Biswas and Harish Kumar and Anshu Yadav},
-keywords = {Discontinuous Galerkin scheme, Entropy stability, High-order accurate scheme, Balance laws},
-abstract = {In this article, we propose high order discontinuous Galerkin entropy stable schemes for ten-moment Gaussian closure equations, based on the suitable quadrature rules (see [1]). The key components of the proposed schemes are the use of an entropy conservative numerical flux [2] in each cell and an appropriate entropy stable numerical flux at the cell edges. These fluxes are then used in the entropy stable DG framework of [1] to obtain entropy stability of the semi-discrete schemes. We also extend these schemes to a source term that models plasma laser interaction. For the time discretization, we use strong stability preserving methods. The proposed schemes are then tested on several test cases to demonstrate stability, accuracy and robustness.}
+keywords = {Discontinuous {G}alerkin scheme, Entropy stability, High-order accurate scheme, Balance laws},
+abstract = {In this article, we propose high order discontinuous {G}alerkin entropy stable schemes for ten-moment Gaussian closure equations, based on the suitable quadrature rules (see [1]). The key components of the proposed schemes are the use of an entropy conservative numerical flux [2] in each cell and an appropriate entropy stable numerical flux at the cell edges. These fluxes are then used in the entropy stable DG framework of [1] to obtain entropy stability of the semi-discrete schemes. We also extend these schemes to a source term that models plasma laser interaction. For the time discretization, we use strong stability preserving methods. The proposed schemes are then tested on several test cases to demonstrate stability, accuracy and robustness.}
 }
 
 
@@ -2722,7 +2722,7 @@ abstract = {In this article, we propose high order discontinuous Galerkin entrop
 
 
 @article{Levermore_Morokoff_1998, title={The Gaussian Moment Closure for Gas Dynamics}, volume={59}, url={http://epubs.siam.org/doi/10.1137/S0036139996299236}, DOI={10.1137/S0036139996299236}, 
-		number={1}, journal={SIAM Journal on Applied Mathematics}, author={Levermore, C. David and Morokoff, William J.}, year={1998}, pages={72–96}, language={en} }
+		number={1}, journal={{SIAM} Journal on Applied Mathematics}, author={Levermore, C. David and Morokoff, William J.}, year={1998}, pages={72–96}, language={en} }
 
 
 
@@ -2761,7 +2761,7 @@ abstract = {In this article, we propose high order discontinuous Galerkin entrop
 
 
 
-@article{Meena_Kumar_Chandrashekar_2017, title={Positivity-preserving high-order discontinuous Galerkin schemes for Ten-Moment Gaussian closure equations}, volume={339}, url={http://www.sciencedirect.com/science/article/pii/S002199911730219X}, DOI={10.1016/j.jcp.2017.03.024}, 
+@article{Meena_Kumar_Chandrashekar_2017, title={Positivity-preserving high-order discontinuous {G}alerkin schemes for Ten-Moment Gaussian closure equations}, volume={339}, url={http://www.sciencedirect.com/science/article/pii/S002199911730219X}, DOI={10.1016/j.jcp.2017.03.024}, 
 	number={Supplement C}, journal={Journal of Computational Physics}, author={Meena, Asha Kumari and Kumar, Harish and Chandrashekar, Praveen}, year={2017}, month=jun, pages={370–395} }
 
 
@@ -2771,7 +2771,7 @@ abstract = {In this article, we propose high order discontinuous Galerkin entrop
 		number={1/2}, journal={International Journal of Computing Science and Mathematics}, author={Sangam, Afeintou}, year={2008}, pages={73}, language={en} }
 
 @article{Meena2020,
-  title = {Positivity-Preserving Finite Difference WENO Scheme for Ten-Moment Equations with Source Term},
+  title = {Positivity-Preserving Finite Difference {{WENO}} Scheme for Ten-Moment Equations with Source Term},
   volume = {82},
   ISSN = {1573-7691},
   url = {http://dx.doi.org/10.1007/s10915-019-01110-1},
@@ -2800,14 +2800,14 @@ abstract = {In this article, we propose high order discontinuous Galerkin entrop
 
 @article{Zanotti2015,
     author = {Zanotti, O. and Fambri, F. and Dumbser, M.},
-    title = "{Solving the relativistic magnetohydrodynamics equations with ADER discontinuous Galerkin methods, a posteriori subcell limiting and adaptive mesh refinement}",
+    title = "{Solving the relativistic magnetohydrodynamics equations with ADER discontinuous {G}alerkin methods, a posteriori subcell limiting and adaptive mesh refinement}",
     journal = {Monthly Notices of the Royal Astronomical Society},
     volume = {452},
     number = {3},
     pages = {3010-3029},
     year = {2015},
     month = {07},
-    abstract = "{We present a new numerical tool for solving the special relativistic ideal magnetohydrodynamics (MHD) equations that is based on the combination of the following three key features: (i) a one-step ADER discontinuous Galerkin (DG) scheme that allows for an arbitrary order of accuracy in both space and time, (ii) an a posteriori subcell finite volume limiter that is activated to avoid spurious oscillations at discontinuities without destroying the natural subcell resolution capabilities of the DG finite element framework and finally (iii) a space–time adaptive mesh refinement framework with time-accurate local time-stepping. The divergence-free character of the magnetic field is instead taken into account through the so-called ‘divergence-cleaning’ approach. The convergence of the new scheme is verified up to the fifth order in space and time and the results for a set of significant numerical tests including shock tube problems, the relativistic magnetohydrodynamics (RMHD) rotor and blast wave problems, as well as the Orszag–Tang vortex system are shown. We also consider a simple case of the relativistic Kelvin–Helmholtz instability with a magnetic field, emphasizing the potential of the new method for studying turbulent RMHD flows. We discuss the advantages of our new approach when the equations of relativistic MHD need to be solved with high accuracy within various astrophysical systems.}",
+    abstract = "{We present a new numerical tool for solving the special relativistic ideal magnetohydrodynamics (MHD) equations that is based on the combination of the following three key features: (i) a one-step ADER discontinuous {G}alerkin (DG) scheme that allows for an arbitrary order of accuracy in both space and time, (ii) an a posteriori subcell finite volume limiter that is activated to avoid spurious oscillations at discontinuities without destroying the natural subcell resolution capabilities of the DG finite element framework and finally (iii) a space–time adaptive mesh refinement framework with time-accurate local time-stepping. The divergence-free character of the magnetic field is instead taken into account through the so-called ‘divergence-cleaning’ approach. The convergence of the new scheme is verified up to the fifth order in space and time and the results for a set of significant numerical tests including shock tube problems, the relativistic magnetohydrodynamics (RMHD) rotor and blast wave problems, as well as the Orszag–Tang vortex system are shown. We also consider a simple case of the relativistic Kelvin–Helmholtz instability with a magnetic field, emphasizing the potential of the new method for studying turbulent RMHD flows. We discuss the advantages of our new approach when the equations of relativistic MHD need to be solved with high accuracy within various astrophysical systems.}",
     issn = {0035-8711},
     doi = {10.1093/mnras/stv1510},
     url = {https://doi.org/10.1093/mnras/stv1510},
@@ -2815,18 +2815,18 @@ abstract = {In this article, we propose high order discontinuous Galerkin entrop
 }
 @inbook{Rasha2021,
 author = {Rasha Al Jahdali and Radouan Boukharfane and Lisandro Dalcin and Matteo Parsani},
-title = {Optimized Explicit Runge-Kutta Schemes for Entropy Stable Discontinuous Collocated Methods Applied to the Euler and Navier–Stokes equations},
+title = {Optimized Explicit {R}unge-{K}utta Schemes for Entropy Stable Discontinuous Collocated Methods Applied to the {E}uler and {N}avier–{S}tokes equations},
 booktitle = {AIAA Scitech 2021 Forum},
 chapter = {},
 pages = {},
 doi = {10.2514/6.2021-0633},
 URL = {https://arc.aiaa.org/doi/abs/10.2514/6.2021-0633},
 eprint = {https://arc.aiaa.org/doi/pdf/10.2514/6.2021-0633},
-    abstract = { View Video Presentation: https://doi.org/10.2514/6.2021-0633.vidIn this work, we design a new set of optimized explicit Runge--Kutta schemes for the integration of systems of ordinary differential equations arising from the spatial discretization of wave propagation problems with entropy stable collocated discontinuous Galerkin methods. The optimization of the new time integration schemes is based on the spectrum of the discrete spatial operator for the advection equation. To demonstrate the efficiency and accuracy of the new schemes compared to some widely used classic explicit Runge--Kutta methods, we report the wall-clock time versus the error for the simulation of the two-dimensional advection equation and the propagation of an isentropic vortex with the compressible Euler equations. The efficiency and robustness of the proposed optimized schemes for more complex flow problems are presented for the three-dimensional Taylor–Green vortex at a Reynolds number of \$\mathrm{Re} = 1.6 \times 10^3\$ and Mach number \$\mathrm{Ma} = 0.1\$, and the flow past two identical spheres in tandem at a Reynolds number of \$\mathrm{Re} = 3.9 \times 10^3\$ and Mach number \$\mathrm{Ma} = 0.1\$. }
+    abstract = { View Video Presentation: https://doi.org/10.2514/6.2021-0633.vidIn this work, we design a new set of optimized explicit {R}unge--{K}utta schemes for the integration of systems of ordinary differential equations arising from the spatial discretization of wave propagation problems with entropy stable collocated discontinuous {G}alerkin methods. The optimization of the new time integration schemes is based on the spectrum of the discrete spatial operator for the advection equation. To demonstrate the efficiency and accuracy of the new schemes compared to some widely used classic explicit {R}unge--{K}utta methods, we report the wall-clock time versus the error for the simulation of the two-dimensional advection equation and the propagation of an isentropic vortex with the compressible {E}uler equations. The efficiency and robustness of the proposed optimized schemes for more complex flow problems are presented for the three-dimensional Taylor–Green vortex at a Reynolds number of \$\mathrm{Re} = 1.6 \times 10^3\$ and Mach number \$\mathrm{Ma} = 0.1\$, and the flow past two identical spheres in tandem at a Reynolds number of \$\mathrm{Re} = 3.9 \times 10^3\$ and Mach number \$\mathrm{Ma} = 0.1\$. }
 }
 
 @misc{babbar2024curved,
-      title={Lax-Wendroff Flux Reconstruction on adaptive curvilinear meshes with error based time stepping for hyperbolic conservation laws}, 
+      title={{L}ax-{W}endroff {F}lux {R}econstruction on adaptive curvilinear meshes with error based time stepping for hyperbolic conservation laws}, 
       author={Arpit Babbar and Praveen Chandrashekar},
       year={2024},
       eprint={2402.11926},
@@ -2835,7 +2835,7 @@ eprint = {https://arc.aiaa.org/doi/pdf/10.2514/6.2021-0633},
 }
 
 @article{witherden2014,
-title = {PyFR: An open source framework for solving advection–diffusion type problems on streaming architectures using the flux reconstruction approach},
+title = {PyFR: An open source framework for solving advection–diffusion type problems on streaming architectures using the {F}lux {R}econstruction approach},
 journal = {Computer Physics Communications},
 volume = {185},
 number = {11},
@@ -2845,13 +2845,13 @@ issn = {0010-4655},
 doi = {https://doi.org/10.1016/j.cpc.2014.07.011},
 url = {https://www.sciencedirect.com/science/article/pii/S0010465514002549},
 author = {F.D. Witherden and A.M. Farrington and P.E. Vincent},
-keywords = {High-order, Flux reconstruction, Parallel algorithms, Heterogeneous computing},
-abstract = {High-order numerical methods for unstructured grids combine the superior accuracy of high-order spectral or finite difference methods with the geometric flexibility of low-order finite volume or finite element schemes. The Flux Reconstruction (FR) approach unifies various high-order schemes for unstructured grids within a single framework. Additionally, the FR approach exhibits a significant degree of element locality, and is thus able to run efficiently on modern streaming architectures, such as Graphical Processing Units (GPUs). The aforementioned properties of FR mean it offers a promising route to performing affordable, and hence industrially relevant, scale-resolving simulations of hitherto intractable unsteady flows within the vicinity of real-world engineering geometries. In this paper we present PyFR, an open-source Python based framework for solving advection–diffusion type problems on streaming architectures using the FR approach. The framework is designed to solve a range of governing systems on mixed unstructured grids containing various element types. It is also designed to target a range of hardware platforms via use of an in-built domain specific language based on the Mako templating engine. The current release of PyFR is able to solve the compressible Euler and Navier–Stokes equations on grids of quadrilateral and triangular elements in two dimensions, and hexahedral elements in three dimensions, targeting clusters of CPUs, and NVIDIA GPUs. Results are presented for various benchmark flow problems, single-node performance is discussed, and scalability of the code is demonstrated on up to 104 NVIDIA M2090 GPUs. The software is freely available under a 3-Clause New Style BSD license (see www.pyfr.org).
+keywords = {High-order, {F}lux {R}econstruction, Parallel algorithms, Heterogeneous computing},
+abstract = {High-order numerical methods for unstructured grids combine the superior accuracy of high-order spectral or finite difference methods with the geometric flexibility of low-order finite volume or finite element schemes. The {F}lux {R}econstruction (FR) approach unifies various high-order schemes for unstructured grids within a single framework. Additionally, the FR approach exhibits a significant degree of element locality, and is thus able to run efficiently on modern streaming architectures, such as Graphical Processing Units (GPUs). The aforementioned properties of FR mean it offers a promising route to performing affordable, and hence industrially relevant, scale-resolving simulations of hitherto intractable unsteady flows within the vicinity of real-world engineering geometries. In this paper we present PyFR, an open-source Python based framework for solving advection–diffusion type problems on streaming architectures using the FR approach. The framework is designed to solve a range of governing systems on mixed unstructured grids containing various element types. It is also designed to target a range of hardware platforms via use of an in-built domain specific language based on the Mako templating engine. The current release of PyFR is able to solve the compressible {E}uler and {N}avier–{S}tokes equations on grids of quadrilateral and triangular elements in two dimensions, and hexahedral elements in three dimensions, targeting clusters of CPUs, and NVIDIA GPUs. Results are presented for various benchmark flow problems, single-node performance is discussed, and scalability of the code is demonstrated on up to 104 NVIDIA M2090 GPUs. The software is freely available under a 3-Clause New Style BSD license (see www.pyfr.org).
 Program summary
-Program title: PyFR v0.1.0 Catalogue identifier: AETY_v1_0 Program summary URL:http://cpc.cs.qub.ac.uk/summaries/AETY_v1_0.html Program obtainable from: CPC Program Library, Queen’s University, Belfast, N. Ireland Licensing provisions: New style BSD license No. of lines in distributed program, including test data, etc.: 12733 No. of bytes in distributed program, including test data, etc.: 214183 Distribution format: tar.gz Programming language: Python, CUDA and C. Computer: Variable, up to and including GPU clusters. Operating system: Recent version of Linux/UNIX. RAM: Variable, from hundreds of megabytes to gigabytes. Classification: 6.5, 12. External routines: Python 2.7, numpy, PyCUDA, mpi4py, SymPy, Mako Nature of problem: Compressible Euler and Navier–Stokes equations of fluid dynamics; potential for any advection–diffusion type problem. Solution method: High-order flux reconstruction approach suitable for curved, mixed, unstructured grids. Unusual features: Code makes extensive use of symbolic manipulation and runtime code generation through a domain specific language. Running time: Many small problems can be solved on a recent workstation in minutes to hours.}
+Program title: PyFR v0.1.0 Catalogue identifier: AETY_v1_0 Program summary URL:http://cpc.cs.qub.ac.uk/summaries/AETY_v1_0.html Program obtainable from: CPC Program Library, Queen’s University, Belfast, N. Ireland Licensing provisions: New style BSD license No. of lines in distributed program, including test data, etc.: 12733 No. of bytes in distributed program, including test data, etc.: 214183 Distribution format: tar.gz Programming language: Python, CUDA and C. Computer: Variable, up to and including GPU clusters. Operating system: Recent version of Linux/UNIX. RAM: Variable, from hundreds of megabytes to gigabytes. Classification: 6.5, 12. External routines: Python 2.7, numpy, PyCUDA, mpi4py, SymPy, Mako Nature of problem: Compressible {E}uler and {N}avier–{S}tokes equations of fluid dynamics; potential for any advection–diffusion type problem. Solution method: High-order {F}lux {R}econstruction approach suitable for curved, mixed, unstructured grids. Unusual features: Code makes extensive use of symbolic manipulation and runtime code generation through a domain specific language. Running time: Many small problems can be solved on a recent workstation in minutes to hours.}
 }
 
-@article{Gassner_Winters_Hindenlang_Kopriva_2018, title={The BR1 Scheme is Stable for the Compressible Navier–Stokes Equations}, volume={77}, url={http://link.springer.com/10.1007/s10915-018-0702-1}, DOI={10.1007/s10915-018-0702-1}, note={Citation Key: Gassner2018}, number={1}, journal={Journal of Scientific Computing}, author={Gassner, Gregor J. and Winters, Andrew R. and Hindenlang, Florian J. and Kopriva, David A.}, year={2018}, pages={154–200}, language={en} }
+@article{Gassner_Winters_Hindenlang_Kopriva_2018, title={The BR1 Scheme is Stable for the Compressible {N}avier–{S}tokes Equations}, volume={77}, url={http://link.springer.com/10.1007/s10915-018-0702-1}, DOI={10.1007/s10915-018-0702-1}, note={Citation Key: Gassner2018}, number={1}, journal={Journal of Scientific Computing}, author={Gassner, Gregor J. and Winters, Andrew R. and Hindenlang, Florian J. and Kopriva, David A.}, year={2018}, pages={154–200}, language={en} }
 
 @Inbook{Schafer1996,
 author="Sch{\"a}fer, M.
@@ -2866,7 +2866,7 @@ year="1996",
 publisher="Vieweg+Teubner Verlag",
 address="Wiesbaden",
 pages="547--566",
-abstract="An overview of benchmark computations for 2D and 3D laminar flows around a cylinder is given, which have been defined for a comparison of different solution approaches for the incompressible Navier-Stokes equations developed within the Priority Research Programme. The exact definitions of the benchmarks are recapitulated and the numerical schemes and computers employed by the various participating groups are summarized. A detailed evaluation of the results provided is given, also including a comparison with a reference experiment. The principal purpose of the benchmarks is discussed and some general conclusions which can be drawn from the results are formulated.",
+abstract="An overview of benchmark computations for 2D and 3D laminar flows around a cylinder is given, which have been defined for a comparison of different solution approaches for the incompressible {N}avier–{S}tokes equations developed within the Priority Research Programme. The exact definitions of the benchmarks are recapitulated and the numerical schemes and computers employed by the various participating groups are summarized. A detailed evaluation of the results provided is given, also including a comparison with a reference experiment. The principal purpose of the benchmarks is discussed and some general conclusions which can be drawn from the results are formulated.",
 isbn="978-3-322-89849-4",
 }
 
@@ -2886,7 +2886,7 @@ isbn="978-3-322-89849-4",
 }
 
 @article{Fambri2017,
-title = {Space–time adaptive ADER-DG schemes for dissipative flows: Compressible Navier–Stokes and resistive MHD equations},
+title = {Space–time adaptive ADER-DG schemes for dissipative flows: Compressible {N}avier–{S}tokes and resistive {MHD} equations},
 journal = {Computer Physics Communications},
 volume = {220},
 pages = {297-318},
@@ -2895,16 +2895,16 @@ issn = {0010-4655},
 doi = {https://doi.org/10.1016/j.cpc.2017.08.001},
 url = {https://www.sciencedirect.com/science/article/pii/S0010465517302448},
 author = {Francesco Fambri and Michael Dumbser and Olindo Zanotti},
-keywords = {Arbitrary high-order discontinuous Galerkin schemes (ADER-DG), A posteriori sub-cell ADER-WENO finite-volume limiter (MOOD paradigm), Space–time Adaptive Mesh Refinement (AMR), Time-accurate local time stepping (LTS), Compressible Navier–Stokes equations, Viscous and resistive MHD equations},
-abstract = {This paper presents an arbitrary high-order accurate ADER Discontinuous Galerkin (DG) method on space–time adaptive meshes (AMR) for the solution of two important families of non-linear time dependent partial differential equations for compressible dissipative flows : the compressible Navier–Stokes equations and the equations of viscous and resistive magnetohydrodynamics in two and three space-dimensions. The work continues a recent series of papers concerning the development and application of a proper a posteriori subcell finite volume limiting procedure suitable for discontinuous Galerkin methods (Dumbser et al., 2014, Zanotti et al., 2015 [40,41]). It is a well known fact that a major weakness of high order DG methods lies in the difficulty of limiting discontinuous solutions, which generate spurious oscillations, namely the so-called ‘Gibbs phenomenon’. In the present work, a nonlinear stabilization of the scheme is sequentially and locally introduced only for troubled cells on the basis of a novel a posteriori detection criterion, i.e. the MOOD approach. The main benefits of the MOOD paradigm, i.e. the computational robustness even in the presence of strong shocks, are preserved and the numerical diffusion is considerably reduced also for the limited cells by resorting to a proper sub-grid. In practice the method first produces a so-called candidate solution by using a high order accurate unlimited DG scheme. Then, a set of numerical and physical detection criteria is applied to the candidate solution, namely: positivity of pressure and density, absence of floating point errors and satisfaction of a discrete maximum principle in the sense of polynomials. Furthermore, in those cells where at least one of these criteria is violated the computed candidate solution is detected as troubled and is locally rejected. Subsequently, a more reliable numerical solution is recomputed a posteriori by employing a more robust but still very accurate ADER-WENO finite volume scheme on the subgrid averages within that troubled cell. Finally, a high order DG polynomial is reconstructed back from the evolved subcell averages. We apply the whole approach for the first time to the equations of compressible gas dynamics and magnetohydrodynamics in the presence of viscosity, thermal conductivity and magnetic resistivity, therefore extending our family of adaptive ADER-DG schemes to cases for which the numerical fluxes also depend on the gradient of the state vector. The distinguished high-resolution properties of the presented numerical scheme standout against a wide number of non-trivial test cases both for the compressible Navier–Stokes and the viscous and resistive magnetohydrodynamics equations. The present results show clearly that the shock-capturing capability of the news schemes is significantly enhanced within a cell-by-cell Adaptive Mesh Refinement (AMR) implementation together with time accurate local time stepping (LTS).}
+keywords = {Arbitrary high-order discontinuous {G}alerkin schemes (ADER-DG), A posteriori sub-cell ADER-{{WENO}} finite-volume limiter (MOOD paradigm), Space–time Adaptive Mesh Refinement (AMR), Time-accurate local time stepping (LTS), Compressible {N}avier–{S}tokes equations, Viscous and resistive MHD equations},
+abstract = {This paper presents an arbitrary high-order accurate ADER Discontinuous {G}alerkin (DG) method on space–time adaptive meshes (AMR) for the solution of two important families of non-linear time dependent partial differential equations for compressible dissipative flows : the compressible {N}avier–{S}tokes equations and the equations of viscous and resistive magnetohydrodynamics in two and three space-dimensions. The work continues a recent series of papers concerning the development and application of a proper a posteriori subcell finite volume limiting procedure suitable for discontinuous {G}alerkin methods (Dumbser et al., 2014, Zanotti et al., 2015 [40,41]). It is a well known fact that a major weakness of high order DG methods lies in the difficulty of limiting discontinuous solutions, which generate spurious oscillations, namely the so-called ‘Gibbs phenomenon’. In the present work, a nonlinear stabilization of the scheme is sequentially and locally introduced only for troubled cells on the basis of a novel a posteriori detection criterion, i.e. the MOOD approach. The main benefits of the MOOD paradigm, i.e. the computational robustness even in the presence of strong shocks, are preserved and the numerical diffusion is considerably reduced also for the limited cells by resorting to a proper sub-grid. In practice the method first produces a so-called candidate solution by using a high order accurate unlimited DG scheme. Then, a set of numerical and physical detection criteria is applied to the candidate solution, namely: positivity of pressure and density, absence of floating point errors and satisfaction of a discrete maximum principle in the sense of polynomials. Furthermore, in those cells where at least one of these criteria is violated the computed candidate solution is detected as troubled and is locally rejected. Subsequently, a more reliable numerical solution is recomputed a posteriori by employing a more robust but still very accurate ADER-{{WENO}} finite volume scheme on the subgrid averages within that troubled cell. Finally, a high order DG polynomial is reconstructed back from the evolved subcell averages. We apply the whole approach for the first time to the equations of compressible gas dynamics and magnetohydrodynamics in the presence of viscosity, thermal conductivity and magnetic resistivity, therefore extending our family of adaptive ADER-DG schemes to cases for which the numerical fluxes also depend on the gradient of the state vector. The distinguished high-resolution properties of the presented numerical scheme standout against a wide number of non-trivial test cases both for the compressible {N}avier–{S}tokes and the viscous and resistive magnetohydrodynamics equations. The present results show clearly that the shock-capturing capability of the news schemes is significantly enhanced within a cell-by-cell Adaptive Mesh Refinement (AMR) implementation together with time accurate local time stepping (LTS).}
 }
 
 
 
-@article{Swanson_Langer_2016, title={Steady-state laminar flow solutions for NACA 0012 airfoil}, volume={126}, url={http://www.sciencedirect.com/science/article/pii/S0045793015003801}, number={Supplement C}, journal={Computers \& Fluids}, author={Swanson, R. C. and Langer, S.}, year={2016}, month=mar, pages={102–128} }
+@article{Swanson_Langer_2016, title={Steady-state laminar flow solutions for {NACA0012} airfoil}, volume={126}, url={http://www.sciencedirect.com/science/article/pii/S0045793015003801}, number={Supplement C}, journal={Computers \& Fluids}, author={Swanson, R. C. and Langer, S.}, year={2016}, month=mar, pages={102–128} }
 
 @article{Ray2017,
-title = {An entropy stable finite volume scheme for the two dimensional Navier–Stokes equations on triangular grids},
+title = {An entropy stable finite volume scheme for the two dimensional {N}avier–{S}tokes equations on triangular grids},
 journal = {Applied Mathematics and Computation},
 volume = {314},
 pages = {257-286},
@@ -2912,8 +2912,8 @@ year = {2017},
 issn = {0096-3003},
 url = {https://www.sciencedirect.com/science/article/pii/S009630031730471X},
 author = {Deep Ray and Praveen Chandrashekar},
-keywords = {Navier–Stokes equations, Entropy stability, Unstructured grid, Finite volume scheme, Wall boundary condition},
-abstract = {We construct a finite volume scheme for the compressible Navier–Stokes equations on triangular grids which are entropy stable at the semi-discrete level. This is achieved by using entropy stable inviscid fluxes constructed in the recently published work titled Entropy Stable Scheme on Two-Dimensional Unstructured Grids for Euler Equations by Ray, Chandrashekar, Fjordholm and Mishra, (2016), and computing viscous fluxes in terms of entropy variables. Wall boundary conditions are also constructed to be entropy stable and are imposed in a weak manner. The resulting scheme is applied to solve several standard viscous test cases, such as flow over a flat-plat, flow past a NACA-0012 airfoil and unsteady flow past a cylinder, to demonstrate its stability and accuracy.}
+keywords = {{N}avier–{S}tokes equations, Entropy stability, Unstructured grid, Finite volume scheme, Wall boundary condition},
+abstract = {We construct a finite volume scheme for the compressible {N}avier–{S}tokes equations on triangular grids which are entropy stable at the semi-discrete level. This is achieved by using entropy stable inviscid fluxes constructed in the recently published work titled Entropy Stable Scheme on Two-Dimensional Unstructured Grids for {E}uler Equations by Ray, Chandrashekar, Fjordholm and Mishra, (2016), and computing viscous fluxes in terms of entropy variables. Wall boundary conditions are also constructed to be entropy stable and are imposed in a weak manner. The resulting scheme is applied to solve several standard viscous test cases, such as flow over a flat-plat, flow past a NACA-0012 airfoil and unsteady flow past a cylinder, to demonstrate its stability and accuracy.}
 }
 
 @inbook{Ellis2016,
@@ -2937,7 +2937,7 @@ abstract = {We construct a finite volume scheme for the compressible Navier–St
 }
 
 @article{Bassi1997,
-title = {A High-Order Accurate Discontinuous Finite Element Method for the Numerical Solution of the Compressible Navier–Stokes Equations},
+title = {A High-Order Accurate Discontinuous Finite Element Method for the Numerical Solution of the Compressible {N}avier–{S}tokes Equations},
 journal = {Journal of Computational Physics},
 volume = {131},
 number = {2},
@@ -2947,7 +2947,7 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1006/jcph.1996.5572},
 url = {https://www.sciencedirect.com/science/article/pii/S0021999196955722},
 author = {F. Bassi and S. Rebay},
-abstract = {This paper deals with a high-order accurate discontinuous finite element method for the numerical solution of the compressible Navier–Stokes equations. We extend a discontinuous finite element discretization originally considered for hyperbolic systems such as the Euler equations to the case of the Navier–Stokes equations by treating the viscous terms with a mixed formulation. The method combines two key ideas which are at the basis of the finite volume and of the finite element method, the physics of wave propagation being accounted for by means of Riemann problems and accuracy being obtained by means of high-order polynomial approximations within elements. As a consequence the method is ideally suited to compute high-order accurate solution of the Navier–Stokes equations on unstructured grids. The performance of the proposed method is illustrated by computing the compressible viscous flow on a flat plate and around a NACA0012 airfoil for several flow regimes using constant, linear, quadratic, and cubic elements.}
+abstract = {This paper deals with a high-order accurate discontinuous finite element method for the numerical solution of the compressible {N}avier–{S}tokes equations. We extend a discontinuous finite element discretization originally considered for hyperbolic systems such as the {E}uler equations to the case of the {N}avier–{S}tokes equations by treating the viscous terms with a mixed formulation. The method combines two key ideas which are at the basis of the finite volume and of the finite element method, the physics of wave propagation being accounted for by means of {Riemann} problems and accuracy being obtained by means of high-order polynomial approximations within elements. As a consequence the method is ideally suited to compute high-order accurate solution of the {N}avier–{S}tokes equations on unstructured grids. The performance of the proposed method is illustrated by computing the compressible viscous flow on a flat plate and around a NACA0012 airfoil for several flow regimes using constant, linear, quadratic, and cubic elements.}
 }
 
 @misc{babbar2024multiderivative,
@@ -2969,7 +2969,7 @@ abstract = {This paper deals with a high-order accurate discontinuous finite ele
 }
 
 @misc{babbar2024laxwendroff,
-      title={Lax-{W}endroff {F}lux {R}econstruction for advection-diffusion equations with error-based time stepping}, 
+      title={{L}ax-{W}endroff {F}lux {R}econstruction for advection-diffusion equations with error-based time stepping}, 
       author={Arpit Babbar and Praveen Chandrashekar},
       year={2024},
       eprint={2402.12669},
@@ -3029,13 +3029,13 @@ issn = {0021-9991},
 doi = {https://doi.org/10.1016/0021-9991(90)90233-Q},
 url = {https://www.sciencedirect.com/science/article/pii/002199919090233Q},
 author = {Phillip Colella},
-abstract = {We present a class of second-order conservative finite difference algorithms for solving numerically time-dependent problems for hyperbolic conservation laws in several space variables. These methods are upwind and multidimensional, in that the numerical fluxes are obtained by solving the characteristic form of the full multidimensional equations at the zone edge, and that all fluxes are evaluated and differenced at the same time; in particular, operator splitting is not used. Correct behavior at discontinuities is obtained by the use of solutions to the Riemann problem, and by limiting some of the second-order terms. Numerical results are presented, which show that the methods described here yield the same high resolution as the corresponding operator split methods.}
+abstract = {We present a class of second-order conservative finite difference algorithms for solving numerically time-dependent problems for hyperbolic conservation laws in several space variables. These methods are upwind and multidimensional, in that the numerical fluxes are obtained by solving the characteristic form of the full multidimensional equations at the zone edge, and that all fluxes are evaluated and differenced at the same time; in particular, operator splitting is not used. Correct behavior at discontinuities is obtained by the use of solutions to the {Riemann} problem, and by limiting some of the second-order terms. Numerical results are presented, which show that the methods described here yield the same high resolution as the corresponding operator split methods.}
 }
 
 @article{Harten1987,
 author = {Harten, Ami and Osher, Stanley},
 title = {Uniformly High-Order Accurate Nonoscillatory Schemes. I},
-journal = {SIAM Journal on Numerical Analysis},
+journal = {{SIAM} Journal on Numerical Analysis},
 volume = {24},
 number = {2},
 pages = {279-309},
@@ -3063,7 +3063,7 @@ eprint = {
 @article{Shu1988,
 author = {Shu, Chi-Wang},
 title = {Total-Variation-Diminishing Time Discretizations},
-journal = {SIAM Journal on Scientific and Statistical Computing},
+journal = {{SIAM} Journal on Scientific and Statistical Computing},
 volume = {9},
 number = {6},
 pages = {1073-1084},
@@ -3085,7 +3085,7 @@ eprint = {
 
 }
 ,
-    abstract = { In the computation of conservation laws \$u\_t + f(u)\_x = 0\$, total-variation-diminishing (TVD) schemes have been very successful. Many TVD schemes are of method-of-lines form (i.e., discretized in spatial variables only); hence time discretizations that keep TVD and have other properties (e.g., large CFL numbers for steady state calculations, or high-order accuracy for time-dependent problems) are desirable. In this paper we present a class of m-step Runge–Kutta-type TVD time discretizations with large CFL number m, suitable for steady state calculations, and a class of multilevel type TVD high-order time discretizations suitable for time-dependent problems. Some preliminary numerical results are also given. }
+    abstract = { In the computation of conservation laws \$u\_t + f(u)\_x = 0\$, total-variation-diminishing (TVD) schemes have been very successful. Many TVD schemes are of method-of-lines form (i.e., discretized in spatial variables only); hence time discretizations that keep TVD and have other properties (e.g., large CFL numbers for steady state calculations, or high-order accuracy for time-dependent problems) are desirable. In this paper we present a class of m-step {R}unge–{K}utta-type TVD time discretizations with large CFL number m, suitable for steady state calculations, and a class of multilevel type TVD high-order time discretizations suitable for time-dependent problems. Some preliminary numerical results are also given. }
 }
 
 

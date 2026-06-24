@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1>
 
 <project|main.tm>
 
@@ -17,7 +17,7 @@
 
   In this chapter, we introduce the Lax-Wendroff (LW) scheme with the Flux
   Reconstruction (FR) method used for spatial discretization, since each of
-  these two methods have the advantages discussed in the introduction. In
+  these two methods has the advantages discussed in the introduction. In
   brief, the advantage of Lax-Wendroff schemes arises from their single stage
   nature which minimizes interelement communication. The Flux Reconstruction
   is a quadrature free, vectorized scheme that generalizes variants of
@@ -29,8 +29,8 @@
   presented in Section<nbsp><reference|sec:scl> for solving the hyperbolic
   conservation law<nbsp><eqref|eq:con.law>. The one dimensional Runge-Kutta
   Flux Reconstruction (RKFR) scheme from Section<nbsp><reference|sec:rk> is
-  used for motivation as we introduce the Lax-Wendroff FR (LWFR) method
-  in<nbsp><reference|sec:lw>.
+  used for motivation as we introduce the Lax-Wendroff FR (LWFR) method in
+  Section<nbsp><reference|sec:lw>.
 
   The numerical flux used on finite element interfaces has been improved for
   Lax-Wendroff schemes. We introduce a D2 dissipation numerical flux that
@@ -39,8 +39,9 @@
   and how it improves over existing methods is presented in
   Section<nbsp><reference|sec:numflux>. The Fourier stability analysis in 1-D
   to demonstrate enhancement of CFL numbers is performed in
-  Section<nbsp><reference|sec:four1d>. In this chapter, we use TVD limiter
-  for problems with nonsmooth solution and it is described in
+  Section<nbsp><reference|sec:four1d>. In Section<nbsp><reference|sec:lw.bc>,
+  the treatment of boundary conditions is described. \ This chapter uses TVD
+  limiter for problems with nonsmooth solution and it is described in
   Section<nbsp><reference|sec:lim>. Sections<nbsp><reference|sec:lwfr.res1d>,<nbsp><reference|sec:res1dsys>
   present some numerical results in 1-D for scalar and system problems, to
   demonstrate the convergence rates and effect of correction functions,
@@ -53,16 +54,16 @@
   <section|Lax-Wendroff FR scheme><label|sec:lw>
 
   In contrast to the spatial discretization described in
-  Section<nbsp><reference|sec:rk>, where a multistage Runge-Kutta scheme is
-  needed to obtained high order accuracy, the LWFR scheme described here is a
+  Section<nbsp><reference|sec:rk>, where a multistage Runge-Kutta scheme was
+  needed to obtain high order accuracy, the LWFR scheme described here is a
   fully discrete high order scheme.
 
-  The Lax-Wendroff scheme combines the spatial and temporal discretization
-  into a single step. The starting point is a Taylor expansion in time
-  following the Cauchy-Kowalewski procedure where the PDE is used to rewrite
-  some of the time derivatives in the Taylor expansion as spatial
-  derivatives. Using Taylor expansion in time around <math|t=t<rsub|n>>, we
-  can write the solution at the next time level as
+  The Lax-Wendroff scheme combines spatial and temporal discretization into a
+  single step. The starting point is a Taylor expansion in time following the
+  Cauchy-Kowalewski procedure where the PDE is used to rewrite some of the
+  time derivatives in the Taylor expansion as spatial derivatives. Using
+  Taylor expansion in time around <math|t=t<rsub|n>>, we can write the
+  solution at the next time level as
 
   <\equation*>
     <value|uu><rsup|n+1>=<value|uu><rsup|n>+<big|sum><rsub|m=1><rsup|N+1><frac|\<Delta\>t<rsup|m>|m!>*\<partial\><rsub|t><rsup|m>*<value|uu><rsup|n>+O<around|(|\<Delta\>t<rsup|N+2>|)>
@@ -71,7 +72,7 @@
   Since the spatial error is expected to be of
   <math|O<around|(|\<Delta\>x<rsup|N+1>|)>>, we retain terms up to
   <math|O<around|(|\<Delta\>t<rsup|N+1>|)>> in the Taylor expansion, so that
-  the over all accuracy is of order <math|N+1> both in space and time. Using
+  the overall accuracy is of order <math|N+1> both in space and time. Using
   the PDE, <math|\<partial\><rsub|t>*<value|uu>=-\<partial\><rsub|x>*<value|pf>>,
   we re-write time derivatives of the solution in terms of spatial
   derivatives of the flux
@@ -134,7 +135,7 @@
   conservative method converges, then the limit is a weak solution. The
   method<nbsp><eqref|eq:uplwfr> is also conservative though it is not
   directly apparent; to see this multiply<nbsp><eqref|eq:uplwfr> by the
-  quadrature weights associated with the solution points and sum over all the
+  quadrature weights associated with the solution points and sum overall the
   points in the <math|e><rsup|th> element,
 
   <\equation*>
@@ -143,7 +144,7 @@
 
   The correction functions are of degree <math|N+1> and the flux
   <math|<value|F><rsub|h>> is a polynomial of degree <math|\<le\>N+1>. If the
-  quadrature is exact for polynomials of degree atleast <math|N>, which is
+  quadrature is exact for polynomials of degree at least <math|N>, which is
   true for both GLL and GL points, then the quadrature is exact for the flux
   derivative term and we can write it as an integral, which leads to
 
@@ -166,9 +167,9 @@
   <paragraph|Step 1.>Use the approximate Lax-Wendroff procedure to compute
   the time average flux <math|<value|F>> at all the solution points
 
-  <\equation*>
-    <value|Fep>\<approx\><value|F><around|(|\<xi\><rsub|p>|)>,<space|2em>0\<le\>p\<le\>N
-  </equation*>
+  <\equation>
+    <value|Fep>\<approx\><value|F><around|(|\<xi\><rsub|p>|)>,<space|2em>0\<le\>p\<le\>N<label|eq:tavg.values>
+  </equation>
 
   The approximate LW procedure is explained in a subsequent section.
 
@@ -180,7 +181,7 @@
   </equation>
 
   which however may not be continuous across the elements. This is
-  illustrated in Figure<nbsp>(<reference|fig:solflux1>b).
+  illustrated in Figure<nbsp><reference|fig:solflux1>b.
 
   <paragraph|Step 3.> Modify the flux approximation
   <math|<value|F><rsub|h><rsup|\<delta\>><around|(|\<xi\>|)>> so that it
@@ -194,10 +195,13 @@
 
   which is illustrated in Figure<nbsp><reference|fig:solflux1>b. The
   correction functions <math|g<rsub|L>,g<rsub|R>> are chosen from the FR
-  literature.
+  literature<nbsp><cite|Huynh2007|Trojak2021|Vincent2011a>
+  (Section<nbsp><reference|sec:rk>).
 
-  <paragraph|Step 4.>The derivatives of the continuous flux approximation at
-  the solution points can be obtained as
+  <paragraph|Step 4.>Let <math|<vF>> denote the values of time average flux
+  approximation at solution points<nbsp><eqref|eq:tavg.values>. The
+  derivatives of the continuous flux approximation at the solution points can
+  be obtained as
 
   <\equation*>
     <tabular*|<tformat|<table|<row|<cell|<myvector|\<partial\><rsub|\<xi\>>F<rsub|h>>=<around*|[|<value|F><rsub|<emh>>-<vV><rsub|L><rsup|\<top\>><vF>|]>*<vb><rsub|L>+<vD><vF>+<around*|[|<value|F><rsub|<eph>>-<vV><rsub|R><rsup|\<top\>><vF>|]>*<vb><rsub|R>>>|<row|<cell|<vb><rsub|L>=<around*|[|<tabular*|<tformat|<table|<row|<cell|g<rsub|L><rprime|'><around|(|\<xi\><rsub|0>|)>>>|<row|<cell|\<vdots\>>>|<row|<cell|g<rsub|L><rprime|'><around|(|\<xi\><rsub|N>|)>>>>>>|]>,<space|2em><vb><rsub|R>=<around*|[|<tabular*|<tformat|<table|<row|<cell|g<rsub|R><rprime|'><around|(|\<xi\><rsub|0>|)>>>|<row|<cell|\<vdots\>>>|<row|<cell|g<rsub|R><rprime|'><around|(|\<xi\><rsub|N>|)>>>>>>|]>>>>>>
@@ -219,8 +223,8 @@
   single cell (middle term) and those computed at the faces (first and third
   terms) where it is required to use the data from two adjacent cells. The
   computation of the flux derivatives can thus be performed by looping over
-  cells and then the faces. In case of a system of equations, the
-  differentiation matrices are applied on each variable; see
+  cells and then the faces. In the case of a system of equations, the
+  differentiation matrices are applied to each variable; see
   Appendix<nbsp><reference|app:efficient.diff> for a performance efficient
   implementation of these operations.
 
@@ -286,7 +290,7 @@
   The time average flux at the solution points <math|<value|Fep>> must be
   computed using<nbsp><eqref|eq:tavgflux>. The usual approach is to use the
   PDE and replace time derivatives with spatial derivatives, but this leads
-  to large amount of algebraic computations since we need to evaluate the
+  to a large amount of algebraic computations since we need to evaluate the
   flux Jacobian and its higher tensor versions. To avoid this process, we
   follow the ideas in<nbsp><cite|Zorio2017|Burger2017> and adopt an
   approximate Lax-Wendroff procedure. To present this idea in a concise and
@@ -300,6 +304,12 @@
 
   <\equation*>
     <value|uu><rsup|<around|(|m|)>>=-\<Delta\>t*\<partial\><rsub|x>*<value|pf><rsup|<around|(|m-1|)>>,<space|2em>m=1,2,\<ldots\>
+  </equation*>
+
+  Let the vector <math|<vf>> below contain the flux values at solution points
+
+  <\equation*>
+    <vf><rsub|p>=<value|pf><around*|(|<value|uu><rsub|p>|)>
   </equation*>
 
   The approximate Lax-Wendroff procedure uses a finite difference
@@ -336,8 +346,7 @@
   computed to at least <math|O<around|(|\<Delta\>t<rsup|N+1-m>|)>> accuracy.
   The Lax-Wendroff procedure is applied in each element and so for simplicity
   of notation, we do not show the element index in the following
-  sub-sections. The vector <math|<vf>> below contains the flux values at
-  solution points.
+  sub-sections.
 
   <subsubsection|Second order scheme, <math|N=1>>
 
@@ -422,7 +431,7 @@
   advection equation <math|<value|uu><rsub|t>+a*<value|uu><rsub|x>=0>, the
   coefficient in the dissipative part of the flux is taken as
   <math|\<lambda\><rsub|<eph>>=<around|\||a|\|>>, while for a non-linear PDE
-  like Burger's equation, we take it to be
+  like Burgers' equation, we take it to be
 
   <\equation*>
     \<lambda\><rsub|<eph>>=max <around|{|<around|\||<value|pf><rprime|'><around|(|<au><rsub|e><rsup|n>|)>|\|>,<around|\||<value|pf><rprime|'><around|(|<au><rsub|e+1><rsup|n>|)>|\|>|}>
@@ -433,8 +442,8 @@
   as Rusanov or local Lax-Friedrich<nbsp><cite|Rusanov1962> approximation.
   Note that the dissipation term in the above numerical flux is evaluated at
   time <math|t<rsub|n>> whereas the central part of the flux uses the time
-  average flux. Since the dissipation term contains solution difference at
-  faces, we still expect to obtain optimal convergence rates, which is
+  average flux. Since the dissipation term contains the solution difference
+  at faces, we still expect to obtain optimal convergence rates, which is
   verified in numerical experiments. This numerical flux depends on the
   following quantities: <math|<around|{|<au><rsub|e><rsup|n>,<au><rsub|e+1><rsup|n>,<value|uu><rsub|h>*<around|(|x<rsub|<eph>><rsup|->,t<rsub|n>|)>,<value|uu><rsub|h>*<around|(|x<rsub|<eph>><rsup|+>,t<rsub|n>|)>,<value|F><rsub|<eph>><rsup|->,<value|F><rsub|<eph>><rsup|+>|}>>.
 
@@ -461,12 +470,12 @@
   respectively. The dissipation model D2 is not computationally expensive
   compared to the D1 model since all the quantities required to compute the
   time average solution <math|<value|uU>> are available during the
-  Lax-Wendroff procedure. Numerical fluxes for the case of systems of
-  hyperbolic equations are described in the Appendix. It remains to explain
-  how to compute <math|<value|F><rsub|<eph>><rsup|\<pm\>>> appearing in the
-  central part of the numerical flux, which can be accomplished in two
-  different ways, which we term <extrapolate> and <evaluate> in the next two
-  sub-sections.
+  Lax-Wendroff procedure. Some numerical fluxes for the case of systems of
+  hyperbolic equations are described in Appendix<nbsp><reference|sec:lwfr.numfluxes>.
+  It remains to explain how to compute <math|<value|F><rsub|<eph>><rsup|\<pm\>>>
+  appearing in the central part of the numerical flux, which can be
+  accomplished in two different ways, which we term <extrapolate> and
+  <evaluate> in the next two sub-sections.
 
   <\remark>
     In case of constant linear advection equation,
@@ -511,7 +520,7 @@
     </equation*>
 
     respectively. In the global Lax-Friedrich flux, the maximum is taken over
-    the whole grid. For Burger's equation, we can consider an Osher type
+    the whole grid. For Burgers' equation, we can consider an Osher type
     flux<nbsp><cite|Engquist1981> which is given by
 
     <\equation*>
@@ -591,10 +600,7 @@
     <value|F><rsub|<eph>><rsup|->=<around|(|<value|F><rsub|R>|)><rsub|e>,<space|2em><value|F><rsub|<eph>><rsup|+>=<around|(|<value|F><rsub|L>|)><rsub|e+1>
   </equation*>
 
-  We will refer to this method with the abbreviation <evaluate>. The
-  dissipative part of the flux is computed using either the solution at time
-  <math|t<rsub|n>> or the time average solution, which are extrapolated to
-  the faces, leading to the D1 and D2 models, respectively.
+  We will refer to this method with the abbreviation <evaluate>.
 
   <\remark>
     The two methods <extrapolate> and <evaluate> are different only when
@@ -727,7 +733,7 @@
     \<lambda\><around|(|\<sigma\>|)>=max<rsub|\<kappa\>><around|\||\<lambda\><around|(|\<sigma\>,\<kappa\>|)>|\|>\<le\>1
   </equation*>
 
-  The CFL number is the maximum value of <math|\<sigma\>> for which above
+  The CFL number is the maximum value of <math|\<sigma\>> for which the above
   stability condition is satisfied. This CFL number is determined
   approximately by sampling in the wave number space; we partition
   <math|\<kappa\>\<in\><around|[|0,2*\<pi\>|]>> into a large number of
@@ -745,8 +751,8 @@
   <math|<around|[|\<sigma\><rsub|min>,\<sigma\><rsub|max>|]>> and then
   progressively reduce the size of this interval so that the CFL number is
   determined to about three decimal places. The results of this numerical
-  investigation of stability are shown in Table<nbsp><eqref|tab:cfl> for two
-  correction functions and different polynomial degrees.
+  investigation of stability are shown in Table<nbsp><reference|tab:cfl> for
+  two correction functions and different polynomial degrees.
 
   <big-table|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-lborder|1ln>|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|1ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|1ln>|<cwith|1|-1|3|3|cell-halign|c>|<cwith|1|-1|3|3|cell-rborder|1ln>|<cwith|1|-1|4|4|cell-halign|c>|<cwith|1|-1|4|4|cell-rborder|1ln>|<cwith|1|-1|5|5|cell-halign|c>|<cwith|1|-1|5|5|cell-rborder|1ln>|<cwith|1|-1|6|6|cell-halign|c>|<cwith|1|-1|6|6|cell-rborder|1ln>|<cwith|1|-1|7|7|cell-halign|c>|<cwith|1|-1|7|7|cell-rborder|1ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|-1|cell-tborder|1ln>|<cwith|1|1|2|2|cell-col-span|3>|<cwith|1|1|1|1|cell-rborder|1ln>|<cwith|1|1|2|2|cell-halign|c>|<cwith|1|1|2|2|cell-rborder|1ln>|<cwith|1|1|5|5|cell-col-span|3>|<cwith|1|1|4|4|cell-rborder|1ln>|<cwith|1|1|5|5|cell-halign|c>|<cwith|1|1|5|5|cell-rborder|1ln>|<cwith|1|1|1|-1|cell-bborder|1ln>|<cwith|2|2|1|-1|cell-bborder|1ln>|<cwith|6|6|1|-1|cell-bborder|1ln>|<table|<row|<cell|<math|N>>|<cell|Radau>|<cell|>|<cell|>|<cell|<math|g<rsub|2>>>|<cell|>|<cell|>>|<row|<cell|>|<cell|D1>|<cell|D2>|<cell|Ratio>|<cell|D1>|<cell|D2>|<cell|Ratio>>|<row|<cell|1>|<cell|0.226>|<cell|0.333>|<cell|1.47>|<cell|0.465>|<cell|1.000>|<cell|2.15>>|<row|<cell|2>|<cell|0.117>|<cell|0.170>|<cell|1.45>|<cell|0.204>|<cell|0.333>|<cell|1.63>>|<row|<cell|3>|<cell|0.072>|<cell|0.103>|<cell|1.43>|<cell|0.116>|<cell|0.170>|<cell|1.47>>|<row|<cell|4>|<cell|0.049>|<cell|0.069>|<cell|1.40>|<cell|0.060>|<cell|0.103>|<cell|1.72>>>>><label|tab:cfl>>|<caption-detailed|CFL
   numbers for 1-D LWFR using the two dissipation models and correction
@@ -771,8 +777,8 @@
   across normal direction. Consider a grid
   <math|<around*|{|\<Omega\><rsub|e>|}><rsub|e=1><rsup|M>> where
   <math|\<Omega\><rsub|1>,\<Omega\><rsub|M>> are the left, right boundary
-  elements elements. In some cases, the boundary conditions are enforced by
-  the choice of <with|font-shape|italic|ghost values> which are
+  elements. In some cases, the boundary conditions are enforced by the choice
+  of <with|font-shape|italic|ghost values> which are
   <math|<value|F><rsub|M+<value|half>><rsup|+>,<value|uU><rsub|M+<value|half>><rsup|+>,<au><rsub|M+1>>
   for the right boundary and <math|<value|F><rsub|<value|half>><rsup|->,<value|uU><rsub|<value|half>><rsup|->,<au><rsub|0>>
   for the left boundary. Here we describe the treatment in various cases.
@@ -820,8 +826,8 @@
 
   <paragraph|Numerical flux for boundaries.>There are cases when the
   characteristics are a mix of inflow and outflow, and it is known that the
-  inflow is given by a function <math|<value|bg><around*|(|t|)>>. In these
-  cases, we use an upwind numerical flux like HLL/HLLC/Roe
+  inflow is given by a function <math|<with|font-series|bold|g><around*|(|t|)>>.
+  In these cases, we use an upwind numerical flux like Roe
   (Appendix<nbsp><reference|sec:lwfr.numfluxes>) which will distinguish
   between inflow and outflow characteristics. We explain the treatment for
   the left boundary, say <math|x<rsub|1/2>=0>. The time averaging of inflow
@@ -844,7 +850,7 @@
   and set the ghost values as follows
 
   <\equation*>
-    <value|F><rsub|<value|half>><rsup|->,<value|uU><rsub|<value|half>><rsup|->,<au><rsub|0>=<around*|(|-<value|F><rsub|1>,-<value|F><rsub|2>,<value|F><rsub|3>|)>,<around*|(|<value|uU><rsub|1>,-<value|uU><rsub|2>,<value|uU><rsub|3>|)>,<around*|(|<value|uu><rsub|1>,-<value|uu><rsub|2>,<value|uu><rsub|3>|)>
+    <value|F><rsub|<value|half>><rsup|->=<around*|(|-<value|F><rsub|1>,-<value|F><rsub|2>,<value|F><rsub|3>|)>,<space|1em><value|uU><rsub|<value|half>><rsup|->=<around*|(|<value|uU><rsub|1>,-<value|uU><rsub|2>,<value|uU><rsub|3>|)>,<space|1em><au><rsub|0>=<around*|(|<value|uu><rsub|1>,-<value|uu><rsub|2>,<value|uu><rsub|3>|)>
   </equation*>
 
   Then, the numerical flux at <math|x<rsub|1/2>> is computed as
@@ -915,7 +921,7 @@
   variables, which is known to yield better control on the spurious numerical
   oscillations<nbsp><cite|Cockburn1989>. The limiters used in this chapter
   are not able to provide high order accuracy and the development of better
-  limiters, with the idea of a subcell based scheme, are discussed in
+  limiters, with the idea of a subcell based scheme, is discussed in
   Chapter<nbsp><reference|ch:lw.subcell.limiter>.
 
   \;
@@ -1020,8 +1026,8 @@
 
           <no-indent><mid|lfloor><tabular|<tformat|<cwith|1|1|1|1|cell-halign|l>|<table|<row|<cell|<tabular|<tformat|<table|<row|<cell|Loop
           over cells and assemble rhs;>>|<row|<cell|Loop over faces and
-          assemble rhs;>>|<row|<cell|Update solution to next RK
-          stage;>>|<row|<cell|Apply <with|font-shape|italic|a posteriori>
+          assemble rhs;>>|<row|<cell|Update solution to next <correction|time
+          step>;>>|<row|<cell|Apply <with|font-shape|italic|a posteriori>
           limiter;>>|<row|<cell|Apply positivity
           limiter;>>|<row|<cell|<math|<math|t=t+\<mathLaplace\>t>;>>>>>>>>>>>
         </cell>>>>
@@ -1064,7 +1070,7 @@
   is 200. We see that the error growth with time is higher for the LW scheme
   than for the RK scheme. The superior performance of the RK scheme is
   already known in the literature<nbsp><cite|Guo2015> and is due to its
-  super-convergence properties. It is possible to construct LW schemes which
+  super-convergence properties. It is possible to construct LW schemes that
   are also super-convergent as done in<nbsp><cite|Guo2015> but the resulting
   schemes are computationally more expensive as they involve a stronger
   coupling with the neighbouring cell solutions, than what is used in the
@@ -1081,18 +1087,6 @@
   advection; (a) GL points , (b) GLL points. The different colors correspond
   to degrees <math|N=1,2,3,4> from top to bottom.|Error convergence for
   constant linear advection comparing LWFR and RKFR>>
-
-  <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/error_1_la_15_NDOFS200|0.4par|||>>|<cell|>|<cell|<image|figures/cla/error_2_la_15_NDOFS200|0.4par|||>>>|<row|<cell|(a)>|<cell|>|<cell|(b)>>|<row|<cell|<image|figures/cla/error_3_la_15_NDOFS200|0.4par|||>>|<cell|>|<cell|<image|figures/cla/error_4_la_15_NDOFS200|0.4par|||>>>|<row|<cell|(c)>|<cell|>|<cell|(d)>>>>><label|fig:cla3>
-
-    \;
-  <|big-figure>
-    <caption-detailed|Error versus time for constant linear advection,
-    initial condition <math|u(x, 0) = sin(2 \<pi\> x)>, <math|x\<in\> [0,1]>,
-    for different polynomial degrees, each with 200 dofs; GL solution points
-    and Radau correction. (a) <math|N=1>, (b) <math|N=2>, (c) <math|N=3>, (d)
-    <math|N=4>.|Error growth for constant linear advection equation.>
-  </big-figure>
 
   Figure<nbsp><reference|fig:cla4> analyzes the behaviour of <math|L<rsup|2>>
   norm of the solution where we plot the relative change in the
@@ -1116,7 +1110,21 @@
   seems to be present in other single step methods like ADER-DG schemes also.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/energy_1_la_15_NDOFS200|0.4par|||>>|<cell|>|<cell|<image|figures/cla/energy_2_la_15_NDOFS200|0.4par|||>>>|<row|<cell|(a)>|<cell|>|<cell|(b)>>|<row|<cell|<image|figures/cla/energy_3_la_15_NDOFS200|0.4par|||>>|<cell|>|<cell|<image|figures/cla/energy_4_la_15_NDOFS200|0.4par|||>>>|<row|<cell|(c)>|<cell|>|<cell|(d)>>>>><label|fig:cla4>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/error_1_la_15_NDOFS200|0.35par|||>>|<cell|<image|figures/cla/error_2_la_15_NDOFS200|0.35par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/cla/error_3_la_15_NDOFS200|0.35par|||>>|<cell|<image|figures/cla/error_4_la_15_NDOFS200|0.35par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:cla3>
+
+    \;
+  <|big-figure>
+    <caption-detailed|Error versus time for constant linear advection
+    <math|u<rsub|t>+u<rsub|x>=0>, initial condition <math|u(x, 0) = sin(2
+    \<pi\> x)>, <math|x\<in\> [0,1]>, periodic boundary conditions, for
+    different polynomial degrees, each with 200 degrees of freedom (dofs); GL
+    solution points and Radau correction. (a) <math|N=1>, (b) <math|N=2>, (c)
+    <math|N=3>, (d) <math|N=4>.|Error growth for constant linear advection
+    equation.>
+  </big-figure>
+
+  <\big-figure>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/energy_1_la_15_NDOFS200|0.35par|||>>|<cell|>|<cell|<image|figures/cla/energy_2_la_15_NDOFS200|0.35par|||>>>|<row|<cell|(a)>|<cell|>|<cell|(b)>>|<row|<cell|<image|figures/cla/energy_3_la_15_NDOFS200|0.35par|||>>|<cell|>|<cell|<image|figures/cla/energy_4_la_15_NDOFS200|0.35par|||>>>|<row|<cell|(c)>|<cell|>|<cell|(d)>>>>><label|fig:cla4>
   </big-figure|<caption-detailed|Semi-log plot of relative change in
   <math|L<rsub|2>> norm versus time for constant linear advection with the
   initial condition <math|u(x, 0) = sin(2\<pi\>x), x \<in\> [0, 1]> for
@@ -1173,6 +1181,23 @@
   correction.|<math|L<rsub|2>> norm growth for constant linear advection with
   Dirichlet boundary conditions>>
 
+  <correction|Next we perform error convergence studies for an initial
+  condition of a wave packet given by <math|u<around|(|x,0|)>=e<rsup|-10*x<rsup|2>>*sin
+  <around|(|10*\<pi\>*x|)>> with periodic boundary conditions. This initial
+  condition has a more broadband Fourier spectrum than the previous case
+  which had only one Fourier mode. Figure<nbsp><reference|fig:wp1> shows the
+  solutions obtained for <math|N=3,4> and using 200 dofs in each case. The
+  solutions are more accurate in case of <math|N=4> compared to <math|N=3>
+  showing the benefits of a higher order method. We see that RK schemes are
+  able to capture the peak solution more accurately than LW schemes,
+  especially in case of <math|N=3>, but the difference between the two
+  schemes reduces for <math|N=4> case. Figure<nbsp><reference|fig:wp2> shows
+  the error convergence plot with GL points; as before, we see that RK
+  schemes show smaller errors than the LW schemes due to their
+  super-convergence property. For odd degrees, the D2 dissipation has
+  slightly smaller errors than the D1 model, while for even degrees, the
+  difference between the two models is negligible.>
+
   <\big-figure>
     <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/wpack_N3_ptwise|0.4par|||>>|<cell|>|<cell|<image|figures/cla/wpack_N4_ptwise|0.4par|||>>>|<row|<cell|(a)>|<cell|>|<cell|(b)>>>>><label|fig:wp1>
 
@@ -1203,8 +1228,8 @@
     u<around|(|x,0|)>=<choice|<tformat|<table|<row|<cell|1,>|<cell|x\<in\><around|(|0.25,0.75|)>>>|<row|<cell|0,>|<cell|x\<in\><around|[|0,0.25|)>\<cup\><around|(|0.75,1|]>>>>>>
   </equation*>
 
-  and which is extended by periodicity. We compute the solution upto the time
-  <math|t=1> unit when the solution returns to its initial position.
+  and which is extended by periodicity. We compute the solution up to the
+  time <math|t=1> unit when the solution returns to its initial position.
   Figure<nbsp><reference|fig:hat1> shows the solutions obtained with degree
   <math|N=3,4> and without applying any limiter. We observe oscillations in
   case of <math|N=3> but no significant oscillations are seen for the
@@ -1265,7 +1290,7 @@
   <math|N=3> than for <math|N=4> case.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/linear_mult_deg3_unlimited|0.36par|||>>|<cell|<image|figures/cla/linear_mult_deg4_unlimited_ssprk54|0.36par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:mult1>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/linear_mult_deg3_unlimited|0.4par|||>>|<cell|<image|figures/cla/linear_mult_deg4_unlimited_ssprk54|0.4par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:mult1>
   </big-figure|<caption-detailed|Constant linear advection of a composite
   profile without limiter. The solution is shown at time <math|t = 8> using
   400 dofs in each case and polynomial degree (a) <math|N = 3>, (b) <math|N =
@@ -1278,7 +1303,7 @@
   the LW scheme are very similar to those of the RK scheme.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/linear_mult_deg3_limited|0.36par|||>>|<cell|<image|figures/cla/linear_mult_deg4_limited_ssprk54|0.38par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:mult2>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/cla/linear_mult_deg3_limited|0.45par|||>>|<cell|<image|figures/cla/linear_mult_deg4_limited_ssprk54|0.45par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:mult2>
 
     \;
   </big-figure|<caption-detailed|Constant linear advection of a composite
@@ -1315,14 +1340,14 @@
   As mentioned earlier, upwind flux is used to enforce the boundary condition
   at inflow boundaries. The LW scheme with either <extrapolate> or <evaluate>
   method yields correct convergence rates, while the RK scheme exhibits a
-  small super-convergence. The right most figure shows that the error levels
-  with <extrapolate> and <evaluate> are nearly same. The non-linearity in
-  this problem is small enough that it does not spoil the error and
-  convergence behaviour of the LW schemes, for both <extrapolate> and
-  <evaluate> methods.
+  small super-convergence. Figure<nbsp><reference|fig:vla1>c shows that the
+  error levels with <extrapolate> and <evaluate> are nearly same. The
+  non-linearity in this problem is small enough that it does not spoil the
+  error and convergence behaviour of the LW schemes, for both <extrapolate>
+  and <evaluate> methods.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|3|3|1|1|cell-row-span|1>|<cwith|3|3|1|1|cell-col-span|2>|<cwith|3|4|1|1|cell-valign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|1|1|cell-row-span|1>|<cwith|4|4|1|1|cell-col-span|2>|<table|<row|<cell|<image|figures/vla/or1_rk_vs_lw_ae_tf1|0.385par|||>>|<cell|<image|figures/vla/or1_rk_vs_lw_ea_tf1|0.385par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/vla/or1_eval_vs_extrap_tf1|0.385par|||>>|<cell|>>|<row|<cell|(c)>|<cell|>>>>><label|fig:vla1>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|3|3|1|1|cell-row-span|1>|<cwith|3|3|1|1|cell-col-span|2>|<cwith|3|4|1|1|cell-valign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|1|1|cell-row-span|1>|<cwith|4|4|1|1|cell-col-span|2>|<table|<row|<cell|<image|figures/vla/or1_rk_vs_lw_ae_tf1|0.36par|||>>|<cell|<image|figures/vla/or1_rk_vs_lw_ea_tf1|0.36par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/vla/or1_eval_vs_extrap_tf1|0.36par|||>>|<cell|>>|<row|<cell|(c)>|<cell|>>>>><label|fig:vla1>
   </big-figure|<caption-detailed|Error convergence for variable linear
   advection with <math|a(x) = x>: (a) <extrapolate> scheme, (b) <evaluate>
   scheme, (c) <extrapolate> vs <evaluate>.|Error convergence for variable
@@ -1338,15 +1363,16 @@
   <math|u<around|(|x,t|)>=u<rsub|0><around|(|x/<around|(|1+t*x|)>|)>/<around|(|1+t*x|)><rsup|2>>.
   For odd degrees, the LW scheme with <extrapolate> shows larger errors
   compared to the RK scheme though the convergence rate is optimal. The LW
-  scheme with <evaluate> shown in the middle figure, is as accurate as the RK
-  scheme at all degrees. The last figure compares <extrapolate> and
-  <evaluate> schemes using GL solution points, Radau correction function and
-  D2 dissipation; we clearly see that <evaluate> scheme has smaller errors
-  than <extrapolate> scheme at odd degrees, while they are very similar for
-  even degrees. Figure<nbsp><reference|fig:vla3> shows the error versus time
-  plots for degrees <math|N=3,4>; we see that the LW and RK schemes have very
-  similar error levels and the superior performance of RK schemes observed
-  for constant linear advection is not realized in this non-linear case.
+  scheme with <evaluate> shown in Figure<nbsp><reference|fig:vla2>b, is as
+  accurate as the RK scheme at all degrees. Figure<nbsp><reference|fig:vla2>c
+  compares <extrapolate> and <evaluate> schemes using GL solution points,
+  Radau correction function and D2 dissipation; we clearly see that
+  <evaluate> scheme has smaller errors than <extrapolate> scheme at odd
+  degrees, while they are very similar for even degrees.
+  Figure<nbsp><reference|fig:vla3> shows the error versus time plots for
+  degrees <math|N=3,4>; we see that the LW and RK schemes have very similar
+  error levels and the superior performance of RK schemes observed for
+  constant linear advection is not realized in this non-linear case.
 
   We have observed the same behaviour in all other non-linear test cases
   given in<nbsp><cite|Offner2019> but the results are not shown here, i.e.,
@@ -1369,9 +1395,9 @@
   (b) <math|N = 4>.|Error growth for linear advection with wave speed
   <math|a(x) = x<rsup|2>>>>
 
-  <subsection|Inviscid Burgers' equation>
+  <subsection|Inviscid Burgers' equation><label|sec:burger.test>
 
-  The one dimensional Burger's equation is a conservation law of the form
+  The one dimensional Burgers' equation is a conservation law of the form
   <math|u<rsub|t>+f<around|(|u|)><rsub|x>=0> with the quadratic flux
   <math|f<around|(|u|)>=u<rsup|2>/2>. For the smooth initial condition
   <math|u*<around|(|x,0|)>=0.2*sin <around|(|x|)>>, we compute the numerical
@@ -1388,11 +1414,11 @@
     <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/burg1d/burger_sin_Tf4.5_ndofs400_deg3.pdf|0.4par|||>>|<cell|>|<cell|<image|figures/burg1d/burger_sin_Tf8_ndofs400_deg3|0.4par|||>>>|<row|<cell|(a)>|<cell|>|<cell|(b)>>>>><label|fig:burg1>
 
     \;
-  </big-figure|<caption-detailed|Solution of 1-D Burger's equation with
+  </big-figure|<caption-detailed|Solution of 1-D Burgers' equation with
   <math|N=3> and 100 cells at different time instants (a) <math|t=4.5>, (b)
   <math|t=8>. TVB limiter <math|(M=1)> is used. The reference solution is
   computed using RKFR, degree <math|N=1>, on a mesh of 3500 cells.|Solution
-  of 1-D Burger's equation.>>
+  of 1-D Burgers' equation.>>
 
   At time <math|t=2>, the solution is still smooth and we can obtain the
   exact solution, using which, error norms and convergence rates can be
@@ -1414,10 +1440,10 @@
     <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|3|3|1|1|cell-row-span|1>|<cwith|3|3|1|1|cell-col-span|3>|<cwith|3|3|1|1|cell-halign|c>|<cwith|4|4|1|1|cell-row-span|1>|<cwith|4|4|1|1|cell-col-span|2>|<cwith|4|4|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/burg1d/burger_sin_2_min_cfl|0.4par|||>>|<cell|<image|figures/burg1d/burger_sin_eval_2_g2_vs_gll_min_cfl|0.4par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/burg1d/burger_sin_eval_2_min_cfl|0.4par|||>>|<cell|>>|<row|<cell|(c)>|<cell|>>>>><label|fig:burg2>
 
     \;
-  </big-figure|<caption-detailed|Error convergence for 1-D Burger's equation
+  </big-figure|<caption-detailed|Error convergence for 1-D Burgers' equation
   at time <math|t=2>. (a) <extrapolate> vs <evaluate>, (b) Radau vs g2,
   <evaluate> scheme, (c) LW-<evaluate> vs RK.|Error convergence for 1-D
-  Burger's equation.>>
+  Burgers' equation.>>
 
   Next, we study the effect of different numerical fluxes in
   Figure<nbsp><reference|fig:burg4> for odd degrees <math|N=1,3>. With the
@@ -1440,10 +1466,10 @@
     <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/burg1d/burger_sin_extrap_2_min_cfl_N13|0.40par|||>>|<cell|>|<cell|<image|figures/burg1d/burger_sin_eval_2_min_cfl_N13|0.40par|||>>>|<row|<cell|(a)>|<cell|>|<cell|(b)>>>>><label|fig:burg4>
 
     \;
-  </big-figure|<caption-detailed|Error convergence for 1-D Burger's equation
+  </big-figure|<caption-detailed|Error convergence for 1-D Burgers' equation
   at time <math|t=2>; effect of numerical fluxes for <math|N=1,3>. (a)
   <extrapolate> scheme, (b) <evaluate> scheme.|Error convergence for 1-D
-  Burger's equation comparing numerical fluxes.>>
+  Burgers' equation comparing numerical fluxes.>>
 
   <subsection|Non-convex problem: Buckley-Leverett equation>
 
@@ -1498,8 +1524,8 @@
 
   <section|Numerical results in 1-D: Euler equations ><label|sec:res1dsys>
 
-  As an example of system of non-linear hyperbolic equations, we consider the
-  one-dimensional Euler equations of gas dynamics given by
+  As an example of a system of non-linear hyperbolic equations, we consider
+  the one-dimensional Euler equations of gas dynamics given by
 
   <\equation>
     <label|eq:1deuler><pd||t>*<matrix|<tformat|<table|<row|<cell|\<rho\>>>|<row|<cell|\<rho\>*u>>|<row|<cell|E>>>>>+<pd||x>*<matrix|<tformat|<table|<row|<cell|\<rho\>*u>>|<row|<cell|p+\<rho\>*u<rsup|2>>>|<row|<cell|<around*|(|E+p|)>*u>>>>>=<value|bzero>
@@ -1514,9 +1540,9 @@
     <label|eq:state>E=E<around|(|\<rho\>,u,p|)>=<frac|p|\<gamma\>-1>+<value|half>*\<rho\>*u<rsup|2>
   </equation>
 
-  where <math|\<gamma\>\<gtr\>1> is the adiabatic constant, that will be
-  taken as 1.4 which is the value for air. The time step size for polynomial
-  degree <math|N> is computed as
+  where <math|\<gamma\>\<gtr\>1> is the adiabatic constant, which will be
+  taken as 1.4, the value for air. The time step size for polynomial degree
+  <math|N> is computed as
 
   <\equation>
     \<Delta\>t=<value|Cs>*min<rsub|e><around*|(|<frac|\<Delta\>x<rsub|e>|<around|\||<wide|v|\<bar\>><rsub|e>|\|>+<wide|c|\<bar\>><rsub|e>>|)>*<cfl><around|(|N|)><label|eq:dt.lw>
@@ -1567,7 +1593,7 @@
     \<rho\><around|(|x,0|)>=1+0.5*sin<around|(|2*\<pi\>*x|)>,<space|2em>u<around|(|x,0|)>=1,<space|2em>p<around|(|x,0|)>=1
   </equation*>
 
-  in the domain <math|<around|[|0,1|]>> with periodic boundary condition for
+  in the domain <math|<around|[|0,1|]>> with periodic boundary conditions for
   all the variables. The corresponding exact solution is a density wave,
   i.e., it consists of a translation of the initial density at constant speed
   of one, and is given by
@@ -1627,7 +1653,7 @@
   results obtained using the LW scheme agree very well with that of RK
   scheme.
 
-  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/sodk3Rgl|0.4par|||>>|<cell|<image|figures/euler1d/evaluate/sodk4Rgl|0.4par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:sod>|<caption-detailed|Numerical
+  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/sodk3Rgl|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/sodk4Rgl|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:sod>|<caption-detailed|Numerical
   solutions of 1-D Euler equations (Sod's test case) obtained by LW and RK
   schemes for polynomial degree (a) <math|N=3> and (b) <math|N=4> using Radau
   correction function and GL solution points. The solutions are shown at time
@@ -1663,7 +1689,7 @@
   scheme.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/laxk3Rgl|0.4par|||>>|<cell|<image|figures/euler1d/evaluate/laxk4Rgl|0.4par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:lax>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/laxk3Rgl|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/laxk4Rgl|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:lax>
   </big-figure|<caption-detailed|Numerical solutions of 1-D Euler equations
   (Lax's test case) obtained by LW and RK schemes for polynomial degree (a)
   <math|N = 3> and (b) <math|N = 4> with Radau correction function and GL
@@ -1703,7 +1729,7 @@
   schemes.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|3|3|1|1|cell-rborder|0ln>|<cwith|3|3|1|2|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/shuosherk3Rgl|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/shuosherk4Rgl|0.48par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk3Rgl|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk4Rgl|0.48par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:ShuOsher>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|3|3|1|1|cell-rborder|0ln>|<cwith|3|3|1|2|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/shuosherk3Rgl|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/shuosherk4Rgl|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk3Rgl|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk4Rgl|0.43par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:ShuOsher>
   </big-figure|<caption-detailed|Numerical solutions of 1-D Euler equations
   (Shu-Osher problem) obtained by LW and RK schemes for (a, c) <math|N=3> and
   (b, d) <math|N=4> with Radau correction function and GL solution points.
@@ -1737,7 +1763,7 @@
   The scaling limiter is used without the flux limiting introduced in
   Chapters<nbsp><reference|ch:lw.subcell.limiter>,<nbsp><reference|ch:10mom>
   and is thus not provably positive. We compare the performance of the LW
-  scheme with the RK scheme and analyse how well they predict the density
+  scheme with the RK scheme and analyze how well they predict the density
   profile and its peak amplitude. For <math|N=3> and <math|N=4> cases, the
   results are given in Figure<nbsp><reference|fig:blast> where the
   approximated density profiles are compared with a reference solution
@@ -1746,7 +1772,7 @@
   scheme.
 
   <\big-figure>
-    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/zoom_blastk3Rgl|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_blastk4Rgl|0.48par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:blast>
+    <tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/zoom_blastk3Rgl|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_blastk4Rgl|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:blast>
   </big-figure|<caption-detailed|Numerical solutions of 1-D Euler equations
   (Blast wave) obtained by LWFR and RKFR schemes for (a) <math|N = 3> and (b)
   <math|N = 4> using Radau correction function and GL solution points. The
@@ -1763,7 +1789,7 @@
   other numerical fluxes like HLL, HLLC, Roe and global Lax-Friedrichs which
   were described for LWFR in Appendix<nbsp><reference|sec:lwfr.numfluxes>.
   Fluxes like HLL, HLLC and Roe may be desirable in some problems due to
-  their upwind character, unlike Lax-Friedrich/Rusanov type fluxes. Moreover
+  their upwind character, unlike Lax-Friedrich/Rusanov type fluxes. Moreover,
   HLLC and Roe fluxes also model the linear contact and shear waves which can
   lead to better approximations of these waves. We have tested the numerical
   fluxes in all the test cases, however to save space we present only the
@@ -1775,7 +1801,7 @@
   Rusanov flux, which is expected due to the larger amount of numerical
   dissipation in the global Lax-Friedrich flux.
 
-  <big-figure|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|2|2|cell-halign|c>|<cwith|3|3|2|2|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglglxf|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglhll|0.48par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglhllc|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglroe|0.48par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:numflx>|<caption-detailed|Numerical
+  <big-figure|<tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|2|2|cell-halign|c>|<cwith|3|3|2|2|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglglxf|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglhll|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglhllc|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/fc_zoom_blastk3Rglroe|0.43par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:numflx>|<caption-detailed|Numerical
   solutions of 1-D Euler equations (Blast wave) obtained by LW schemes with
   different numerical fluxes (a) LF, (b) HLL, (c) HLLC and (d) ROE compared
   with Rusanov flux, for <math|N=3> using Radau correction function and GL
@@ -1823,7 +1849,7 @@
   limiter. As in the previous case, the HLLC flux captures the contact
   discontinuity more accurately than the other fluxes.
 
-  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/contact4|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/toro5_allfluxes|0.48par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:numflux_toro5_contact>|<caption-detailed|Numerical
+  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/contact4|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/toro5_allfluxes|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:numflux_toro5_contact>|<caption-detailed|Numerical
   solutions of 1-D Euler's equations for (a) stationary contact test, (b)
   Toro's Test 5 obtained by LW schemes with different numerical fluxes for
   polynomial degree <math|N=4> using Radau correction function and GL
@@ -1850,13 +1876,13 @@
   observation and also the behaviour for other problems, we see that it is
   desirable to use the Radau correction function in the LW scheme.
 
-  <big-figure|<tabular|<tformat|<cwith|1|1|1|1|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|2|2|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk1g2R|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk2g2R|0.48par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk3g2R|0.48par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk4g2R|0.48par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:ShuOsherCorr>|<caption-detailed|Numerical
+  <big-figure|<tabular|<tformat|<cwith|1|1|1|1|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|2|2|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk1g2R|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk2g2R|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>|<row|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk3g2R|0.43par|||>>|<cell|<image|figures/euler1d/evaluate/zoom_shuosherk4g2R|0.43par|||>>>|<row|<cell|(c)>|<cell|(d)>>>>><label|fig:ShuOsherCorr>|<caption-detailed|Numerical
   solutions of 1-D Euler equations (Shu-Osher problem) for (a) <math|N=1>,
   (b) <math|N=2>, (c) <math|N=3>, (d) <math|N=4>. Comparison of LW scheme
   with GL solution points for two correction functions, Radau and g2, with
   their own CFL numbers chosen from Table<nbsp><reference|tab:cfl>, except
   for <math|<value|g2>> correction function with <math|N=1>, where we choose
-  CFL=0.44. The enlarged oscillatory portion of the solutions are shown. The
+  CFL=0.44. The enlarged oscillatory portion of the solutions is shown. The
   solutions are computed at time <math|t=1.8> on a mesh of 400 cells with
   dissipation model D2 and HLLC numerical flux. The TVB limiter is used with
   parameter <math|M=300>.|Numerical solutions of Shu-Osher problem comparing
@@ -2146,7 +2172,7 @@
   is less than or equal to one for all wave numbers
   <math|\<kappa\><rsub|1>,\<kappa\><rsub|2>\<in\><around|[|0,2*\<pi\>|]>>.
   Numerically, we compute the region consisting of the pairs
-  <math|<around|(|\<sigma\><rsub|1>,\<sigma\><rsub|2>|)>> that ensures the
+  <math|<around|(|\<sigma\><rsub|1>,\<sigma\><rsub|2>|)>> that ensure the
   stability. These regions for different degrees with dissipation model D2
   are given in Figures<nbsp>(<reference|fig:2dcfl_radau>) and
   (<reference|fig:2dcfl_g2>) for the Radau and <math|g<rsub|2>> correction
@@ -2170,14 +2196,14 @@
   the diagonal neighbours.
 
   <\big-figure>
-    <tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|2|2|4|4|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/2dcfl/radau_k1_fourier|0.21par|||>>|<cell|<image|figures/2dcfl/radau_k2_fourier|0.21par|||>>|<cell|<image|figures/2dcfl/radau_k3_fourier|0.21par|||>>|<cell|<image|figures/2dcfl/radau_k4_fourier|0.21par|||>>>|<row|<cell|(a)>|<cell|(b)>|<cell|(c)>|<cell|(d)>>>>><label|fig:2dcfl_radau>
+    <tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|2|2|4|4|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/2dcfl/radau_k1_fourier.png|0.21par|||>>|<cell|<image|figures/2dcfl/radau_k2_fourier.png|0.21par|||>>|<cell|<image|figures/2dcfl/radau_k3_fourier.png|0.21par|||>>|<cell|<image|figures/2dcfl/radau_k4_fourier.png|0.21par|||>>>|<row|<cell|(a)>|<cell|(b)>|<cell|(c)>|<cell|(d)>>>>><label|fig:2dcfl_radau>
   </big-figure|<caption-detailed|Stability regions of LWFR scheme with the
   Radau correction function and D2 dissipation model in two dimensions. (a)
   <math|N=1>, (b) <math|N=2>, (c) <math|N=3>, (d) <math|N=4>.|Stability
   region of 2-D LWFR with Radau correction and D2 dissipation.>>
 
   <\big-figure>
-    <tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|2|2|4|4|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/2dcfl/g2_k1_fourier|0.21par|||>>|<cell|<image|figures/2dcfl/g2_k2_fourier|0.21par|||>>|<cell|<image|figures/2dcfl/g2_k3_fourier|0.21par|||>>|<cell|<image|figures/2dcfl/g2_k4_fourier|0.21par|||>>>|<row|<cell|(a)>|<cell|(b)>|<cell|(c)>|<cell|(d)>>>>><label|fig:2dcfl_g2>
+    <tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<cwith|2|2|4|4|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/2dcfl/g2_k1_fourier.png|0.21par|||>>|<cell|<image|figures/2dcfl/g2_k2_fourier.png|0.21par|||>>|<cell|<image|figures/2dcfl/g2_k3_fourier.png|0.21par|||>>|<cell|<image|figures/2dcfl/g2_k4_fourier.png|0.21par|||>>>|<row|<cell|(a)>|<cell|(b)>|<cell|(c)>|<cell|(d)>>>>><label|fig:2dcfl_g2>
   </big-figure|<caption-detailed|Stability regions of LWFR scheme with
   <math|g<rsub|2>> correction function and D2 dissipation model in two
   dimensions. (a) <math|N=1>, (b) <math|N=2>, (c) <math|N=3>, (d)
@@ -2288,10 +2314,10 @@
   condition is shown in Figure<nbsp><reference|fig:interactions>a. The
   numerical solutions of LWFR and RKFR after one rotation, without limiter,
   degree <math|N=3> and <math|100\<times\>100> cells, are shown in
-  Figures<nbsp>(<reference|fig:interactions>b,d) respectively. The same with
-  a TVB limiter (<math|M=100>) are shown in
-  Figures<nbsp>(<reference|fig:interactions>c,e). Without the limiter, the
-  solution is captured well but there are some oscillations which take the
+  Figures<nbsp><reference|fig:interactions>b,d respectively. The same results
+  with a TVB limiter (<math|M=100>) are shown in
+  Figures<nbsp><reference|fig:interactions>c,e. Without the limiter, the
+  solution is captured well but there are some oscillations that take the
   solution outside the initial range of values. With the TVB limiter, the
   oscillations are reduced though it is not completely eliminated and results
   in increased numerical dissipation that smears the discontinuous profiles.
@@ -2365,7 +2391,7 @@
   <\big-figure|<tabular|<tformat|<cwith|1|2|1|1|cell-halign|c>|<cwith|1|2|1|1|cell-rborder|0ln>|<cwith|1|2|1|2|cell-valign|c>|<cwith|2|2|2|2|cell-halign|c>|<table|<row|<cell|<image|figures/burg2d/burg2d_lineout_tf01|0.41par|||>>|<cell|<image|figures/burg2d/burg2d_lineout_tf02|0.41par|||>>>|<row|<cell|(a)
   <math|t=0.1>>|<cell|(b) <math|t=0.2>>>>>><label|fig:lineplot_burg2d>>
     <caption-detailed|<caption-detailed|Line plot across the diagonal of
-    <math|[0, 1] \<times\> [0, 1]> of the solution of 2-D Burger's equation
+    <math|[0, 1] \<times\> [0, 1]> of the solution of 2-D Burgers' equation
     with 50 \<times\> 50 cells and degree <math|N = 3>. The reference
     solution for <math|t = 0.2> is computed using RKFR scheme with degree
     <math|N = 1> on a mesh of 1000 \<times\> 1000 cells.|Line plot across of
@@ -2375,12 +2401,12 @@
 
   <\big-figure>
     <tabular|<tformat|<cwith|1|2|1|1|cell-halign|c>|<cwith|1|2|1|1|cell-rborder|0ln>|<cwith|1|2|1|2|cell-valign|c>|<cwith|2|2|2|2|cell-halign|c>|<table|<row|<cell|<image|figures/burg2d/burg2d_AE|0.4par|||>>|<cell|<image|figures/burg2d/burg2d_EA|0.4par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:conv_burger2d>
-  </big-figure|<caption-detailed|Error convergence test for 2-D Burger's
+  </big-figure|<caption-detailed|Error convergence test for 2-D Burgers'
   equation with initial condition <math|u*<around|(|x,y,0|)>=<dfrac|1|4>+<dfrac|1|2>*sin<around|(|2*\<pi\>*<around|(|x+y|)>|)>>
   in the domain <math|<around|[|0,1|]>\<times\><around|[|0,1|]>> comparing
   the two boundary fluxes of LWFR (a) <extrapolate>, (b) <evaluate>. The
   errors are computed at <math|t=0.1>.|Error convergence test for 2-D
-  Burger's equation.>>
+  Burgers' equation.>>
 
   <section|Numerical results in 2-D: Euler
   equations><label|sec:lwfr.res2d.euler>
@@ -2388,8 +2414,8 @@
   We consider the two-dimensional Euler equations of gas
   dynamics<nbsp><eqref|eq:2deuler>. We present results to test the accuracy
   and computational performance of the LW schemes for some 2-D problems and
-  compare them to RK scheme. l tests, which is the typical value for air. The
-  time step size for polynomial degree <math|N> is computed as
+  compare them to RK scheme. The time step size for polynomial degree
+  <math|N> is computed as
 
   <\equation>
     \<Delta\>t=<value|Cs>*min<rsub|e><around*|(|<frac|<around|\||<wide|u|\<bar\>><rsub|e>|\|>+<wide|c|\<bar\>><rsub|e>|\<Delta\>x<rsub|e>>+<frac|<around|\||<wide|v|\<bar\>><rsub|e>|\|>+<wide|c|\<bar\>><rsub|e>|\<Delta\>y<rsub|e>>|)><rsup|-1>*CFL<around|(|N|)><label|eq:time.step.2d>
@@ -2486,7 +2512,7 @@
   resolution.>>
 
   <\big-figure>
-    <image|figures/euler2d/isentropic_many_nodes_error_vs_t|0.55par|||><label|fig:isentropic.time.vs.error>
+    <image|figures/euler2d/isentropic_many_nodes_error_vs_t|0.5par|||><label|fig:isentropic.time.vs.error>
 
     \;
   </big-figure|<caption-detailed|Wall Clock Time (WCT) versus
@@ -2577,26 +2603,27 @@
   <section|Summary><label|sec:sum>
 
   A conservative, Jacobian-free and single step, explicit Lax-Wendroff method
-  has been constructed in flux reconstruction context, and its implementation
-  has been demonstrated for solving hyperbolic conservation laws in one and
-  two dimensions. The Jacobian-free property is achieved by using a finite
-  difference approach to compute time derivatives of the fluxes that are
-  needed in the Taylor expansion. The method requires only the time average
-  flux and its corresponding numerical fluxes. It is written in matrix-vector
-  form that is useful for computer implementation. We have studied the effect
-  of two commonly used correction functions and solution points. The stable
-  CFL numbers are computed using Fourier stability analysis in one and two
-  dimensions. The numerical fluxes are computed using both the time average
-  flux and the time average solution which leads to improved CFL numbers
-  compared to other existing methods which use the solution at previous time
-  level to compute the dissipative part of the numerical flux. At fifth order
-  (<math|N=4>), there is a mild linear instability for periodic problems,
-  which seems to be present in other single step methods and also in RKDG
-  schemes. For non-linear problems, we identify a loss of optimal convergence
-  rate when a simple average-extrapolate (<extrapolate>) approach is used to
-  compute the central part of the numerical flux. We show that this can be
-  improved to optimal rates by using an extrapolate-average procedure, and
-  the resulting schemes perform comparably with RK schemes in terms of their
+  has been constructed in a flux reconstruction context, and its
+  implementation has been demonstrated for solving hyperbolic conservation
+  laws in one and two dimensions. The Jacobian-free property is achieved by
+  using a finite difference approach to compute time derivatives of the
+  fluxes that are needed in the Taylor expansion. The method requires only
+  the time average flux and its corresponding numerical fluxes. It is written
+  in matrix-vector form that is useful for computer implementation. We have
+  studied the effect of two commonly used correction functions and solution
+  points. The stable CFL numbers are computed using Fourier stability
+  analysis in one and two dimensions. The numerical fluxes are computed using
+  both the time average flux and the time average solution which leads to
+  improved CFL numbers compared to other existing methods which use the
+  solution at previous time level to compute the dissipative part of the
+  numerical flux. At fifth order (<math|N=4>), there is a mild linear
+  instability for periodic problems, which seems to be present in other
+  single step methods and also in RKDG schemes. For non-linear problems, we
+  identify a loss of optimal convergence rate when a simple
+  average-extrapolate (<extrapolate>) approach is used to compute the central
+  part of the numerical flux. We show that this can be improved to optimal
+  rates by using an extrapolate-average (<evaluate>) procedure, and the
+  resulting schemes perform comparably with RK schemes in terms of their
   error levels. The performance of the method is also demonstrated on 1-D and
   2-D non-linear systems like Euler equations, where it is able to resolve
   all the waves at comparable accuracy to RK schemes. Many commonly used
@@ -2607,7 +2634,7 @@
   uniformly accurate LW scheme for non-linear problems. The method has a
   simple structure which makes it easy to develop a general code that can be
   used to solve any conservation law; the user has to supply subroutines for
-  the flux, numerical flux and maximum wave speed estimate used in the CFL
+  the flux, numerical flux, and maximum wave speed estimate used in the CFL
   condition.
 </body>
 
@@ -2620,7 +2647,7 @@
     <associate|large-padding-above|0fn>
     <associate|large-padding-below|0fn>
     <associate|page-even|1in>
-    <associate|page-first|42>
+    <associate|page-first|27>
     <associate|page-medium|paper>
     <associate|page-odd|1in>
     <associate|page-screen-margin|false>
@@ -2633,193 +2660,195 @@
 
 <\references>
   <\collection>
-    <associate|alg:lwfr.paper1|<tuple|4.2|59>>
-    <associate|alg:rkfr.paper1|<tuple|4.1|58>>
-    <associate|auto-1|<tuple|4|43>>
-    <associate|auto-10|<tuple|4.2.4.3|48>>
-    <associate|auto-11|<tuple|4.2.4.4|49>>
-    <associate|auto-12|<tuple|4.3|50>>
-    <associate|auto-13|<tuple|4.3.1|52>>
-    <associate|auto-14|<tuple|4.3.2|52>>
-    <associate|auto-15|<tuple|4.4|53>>
-    <associate|auto-16|<tuple|4.1|55>>
-    <associate|auto-17|<tuple|4.5|55>>
-    <associate|auto-18|<tuple|4.6|57>>
-    <associate|auto-19|<tuple|4.7|58>>
-    <associate|auto-2|<tuple|4.1|43>>
-    <associate|auto-20|<tuple|4.7.1|59>>
-    <associate|auto-21|<tuple|4.7.1.1|59>>
-    <associate|auto-22|<tuple|4.1|59>>
-    <associate|auto-23|<tuple|4.2|60>>
-    <associate|auto-24|<tuple|4.3|61>>
-    <associate|auto-25|<tuple|4.4|62>>
-    <associate|auto-26|<tuple|4.5|63>>
-    <associate|auto-27|<tuple|4.6|63>>
-    <associate|auto-28|<tuple|4.7|64>>
-    <associate|auto-29|<tuple|4.8|64>>
-    <associate|auto-3|<tuple|4.2|43>>
-    <associate|auto-30|<tuple|4.7.1.2|64>>
-    <associate|auto-31|<tuple|4.9|65>>
-    <associate|auto-32|<tuple|4.10|65>>
-    <associate|auto-33|<tuple|4.11|66>>
-    <associate|auto-34|<tuple|4.12|66>>
-    <associate|auto-35|<tuple|4.13|67>>
-    <associate|auto-36|<tuple|4.7.2|67>>
-    <associate|auto-37|<tuple|4.14|68>>
-    <associate|auto-38|<tuple|4.15|69>>
-    <associate|auto-39|<tuple|4.16|70>>
-    <associate|auto-4|<tuple|4.2.1|45>>
-    <associate|auto-40|<tuple|4.7.3|70>>
-    <associate|auto-41|<tuple|4.17|70>>
-    <associate|auto-42|<tuple|4.18|71>>
-    <associate|auto-43|<tuple|4.19|72>>
-    <associate|auto-44|<tuple|4.7.4|72>>
-    <associate|auto-45|<tuple|4.20|73>>
-    <associate|auto-46|<tuple|4.8|73>>
-    <associate|auto-47|<tuple|4.8.1|74>>
-    <associate|auto-48|<tuple|4.21|75>>
-    <associate|auto-49|<tuple|4.8.2|75>>
-    <associate|auto-5|<tuple|4.2.2|45>>
-    <associate|auto-50|<tuple|4.22|76>>
-    <associate|auto-51|<tuple|4.8.3|76>>
-    <associate|auto-52|<tuple|4.23|77>>
-    <associate|auto-53|<tuple|4.8.4|77>>
-    <associate|auto-54|<tuple|4.24|78>>
-    <associate|auto-55|<tuple|4.8.5|78>>
-    <associate|auto-56|<tuple|4.25|79>>
-    <associate|auto-57|<tuple|4.8.6|79>>
-    <associate|auto-58|<tuple|4.26|80>>
-    <associate|auto-59|<tuple|4.27|81>>
-    <associate|auto-6|<tuple|4.2.3|46>>
-    <associate|auto-60|<tuple|4.8.7|81>>
-    <associate|auto-61|<tuple|4.28|82>>
-    <associate|auto-62|<tuple|4.29|83>>
-    <associate|auto-63|<tuple|4.9|83>>
-    <associate|auto-64|<tuple|4.9.1|85>>
-    <associate|auto-65|<tuple|4.30|87>>
-    <associate|auto-66|<tuple|4.31|87>>
-    <associate|auto-67|<tuple|4.2|88>>
-    <associate|auto-68|<tuple|4.10|88>>
-    <associate|auto-69|<tuple|4.10.1|88>>
-    <associate|auto-7|<tuple|4.2.4|47>>
-    <associate|auto-70|<tuple|4.32|89>>
-    <associate|auto-71|<tuple|4.10.2|89>>
-    <associate|auto-72|<tuple|4.33|90>>
-    <associate|auto-73|<tuple|4.34|90>>
-    <associate|auto-74|<tuple|4.35|91>>
-    <associate|auto-75|<tuple|4.10.3|91>>
-    <associate|auto-76|<tuple|4.36|92>>
-    <associate|auto-77|<tuple|4.37|92>>
-    <associate|auto-78|<tuple|4.11|92>>
-    <associate|auto-79|<tuple|4.11.1|93>>
-    <associate|auto-8|<tuple|4.2.4.1|48>>
-    <associate|auto-80|<tuple|4.38|94>>
-    <associate|auto-81|<tuple|4.39|95>>
-    <associate|auto-82|<tuple|4.40|95>>
-    <associate|auto-83|<tuple|4.11.2|95>>
-    <associate|auto-84|<tuple|4.41|96>>
-    <associate|auto-85|<tuple|4.42|97>>
-    <associate|auto-86|<tuple|4.43|97>>
-    <associate|auto-87|<tuple|4.12|97>>
-    <associate|auto-9|<tuple|4.2.4.2|48>>
-    <associate|ch:lwfr|<tuple|4|43>>
-    <associate|eq:1deuler|<tuple|4.15|73>>
-    <associate|eq:2dadv|<tuple|4.25|85>>
-    <associate|eq:2dburger|<tuple|4.28|91>>
-    <associate|eq:2dcfldom|<tuple|4.26|87>>
-    <associate|eq:2dvaradv|<tuple|4.27|88>>
-    <associate|eq:dt.lw|<tuple|4.17|74>>
-    <associate|eq:fder|<tuple|4.8|46>>
-    <associate|eq:frcontflux|<tuple|4.7|46>>
-    <associate|eq:laup|<tuple|4.14|54>>
-    <associate|eq:lwfr.2d.explicit|<tuple|4.22|84>>
-    <associate|eq:lwfr.time.average.cts|<tuple|4.6|45>>
-    <associate|eq:lwtay|<tuple|4.1|44>>
-    <associate|eq:nfdiss1|<tuple|4.9|50>>
-    <associate|eq:nfdiss2|<tuple|4.10|50>>
-    <associate|eq:nflin1|<tuple|4.12|51>>
-    <associate|eq:nflin2|<tuple|4.13|51>>
-    <associate|eq:shuosher|<tuple|4.20|77>>
-    <associate|eq:sod|<tuple|4.18|76>>
-    <associate|eq:state|<tuple|4.16|74>>
-    <associate|eq:tavgflux|<tuple|4.2|44>>
-    <associate|eq:tavgsol|<tuple|4.11|50>>
-    <associate|eq:time.step.2d|<tuple|4.29|93>>
-    <associate|eq:tvgproperty|<tuple|4.3|44>>
-    <associate|eq:um.lw|<tuple|4.24|85>>
-    <associate|eq:up2d|<tuple|4.23|84>>
-    <associate|eq:uplwfr|<tuple|4.4|44>>
-    <associate|eq:upmean|<tuple|4.5|45>>
-    <associate|fig:2dcfl_g2|<tuple|4.31|87>>
-    <associate|fig:2dcfl_radau|<tuple|4.30|87>>
-    <associate|fig:ShuOsher|<tuple|4.24|78>>
-    <associate|fig:ShuOsherCorr|<tuple|4.28|82>>
-    <associate|fig:blast|<tuple|4.25|79>>
-    <associate|fig:bucklev1|<tuple|4.20|73>>
-    <associate|fig:burg1|<tuple|4.17|70>>
-    <associate|fig:burg2|<tuple|4.18|71>>
-    <associate|fig:burg4|<tuple|4.19|72>>
-    <associate|fig:cla1|<tuple|4.1|59>>
-    <associate|fig:cla2|<tuple|4.2|60>>
-    <associate|fig:cla2_dirichlet|<tuple|4.5|63>>
-    <associate|fig:cla3|<tuple|4.3|61>>
-    <associate|fig:cla4|<tuple|4.4|62>>
-    <associate|fig:cla5|<tuple|4.6|63>>
-    <associate|fig:conv linear adv 2d|<tuple|4.32|89>>
-    <associate|fig:conv linear rotate 2d|<tuple|4.34|90>>
-    <associate|fig:conv_burger2d|<tuple|4.37|92>>
-    <associate|fig:dmr.plot|<tuple|4.41|96>>
-    <associate|fig:dmr.plot.zoom|<tuple|4.42|97>>
-    <associate|fig:dmr.wct|<tuple|4.43|97>>
-    <associate|fig:dofs2d|<tuple|4.29|83>>
-    <associate|fig:dwave|<tuple|4.21|75>>
-    <associate|fig:hat1|<tuple|4.9|65>>
-    <associate|fig:hat2|<tuple|4.10|65>>
-    <associate|fig:hat3|<tuple|4.11|66>>
-    <associate|fig:interactions|<tuple|4.35|91>>
-    <associate|fig:isentropic.convergence|<tuple|4.38|94>>
-    <associate|fig:isentropic.ratios.vs.grid.1.2.3.4|<tuple|4.40|95>>
-    <associate|fig:isentropic.time.vs.error|<tuple|4.39|95>>
-    <associate|fig:lax|<tuple|4.23|77>>
-    <associate|fig:lin2d_rotate_soln|<tuple|4.33|90>>
-    <associate|fig:lineplot_burg2d|<tuple|4.36|92>>
-    <associate|fig:mult1|<tuple|4.12|66>>
-    <associate|fig:mult2|<tuple|4.13|67>>
-    <associate|fig:numflux_toro5_contact|<tuple|4.27|81>>
-    <associate|fig:numflx|<tuple|4.26|80>>
-    <associate|fig:sod|<tuple|4.22|76>>
-    <associate|fig:vla1|<tuple|4.14|68>>
-    <associate|fig:vla2|<tuple|4.15|69>>
-    <associate|fig:vla3|<tuple|4.16|70>>
-    <associate|fig:wp1|<tuple|4.7|64>>
-    <associate|fig:wp2|<tuple|4.8|64>>
-    <associate|footnote-4.1|<tuple|4.1|73>>
-    <associate|footnr-4.1|<tuple|4.1|73>>
-    <associate|sec: vla|<tuple|4.7.2|67>>
-    <associate|sec:DFR|<tuple|4.2.3|46>>
-    <associate|sec:alw|<tuple|4.2.4|47>>
-    <associate|sec:blast|<tuple|4.8.5|78>>
-    <associate|sec:cla|<tuple|4.7.1|59>>
-    <associate|sec:dmr|<tuple|4.11.2|95>>
-    <associate|sec:ea.scheme|<tuple|4.3.2|52>>
-    <associate|sec:four1d|<tuple|4.4|53>>
-    <associate|sec:fourier2d|<tuple|4.9.1|85>>
-    <associate|sec:isentropic.vortex|<tuple|4.11.1|93>>
-    <associate|sec:lim|<tuple|4.6|57>>
-    <associate|sec:lw|<tuple|4.2|43>>
-    <associate|sec:lw.bc|<tuple|4.5|?>>
-    <associate|sec:lwfr.2d|<tuple|4.9|83>>
-    <associate|sec:lwfr.res1d|<tuple|4.7|58>>
-    <associate|sec:lwfr.res2d.euler|<tuple|4.11|92>>
-    <associate|sec:lwfr.res2d.scalar|<tuple|4.10|88>>
-    <associate|sec:numflux|<tuple|4.3|50>>
-    <associate|sec:reconstruction|<tuple|4.2.2|45>>
-    <associate|sec:res1dsys|<tuple|4.8|73>>
-    <associate|sec:rotate.composite|<tuple|4.10.2|89>>
-    <associate|sec:shuosher|<tuple|4.8.4|77>>
-    <associate|sec:sum|<tuple|4.12|97>>
-    <associate|tab:2Dcfl|<tuple|4.2|88>>
-    <associate|tab:cfl|<tuple|4.1|55>>
+    <associate|alg:lwfr.paper1|<tuple|4.2|43>>
+    <associate|alg:rkfr.paper1|<tuple|4.1|42>>
+    <associate|auto-1|<tuple|4|27>>
+    <associate|auto-10|<tuple|4.2.4.3|32>>
+    <associate|auto-11|<tuple|4.2.4.4|33>>
+    <associate|auto-12|<tuple|4.3|34>>
+    <associate|auto-13|<tuple|4.3.1|35>>
+    <associate|auto-14|<tuple|4.3.2|36>>
+    <associate|auto-15|<tuple|4.4|37>>
+    <associate|auto-16|<tuple|4.1|39>>
+    <associate|auto-17|<tuple|4.5|39>>
+    <associate|auto-18|<tuple|4.6|40>>
+    <associate|auto-19|<tuple|4.7|42>>
+    <associate|auto-2|<tuple|4.1|27>>
+    <associate|auto-20|<tuple|4.7.1|43>>
+    <associate|auto-21|<tuple|4.7.1.1|43>>
+    <associate|auto-22|<tuple|4.1|43>>
+    <associate|auto-23|<tuple|4.2|44>>
+    <associate|auto-24|<tuple|4.3|45>>
+    <associate|auto-25|<tuple|4.4|46>>
+    <associate|auto-26|<tuple|4.5|47>>
+    <associate|auto-27|<tuple|4.6|47>>
+    <associate|auto-28|<tuple|4.7|48>>
+    <associate|auto-29|<tuple|4.8|48>>
+    <associate|auto-3|<tuple|4.2|27>>
+    <associate|auto-30|<tuple|4.7.1.2|49>>
+    <associate|auto-31|<tuple|4.9|49>>
+    <associate|auto-32|<tuple|4.10|50>>
+    <associate|auto-33|<tuple|4.11|50>>
+    <associate|auto-34|<tuple|4.12|51>>
+    <associate|auto-35|<tuple|4.13|51>>
+    <associate|auto-36|<tuple|4.7.2|51>>
+    <associate|auto-37|<tuple|4.14|52>>
+    <associate|auto-38|<tuple|4.15|53>>
+    <associate|auto-39|<tuple|4.16|54>>
+    <associate|auto-4|<tuple|4.2.1|29>>
+    <associate|auto-40|<tuple|4.7.3|54>>
+    <associate|auto-41|<tuple|4.17|54>>
+    <associate|auto-42|<tuple|4.18|55>>
+    <associate|auto-43|<tuple|4.19|56>>
+    <associate|auto-44|<tuple|4.7.4|56>>
+    <associate|auto-45|<tuple|4.20|57>>
+    <associate|auto-46|<tuple|4.8|57>>
+    <associate|auto-47|<tuple|4.8.1|58>>
+    <associate|auto-48|<tuple|4.21|59>>
+    <associate|auto-49|<tuple|4.8.2|59>>
+    <associate|auto-5|<tuple|4.2.2|29>>
+    <associate|auto-50|<tuple|4.22|60>>
+    <associate|auto-51|<tuple|4.8.3|60>>
+    <associate|auto-52|<tuple|4.23|61>>
+    <associate|auto-53|<tuple|4.8.4|61>>
+    <associate|auto-54|<tuple|4.24|62>>
+    <associate|auto-55|<tuple|4.8.5|62>>
+    <associate|auto-56|<tuple|4.25|63>>
+    <associate|auto-57|<tuple|4.8.6|63>>
+    <associate|auto-58|<tuple|4.26|64>>
+    <associate|auto-59|<tuple|4.27|65>>
+    <associate|auto-6|<tuple|4.2.3|30>>
+    <associate|auto-60|<tuple|4.8.7|65>>
+    <associate|auto-61|<tuple|4.28|66>>
+    <associate|auto-62|<tuple|4.29|66>>
+    <associate|auto-63|<tuple|4.9|66>>
+    <associate|auto-64|<tuple|4.9.1|69>>
+    <associate|auto-65|<tuple|4.30|71>>
+    <associate|auto-66|<tuple|4.31|71>>
+    <associate|auto-67|<tuple|4.2|72>>
+    <associate|auto-68|<tuple|4.10|72>>
+    <associate|auto-69|<tuple|4.10.1|72>>
+    <associate|auto-7|<tuple|4.2.4|31>>
+    <associate|auto-70|<tuple|4.32|73>>
+    <associate|auto-71|<tuple|4.10.2|73>>
+    <associate|auto-72|<tuple|4.33|74>>
+    <associate|auto-73|<tuple|4.34|74>>
+    <associate|auto-74|<tuple|4.35|75>>
+    <associate|auto-75|<tuple|4.10.3|75>>
+    <associate|auto-76|<tuple|4.36|76>>
+    <associate|auto-77|<tuple|4.37|76>>
+    <associate|auto-78|<tuple|4.11|76>>
+    <associate|auto-79|<tuple|4.11.1|77>>
+    <associate|auto-8|<tuple|4.2.4.1|32>>
+    <associate|auto-80|<tuple|4.38|78>>
+    <associate|auto-81|<tuple|4.39|79>>
+    <associate|auto-82|<tuple|4.40|79>>
+    <associate|auto-83|<tuple|4.11.2|79>>
+    <associate|auto-84|<tuple|4.41|80>>
+    <associate|auto-85|<tuple|4.42|81>>
+    <associate|auto-86|<tuple|4.43|81>>
+    <associate|auto-87|<tuple|4.12|81>>
+    <associate|auto-9|<tuple|4.2.4.2|32>>
+    <associate|ch:lwfr|<tuple|4|27>>
+    <associate|eq:1deuler|<tuple|4.16|57>>
+    <associate|eq:2dadv|<tuple|4.26|69>>
+    <associate|eq:2dburger|<tuple|4.29|75>>
+    <associate|eq:2dcfldom|<tuple|4.27|71>>
+    <associate|eq:2dvaradv|<tuple|4.28|72>>
+    <associate|eq:dt.lw|<tuple|4.18|58>>
+    <associate|eq:fder|<tuple|4.9|30>>
+    <associate|eq:frcontflux|<tuple|4.8|29>>
+    <associate|eq:laup|<tuple|4.15|37>>
+    <associate|eq:lwfr.2d.explicit|<tuple|4.23|68>>
+    <associate|eq:lwfr.time.average.cts|<tuple|4.7|29>>
+    <associate|eq:lwtay|<tuple|4.1|28>>
+    <associate|eq:nfdiss1|<tuple|4.10|34>>
+    <associate|eq:nfdiss2|<tuple|4.11|34>>
+    <associate|eq:nflin1|<tuple|4.13|35>>
+    <associate|eq:nflin2|<tuple|4.14|35>>
+    <associate|eq:shuosher|<tuple|4.21|61>>
+    <associate|eq:sod|<tuple|4.19|60>>
+    <associate|eq:state|<tuple|4.17|58>>
+    <associate|eq:tavg.values|<tuple|4.6|29>>
+    <associate|eq:tavgflux|<tuple|4.2|28>>
+    <associate|eq:tavgsol|<tuple|4.12|34>>
+    <associate|eq:time.step.2d|<tuple|4.30|77>>
+    <associate|eq:tvgproperty|<tuple|4.3|28>>
+    <associate|eq:um.lw|<tuple|4.25|68>>
+    <associate|eq:up2d|<tuple|4.24|68>>
+    <associate|eq:uplwfr|<tuple|4.4|28>>
+    <associate|eq:upmean|<tuple|4.5|29>>
+    <associate|fig:2dcfl_g2|<tuple|4.31|71>>
+    <associate|fig:2dcfl_radau|<tuple|4.30|71>>
+    <associate|fig:ShuOsher|<tuple|4.24|62>>
+    <associate|fig:ShuOsherCorr|<tuple|4.28|66>>
+    <associate|fig:blast|<tuple|4.25|63>>
+    <associate|fig:bucklev1|<tuple|4.20|57>>
+    <associate|fig:burg1|<tuple|4.17|54>>
+    <associate|fig:burg2|<tuple|4.18|55>>
+    <associate|fig:burg4|<tuple|4.19|56>>
+    <associate|fig:cla1|<tuple|4.1|43>>
+    <associate|fig:cla2|<tuple|4.2|44>>
+    <associate|fig:cla2_dirichlet|<tuple|4.5|47>>
+    <associate|fig:cla3|<tuple|4.3|45>>
+    <associate|fig:cla4|<tuple|4.4|46>>
+    <associate|fig:cla5|<tuple|4.6|47>>
+    <associate|fig:conv linear adv 2d|<tuple|4.32|73>>
+    <associate|fig:conv linear rotate 2d|<tuple|4.34|74>>
+    <associate|fig:conv_burger2d|<tuple|4.37|76>>
+    <associate|fig:dmr.plot|<tuple|4.41|80>>
+    <associate|fig:dmr.plot.zoom|<tuple|4.42|81>>
+    <associate|fig:dmr.wct|<tuple|4.43|81>>
+    <associate|fig:dofs2d|<tuple|4.29|66>>
+    <associate|fig:dwave|<tuple|4.21|59>>
+    <associate|fig:hat1|<tuple|4.9|49>>
+    <associate|fig:hat2|<tuple|4.10|50>>
+    <associate|fig:hat3|<tuple|4.11|50>>
+    <associate|fig:interactions|<tuple|4.35|75>>
+    <associate|fig:isentropic.convergence|<tuple|4.38|78>>
+    <associate|fig:isentropic.ratios.vs.grid.1.2.3.4|<tuple|4.40|79>>
+    <associate|fig:isentropic.time.vs.error|<tuple|4.39|79>>
+    <associate|fig:lax|<tuple|4.23|61>>
+    <associate|fig:lin2d_rotate_soln|<tuple|4.33|74>>
+    <associate|fig:lineplot_burg2d|<tuple|4.36|76>>
+    <associate|fig:mult1|<tuple|4.12|51>>
+    <associate|fig:mult2|<tuple|4.13|51>>
+    <associate|fig:numflux_toro5_contact|<tuple|4.27|65>>
+    <associate|fig:numflx|<tuple|4.26|64>>
+    <associate|fig:sod|<tuple|4.22|60>>
+    <associate|fig:vla1|<tuple|4.14|52>>
+    <associate|fig:vla2|<tuple|4.15|53>>
+    <associate|fig:vla3|<tuple|4.16|54>>
+    <associate|fig:wp1|<tuple|4.7|48>>
+    <associate|fig:wp2|<tuple|4.8|48>>
+    <associate|footnote-4.1|<tuple|4.1|57>>
+    <associate|footnr-4.1|<tuple|4.1|57>>
+    <associate|sec: vla|<tuple|4.7.2|51>>
+    <associate|sec:DFR|<tuple|4.2.3|30>>
+    <associate|sec:alw|<tuple|4.2.4|31>>
+    <associate|sec:blast|<tuple|4.8.5|62>>
+    <associate|sec:burger.test|<tuple|4.7.3|54>>
+    <associate|sec:cla|<tuple|4.7.1|43>>
+    <associate|sec:dmr|<tuple|4.11.2|79>>
+    <associate|sec:ea.scheme|<tuple|4.3.2|36>>
+    <associate|sec:four1d|<tuple|4.4|37>>
+    <associate|sec:fourier2d|<tuple|4.9.1|69>>
+    <associate|sec:isentropic.vortex|<tuple|4.11.1|77>>
+    <associate|sec:lim|<tuple|4.6|40>>
+    <associate|sec:lw|<tuple|4.2|27>>
+    <associate|sec:lw.bc|<tuple|4.5|39>>
+    <associate|sec:lwfr.2d|<tuple|4.9|66>>
+    <associate|sec:lwfr.res1d|<tuple|4.7|42>>
+    <associate|sec:lwfr.res2d.euler|<tuple|4.11|76>>
+    <associate|sec:lwfr.res2d.scalar|<tuple|4.10|72>>
+    <associate|sec:numflux|<tuple|4.3|34>>
+    <associate|sec:reconstruction|<tuple|4.2.2|29>>
+    <associate|sec:res1dsys|<tuple|4.8|57>>
+    <associate|sec:rotate.composite|<tuple|4.10.2|73>>
+    <associate|sec:shuosher|<tuple|4.8.4|61>>
+    <associate|sec:sum|<tuple|4.12|81>>
+    <associate|tab:2Dcfl|<tuple|4.2|72>>
+    <associate|tab:cfl|<tuple|4.1|39>>
   </collection>
 </references>
 
@@ -2829,6 +2858,12 @@
       Zorio2017
 
       Lou2020
+
+      Huynh2007
+
+      Trojak2021
+
+      Vincent2011a
 
       Romero2016
 
@@ -3036,15 +3071,15 @@
       </surround>|<pageref|auto-39>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.17>|>
-        Solution of 1-D Burger's equation.
+        Solution of 1-D Burgers' equation.
       </surround>|<pageref|auto-41>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.18>|>
-        Error convergence for 1-D Burger's equation.
+        Error convergence for 1-D Burgers' equation.
       </surround>|<pageref|auto-42>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.19>|>
-        Error convergence for 1-D Burger's equation comparing numerical
+        Error convergence for 1-D Burgers' equation comparing numerical
         fluxes.
       </surround>|<pageref|auto-43>>
 
@@ -3126,7 +3161,7 @@
       </surround>|<pageref|auto-76>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.37>|>
-        Error convergence test for 2-D Burger's equation.
+        Error convergence test for 2-D Burgers' equation.
       </surround>|<pageref|auto-77>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.38>|>

@@ -115,7 +115,7 @@
     <assign|uepmone|<macro|<with|font-series|bold|u><rsub|e,p-1>>>
   </hide-preamble>
 
-  <chapter|Generalized admissibility preservation with source
+  <chapter|Generalized admissibility preservation and source
   terms><label|ch:10mom>
 
   <section|Introduction>
@@ -123,18 +123,25 @@
   In Chapter<nbsp><reference|ch:lw.subcell.limiter>, we developed an
   admissibility preserving subcell based blending scheme for LWFR by
   exploiting the subcell structure to appropriately construct the
-  <with|font-shape|italic|blended numerical flux>. In this chapter, we
-  develop a <with|font-shape|italic|generalized procedure> to obtain an
-  admissibility preserving LWFR scheme that does not depend on a subcell
-  based blending limiter. The idea is to perform a cell average decomposition
-  like in<nbsp><cite|Zhang2010b> for LWFR and perform flux limiting to
-  enforce admissibility in means. The LWFR scheme is extended to apply to
-  conservation laws with source terms by performing time averaging of source
-  terms. The extension is made provably admissibility preserving by limiting
-  the time average source terms. To numerically validate our claims, we test
-  LWFR on the Ten Moment equations, which are derived by Levermore et
-  al.<nbsp><cite|Levermore_1996> by taking a Gaussian closure of the kinetic
-  model.
+  <with|font-shape|italic|blended numerical flux>. The subcell based limiter
+  was initially introduced to control oscillations and then also used to
+  obtain admissibility preservation. In this chapter, we will show that the
+  role of subcell based blending in admissibility preservation was primarily
+  to derive and motivate the construction of the blended numerical flux. That
+  is, we now propose a <with|font-shape|italic|generalized procedure> of
+  limiting the time average flux to obtain provable admissibility
+  preservation. This procedure can be combined with any choice of limiter to
+  control oscillations and get a robust, admissibility preserving scheme. In
+  this chapter, we use it with the TVB limiter to verify admissibility
+  preservation. The idea of the generalized procedure is to perform a cell
+  average decomposition like in<nbsp><cite|Zhang2010b> for LWFR and perform
+  flux limiting to enforce admissibility in means. The LWFR scheme is
+  extended to apply to conservation laws with source terms by performing time
+  averaging of source terms. The extension is made provably admissibility
+  preserving by limiting the time average source terms. To numerically
+  validate our claims, we test LWFR on the Ten Moment equations, which are
+  derived by Levermore et al.<nbsp><cite|Levermore_1996> by taking a Gaussian
+  closure of the kinetic model.
 
   The rest of the chapter is organized as follows.
   Section<nbsp><reference|sec:tmp.lwfr> describes the LWFR scheme for
@@ -144,7 +151,7 @@
   i.e., for the time averaged flux<nbsp>(Section<nbsp><reference|sec:tmp.flux.correction>)
   and time averaged sources<nbsp>(Section<nbsp><reference|sec:tmp.source.limiter>).
   Section<nbsp><reference|sec:tmp.numerical.results> shows the numerical
-  results for the Ten Moment equations model and summary of the the chapter
+  results for the Ten Moment equations model and a summary of the the chapter
   is given in Section<nbsp><reference|sec:tmp.conclusion>.
 
   <section|LWFR for source terms><label|sec:tmp.lwfr>
@@ -156,23 +163,16 @@
   </equation>
 
   where <math|<uu>\<in\><re><rsup|p>> is the vector of conserved quantities,
-  <math|<ff>=<pf><around|(|<bw>|)>> is the corresponding flux,
+  <math|<ff>=<pf><around|(|<value|uu>|)>> is the corresponding flux,
   <math|<bss>=<bss><around*|(|<uu>,t,x|)>> is the source term, together with
   some initial and boundary conditions. As in the case of
   <math|<value|bss>=<value|bzero>><nbsp><eqref|eq:con.law>, the solution that
   is physically correct is assumed to belong to an admissibility set
-  <math|<Uad>><nbsp><eqref|eq:uad.form>. In case of the Ten Moment
-  equations<nbsp><eqref|eq:tmp.tmp>, the density must remain positive and the
-  pressure tensor <math|<ccR>> must be positive definite. Following the
-  notation of<nbsp><eqref|eq:uad.form>, the <math|K=3> admissibility
-  constraints <math|<value|ad><rsub|1>,<value|ad><rsub|2>,<value|ad><rsub|3>>
-  are density, <math|Trace<around*|(|<bp>|)>>, <math|det<around*|(|<ccR>|)>>.
-  However, although density and trace functions are concave functions of the
-  conserved variables, <math|det <around*|(|<ccR>|)>> is not so.
+  <math|<Uad>><nbsp><eqref|eq:uad.form>.
 
-  As in Chapter<nbsp><reference|ch:lwfr>, the LWFR scheme for source terms is
-  derived from a Taylor's expansion in time at <math|t=t<rsub|n+1>> around
-  <math|t=t<rsub|n>>
+  Following Chapter<nbsp><reference|ch:lwfr>, the LWFR scheme for source
+  terms is derived from a Taylor's expansion in time at <math|t=t<rsub|n+1>>
+  around <math|t=t<rsub|n>>
 
   <\equation*>
     <uu><rsup|n+1>=<uu><rsup|n>+<big|sum><rsub|m=1><rsup|N+1><frac|\<Delta\>t<rsup|m>|m!>*\<partial\><rsub|t><rsup|m>*<uu><rsup|n>+O<around|(|\<Delta\>t<rsup|N+2>|)>
@@ -216,12 +216,12 @@
   equation<nbsp><eqref|eq:tmp.lwtay> we need to specify the construction of
   the time averaged flux<nbsp><eqref|eq:tmp.tavgflux> and the time averaged
   source terms<nbsp><eqref|eq:tmp.tavgS>. The first step of
-  approximating<nbsp><eqref|eq:tmp.lwtay> is the predictor step where a
-  locally degree <math|N> approximation <math|<F><rsup|\<delta\>>> of the
-  time averaged flux is computed by the approximate Lax-Wendroff procedure
+  approximating<nbsp><eqref|eq:tmp.lwtay> is the predictor step where a local
+  degree <math|N> approximation <math|<F><rsup|\<delta\>>> of the time
+  averaged flux is computed by the approximate Lax-Wendroff procedure
   (Section<nbsp><reference|sec:alw>). Then, as in the standard RKFR scheme,
   we perform the Flux Reconstruction procedure on <math|<F><rsup|\<delta\>>>
-  to construct a locally degree <math|N+1> and globally continuous flux
+  to construct a local degree <math|N+1> and globally continuous flux
   approximation <math|<F><rsub|h><around|(|\<xi\>|)>>. The time average
   source <math|<bS>> will also be approximated locally as a degree <math|N>
   polynomial using the approximate Lax-Wendroff procedure and denoted with a
@@ -243,8 +243,8 @@
   <math|N=2>><label|sec:tmp.approximate.lw>
 
   The approximations of temporal derivatives of <math|<bss>> are made in a
-  similar fashion as those of <math|<pf>>
-  in<nbsp><cite|Zorio2017|babbar2022>. For example, to obtain second order
+  similar fashion as those of <math|<pf>> in<nbsp><cite|Zorio2017|babbar2022>
+  (Section<nbsp><reference|sec:alw>). For example, to obtain second order
   accuracy, <math|\<partial\><rsub|t>*<bss>> can be approximated as
 
   <\equation*>
@@ -274,13 +274,14 @@
 
   As in Chapter<nbsp><reference|ch:lw.subcell.limiter>, the idea is to obtain
   admissibility preservation in means (Definition<nbsp><reference|defn:mean.pres>)
-  and then use the scaling limiter of<nbsp><cite|Zhang2010b> to obtain an
-  admissibility preserving LWFR scheme (Definition<nbsp><reference|defn:adm.pres>).
-  The following conservation property of the LWFR scheme will be crucial in
-  the obtaining admissibility preservation in means
+  and then use the scaling limiter of<nbsp><cite|Zhang2010b>
+  (Appendix<nbsp><reference|app:scaling.limiter>)to obtain an admissibility
+  preserving LWFR scheme (Definition<nbsp><reference|defn:adm.pres>). The
+  following conservation property of the LWFR scheme will be crucial in
+  obtaining admissibility preservation in means
 
   <\equation>
-    <label|eq:tmp.fravgup><wide|<bw>|\<bar\>><rsub|e><rsup|n+1>=<au><rsub|e><rsup|n>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<around|(|<F><rsub|<eph>>-<F><rsub|<emh>>|)>+\<Delta\>t<avg|<bS>><rsub|e>
+    <label|eq:tmp.fravgup><wide|<value|uu>|\<bar\>><rsub|e><rsup|n+1>=<au><rsub|e><rsup|n>-<frac|\<Delta\>t|\<Delta\>x<rsub|e>>*<around|(|<F><rsub|<eph>>-<F><rsub|<emh>>|)>+\<Delta\>t<avg|<bS>><rsub|e>
   </equation>
 
   where <math|<au><rsub|e><rsup|n>> is the cell average of solution,
@@ -289,8 +290,9 @@
   conservation property<nbsp><eqref|eq:tmp.fravgup> is obtained by
   multiplying<nbsp><eqref|eq:tmp.uplwfr> by the quadrature weights associated
   with the solution points and sum over all the points in the
-  <math|e><rsup|th> element. This involves limiting of time average sources
-  and fluxes, which is discussed in the subsequent sections.
+  <math|e><rsup|th> element. In the subsequent sections, we discuss limiting
+  of time average sources and fluxes in order to obtain admissibility in
+  means.
 
   <section|Limiting time averages><label|sec:tmp.adm.pres>
 
@@ -299,11 +301,20 @@
   In this section, we describe the approach to obtain admissibility
   preservation in means property<nbsp><eqref|defn:mean.pres> for the LWFR
   update<nbsp><eqref|eq:tmp.uplwfr> in the case where source term
-  <math|<bss>> in<nbsp><eqref|eq:tmp.con.law> is zero. This approach is a
-  generalization of Chapter<nbsp><reference|ch:lw.subcell.limiter> in the
-  sense that it does not depend on a subcell based blending limiter. We begin
-  by following the work of Zhang-Shu<nbsp><cite|Zhang2010b> to define
-  <with|font-shape|italic|fictitious finite volume updates>
+  <math|<bss>> in<nbsp><eqref|eq:tmp.con.law> is zero. In
+  Chapter<nbsp><reference|ch:lw.subcell.limiter>, a subcell based blending
+  limiter was used which helped in controlling spurious oscillations but also
+  motivated construction of the blended numerical flux that gave us
+  admissibility preservation in means. The admissibility preserving scheme
+  used in Chapter<nbsp><reference|ch:lw.subcell.limiter> was a combination of
+  the subcell based blending scheme and a flux limiter. The approach we now
+  describe generalizes Chapter<nbsp><reference|ch:lw.subcell.limiter> in the
+  sense that we can use the blended numerical flux to obtain admissibility
+  preservation in means even without using the subcell based blending
+  limiter, allowing us to use a different limiter for controlling
+  oscillations. The procedure begins by following the work of Zhang and
+  Shu<nbsp><cite|Zhang2010b> to define <with|font-shape|italic|fictitious
+  finite volume updates>
 
   <\equation>
     <tabular*|<tformat|<cwith|1|1|1|1|cell-halign|l>|<cwith|1|1|2|2|cell-halign|l>|<cwith|3|3|2|2|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<cwith|3|3|3|3|cell-halign|l>|<table|<row|<cell|<atu><rsub|e,0><rsup|n+1>>|<cell|=>|<cell|<uez><rsup|n>-<frac|\<Delta\>t|w<rsub|0>*\<Delta\>x<rsub|e>>*<around|[|<pf><rsub|<half>><rsup|e>-<F><rsub|<emh>><rsup|LW>|]>>>|<row|<cell|<atu><rsub|e,p><rsup|n+1>>|<cell|=>|<cell|<uep><rsup|n>-<frac|\<Delta\>t|w<rsub|p>*\<Delta\>x<rsub|e>>*<around|[|<pf><rsub|<pph>><rsup|e>-<pf><rsub|<pmh>><rsup|e>|]>,<space|2em>1\<le\>p\<le\>N-1>>|<row|<cell|<atu><rsub|e,N><rsup|n+1>>|<cell|=>|<cell|<ueN><rsup|n>-<frac|\<Delta\>t|w<rsub|N>*\<Delta\>x<rsub|e>>*<around|[|<F><rsub|<eph>><rsup|LW>-<pf><rsub|<Nmh>><rsup|e>|]>>>>>><label|eq:tmp.low.order.update>
@@ -311,7 +322,16 @@
 
   where <math|<pf><rsub|<pph>><rsup|e>=<pf><around|(|<uep><rsup|n>,<ueppone><rsup|n>|)>>
   is an admissibility preserving finite volume numerical flux
-  (Definition<nbsp><reference|defn:admissible.fvm>). Then, note that
+  (Definition<nbsp><reference|defn:admissible.fvm>). The fictitious updates
+  of<nbsp><eqref|eq:tmp.low.order.update> look similar to a lower scheme on
+  subcells<nbsp><eqref|eq:low.order.update> and can indeed be seen as finite
+  volume updates on subcells. The argument for admissibility preservation in
+  means of the scheme will in fact be obtained by viewing
+  <math|<atu><rsub|e,p><rsup|n+1>> for <math|p=0,N> as evolutions on
+  subcells. However, <math|<atu><rsub|e,p><rsup|n+1>> for
+  <math|p=1,\<ldots\>,N-1> are never explicitly computed. The relation
+  of<nbsp><eqref|eq:tmp.low.order.update> to element means of the scheme is
+  the following
 
   <\equation>
     <label|eq:tmp.cell.avg.decomp><avg|<uu>><rsub|e><rsup|n+1>=<big|sum><rsub|p=0><rsup|N>w<rsub|p>*<atu><rsub|e,p><rsup|n+1>
@@ -385,16 +405,16 @@
   Section<nbsp><reference|sec:tmp.approximate.lw>. With the flux limiting
   performed in Section<nbsp><reference|sec:tmp.flux.correction>, we can
   ensure that cell average <math|<wide|<uu>|\<bar\>><rsup|<F>><rsub|e>\<in\><Uad>>
-  if twice the standard CFL is assumed<\footnote>
+  if half the standard CFL is assumed<\footnote>
     In the experiments we conducted, the CFL restriction used in
-    Chapter<nbsp><reference|ch:lw.subcell.limiter> preserved admissibility
+    Chapter<nbsp><reference|ch:lw.subcell.limiter> preserved admissibility.
   </footnote>. In order to enforce <math|<au><rsup|<bS>><rsub|e>\<in\><Uad>>,
   <math|<bS><rsup|LW><rsub|e>> will be limited as follows. We will use the
   admissibility of the first order update using the source term
 
-  <\equation*>
-    <au><rsup|low,n+1><rsub|e>\<assign\><au><rsup|n><rsub|e>+2*\<Delta\>t*<avg|<bss>><rsub|e>\<in\><Uad>,<space|2em><avg|<bss>><rsub|e>=<big|sum><rsub|p=0><rsup|N>w<rsub|p>*<bss><around|(|<uep>,<bx><rsub|e,p>,t<rsup|n>|)>
-  </equation*>
+  <\equation>
+    <label|eq:low.source.up><au><rsup|low,n+1><rsub|e>\<assign\><au><rsup|n><rsub|e>+2*\<Delta\>t*<avg|<bss>><rsub|e>\<in\><Uad>,<space|2em><avg|<bss>><rsub|e>=<big|sum><rsub|p=0><rsup|N>w<rsub|p>*<bss><around|(|<uep>,<bx><rsub|e,p>,t<rsup|n>|)>
+  </equation>
 
   which will be true under some problem dependent time step restrictions
   (e.g., Theorem 3.3.1 of<nbsp><cite|Meena_Kumar_Chandrashekar_2017>). Then,
@@ -425,7 +445,7 @@
   </equation>
 
   Thus, a procedure analogous to Algorithm<nbsp><reference|alg:flux.limit> is
-  used for limiting source terms, which we write here for completeness
+  used for limiting source terms, which we write here for completeness.
 
   <\wide-tabular>
     <tformat|<cwith|2|2|1|1|cell-tborder|0ln>|<cwith|1|1|1|1|cell-bborder|0ln>|<cwith|2|2|1|1|cell-bborder|1ln>|<cwith|2|2|1|1|cell-lborder|0ln>|<cwith|2|2|1|1|cell-rborder|0ln>|<cwith|2|2|1|1|cell-halign|c>|<table|<row|<\cell>
@@ -482,12 +502,16 @@
 
   The numerical tests for admissibility preservation with 2-D Euler's
   equations in Chapter<nbsp><reference|ch:lw.subcell.limiter> were repeated
-  with the generalized \ The numerical verification of admissibility
-  preserving flux limiter<nbsp>(Section<nbsp><reference|sec:tmp.flux.correction>)
-  and admissibility of LWFR with source terms<nbsp>(Section<nbsp><reference|sec:tmp.source.limiter>)
-  is made through the Ten Moment equations<nbsp><cite|Levermore_1996> which
-  we describe here. Here, the energy tensor is defined by the ideal equation
-  of state <math|<ccE>=<frac|1|2>*<ccP>+<frac|1|2>*\<rho\>*<bv>\<otimes\><bv>>
+  with the generalized admissbility enforcing procedure of
+  Section<nbsp><reference|sec:tmp.flux.correction> and it was seen that
+  admissibility of numerical solution was preserved in all test cases. For
+  further numerical verification of admissibility preserving flux
+  limiter<nbsp>(Section<nbsp><reference|sec:tmp.flux.correction>) and for
+  validation of admissibility of LWFR with source
+  terms<nbsp>(Section<nbsp><reference|sec:tmp.source.limiter>), we test our
+  scheme with the Ten Moment equations<nbsp><cite|Levermore_1996> which we
+  describe here. Here, the energy tensor is defined by the ideal equation of
+  state <math|<ccE>=<frac|1|2>*<ccP>+<frac|1|2>*\<rho\>*<bv>\<otimes\><bv>>
   where <math|\<rho\>> is the density, <math|<bv>> is the velocity vector,
   <math|<ccR>> is the symmetric pressure tensor. Thus, we can define the 2-D
   conservation law with source terms
@@ -496,7 +520,7 @@
     \<partial\><rsub|t>*<uu>+\<partial\><rsub|x<rsub|1>>*<pf><rsub|1>+\<partial\><rsub|x<rsub|2>>*<pf><rsub|2>=<bss><rsup|x<rsub|1>><around*|(|<uu>|)>+<bss><rsup|x<rsub|2>><around*|(|<uu>|)>
   </equation*>
 
-  where <math|<uu>=<around|(|\<rho\>,\<rho\>*v<rsub|1>,\<rho\>*v<rsub|2>,<cE><rsub|11>,<cE><rsub|12>,<cE><rsub|22>|)>>
+  where <math|<uu>=<around*|(|\<rho\>,\<rho\>*<bv>,<bE>|)>=<around|(|\<rho\>,\<rho\>*v<rsub|1>,\<rho\>*v<rsub|2>,<cE><rsub|11>,<cE><rsub|12>,<cE><rsub|22>|)>>
   and
 
   <\equation>
@@ -511,13 +535,13 @@
 
   where <math|W<around|(|x,y,t|)>> is a given function, which models electron
   quiver energy in the laser<nbsp><cite|Berthon2015>. These equations are
-  relevant in many applications, especially related to plasma
-  flows<nbsp>(see<nbsp><cite|Berthon_TMP_2006|Berthon2015> and further
-  references in<nbsp><cite|meena2017>), in cases where the
-  <with|font-shape|italic|local thermodynamic equilibrium> used to close the
-  Euler equations of compressible flows is not valid, and anisotropic nature
-  of the pressure needs to be accounted for. The admissibility set is given
-  by
+  relevant in many applications, especially related to plasma flows in cases
+  where the <with|font-shape|italic|local thermodynamic equilibrium> used to
+  close the Euler equations of compressible flows is not valid, and
+  anisotropic nature of the pressure needs to be accounted for. More details
+  about the significance of these models can be found
+  in<nbsp><cite|Berthon_TMP_2006|Berthon2015> and further references
+  in<nbsp><cite|meena2017>. The admissibility set is given by
 
   <\equation*>
     <Uad>=<around*|{|<uu>\<in\><re><rsup|6>\|\<rho\><around*|(|<uu>|)>\<gtr\>0,<space|1em><bx><rsup|T>*<ccP><around*|(|<uu>|)>*<bx>\<gtr\>0,<space|1em><bx>\<in\>\<bbb-R\><rsup|2>\<setminus\><around*|{|<bzero>|}>|}>
@@ -526,26 +550,97 @@
   which contains the states <math|<uu>> with positive density and positive
   definite pressure tensor. The positive definiteness of <math|<ccP>> is
   equivalent to that <math|Tr<around*|(|<bp>|)>=<Poneone>+<Ptwotwo>\<gtr\>0>
-  and <math|det <ccP>=<Poneone><Ptwotwo>-<Ponetwo><rsup|2>\<gtr\>0>. The
-  hyperbolicity of the system without source terms, along with its
+  and <math|det <ccP>=<Poneone><Ptwotwo>-<Ponetwo><rsup|2>\<gtr\>0>.
+  Following the notation of<nbsp><eqref|eq:uad.form>, the <math|K=3>
+  admissibility constraints <math|<value|ad><rsub|1>,<value|ad><rsub|2>,<value|ad><rsub|3>>
+  are density, <math|Trace<around*|(|<bp>|)>>, and
+  <math|det<around*|(|<ccR>|)>>. However, although density and trace
+  functions are concave functions of the conserved variables, <math|det
+  <around*|(|<ccR>|)>> is not so.
+
+  The hyperbolicity of the system without source terms, along with its
   eigenvalues are presented in Lemma 2.0.2
   of<nbsp><cite|Meena_Kumar_Chandrashekar_2017>. The conditions for
   admissibiltiy preservation of the forward Euler method for the source
   terms, which are the basis for the source term limiting described in
-  Section<nbsp><reference|sec:tmp.source.limiter>, are in Theorem 3.3.1
-  of<nbsp><cite|Meena_Kumar_Chandrashekar_2017>. All distinct numerical
-  experiments from<nbsp><cite|Meena_Kumar_Chandrashekar_2017|meena2017|Meena2020>
+  Section<nbsp><reference|sec:tmp.source.limiter>, are Lemma 5.1
+  of<nbsp><cite|meena2017>. For completeness, they are stated here.
+
+  <\lemma>
+    <with|font-series|bold|(Lemma 2.0.2 of<nbsp><cite|Meena_Kumar_Chandrashekar_2017>).>
+
+    <no-indent>The system<nbsp><eqref|eq:tmp.tmp> without source terms is
+    hyperbolic for <math|<value|uu>\<in\><Uad>> and admits the eigenvalues
+
+    <\equation*>
+      <bv>\<cdot\><value|bn>,<space|1em><bv>\<cdot\><value|bn>\<pm\><sqrt|<frac|3*<around*|(|<bp>\<cdot\><value|bn>|)>\<cdot\><value|bn>|\<rho\>>>,<space|1em><bv>\<cdot\><value|bn>\<pm\><sqrt|<frac|<around*|(|<bp>\<cdot\><value|bn>|)>\<cdot\><value|bn>|\<rho\>>>
+    </equation*>
+
+    along the unitary vector <math|<value|bn>> (The definition of eigenvalues
+    along a direction <math|<value|bn>> is in the sense of
+    Definition<nbsp><reference|defn:hyperbolic>) where
+    <math|\<rho\>,<bv>,<bp>> denote the density, velocity and pressure tensor
+    of<nbsp><eqref|eq:tmp.tmp> respectively. The eigenvalue
+    <math|<bv>\<cdot\><value|bn>> has a multiplicity of two while the rest
+    have a multiplicity of one. The eigenvalues
+    <math|<bv>\<cdot\><value|bn>,<bv>\<cdot\><value|bn>\<pm\><sqrt|<frac|<around*|(|<bp>\<cdot\><value|bn>|)>\<cdot\><value|bn>|\<rho\>>>>
+    are associated to linearly degenerate
+    fields<nbsp><eqref|eq:linearly.degenerate>. The eigenvalues
+    <math|<bv>\<cdot\><value|bn>\<pm\><sqrt|<frac|3*<around*|(|<bp>\<cdot\><value|bn>|)>\<cdot\><value|bn>|\<rho\>>>>
+    are associated to a genuinely nonlinear
+    field<nbsp><eqref|eq:genuinely.nonlinear>.
+  </lemma>
+
+  <\theorem>
+    <with|font-series|bold|(Lemma 5.1 of<nbsp><cite|meena2017>).>
+
+    <no-indent>Define source term updates in the the two coordinate
+    directions as
+
+    <\equation*>
+      <tabular*|<tformat|<table|<row|<cell|<value|uu><rsup|<value|bss><rsup|x<rsub|1>>,n+1><rsub|e,<bp>>=<value|uebp><rsup|n>+2*\<mathLaplace\>t*<value|bss><rsub|e,<bp>><rsup|x<rsub|1>>,<space|2em><value|bss><rsub|e,<bp>><rsup|x<rsub|1>>=<bss><rsup|x<rsub|1>><around|(|<value|uebp><rsup|n>,<bx><rsub|e,<bp>>,t<rsup|n>|)>>>|<row|<cell|<value|uu><rsup|<value|bss><rsup|x<rsub|2>>,n+1><rsub|e,<bp>>=<value|uebp><rsup|n>+2*\<mathLaplace\>t*<value|bss><rsub|e,<bp>><rsup|x<rsub|2>>,<space|2em><value|bss><rsub|e,<bp>><rsup|x<rsub|2>>=<bss><rsup|x<rsub|2>><around|(|<value|uebp><rsup|n>,<bx><rsub|e,<bp>>,t<rsup|n>|)>>>>>>
+    </equation*>
+
+    for <math|<value|bss><rsup|x<rsub|1>>,<value|bss><rsup|x<rsub|2>>>
+    defined in<nbsp><eqref|eq:tmp.tenmom.source>. Then, for
+    <math|<value|bss><rsub|e,<bp>>=<value|bss><rsub|e,<bp>><rsup|x<rsub|1>>+<value|bss><rsub|e,<bp>><rsup|x<rsub|2>>>,
+    the source term update in 2-D can be written as
+
+    <\equation>
+      <value|uu><rsup|<value|bss>,n+1><rsub|e,<bp>>=<value|uu><rsub|e,<bp>><rsup|n>+\<mathLaplace\>t*<value|bss><rsub|e,<bp>><rsup|n>=<frac|1|2>*<around*|(|<value|uu><rsup|<value|bss><rsup|x<rsub|1>>,n+1><rsub|e,<bp>>+<value|uu><rsup|<value|bss><rsup|x<rsub|2>>,n+1><rsub|e,<bp>>|)><label|eq:total.source.update>
+    </equation>
+
+    Assume <math|<value|uebp><rsup|n>\<in\><Uad>>. Then, we will have
+    <math|<value|uu><rsup|<value|bss><rsup|x<rsub|1>>,n+1><rsub|e,<bp>>\<in\><Uad>>
+    if the the following time step conditions are satisfied
+
+    <\equation*>
+      \<mathLaplace\>t\<leq\><frac|1|2>*<sqrt|<frac|<around*|(|<cR><rsub|11><rsup|n>|)><rsub|e,<bp>>|<around*|(|\<rho\><rsup|n>|)><rsub|e,<bp>>*<around*|(|<around*|(|\<partial\><rsub|x>*W<rsub|x><rsup|n>|)><rsub|e,<bp>>|)><rsup|2>>>,<space|2em>\<mathLaplace\>t\<leq\><frac|1|2>*<sqrt|<frac|<around*|(|<cR><rsub|11><rsup|n>|)><rsub|e,<bp>>*<around*|(|<cR><rsub|22><rsup|n>|)><rsub|e,<bp>>-<around*|(|<around*|(|<cR><rsub|12><rsup|n>|)><rsub|e,<bp>>|)><rsup|2>|<around*|(|\<rho\><rsup|n>|)><rsub|e,<bp>>*<around*|(|<cR><rsub|22><rsup|n>|)><rsub|e,<bp>>*<around*|(|<around*|(|\<partial\><rsub|x>*W<rsub|x><rsup|n>|)><rsub|e,<bp>>|)><rsup|2>>>
+    </equation*>
+
+    Similarly, <math|<value|uu><rsup|<value|bss><rsup|x<rsub|2>>,n+1><rsub|e,<bp>>\<in\><Uad>>
+    if the following time step conditions are satisfied.
+
+    <\equation*>
+      \<mathLaplace\>t\<leq\><frac|1|2>*<sqrt|<frac|<around*|(|<cR><rsub|22><rsup|n>|)><rsub|e,<bp>>|<around*|(|\<rho\><rsup|n>|)><rsub|e,<bp>>*<around*|(|<around*|(|\<partial\><rsub|y>*W<rsub|y><rsup|n>|)><rsub|e,<bp>>|)><rsup|2>>>,<space|2em>\<mathLaplace\>t\<leq\><frac|1|2>*<sqrt|<frac|<around*|(|<cR><rsub|11><rsup|n>|)><rsub|e,<bp>>*<around*|(|<cR><rsub|22><rsup|n>|)><rsub|e,<bp>>-<around*|(|<around*|(|<cR><rsub|12><rsup|n>|)><rsub|e,<bp>>|)><rsup|2>|<around*|(|\<rho\><rsup|n>|)><rsub|e,<bp>>*<around*|(|<cR><rsub|11><rsup|n>|)><rsub|e,<bp>>*<around*|(|<around*|(|\<partial\><rsub|y>*W<rsub|y><rsup|n>|)><rsub|e,<bp>>|)><rsup|2>>>
+    </equation*>
+
+    By<nbsp><eqref|eq:total.source.update>, these time step restrictions will
+    imply <math|<value|uu><rsup|<value|bss>,n+1><rsub|e,<bp>>\<in\><Uad>>.
+  </theorem>
+
+  All distinct numerical experiments from<nbsp><cite|Meena_Kumar_Chandrashekar_2017|meena2017|Meena2020>
   were performed and observed to validate the accuracy and robustness of the
   proposed scheme, but only some are shown here. The experiments were
-  performed both with the TVB limiter used in<nbsp><cite|babbar2022> and the
-  subcell-based blending scheme developed in
-  Chapter<nbsp><reference|ch:lw.subcell.limiter>. As seen in
-  Chapter<nbsp><reference|ch:lw.subcell.limiter>, the subcell based limiter
-  preserves small scale structures well compared to the TVB limiter. The use
-  of TVB limiter is only made in this chapter to numerically validate that
-  the flux limiting procedure of<nbsp>Section<nbsp><reference|sec:tmp.flux.correction>
-  preserves admissibility even without the subcell based bending limiter. The
-  results shown are produced with TVB limiter unless specified otherwise.
+  performed both with the TVB limiter used
+  in<nbsp>Chapter<nbsp><reference|ch:lwfr> and the subcell-based blending
+  scheme developed in Chapter<nbsp><reference|ch:lw.subcell.limiter>. As seen
+  in Chapter<nbsp><reference|ch:lw.subcell.limiter>, the subcell based
+  limiter preserves small scale structures well compared to the TVB limiter.
+  The use of TVB limiter is only made in this chapter to numerically validate
+  that the flux limiting procedure of<nbsp>Section<nbsp><reference|sec:tmp.flux.correction>
+  preserves admissibility. The results shown are produced with TVB limiter
+  unless specified otherwise.
 
   The developments made in this chapter have been contributed to the package
   <with|font-family|tt|Tenkai.jl><nbsp><cite|tenkai> developed in
@@ -573,16 +668,16 @@
   Figure<nbsp><reference|fig:convergence> where optimal convergence rates are
   seen.
 
-  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/convergence/convergence_rho.pdf|0.43par|||>>|<cell|<image|figures/ten_moment/convergence/convergence_p11.pdf|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:convergence>|<caption-detailed|Error
+  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/convergence/convergence_rho.pdf|0.42par|||>>|<cell|<image|figures/ten_moment/convergence/convergence_p11.pdf|0.42par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:convergence>|<caption-detailed|Error
   convergence analysis of a smooth test with source terms for (a)
   <math|\<rho\>>, (b) <math|<Poneone>> variable|Convergence of ten moment
   problem with sources.>>
 
   <subsection|Riemann problems>
 
-  Here, we test the scheme on Riemann problems in the absence of source
-  terms. The domain is <math|\<Omega\>=<around|[|-0.5,0.5|]>>. The first
-  problem is Sod's test
+  Here, we test the scheme on Riemann problems in the absence of source terms
+  with the TVB limiter. The domain is <math|\<Omega\>=<around|[|-0.5,0.5|]>>.
+  The first problem is Sod's test
 
   <\equation*>
     <around|(|\<rho\>,<vone>,<vtwo>,<Poneone>,<Ponetwo>,<Ptwotwo>|)>=<choice|<tformat|<table|<row|<cell|<around|(|1,0,0,2,0.05,0.6|)>,<space|2em>>|<cell|x\<less\>0>>|<row|<cell|<around|(|0.125,0,0,0.2,0.1,0.2|)>,>|<cell|x\<gtr\>0>>>>>
@@ -601,7 +696,7 @@
   Figure<nbsp><reference|fig:rp> where convergence is seen under grid
   refinement.
 
-  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/sod/density.pdf|0.43par|||>>|<cell|<image|figures/ten_moment/two_rare/density.pdf|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>>
+  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/sod/density.pdf|0.42par|||>>|<cell|<image|figures/ten_moment/two_rare/density.pdf|0.42par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>>
   <label|fig:rp>|<caption-detailed|Density plots of numerical solutions with
   polynomial degree <math|N=2> for (a) Sod's problem, (b) Two rarefaction
   (near vacuum) problem|Ten moment problem, Sod and two rarefaction tests.>>
@@ -622,13 +717,15 @@
   The simulation is performed with polynomial degree <math|N=4> using 200
   elements and run till time <math|t=1.8> and the results with both blending
   and TVB limiter are shown in Figure<nbsp><reference|fig:shuosher> where, as
-  expected, the blending limiter is giving much better resolution of the
-  shock and high-frequency wave.<float|float|thb|<big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/shuosher/density.pdf|0.43par|||>>|<cell|<image|figures/ten_moment/shuosher/v1.pdf|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:shuosher>|<caption-detailed|Numerical
+  expected, the blending limiter is giving a much better resolution of the
+  shock and high-frequency wave.
+
+  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/shuosher/density.pdf|0.41par|||>>|<cell|<image|figures/ten_moment/shuosher/v1.pdf|0.41par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:shuosher>|<caption-detailed|Numerical
   solution for Shu-Osher problem with polynomial degree <math|N=4> using TVB
   and blending limiter and we show (a) Density, (b) <math|v<rsub|1>>
   profiles. The density plot has an inset plot near the shock which compares
-  number of cells smeared across the shock by blending and TVB limiter.|Ten
-  moment Shu-Osher problem.>>>
+  the number of cells smeared across the shock by blending and TVB
+  limiter.|Ten moment Shu-Osher problem.>>
 
   <subsection|Two rarefactions with source terms>
 
@@ -642,15 +739,17 @@
   <math|W<around*|(|x,y,t|)>=25*exp<around*|(|-200*<around*|(|x-2|)><rsup|2>|)>>.
   We show the numerical solutions with degree <math|N=4> and 500 elements at
   <math|t=0.1> in Figure<nbsp><reference|fig:two.rare.sources> with and
-  without the source terms. The solution with source terms has a near vacuum
-  state at the centre. Thus, this is a test where low density is caused by
-  the presence of source terms verifying that our scheme is able to capture
-  admissibility even in the presence of source terms. The positivity limiter
-  had to be used to maintain admissibility of the
-  solution.<float|float|thb|<big-figure|<wide-tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<\cell>
-    <image|figures/ten_moment/two_rare_source/density.pdf|0.43par|||>
+  without the source terms using the blending limiter. The solution with
+  source terms has a near vacuum state at the centre. Thus, this is a test
+  where low density is caused by the presence of source terms verifying that
+  our scheme is able to capture admissibility even in the presence of source
+  terms. The positivity limiter had to be used to maintain admissibility of
+  the solution.
+
+  <big-figure|<wide-tabular|<tformat|<cwith|2|2|1|1|cell-halign|c>|<cwith|2|2|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<\cell>
+    <image|figures/ten_moment/two_rare_source/density.pdf|0.41par|||>
   </cell>|<\cell>
-    <image|figures/ten_moment/two_rare_source/P12.pdf|0.43par|||>
+    <image|figures/ten_moment/two_rare_source/P12.pdf|0.41par|||>
   </cell>>|<row|<\cell>
     (a)
   </cell>|<\cell>
@@ -658,14 +757,16 @@
   </cell>>>>><label|fig:two.rare.sources>|<caption-detailed|Two rarefactions
   with source terms using polynomial degree <math|N=4> on a mesh of 500
   element at time <math|t=0.1>, where we show (a) Density Profile, (b)
-  <math|P<rsub|12>>|Two rarefactions with source terms>>>
+  <math|P<rsub|12>>|Two rarefactions with source terms>>
 
   <subsection|Two dimensional near vacuum test>
 
-  This is a near vacuum test taken from<nbsp><cite|Meena_Kumar_Chandrashekar_2017>,
-  and is thus another verification of our admissibility preserving framework.
-  The domain is <math|\<Omega\>=<around|[|-1,1|]><rsup|2>> with outflow
-  boundary conditions. The initial conditions are
+  This is a near vacuum test taken from<nbsp><cite|Meena_Kumar_Chandrashekar_2017>
+  which is simulated using the TVB limiter, and is thus another verification
+  of the admissibility preserving framework of
+  Section<nbsp><reference|sec:tmp.flux.correction>. The domain is
+  <math|\<Omega\>=<around|[|-1,1|]><rsup|2>> with outflow boundary
+  conditions. The initial conditions are
 
   <\equation*>
     \<rho\>=1,<space|1em><Poneone>=<Ptwotwo>=1,<space|1em><Ponetwo>=0,<space|1em><vone>=8*f<rsub|s><around|(|r|)>*cos
@@ -674,8 +775,8 @@
 
   where <math|r=<sqrt|x<rsup|2>+y<rsup|2>>>, <math|\<theta\>=arctan
   <around|(|y/x|)>\<in\><around|[|-\<pi\>,\<pi\>|]>> and
-  <math|s=0.06*\<Delta\>x> for mesh size <math|\<Delta\>x (=\<Delta\>y)> of
-  the uniform mesh. The <math|f<rsub|s><around|(|r|)>> smoothens the velocity
+  <math|s=0.06*\<Delta\>x> for mesh size <math|\<Delta\>x =\<Delta\>y> of the
+  uniform mesh. The <math|f<rsub|s><around|(|r|)>> smoothens the velocity
   profile near the origin as <math|\<theta\>> is not defined there
 
   <\equation*>
@@ -714,15 +815,15 @@
   state will be affected an-isotropically. The simulation is run till
   <math|t=0.1> and the density profile is shown in
   Figure<nbsp><reference|fig:gauss.source> with degree <math|N=2> on a
-  <math|200\<times\>200> mesh. In Figure<nbsp><reference|fig:gauss.source>,
-  we show the line plot across the diagonal.
+  <math|200\<times\>200> mesh using the blending limiter. In
+  Figure<nbsp><reference|fig:gauss.source>, we show the line plot across the
+  diagonal.
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|2|2|cell-halign|c>|<cwith|1|1|2|2|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/gauss_source/density_contour.png|0.32par|||>>|<cell|<image|figures/ten_moment/gauss_source/density_ymx.pdf|0.5par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>>
-  ><label|fig:gauss.source>|<caption-detailed|Uniform plasma state with
-  Gaussian source (a) Density pseudocolour plot (b) Line plot across
-  <math|x+y=4>.|Uniform plasma with Gaussian source.>>
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|2|2|cell-halign|c>|<cwith|1|1|2|2|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/gauss_source/density_contour.png|0.32par|||>>|<cell|<image|figures/ten_moment/gauss_source/density_ymx.pdf|0.5par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>>><label|fig:gauss.source>|<caption-detailed|Uniform
+  plasma state with Gaussian source (a) Density pseudocolour plot (b) Line
+  plot across <math|x+y=4>.|Uniform plasma with Gaussian source.>>
 
-  <subsection|Realistic simulation>
+  <subsection|Realistic simulation with inverse bremsstrahlung>
 
   Consider the domain <math|\<Omega\>=<around|[|0,100|]><rsup|2>> with
   outflow boundary conditions. The uniform initial condition is taken to be
@@ -734,7 +835,7 @@
   with the electron quiver energy <math|W<around|(|x,y,t|)>=exp
   <around|(|-0.01*<around|(|<around|(|x-50|)><rsup|2>+<around|(|y-50|)><rsup|2>|)>|)>>.
   The source term is taken from<nbsp><cite|Berthon2015>, and only has the
-  <math|x> component, i.e, <math|<bss><rsup|y><around*|(|<uu>|)>=<bzero>>,
+  <math|x> component, i.e., <math|<bss><rsup|y><around*|(|<uu>|)>=<bzero>>,
   even though <math|W> continues to depend on <math|x> and <math|y>. An
   additional source corresponding to energy components
   <math|<bss><rsub|E>=<around|(|0,0,0,\<nu\><rsub|T>*\<rho\>*W,0,0|)>> is
@@ -748,21 +849,23 @@
   <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/ten_moment/realistic/density_nuT1.png|0.33par|||>>|<cell|<image|figures/ten_moment/realistic/density_cut.pdf|0.5par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:realistic>|<caption-detailed|Realistic
   simulation. Density profile computed with degree <math|N=2> on
   <math|100<rsup|2>> element mesh. (a) Pseudocolor color plot (b) Cut at
-  <math|y=4> comparing different absorption coefficient
+  <math|y=4> comparing different absorption coefficients
   <math|\<nu\><rsub|T>>.|Ten moment, realistic simulation.>>
 
   <section|Summary and Conclusions><label|sec:tmp.conclusion>
 
   A generalized framework was developed for the LWFR scheme. The framework
-  can be seen as extension of<nbsp><cite|Zhang2010b> to LWFR. It is a
-  generalization of Chapter<nbsp><reference|ch:lw.subcell.limiter> as it is
-  independent of the shock capturing scheme used and can, in particular, be
-  used without the subcell based limiter. The LWFR scheme was extended to be
+  can be seen as an extension of<nbsp><cite|Zhang2010b> to LWFR. It is a
+  generalization of Chapter<nbsp><reference|ch:lw.subcell.limiter> as it can
+  be used in combination with any limiter for controlling spurious
+  oscillations. As a demonstration of this, results with TVB limiter that is
+  made admissibility preserving were presented, though the best accuracy is
+  obtained with blending limiter. The LWFR scheme was extended to be
   applicable to problems with source terms while maintaining high order
-  accuracy. Provable admissibility preservation in presence of source terms
-  was also obtained by limiting the time average sources. The claims were
-  numerically verified on the Ten Moment problem model where the scheme
-  showed high order accuracy and robustness.
+  accuracy. Provable admissibility preservation in the presence of source
+  terms was also obtained by limiting the time average sources. The claims
+  were numerically verified on the Ten Moment problem where the scheme showed
+  high order accuracy and robustness.
 </body>
 
 <\initial>
@@ -771,6 +874,7 @@
     <associate|chapter-nr|5>
     <associate|font-base-size|12>
     <associate|info-flag|detailed>
+    <associate|large-padding-below|0fn>
     <associate|page-even|1in>
     <associate|page-first|135>
     <associate|page-medium|paper>
@@ -786,62 +890,65 @@
 
 <\references>
   <\collection>
-    <associate|alg:source.limit|<tuple|6.1|139>>
+    <associate|alg:source.limit|<tuple|6.1|140>>
     <associate|auto-1|<tuple|6|135>>
-    <associate|auto-10|<tuple|6.4.1|141>>
-    <associate|auto-11|<tuple|6.1|141>>
-    <associate|auto-12|<tuple|6.4.2|142>>
-    <associate|auto-13|<tuple|6.2|142>>
-    <associate|auto-14|<tuple|6.4.3|142>>
-    <associate|auto-15|<tuple|6.3|143>>
-    <associate|auto-16|<tuple|6.4.4|143>>
-    <associate|auto-17|<tuple|6.4|143>>
-    <associate|auto-18|<tuple|6.4.5|143>>
-    <associate|auto-19|<tuple|6.5|144>>
+    <associate|auto-10|<tuple|6.4.1|142>>
+    <associate|auto-11|<tuple|6.1|143>>
+    <associate|auto-12|<tuple|6.4.2|143>>
+    <associate|auto-13|<tuple|6.2|144>>
+    <associate|auto-14|<tuple|6.4.3|144>>
+    <associate|auto-15|<tuple|6.3|144>>
+    <associate|auto-16|<tuple|6.4.4|145>>
+    <associate|auto-17|<tuple|6.4|145>>
+    <associate|auto-18|<tuple|6.4.5|145>>
+    <associate|auto-19|<tuple|6.5|146>>
     <associate|auto-2|<tuple|6.1|135>>
-    <associate|auto-20|<tuple|6.4.6|145>>
-    <associate|auto-21|<tuple|6.6|145>>
-    <associate|auto-22|<tuple|6.4.7|145>>
-    <associate|auto-23|<tuple|6.7|146>>
-    <associate|auto-24|<tuple|6.5|146>>
+    <associate|auto-20|<tuple|6.4.6|146>>
+    <associate|auto-21|<tuple|6.6|146>>
+    <associate|auto-22|<tuple|6.4.7|147>>
+    <associate|auto-23|<tuple|6.7|147>>
+    <associate|auto-24|<tuple|6.5|147>>
     <associate|auto-3|<tuple|6.2|135>>
     <associate|auto-4|<tuple|6.2.1|137>>
     <associate|auto-5|<tuple|6.2.2|137>>
-    <associate|auto-6|<tuple|6.3|137>>
-    <associate|auto-7|<tuple|6.3.1|137>>
+    <associate|auto-6|<tuple|6.3|138>>
+    <associate|auto-7|<tuple|6.3.1|138>>
     <associate|auto-8|<tuple|6.3.2|139>>
     <associate|auto-9|<tuple|6.4|140>>
     <associate|ch:10mom|<tuple|6|135>>
-    <associate|eq:concave.theta.source|<tuple|6.15|139>>
-    <associate|eq:general.pk.source|<tuple|6.14|139>>
+    <associate|eq:concave.theta.source|<tuple|6.16|140>>
+    <associate|eq:general.pk.source|<tuple|6.15|140>>
+    <associate|eq:low.source.up|<tuple|6.14|139>>
     <associate|eq:tmp.F.S.split|<tuple|6.13|139>>
     <associate|eq:tmp.cell.avg.decomp|<tuple|6.10|138>>
     <associate|eq:tmp.con.law|<tuple|6.1|135>>
     <associate|eq:tmp.fravgup|<tuple|6.8|137>>
-    <associate|eq:tmp.low.order.tilde.update|<tuple|6.11|138>>
+    <associate|eq:tmp.low.order.tilde.update|<tuple|6.11|139>>
     <associate|eq:tmp.low.order.update|<tuple|6.9|138>>
     <associate|eq:tmp.lwtay|<tuple|6.2|136>>
-    <associate|eq:tmp.pure.low.order.tilde.update|<tuple|6.12|138>>
+    <associate|eq:tmp.pure.low.order.tilde.update|<tuple|6.12|139>>
     <associate|eq:tmp.tavgS|<tuple|6.4|136>>
     <associate|eq:tmp.tavgflux|<tuple|6.3|136>>
-    <associate|eq:tmp.tenmom.source|<tuple|6.17|140>>
-    <associate|eq:tmp.tmp|<tuple|6.16|140>>
+    <associate|eq:tmp.tenmom.source|<tuple|6.18|141>>
+    <associate|eq:tmp.tmp|<tuple|6.17|141>>
     <associate|eq:tmp.tvgproperty|<tuple|6.5|136>>
     <associate|eq:tmp.tvgproperty.S|<tuple|6.6|136>>
     <associate|eq:tmp.uplwfr|<tuple|6.7|136>>
-    <associate|fig:2d.near.vacuum|<tuple|6.5|144>>
-    <associate|fig:convergence|<tuple|6.1|141>>
-    <associate|fig:gauss.source|<tuple|6.6|145>>
-    <associate|fig:realistic|<tuple|6.7|146>>
-    <associate|fig:rp|<tuple|6.2|142>>
-    <associate|fig:shuosher|<tuple|6.3|143>>
-    <associate|fig:two.rare.sources|<tuple|6.4|143>>
+    <associate|eq:total.source.update|<tuple|6.19|142>>
+    <associate|fig:2d.near.vacuum|<tuple|6.5|146>>
+    <associate|fig:convergence|<tuple|6.1|143>>
+    <associate|fig:gauss.source|<tuple|6.6|146>>
+    <associate|fig:realistic|<tuple|6.7|147>>
+    <associate|fig:rp|<tuple|6.2|144>>
+    <associate|fig:shuosher|<tuple|6.3|144>>
+    <associate|fig:two.rare.sources|<tuple|6.4|145>>
+    <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-6.1|<tuple|6.1|139>>
     <associate|footnr-6.1|<tuple|6.1|139>>
-    <associate|sec:tmp.adm.pres|<tuple|6.3|137>>
+    <associate|sec:tmp.adm.pres|<tuple|6.3|138>>
     <associate|sec:tmp.approximate.lw|<tuple|6.2.1|137>>
-    <associate|sec:tmp.conclusion|<tuple|6.5|146>>
-    <associate|sec:tmp.flux.correction|<tuple|6.3.1|137>>
+    <associate|sec:tmp.conclusion|<tuple|6.5|147>>
+    <associate|sec:tmp.flux.correction|<tuple|6.3.1|138>>
     <associate|sec:tmp.lwfr|<tuple|6.2|135>>
     <associate|sec:tmp.numerical.results|<tuple|6.4|140>>
     <associate|sec:tmp.source.limiter|<tuple|6.3.2|139>>
@@ -885,15 +992,17 @@
 
       Meena_Kumar_Chandrashekar_2017
 
+      meena2017
+
       Meena_Kumar_Chandrashekar_2017
+
+      meena2017
 
       Meena_Kumar_Chandrashekar_2017
 
       meena2017
 
       Meena2020
-
-      babbar2022
 
       tenkai
 
@@ -942,7 +1051,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|6.<space|2spc>Generalized
-      admissibility preservation with source terms>
+      admissibility preservation and source terms>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <pageref|auto-1><vspace|0.5fn>
 
@@ -1001,8 +1110,8 @@
       Gaussian source <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-20>>
 
-      <with|par-left|<quote|1tab>|6.4.7.<space|2spc>Realistic simulation
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <with|par-left|<quote|1tab>|6.4.7.<space|2spc>Realistic simulation with
+      inverse bremsstrahlung <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-22>>
 
       6.5.<space|2spc>Summary and Conclusions

@@ -5,6 +5,10 @@
 <style|<tuple|tmbook|preview-ref|comment|style_common>>
 
 <\body>
+  <\hide-preamble>
+    \;
+  </hide-preamble>
+
   <chapter|Conclusions>
 
   A conservative, Jacobian-free and single step, explicit Lax-Wendroff method
@@ -33,17 +37,22 @@
   order scheme on subcells and blend it with the high order LWFR scheme using
   a smoothness indicator. To enhance accuracy, we used Gauss-Legendre
   solution points and performed MUSCL-Hancock reconstruction on the subcells.
-  Since the subcells were inherently non-cell centred, the MUSCL-Hancock
-  scheme was extended to non-cell centred grids along with the proof
-  of<nbsp><cite|Berthon2006> for admissibility preservation. The subcell
-  structure was exploited to obtain a provably admissibility preserving LWFR
-  scheme by careful construction of the <with|font-shape|italic|blended
-  numerical flux> at the element interfaces. The procedure for enforcing
-  admissibility only requires the user to specify what the admissibility
-  constraints of the equation are, and the process is problem independent
-  beyond that. The numerical experiments were made on Compressible Euler's
-  equations verifying the enhancement of accuracy and admissibility
-  preservation.
+  The MUSCL-Hancock reconstruction was only possible due to the single stage
+  nature of LWFR. Since the subcells of the blending scheme were inherently
+  non-cell centred, the MUSCL-Hancock scheme was extended to non-cell centred
+  grids along with the proof of<nbsp><cite|Berthon2006> for admissibility
+  preservation. The subcell structure was exploited to obtain a provably
+  admissibility preserving LWFR scheme by careful construction of the
+  <with|font-shape|italic|blended numerical flux> at the element interfaces.
+  The procedure for enforcing admissibility only requires the user to specify
+  what the admissibility constraints of the equation are, and the process is
+  problem independent beyond that. The numerical experiments were made on
+  compressible Euler's equations verifying the enhancement of accuracy and
+  admissibility preservation. In particular, the experiments revealed that
+  the MUSCL-Hancock blending scheme was more accurate than the first order
+  blending scheme and that LWFR was able to simulate difficult tests for
+  admissibility like a Mach 2000 astrophysical jet and strong Sedov's blast
+  waves.
 
   A generalized framework for admissibility preservation was introduced by
   performing a cell average decomposition followed by flux limiting,
@@ -64,7 +73,7 @@
   admissibility preservation. The scheme was validated on the modern test
   suite of<nbsp><cite|Pan2016> for high order methods.
 
-  The LWFR scheme was extended to handle body fitted, adaptively refined
+  The LWFR scheme was extended to handle body-fitted, adaptively refined
   curvilinear meshes. The curvilinear grids were defined by a reference map
   for each element which was used to apply the Lax-Wendroff procedure in
   reference coordinates. The adaptively refined mesh was allowed to be
@@ -97,7 +106,7 @@
     are already Runge-Kutta Discontinuous Galerkin methods that can solve
     non-conservative hyperbolic equations and thus development of high order
     Lax-Wendroff schemes for such problems will be an important area of
-    research. Flux reconstruction cannot be applied on such systems but we
+    research. Flux reconstruction cannot be applied to such systems but we
     can possibly use correction functions <math|g<rsub|L>,g<rsub|R>> to
     obtain a quadrature free scheme.
 
@@ -108,7 +117,7 @@
     that is more severe than the CFL restriction from the wave speeds. They
     occur in a variety of problems like those involving chemical reactions.
     The time step restriction by the source terms can be avoided by adding
-    local implictness to the source terms. This is the idea of IMEX schemes.
+    local implicitness to the source terms. This is the idea of IMEX schemes.
     The development of such locally implicit solvers for LWFR on source terms
     that maintain high order accuracy will be an important area of research.
 
@@ -133,14 +142,20 @@
     subcells that can solve advection diffusion equations.
 
     <item>The description of LWFR scheme on curvilinear grids was dimension
-    dependent and can thus be applied to 3-D. However, its numerical
+    independent and can thus be applied to 3-D. However, its numerical
     validation with practical problems to test accuracy, robustness and free
     stream conditions needs to be performed.
 
-    <item>This work most generally applies quadrilateral meshes even though
-    triangular meshes are also attractive due to availability of better mesh
-    generation algorithms. Thus, the extension of LWFR to triangular and
-    hybrid meshes will be fruitful.
+    <item>This work most generally applies to quadrilateral meshes (with
+    curved boundaries) even though triangular meshes are also attractive due
+    to availability of better mesh generation algorithms. Thus, the extension
+    of LWFR to triangular and hybrid meshes will be fruitful.
+
+    <item>The numerical experimentation of LWFR for other models of interest
+    like Relativistic Hydrodynamics (RHD), Magnetohydrodynamics (MHD),
+    Relativistic Magnetohydrodynamics (RMHD) will be worth exploring due to
+    their practical significance and need for admissibility preserving
+    schemes like the ones developed in this work.
   </enumerate>
 </body>
 
@@ -149,20 +164,20 @@
     <associate|chapter-nr|9>
     <associate|font-base-size|12>
     <associate|page-even|1in>
-    <associate|page-first|225>
+    <associate|page-first|228>
     <associate|page-medium|paper>
     <associate|page-odd|1in>
     <associate|page-right|auto>
     <associate|page-screen-margin|false>
-    <associate|section-nr|5>
+    <associate|section-nr|6>
     <associate|subsection-nr|0>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|10|225>>
-    <associate|auto-2|<tuple|10.1|226>>
+    <associate|auto-1|<tuple|10|229>>
+    <associate|auto-2|<tuple|10.1|230>>
   </collection>
 </references>
 

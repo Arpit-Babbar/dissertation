@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1>
 
 <project|main.tm>
 
@@ -14,20 +14,21 @@
   <section|Introduction>
 
   In this chapter, we develop the LWFR scheme to solve second order PDE in
-  conservative form. Examples of such equations include compressible
-  Navier-Stokes and resistive magnetohydrodynamics. We make use of the the
-  BR1 scheme<nbsp><cite|Bassi1997> which was the first scheme for using
-  spectral element methods to solve second order equations. Following
-  Chapter<nbsp><reference|ch:curved.meshes>, we solve second order equations
-  on curvilinear meshes and use error based time stepping.
+  conservative form using the BR1 scheme<nbsp><cite|Bassi1997>. Examples of
+  such equations include compressible Navier-Stokes and resistive
+  magnetohydrodynamics. Following Chapter<nbsp><reference|ch:curved.meshes>,
+  we solve second order equations on curvilinear meshes and use error based
+  time stepping.
 
   This chapter is organized as follows. In
   Section<nbsp><reference|sec:transformations.parabolic>, the notations and
   transformations of second order equations from curved element to a
   reference cube are reviewed. In Section<nbsp><reference|sec:lwfr.2nd.order>,
-  the LWFR scheme for second order equations is introduced. The numerical
-  results are shown in Section<nbsp><reference|sec:results> and a summary of
-  the chapter is provided in Section<nbsp><reference|sec:conclusion>.
+  the LWFR scheme for second order equations is introduced. In
+  Section<nbsp><reference|sec:parabolic.bc>, the treatment of boundary
+  conditions is described. The numerical results are shown in
+  Section<nbsp><reference|sec:results> and a summary of the chapter is
+  provided in Section<nbsp><reference|sec:conclusion>.
 
   <section|Curvilinear coordinates for parabolic
   equations><label|sec:transformations.parabolic>
@@ -50,7 +51,7 @@
   some notations to describe the scheme. The action of a vector
   <math|<bb>\<in\>\<bbb-R\><rsup|d>> on <math|<bv>\<in\>\<bbb-R\><rsup|p>>
   gives <math|<bb>*<bv>\<in\>\<bbb-R\><rsup|p\<times\>d>> which is defined
-  component-vice as
+  component-wise as
 
   <\equation>
     <bb>*<bv>=<around*|(|b<rsub|j>*<bv>|)><rsub|j=1><rsup|d><label|eq:parabolic.vector.vector>
@@ -148,20 +149,19 @@
   multi-index <math|<bp>=<around|(|p<rsub|i>|)><rsub|i=1><rsup|d>> where
   <math|p<rsub|i>\<in\><around|{|0,1*\<ldots\>,N|}>>. Let
   <math|i\<in\><around|{|1,\<ldots\>,d|}>> denote a coordinate direction and
-  <math|s\<in\><around|{|L,R|}>> so that <math|<around|(|s,i|)>> corresponds
-  to the face <math|<Ois>> in direction <math|i> on side <math|s> which has
-  the reference outward normal <math|<bnr><rsub|s,i>>, see
+  <math|S\<in\><around|{|L,R|}>> so that <math|<around|(|S,i|)>> corresponds
+  to the face <math|<Ois>> in direction <math|i> on side <math|S> which has
+  the reference outward normal <math|<bnr><rsub|S,i>>, see
   Figure<nbsp><reference|fig:curved.ref.map>. Thus, <math|<Oip>> denotes the
   face where reference outward normal is <math|<bnr><rsub|R,i>=<be><rsub|i>>
   and <math|<Oim>> has outward unit normal
-  <math|<bnr><rsub|L,i>=-<bnr><rsub|R,i>>. From now, we will suppress the
-  <math|R> and denote <math|<bnr><rsub|i>=<bnr><rsub|R,i>>.
+  <math|<bnr><rsub|L,i>=-<bnr><rsub|R,i>>.
 
   The FR scheme is a collocation at each of the solution points
   <math|<around|{|<vxi><rsub|<bp>>=<around|(|\<xi\><rsub|p<rsub|i>>|)><rsub|i=1><rsup|d>,p<rsub|i>=0,\<ldots\>,N|}>>.
   We will thus explain the scheme for a fixed <math|<vxi>=<vxi><rsub|<bp>>>
-  and denote <math|<vxi><rsub|i><rsup|s>> as the projection of <vxi> to the
-  face <math|s=L,R> in the <math|i<rsup|th>> direction
+  and denote <math|<vxi><rsub|i><rsup|S>> as the projection of <vxi> to the
+  face <math|S=L,R> in the <math|i<rsup|th>> direction
   (Figure<nbsp><reference|fig:curved.ref.map>), as defined
   in<nbsp><eqref|eq:curved.xis.notation>. A correction of
   <math|<uu><rsub|e><rsup|\<delta\>>> is performed to obtain
@@ -171,14 +171,14 @@
     <uu><rsub|e><around|(|<vxi>|)>=<uu><rsub|e><rsup|\<delta\>><around|(|<vxi>|)>+<around|(|<uu><rsub|e><rsup|\<ast\>>-<uu><rsub|e><rsup|\<delta\>>|)><around|(|<vxi><rsub|i><rsup|R>|)>*g<rsub|R><around|(|\<xi\><rsub|p<rsub|i>>|)>+<around|(|<uu><rsub|e><rsup|\<ast\>>-<uu><rsub|e><rsup|\<delta\>>|)><around|(|<vxi><rsub|i><rsup|L>|)>*g<rsub|L><around|(|\<xi\><rsub|p<rsub|i>>|)><label|eq:parabolic.u.corrected>
   </equation>
 
-  where <math|<uu><rsup|\<delta\>><rsub|e><around|(|<vxi><rsub|i><rsup|s>|)>>
+  where <math|<uu><rsup|\<delta\>><rsub|e><around|(|<vxi><rsub|i><rsup|S>|)>>
   denotes the trace value of the normal flux in element <math|e> and
-  <math|<uu><rsub|e><rsup|\<ast\>><around|(|<vxi><rsub|i><rsup|s>|)>> denotes
-  an approximation of the solution at the interface <math|<around|(|s,i|)>>
+  <math|<uu><rsub|e><rsup|\<ast\>><around|(|<vxi><rsub|i><rsup|S>|)>> denotes
+  an approximation of the solution at the interface <math|<around|(|S,i|)>>
   which is chosen to be
 
   <\equation>
-    <uu><rsub|e><rsup|\<ast\>><around|(|<vxi><rsub|i><rsup|s>|)>=<frac|1|2>*<around|(|<uu><rsup|+><rsub|s,i>+<uu><rsup|-><rsub|s,i>|)><label|eq:parabolic.central.u>
+    <uu><rsub|e><rsup|\<ast\>><around|(|<vxi><rsub|i><rsup|S>|)>=<frac|1|2>*<around|(|<uu><rsup|+><rsub|S,i>+<uu><rsup|-><rsub|S,i>|)><label|eq:parabolic.central.u>
   </equation>
 
   and <math|g<rsub|L>,g<rsub|R>> are FR correction
@@ -206,7 +206,7 @@
   where <math|N> is the solution polynomial degree. Then, use
   <math|<uu><rsub|t>=-<frac|1|J>*\<nabla\><rsub|<vxi>>\<cdot\><around|(|<tfa>-<tfv>|)>>
   from<nbsp><eqref|eq:parabolic.transformed.fo> to swap a temporal derivative
-  with a spatial derivative and retaining terms upto <math|\<Delta\>t> to get
+  with a spatial derivative and retain terms up to <math|\<Delta\>t> to get
 
   <\equation*>
     <uu><rsup|n+1>=<uu><rsup|n>-<frac|1|J>*<big|sum><rsub|k=1><rsup|N+1><frac|\<Delta\>t<rsup|k>|k!>*\<partial\><rsub|t><rsup|<around|(|k-1|)>>*<around|(|\<nabla\><rsub|<vxi>>\<cdot\><tfa>|)>+<frac|1|J>*<big|sum><rsub|k=1><rsup|N+1><frac|\<Delta\>t<rsup|k>|k!>*\<partial\><rsub|t><rsup|<around|(|k-1|)>>*<around|(|\<nabla\><rsub|<vxi>>\<cdot\><tfv>|)>
@@ -237,20 +237,20 @@
   local approximations <math|<tFad><rsub|e>,<tFvd><rsub|e>> are computed, we
   construct the advective and viscous numerical fluxes for element <math|e>
   in coordinate direction <math|i\<in\><around|{|1,\<ldots\>*d|}>> at the
-  side <math|s\<in\><around|{|L,R|}>> (following the notation
+  side <math|S\<in\><around|{|L,R|}>> (following the notation
   from<nbsp><eqref|eq:curved.xis.notation>) by using
   Rusanov's<nbsp><cite|Rusanov1962> and the central flux respectively
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|<around|(|<tFa><rsub|e>\<cdot\><bnr><rsub|s,i>|)><rsup|\<ast\>>>|<cell|=>|<cell|<frac|1|2>*<around|(|<around|(|<tFad>\<cdot\><bnr><rsub|s,i>|)><rsup|+>+<around|(|<tFad>\<cdot\><bnr><rsub|s,i>|)><rsup|->|)>-<frac|\<lambda\><rsub|s,i>|2>*<around|(|<uU><rsup|+><rsub|s,i>-<uU><rsup|-><rsub|s,i>|)><eq-number><label|eq:parabolic.rusanov.flux.lw>>>|<row|<cell|<around|(|<tFv><rsub|e>\<cdot\><bnr><rsub|s,i>|)><rsup|\<ast\>>>|<cell|=>|<cell|<frac|1|2>*<around|(|<around|(|<tFvd>\<cdot\><bnr><rsub|s,i>|)><rsup|+>+<around|(|<tFvd>\<cdot\><bnr><rsub|s,i>|)><rsup|->|)>>>>>
+    <tformat|<table|<row|<cell|<around|(|<tFa><rsub|e>\<cdot\><bnr><rsub|S,i>|)><rsup|\<ast\>>>|<cell|=>|<cell|<frac|1|2>*<around|(|<around|(|<tFad>\<cdot\><bnr><rsub|S,i>|)><rsup|+>+<around|(|<tFad>\<cdot\><bnr><rsub|S,i>|)><rsup|->|)>-<frac|\<lambda\><rsub|S,i>|2>*<around|(|<uU><rsup|+><rsub|S,i>-<uU><rsup|-><rsub|S,i>|)><label|eq:parabolic.rusanov.flux.lw><eq-number>>>|<row|<cell|<around|(|<tFv><rsub|e>\<cdot\><bnr><rsub|S,i>|)><rsup|\<ast\>>>|<cell|=>|<cell|<frac|1|2>*<around|(|<around|(|<tFvd>\<cdot\><bnr><rsub|S,i>|)><rsup|+>+<around|(|<tFvd>\<cdot\><bnr><rsub|S,i>|)><rsup|->|)><label|eq:viscous.central.flux><eq-number>>>>>
   </eqnarray>
 
-  The <math|<around|(|<tF><rsup|\<delta\>>\<cdot\><bnr><rsub|s,i>|)><rsup|\<pm\>>>
-  and <math|<uU><rsub|s,i><rsup|\<pm\>>> denote the trace values of the
+  The <math|<around|(|<tF><rsup|\<delta\>>\<cdot\><bnr><rsub|S,i>|)><rsup|\<pm\>>>
+  and <math|<uU><rsub|S,i><rsup|\<pm\>>> denote the trace values of the
   normal flux and time average solution from outer, inner directions
   respectively; the inner direction corresponds to the element <math|e> while
   the outer direction corresponds to its neighbour across the interface
-  <math|<around|(|s,i|)>>. The Rusanov's flux<nbsp><eqref|eq:parabolic.rusanov.flux.lw>
+  <math|<around|(|S,i|)>>. The Rusanov's flux<nbsp><eqref|eq:parabolic.rusanov.flux.lw>
   is exactly as discussed in the inviscid
   case<nbsp><eqref|eq:curved.rusanov.flux.lw>.
 
@@ -259,18 +259,18 @@
   two. However, for the final evolution<nbsp><eqref|eq:parabolic.lw.update>,
   we can combine them to define <math|<tF>=<tFa>-<tFv>>, so that the
   interface numerical fluxes can also be summed as
-  <math|<around|(|<tF><rsub|e>\<cdot\><wide|<bn>|^><rsub|s,i>|)><rsup|\<ast\>>=<around|(|<tFa><rsub|e>\<cdot\><wide|<bn>|^><rsub|s,i>|)><rsup|\<ast\>>-<around|(|<tFv><rsub|e>\<cdot\><wide|<bn>|^><rsub|s,i>|)><rsup|\<ast\>>>
+  <math|<around|(|<tF><rsub|e>\<cdot\><wide|<bn>|^><rsub|S,i>|)><rsup|\<ast\>>=<around|(|<tFa><rsub|e>\<cdot\><wide|<bn>|^><rsub|S,i>|)><rsup|\<ast\>>-<around|(|<tFv><rsub|e>\<cdot\><wide|<bn>|^><rsub|S,i>|)><rsup|\<ast\>>>
   and thus the continuous time averaged numerical flux is constructed as
 
   <\equation>
-    <tabular|<tformat|<table|<row|<cell|<around|(|<tF><rsub|e><around|(|<vxi>|)>|)><rsup|i>=<around|(|<tF><rsub|e><rsup|\<delta\>><around|(|<vxi>|)>|)><rsup|i>>|<cell|+<around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|i>|)><rsup|\<ast\>>-<tF><rsub|e><rsup|\<delta\>>\<cdot\><bnr><rsub|i>|)><around|(|<vxi><rsub|i><rsup|R>|)>*g<rsub|R><around|(|\<xi\><rsub|p<rsub|i>>|)>>>|<row|<cell|>|<cell|+<around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|i>|)><rsup|\<ast\>>-<tF><rsub|e><rsup|\<delta\>>\<cdot\><bnr><rsub|i>|)><around|(|<vxi><rsub|i><rsup|L>|)>*g<rsub|L><around|(|\<xi\><rsub|p<rsub|i>>|)>>>>>><label|eq:parabolic.cts.time.avg.flux>
+    <tabular|<tformat|<table|<row|<cell|<around|(|<tF><rsub|e><around|(|<vxi>|)>|)><rsup|i>=<around|(|<tF><rsub|e><rsup|\<delta\>><around|(|<vxi>|)>|)><rsup|i>>|<cell|+<around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|R,i>|)><rsup|\<ast\>>-<tF><rsub|e><rsup|\<delta\>>\<cdot\><bnr><rsub|R,i>|)><around|(|<vxi><rsub|i><rsup|R>|)>*g<rsub|R><around|(|\<xi\><rsub|p<rsub|i>>|)>>>|<row|<cell|>|<cell|-<around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|L,i>|)><rsup|\<ast\>>-<tF><rsub|e><rsup|\<delta\>>\<cdot\><bnr><rsub|L,i>|)><around|(|<vxi><rsub|i><rsup|L>|)>*g<rsub|L><around|(|\<xi\><rsub|p<rsub|i>>|)>>>>>><label|eq:parabolic.cts.time.avg.flux>
   </equation>
 
   Substituting <math|<tF><rsub|e>> in<nbsp><eqref|eq:parabolic.lw.update>,
   the explicit LWFR update is
 
   <\equation>
-    <tabular|<tformat|<table|<row|<cell|<uebp><rsup|n+1>=<uebp><rsup|n>-<frac|\<Delta\>t|J<rsub|e,<bp>>>*\<nabla\><rsub|<vxi>>\<cdot\><tF><rsup|\<delta\>><rsub|e><around|(|<vxi><rsub|<bp>>|)>>|<cell|-<frac|\<Delta\>t|J<rsub|e,<bp>>>*<big|sum><rsub|i=1><rsup|d><around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|i>|)><rsup|\<ast\>>-<tF><rsup|\<delta\>><rsub|e>\<cdot\><bnr><rsub|i>|)><around|(|<vxi><rsub|i><rsup|R>|)>*g<rsub|R><rprime|'><around|(|\<xi\><rsub|p<rsub|i>>|)>>>|<row|<cell|>|<cell|-<frac|\<Delta\>t|J<rsub|e,<bp>>>*<big|sum><rsub|i=1><rsup|d><around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|i>|)><rsup|\<ast\>>-<tF><rsup|\<delta\>><rsub|e>\<cdot\><bnr><rsub|i>|)><around|(|<vxi><rsub|i><rsup|L>|)>*g<rsub|L><rprime|'><around|(|\<xi\><rsub|p<rsub|i>>|)>>>>>><label|eq:parabolic.lwfr.update.curvilinear>
+    <tabular|<tformat|<table|<row|<cell|<uebp><rsup|n+1>=<uebp><rsup|n>-<frac|\<Delta\>t|J<rsub|e,<bp>>>*\<nabla\><rsub|<vxi>>\<cdot\><tF><rsup|\<delta\>><rsub|e><around|(|<vxi><rsub|<bp>>|)>>|<cell|-<frac|\<Delta\>t|J<rsub|e,<bp>>>*<big|sum><rsub|i=1><rsup|d><around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|R,i>|)><rsup|\<ast\>>-<tF><rsup|\<delta\>><rsub|e>\<cdot\><bnr><rsub|R,i>|)><around|(|<vxi><rsub|i><rsup|R>|)>*g<rsub|R><rprime|'><around|(|\<xi\><rsub|p<rsub|i>>|)>>>|<row|<cell|>|<cell|+<frac|\<Delta\>t|J<rsub|e,<bp>>>*<big|sum><rsub|i=1><rsup|d><around|(|<around|(|<tF><rsub|e>\<cdot\><bnr><rsub|L,i>|)><rsup|\<ast\>>-<tF><rsup|\<delta\>><rsub|e>\<cdot\><bnr><rsub|L,i>|)><around|(|<vxi><rsub|i><rsup|L>|)>*g<rsub|L><rprime|'><around|(|\<xi\><rsub|p<rsub|i>>|)>>>>>><label|eq:parabolic.lwfr.update.curvilinear>
   </equation>
 
   <subsubsection|Approximate Lax-Wendroff procedure><label|sec:alwp>
@@ -309,8 +309,8 @@
   <subsection|Free stream preservation>
 
   Assume a constant solution <math|<uu><rsup|n>=<bc>>. The correction terms
-  in<nbsp><eqref|eq:parabolic.u.corrected> will be zero since constant
-  implies continuous at interfaces and thus
+  in<nbsp><eqref|eq:parabolic.u.corrected> will be zero since a globally
+  constant solution will be continuous across element interfaces. Thus,
   <math|<uu><rsub|e>=<uu><rsub|e><rsup|\<delta\>>=<bc>>, proving that
   <math|<bq>=<bzero>> from<nbsp><eqref|eq:parabolic.q.defn>. Thus, we can now
   suppress dependence of <math|<bq>> on <math|<fv>> and, in particular, write
@@ -327,6 +327,161 @@
   Section<nbsp><reference|sec:curved.free.stream.lwfr>, the free stream will
   be preserved as long the metric identity<nbsp><eqref|eq:curved.metric.identity.contravariant>
   is satisfied for interpolated metric terms<nbsp><eqref|eq:curved.metric.identity.contravariant.inter>.
+
+  <section|Boundary conditions><label|sec:parabolic.bc>
+
+  In this section, we discuss the treatment of additional boundary conditions
+  required to solve second order equations<nbsp><eqref|eq:parabolic.parabolic.eqn>.
+  We explain the implementation for the 1-D scheme which is applied to higher
+  dimensions across normal direction. Consider a grid with elements
+  <math|<around*|{|\<Omega\><rsub|e>|}><rsub|e=1><rsup|M>> where
+  <math|\<Omega\><rsub|1>,\<Omega\><rsub|M>> are the left, right boundary
+  elements. In addition to the advective numerical
+  flux<nbsp><eqref|eq:parabolic.rusanov.flux.lw>, application of boundary
+  conditions is needed in the first step of BR1 scheme when
+  computing<nbsp><eqref|eq:parabolic.central.u> and when computing the
+  viscous central flux<nbsp><eqref|eq:viscous.central.flux>. These additional
+  boundary conditions are discussed in this section. We denote the
+  discontinuous numerical solution as <math|<uu><rsub|e><rsup|\<delta\>><around|(|\<xi\>|)>>
+  and the globally continuous approximation is given by
+
+  <\equation>
+    <uu><rsub|e><around|(|\<xi\>|)>=<uu><rsub|e><rsup|\<delta\>><around|(|\<xi\>|)>+<around|(|<uu><rsub|<value|eph>>-<uu><rsub|<value|eph>><rsup|->|)>*g<rsub|R><around|(|\<xi\>|)>+<around|(|<value|uu><rsub|<value|emh>>-<uu><rsub|<value|emh>><rsup|+>|)>*g<rsub|L><around|(|\<xi\>|)><label|eq:cts.u.1d>
+  </equation>
+
+  where <math|<value|uu><rsub|<value|eph>>> is the interface value given by
+
+  <\equation>
+    <uu><rsub|<value|eph>>=<value|half>*<around|(|<value|uu><rsub|<value|eph>><rsup|+>+<value|uu><rsub|<value|eph>><rsup|->|)><label|eq:ueph.parabolic>
+  </equation>
+
+  Similarly, the discontinuous viscous flux approximation is denoted as
+  <math|<value|F><rsup|v\<delta\>><rsub|e><around*|(|\<xi\>|)>> and its
+  globally continuous approximation is given by
+
+  <\equation>
+    <value|F><rsup|v><rsub|e><around|(|\<xi\>|)>=<value|F><rsup|v\<delta\>><rsub|e><around|(|\<xi\>|)>+<around|(|<value|F><rsup|v><rsub|<value|eph>>-<value|F><rsup|v-><rsub|<value|eph>>|)>*g<rsub|R><around|(|\<xi\>|)>+<around|(|<value|F><rsup|v><rsub|<value|emh>>-<value|F><rsup|v+><rsub|<value|eph>>|)>*g<rsub|L><around|(|\<xi\>|)><label|eq:cts.fv.1d>
+  </equation>
+
+  where <math|<Fv><rsub|<value|eph>>> is the interface value which we compute
+  as
+
+  <\equation>
+    <Fv><rsub|<value|eph>>=<frac|1|2>*<around|(|<value|F><rsub|<value|eph>><rsup|v+>+<value|F><rsub|<value|eph>><rsup|v->|)><label|eq:fvph.parabolic>
+  </equation>
+
+  With these notations, application of boundary conditions involves
+  specification of <math|<value|uu><rsub|<value|half>>,<value|uu><rsub|M+<value|half>>>
+  and <math|<Fv><rsub|<value|half>>,<value|F><rsub|M+<value|half>><rsup|v>>.
+  In some cases, the boundary conditions are enforced through the
+  <with|font-shape|italic|ghost values> which are
+  <math|<value|F><rsub|M+<value|half>><rsup|v+>,<value|uu><rsub|M+<frac|1|2>><rsup|+>>
+  for the right boundary and <math|<value|F><rsub|<value|half>><rsup|v->,<value|uu><rsub|<value|half>><rsup|->>
+  for the left boundary. After specification of the ghost
+  values,<nbsp>(<reference|eq:ueph.parabolic>,<nbsp><reference|eq:fvph.parabolic>)
+  can be used to compute the boundary values. In other cases, the boundary
+  values <math|<value|uu><rsub|<value|half>>,<value|uu><rsub|M+<value|half>>>
+  and <math|<Fv><rsub|<value|half>>,<value|F><rsub|M+<value|half>><rsup|v>>
+  are specified directly.
+
+  <paragraph|Periodic boundary.>In case of periodic boundaries, the ghost
+  values are specified as follows.
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|<value|F><rsub|M+<value|half>><rsup|v+>,<value|uu><rsub|M+<value|half>><rsup|+>>|<cell|=>|<cell|<value|F><rsub|<value|half>><rsup|v+>,<value|uu><rsub|<value|half>><rsup|+>>>|<row|<cell|<value|F><rsub|<value|half>><rsup|v->,<value|uu><rsub|<value|half>><rsup|->>|<cell|=>|<cell|<value|F><rsub|M+<value|half>><rsup|v->,<value|uu><rsub|M+<value|half>><rsup|->>>>>
+  </eqnarray*>
+
+  This enables us to compute<nbsp>(<reference|eq:cts.u.1d>,<nbsp><reference|eq:cts.fv.1d>)
+  at the boundary faces.
+
+  <paragraph|Dirichlet/Inflow boundary.>Assume that the left boundary is an
+  inflow boundary. Let the boundary condition be given by
+  <math|<value|uu><around|(|0,t|)>=<bg><around|(|t|)>>. The solution at the
+  boundary is given by
+
+  <\equation*>
+    <value|uu><rsub|<value|half>>=<with|font-series|bold|g><around*|(|t|)>
+  </equation*>
+
+  The viscous flux at boundary is computed as
+
+  <\equation*>
+    <value|F><rsub|<value|half>>\<approx\><frac|1|\<Delta\>t>*<big|int><rsub|t<rsub|n>><rsup|t<rsub|n+1>><fv><around|(|<bg><around|(|t|)>,<around*|(|\<nabla\><value|uu><rsub|1><around*|(|t<rsub|n>|)>|)><rsup|->|)>*<ud>t
+  </equation*>
+
+  If the integral cannot be computed analytically, then it is approximated by
+  quadrature in time. From<nbsp><eqref|eq:parabolic.time.averaged.flux>, we
+  see that integral must be at least accurate to
+  <math|O<around|(|\<Delta\>t<rsup|N+1>|)>> which is of the same order as the
+  neglected terms in<nbsp><eqref|eq:parabolic.time.averaged.flux>. In the
+  numerical tests, we use <math|<around|(|N+1|)>>-point Gauss-Legendre
+  quadrature which ensures the required accuracy.
+
+  <paragraph|Outflow boundary.>Assume that the right boundary is an outflow
+  boundary. In this case, the values across the right boundary are computed
+  using the interior solution and flux so that
+  <math|<value|uu><rsub|M+<value|half>>=<value|uu><rsub|M+<value|half>><rsup|->>
+  and <math|<Fv><rsub|M+<value|half>>=<value|F><rsub|M+<frac|1|2>><rsup|v->>
+  where <math|<value|F><rsup|v-><rsub|M+<frac|1|2>>> is obtained from the
+  Lax-Wendroff procedure.
+
+  The remaining boundary conditions used in this chapter are specific to the
+  Navier-Stokes equations<nbsp><eqref|eq:3dns> and are explained for 2-D. The
+  viscous flux is given by
+
+  <\equation*>
+    <fv>=<matrix|<tformat|<table|<row|<cell|0>>|<row|<cell|<with|font-series|bold|\<tau\>>>>|<row|<cell|<with|font-series|bold|\<tau\>>*<with|font-series|bold|v>-\<nabla\>*<bQ><rsub|>>>>>>,
+  </equation*>
+
+  We will assume that the respective boundary conditions are on left boundary
+  element with index <math|<with|font-series|bold|e>=<around*|(|1,e<rsub|y>|)>>
+  whose left face is given by <math|<with|font-series|bold|e><rsub|f>=<around|(|1/2,e<rsub|y>|)>>.
+
+  <paragraph|No-slip, adiabatic walls.>
+
+  At no-slip boundaries, tangential component of velocity vector <math|<bv>>
+  is set to be the speed of the wall, while the normal component is set to
+  zero. In case of the left face <math|<be><rsub|f>=<around*|(|1/2,e<rsub|y>|)>>,
+  the velocity is set to <math|<bv><rsub|<be><rsub|f>>=<around*|(|0,v<rsub|e<rsub|y>>|)>>.
+  Thus, the boundary value of solution is specified in primitive variables as
+
+  <\equation*>
+    <value|uu><rsub|<be><rsub|f>><rsup|prim>=<around|(|\<rho\><rsub|<be><rsub|f>><rsup|+>,<bv><rsub|<be><rsub|f>>,p<rsub|<be><rsub|f>><rsup|+>|)>
+  </equation*>
+
+  Adiabatic walls are those where the normal heat flux is zero and thus the
+  viscous flux is specified as
+
+  <\equation*>
+    <tabular*|<tformat|<cwith|2|2|3|3|cell-halign|l>|<table|<row|<cell|<around*|(|<value|F><rsup|v><rsub|<be><rsub|f>>\<cdot\><value|bn>|)>>|<cell|=>|<cell|<around|(|<around*|(|<value|F><rsup|v+><rsub|<be><rsub|f>>\<cdot\><value|bn>|)><rsup|1>,<around*|(|<value|F><rsup|v+><rsub|<be><rsub|f>>\<cdot\><value|bn>|)><rsup|2>,<around*|(|<value|F><rsup|v+><rsub|<be><rsub|f>>\<cdot\><value|bn>|)><rsup|3>,<around*|(|<with|font-series|bold|\<tau\>><rsub|<with|font-series|bold|e><rsub|f>><rsup|+>*<value|bn>|)>\<cdot\><bv><rsub|<with|font-series|bold|e><rsub|f>>|)>>>|<row|<cell|>|<cell|=>|<cell|<around|(|0,<around*|(|<value|F><rsup|v+><rsub|<be><rsub|f>>\<cdot\><value|bn>|)><rsup|2>,<around*|(|<value|F><rsup|v+><rsub|<be><rsub|f>>\<cdot\><value|bn>|)><rsup|3>,<around*|(|<with|font-series|bold|\<tau\>><rsub|<with|font-series|bold|e><rsub|f>><rsup|+>*<value|bn>|)>\<cdot\><bv><rsub|<with|font-series|bold|e><rsub|f>>|)>>>>>>
+  </equation*>
+
+  where <math|<value|bn>> is the normal vector at the face
+  <math|<be><rsub|f>>.
+
+  In numerical results, unless specified otherwise, the velocity in no-slip
+  walls is zero. We will refer to a wall as <with|font-shape|italic|moving
+  with speed <math|v>> if it is no-slip and the tangential component is
+  specified to have speed <math|v>.
+
+  <paragraph|No-slip, Isothermal walls.>
+
+  The velocity <math|<bv><rsub|<be><rsub|f>>> is treated the same as in the
+  case of no-slip, adiabatic walls. Additionally, in an isothermal wall, the
+  temperature <math|T<rsub|<be><rsub|f>>> is specified. The temperature is
+  enforced by setting the pressure to be <math|p<rsub|<be><rsub|f>>=\<rho\><rsub|<be><rsub|f>><rsup|+>*R*T<rsub|<be><rsub|f>>>.
+  The solution is thus specified at boundaries in terms of primitive
+  variables as
+
+  <\equation*>
+    <value|uu><rsub|<be><rsub|f>><rsup|prim>=<around|(|\<rho\><rsub|<be><rsub|f>><rsup|+>,<bv><rsub|<be><rsub|f>>,p<rsub|<be><rsub|f>>|)>
+  </equation*>
+
+  The viscous flux is specified using the inner values as follows.
+
+  <\equation*>
+    <around*|(|<value|F><rsup|v><rsub|<be><rsub|f>>\<cdot\><value|bn>|)>=<around*|(|<value|F><rsup|v+><rsub|<be><rsub|f>>\<cdot\><value|bn>|)>
+  </equation*>
 
   <section|Numerical results><label|sec:results>
 
@@ -354,12 +509,12 @@
 
   <subsection|Convergence test>
 
-  Consider the scalar advection diffusion equation
+  Consider the scalar advection-diffusion equation
   <math|u<rsub|t>+<ba>\<cdot\>\<nabla\>*u=\<nu\>*\<Delta\>*u> where
   <math|<ba>=<around|(|1.5,1|)>>. For the initial condition
   <math|u<rsub|0><around|(|x,y|)>=1+0.5*sin
   <around|(|\<pi\>*<around|(|x+y|)>|)>> on <math|<around|[|-1,1|]><rsup|2>>
-  with periodic boundary conditions, the exact solution is given by\ 
+  with periodic boundary conditions, the exact solution is given by
 
   <\equation*>
     <math|u<around|(|x,y|)>=1+0.5*e<rsup|-2*\<nu\>*\<pi\><rsup|2>*t>*sin
@@ -385,7 +540,12 @@
   Figure<nbsp><reference|fig:erik>. The convergence results are shown in
   Figure<nbsp><reference|fig:convergence.analysis.nse>a where degree
   <math|N=2,4> show optimal rates while degree <math|N=3> nears 3.54 order
-  accuracy.
+  accuracy. The suboptimal accuracy for this test using <math|N=3> is also
+  seen for Runge-Kutta FR/DG solvers of <verbatim|Trixi.jl>. The phenomenon
+  is similar to the nonlinear Burgers' convergence test
+  (Section<nbsp><reference|sec:burger.test>) where suboptimal convergence
+  rates were seen for odd degrees, especially when Gauss-Legendre-Lobatto
+  points were used.
 
   <big-figure|<center|<wide-tabular|<tformat|<cwith|2|2|2|2|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<cwith|3|3|1|1|cell-halign|c>|<cwith|3|3|2|2|cell-halign|c>|<cwith|1|1|1|1|cell-row-span|1>|<cwith|1|1|1|1|cell-col-span|2>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<\cell>
     <image|figures/parabolic/convergence/non_periodic_scalar/colour_bar.pdf|0.6par|||>
@@ -463,19 +623,19 @@
 
   where <math|M<rsub|\<infty\>>=0.1>. The top boundary is moving with a
   velocity of <math|<around|(|1,0|)>> and the other three have no-slip
-  boundary conditions. All boundaries are isothermal. The problem has a
-  Reynolds number of 1000 corresponding to the top moving wall. The laminar
-  solution of the problem is steady, with Mach number 0.1 corresponding to
-  the moving lid. We compare the solution with the numerical data of Ghia et
-  al.<nbsp><cite|Ghia1982> by plotting the horizontal velocity profile along
-  the vertical line through the midpoint of the domain, and vertical velocity
-  profile along the horizontal line through the midpoint of the domain. The
-  <math|x>-velocity plot along with velocity vectors are shown in
-  Figure<nbsp><reference|fig:lid.cavity.soln>. The comparison is shown in
-  Figure<nbsp><reference|fig:cavity>, where a good agreement
-  with<nbsp><cite|Ghia1982> is seen.
+  boundary conditions. All boundaries are <correction|adiabatic>. The problem
+  has a Reynolds number of 1000 corresponding to the top moving wall. The
+  laminar solution of the problem is steady, with Mach number 0.1
+  corresponding to the moving lid. We compare the solution with the numerical
+  data of Ghia et al.<nbsp><cite|Ghia1982> by plotting the horizontal
+  velocity profile along the vertical line through the midpoint of the
+  domain, and vertical velocity profile along the horizontal line through the
+  midpoint of the domain. The <math|x>-velocity plot along with velocity
+  vectors are shown in Figure<nbsp><reference|fig:lid.cavity.soln>. The
+  comparison is shown in Figure<nbsp><reference|fig:cavity>, where a good
+  agreement with<nbsp><cite|Ghia1982> is seen.
 
-  <big-figure|<image|figures/parabolic/lid_driven_cavity/lid_driven_cavity.pdf|0.44par|||><label|fig:lid.cavity.soln>|Lid
+  <big-figure|<image|figures/parabolic/lid_driven_cavity/lid_driven_cavity.pdf|0.417par|||><label|fig:lid.cavity.soln>|Lid
   driven cavity, <math|x>-velocity pseudocolor plot and velocity vectors.>
 
   <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/parabolic/lid_driven_cavity/x_vs_vy.pdf|0.43par|||>>|<cell|<image|figures/parabolic/lid_driven_cavity/y_vs_vx.pdf|0.43par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:cavity>|<caption-detailed|Velocity
@@ -485,8 +645,14 @@
 
   <subsection|Transonic flow past NACA-0012 airfoil><label|sec:swanson>
 
-  The following additional quantities are considered for validation of the
-  scheme:
+  This test case involves a steady flow past a symmetric NACA-0012 airfoil.
+  We choose the free stream density and pressure as
+  <math|\<rho\><rsub|\<infty\>>=1,p<rsub|\<infty\>>=2.85> and Prandtl number
+  <math|Pr=0.72>, and simulate a flow corresponding to a Reynolds number 500,
+  free-stream Mach number of 0.8 and <math|10<rsup|\<circ\>>> angle of
+  attack. The free-stream velocity is set at
+  <math|<uu><rsub|\<infty\>>=<around|(|1.574,0.277|)>>. The following
+  additional quantities are considered for validation of the scheme:
 
   <\itemize>
     <item>Surface pressure coefficient <math|C<rsub|p>> and surface skin
@@ -514,18 +680,12 @@
   <math|\<Psi\><rsub|d>=<around*|(|cos \<alpha\>,sin
   \<alpha\>|)><rsup|\<bot\>>,\<Psi\><rsub|l>=<around*|(|-sin \<alpha\>,cos
   \<alpha\>|)><rsup|\<bot\>>>, with <math|\<alpha\>> being the angle of
-  attack.\ 
+  attack.
 
-  This test case involves a steady flow past a symmetric NACA-0012 airfoil.
-  We choose the free stream density and pressure as
-  <math|\<rho\><rsub|\<infty\>>=1,p<rsub|\<infty\>>=2.85> and Prandtl number
-  <math|Pr=0.72>, and simulate a flow corresponding to a Reynolds number 500,
-  free-stream Mach number of 0.8 and <math|10<rsup|\<circ\>>> angle of
-  attack. The free-stream velocity is set at
-  <math|<uu><rsub|\<infty\>>=<around|(|1.574,0.277|)>>. The simulation is
-  performed with 728 elements and polynomial degree <math|N=4>. The mesh and
-  Mach number contour plot are shown in Figure<nbsp><reference|fig:swanson.mesh.mach>.
-  In Figure<nbsp><reference|fig:cp.cf.swanson>, coefficient of pressure
+  The simulation is performed with 728 elements and polynomial degree
+  <math|N=4>. The mesh and Mach number contour plot are shown in
+  Figure<nbsp><reference|fig:swanson.mesh.mach>. In
+  Figure<nbsp><reference|fig:cp.cf.swanson>, coefficient of pressure
   <math|C<rsub|p>> and coefficient of friction <math|C<rsub|f>> over the
   airfoil surface are compared with<nbsp><cite|Swanson_Langer_2016>, showing
   good agreement for <math|C<rsub|p>> and same for <math|C<rsub|f>>
@@ -557,30 +717,33 @@
   This test involves a laminar, unsteady flow past a cylinder inside a
   channel<nbsp><cite|Schafer1996>. On the left, the inflow boundary condition
   is imposed with <math|p=\<theta\>=160.7143>,
-  <math|v<rsub|1>=4*v<rsub|m>*y*<around|(|H-y|)>/H<rsup|2>> and
-  <math|v<rsub|2>=0>, where <math|v<rsub|m>=1.5>m/s is the maximum velocity
-  and the Mach number corresponding to <math|v<rsub|m>> is <math|0.1>,
-  <math|H=0.41<text|m>>. The <math|v<rsub|1>> velocity has a quadratic
-  profile in <math|y> and is symmetric for <math|y\<in\><around*|[|0,H|]>>.
-  The cylinder is placed so that its center is at
-  <math|<around*|(|H/2,H/2|)>-<around*|(|0.005,0.005|)>> so that it is
-  slightly offset in <math|y> from the center of the channel to destabilize
-  the otherwise steady symmetric flow (Figure<nbsp><reference|fig:karman.vorticity>a).
-  Isothermal no-slip boundary conditions are imposed on the cylinder surface,
-  and the top and bottom boundaries. The Reynolds number of the flow
-  corresponding to the mean velocity is 100, so that the viscosity
-  coefficient is <math|\<nu\>=10<rsup|-3>>.
+  <math|v<rsub|1>=4*v<rsub|m>*y*<around|(|H-y|)>/H<rsup|2>> where
+  <math|H=0.41<text|m>> and <math|v<rsub|m>=1.5>m/s is the maximum velocity,
+  and <math|v<rsub|2>=0>. The Mach number corresponding to <math|v<rsub|m>>
+  is <math|0.1>. The <math|v<rsub|1>> velocity has a quadratic profile in
+  <math|y> and is symmetric for <math|y\<in\><around*|[|0,H|]>>. The cylinder
+  is placed so that its center is at <math|<around*|(|H/2,H/2|)>-<around*|(|0.005,0.005|)>>
+  so that it is slightly offset in <math|y> from the center of the channel to
+  destabilize the otherwise steady symmetric flow
+  (Figure<nbsp><reference|fig:domain.von.karman>).
 
-  The simulation is performed on a mesh with 5692 elements and polynomial
-  degree <math|N=4> so that <math|\<Delta\>x\<approx\>0.01>. After some time,
-  a Von Karman vortex street appears with a periodic shedding of eddies from
-  alternate sides of the cylinder. This is typical for slow flows past a
-  slender body. The vorticity profile is shown in
-  Figure<nbsp><reference|fig:karman.vorticity>b, which clearly depicts the
-  periodic vortex shedding. The periodic behavior can also be observed in
-  Figure<nbsp><reference|fig:karman.forces> where the evolution of the
-  coefficient of total lift <math|c<rsub|l>=c<rsub|l\<nocomma\>p>+c<rsub|l\<nocomma\>f>>
-  and the coefficient of total drag <math|c<rsub|d>=c<rsub|d\<nocomma\>p>+c<rsub|d\<nocomma\>f>>
+  <big-figure|<image|illustrations/channel.pdf|0.85par|||><label|fig:domain.von.karman>|Physical
+  domain used in Von Karman street.>
+
+  Isothermal, no-slip boundary conditions are imposed on the cylinder
+  surface, and the top and bottom boundaries. The viscosity coefficient is
+  <math|\<nu\>=10<rsup|-3>> so that Reynolds number of the flow corresponding
+  to the mean velocity is 100. The simulation is performed on a mesh with
+  5692 elements and polynomial degree <math|N=4> so that
+  <math|\<Delta\>x\<approx\>0.01>. After some time, a Von Karman vortex
+  street appears with a periodic shedding of eddies from alternate sides of
+  the cylinder. This is typical for slow flows past a slender body. The
+  vorticity profile is shown in Figure<nbsp><reference|fig:karman.vorticity>,
+  which clearly depicts the periodic vortex shedding. The periodic behavior
+  can also be observed in Figure<nbsp><reference|fig:karman.forces> where the
+  evolution of the coefficient of total lift
+  <math|c<rsub|l>=c<rsub|l\<nocomma\>p>+c<rsub|l\<nocomma\>f>> and the
+  coefficient of total drag <math|c<rsub|d>=c<rsub|d\<nocomma\>p>+c<rsub|d\<nocomma\>f>>
   on the surface of cylinder is shown. The time period of the
   <math|c<rsub|l>> profile is <math|\<tau\>\<approx\>0.33759> so that the
   Strouhal number is <math|St=\<cal-F\>*\<cal-D\>/<wide|u|\<bar\>>=\<cal-D\>/<around|(|\<tau\>*<wide|u|\<bar\>>|)>=0.29621>
@@ -590,11 +753,10 @@
   <math|c<rsub|l>> are not in the reference range but are close, as shown in
   Table<nbsp><reference|tab:max.cl.max.cp>.
 
-  <big-figure|<with|par-mode|center|<tabular|<tformat|<cwith|4|4|1|1|cell-halign|c>|<cwith|2|2|1|1|cell-halign|c>|<table|<row|<cell|<image|illustrations/channel.pdf|0.91par|||>>>|<row|<cell|(a)>>|<row|<cell|<image|figures/parabolic/von_karman/vorticity.png|0.9par|||>>>|<row|<cell|(b)>>>>><label|fig:karman.vorticity>>|<caption-detailed|Von
-  Karman street (a) Physical domain, (b) Vorticity plot|Vorticity profile of
-  Von Karman vortex street.>>
+  <big-figure|<with|par-mode|center|<tabular|<tformat|<table|<row|<cell|<image|figures/parabolic/von_karman/vorticity.png|0.87par|||>>>>>><label|fig:karman.vorticity>>|<caption-detailed|Vorticity
+  plot of Von Karman street|Vorticity profile of Von Karman vortex street.>>
 
-  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/parabolic/von_karman/cl.pdf|0.45par|||>>|<cell|<image|figures/parabolic/von_karman/cd.pdf|0.45par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:karman.forces>|<caption-detailed|Flow
+  <big-figure|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/parabolic/von_karman/cl.pdf|0.44par|||>>|<cell|<image|figures/parabolic/von_karman/cd.pdf|0.44par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:karman.forces>|<caption-detailed|Flow
   over cylinder. (a) Coefficient of lift <math|c<rsub|l>> (b) Coefficient of
   drag <math|c<rsub|d>>.|<math|c<rsub|l>,c<rsub|d>> for Von Karman vortex
   street.>>
@@ -605,10 +767,10 @@
   of quantities of interest for flow past
   cylinder|<math|c<rsub|l>,c<rsub|d>,St> for Von Karman vortex street.>>
 
-  <section|Summary and Conclusion><label|sec:conclusion>
+  <section|Summary><label|sec:conclusion>
 
   The Lax-Wendroff Flux Reconstruction (LWFR) scheme has been extended to
-  parabolic equations along with its capability of handing curved meshes and
+  parabolic equations along with its capability of handling curved meshes and
   error based time stepping proposed in Chapter<nbsp><reference|ch:curved.meshes>.
   The scheme has been numerically validated by performing convergence and
   other validation tests on the compressible Navier Stokes equations.
@@ -620,7 +782,7 @@
     <associate|font-base-size|12>
     <associate|page-even|1in>
     <associate|page-even-shift|0mm>
-    <associate|page-first|209>
+    <associate|page-first|193>
     <associate|page-medium|paper>
     <associate|page-odd|1in>
     <associate|page-odd-shift|auto>
@@ -636,73 +798,82 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|9|209>>
-    <associate|auto-10|<tuple|9.4.1|213>>
-    <associate|auto-11|<tuple|9.1|214>>
-    <associate|auto-12|<tuple|9.2|214>>
-    <associate|auto-13|<tuple|9.3|215>>
-    <associate|auto-14|<tuple|9.4|215>>
-    <associate|auto-15|<tuple|9.4.2|215>>
-    <associate|auto-16|<tuple|9.5|216>>
-    <associate|auto-17|<tuple|9.6|216>>
-    <associate|auto-18|<tuple|9.4.3|216>>
-    <associate|auto-19|<tuple|9.7|217>>
-    <associate|auto-2|<tuple|9.1|209>>
-    <associate|auto-20|<tuple|9.8|218>>
-    <associate|auto-21|<tuple|9.1|218>>
-    <associate|auto-22|<tuple|9.4.4|218>>
-    <associate|auto-23|<tuple|9.9|219>>
-    <associate|auto-24|<tuple|9.10|219>>
-    <associate|auto-25|<tuple|9.2|219>>
-    <associate|auto-26|<tuple|9.5|220>>
-    <associate|auto-3|<tuple|9.2|209>>
-    <associate|auto-4|<tuple|9.3|210>>
-    <associate|auto-5|<tuple|9.3.1|210>>
-    <associate|auto-6|<tuple|9.3.2|211>>
-    <associate|auto-7|<tuple|9.3.2.1|212>>
-    <associate|auto-8|<tuple|9.3.3|212>>
-    <associate|auto-9|<tuple|9.4|213>>
-    <associate|ch:parabolic|<tuple|9|209>>
-    <associate|eq:erik.ic|<tuple|9.20|213>>
-    <associate|eq:nse.manu|<tuple|9.21|214>>
-    <associate|eq:parabolic.central.u|<tuple|9.10|211>>
-    <associate|eq:parabolic.cts.time.avg.flux|<tuple|9.15|212>>
-    <associate|eq:parabolic.flux.poly.defn|<tuple|9.19|212>>
-    <associate|eq:parabolic.ft.defn|<tuple|9.17|212>>
-    <associate|eq:parabolic.grad.transform|<tuple|9.6|210>>
-    <associate|eq:parabolic.lw.update|<tuple|9.12|211>>
-    <associate|eq:parabolic.lwfr.update.curvilinear|<tuple|9.16|212>>
-    <associate|eq:parabolic.matrix.operator.notation|<tuple|9.3|209>>
-    <associate|eq:parabolic.parabolic.eqn|<tuple|9.1|209>>
-    <associate|eq:parabolic.parabolic.in.first.order|<tuple|9.4|209>>
-    <associate|eq:parabolic.q.defn|<tuple|9.11|211>>
-    <associate|eq:parabolic.rusanov.flux.lw|<tuple|9.14|211>>
-    <associate|eq:parabolic.time.averaged.flux|<tuple|9.13|211>>
-    <associate|eq:parabolic.transformed.fo|<tuple|9.7|210>>
-    <associate|eq:parabolic.u.corrected|<tuple|9.9|211>>
-    <associate|eq:parabolic.ut.defn|<tuple|9.18|212>>
-    <associate|eq:parabolic.vector.vector|<tuple|9.2|209>>
-    <associate|fig:cavity|<tuple|9.6|216>>
-    <associate|fig:convergence.analysis|<tuple|9.3|215>>
-    <associate|fig:convergence.analysis.nse|<tuple|9.4|215>>
-    <associate|fig:cp.cf.swanson|<tuple|9.8|218>>
-    <associate|fig:erik|<tuple|9.1|214>>
-    <associate|fig:karman.forces|<tuple|9.10|219>>
-    <associate|fig:karman.vorticity|<tuple|9.9|219>>
-    <associate|fig:lid.cavity.soln|<tuple|9.5|216>>
-    <associate|fig:nse.manu|<tuple|9.2|214>>
-    <associate|fig:swanson.mesh.mach|<tuple|9.7|217>>
-    <associate|footnote-9.1|<tuple|9.1|210>>
-    <associate|footnr-9.1|<tuple|9.1|210>>
-    <associate|sec:alwp|<tuple|9.3.2.1|212>>
-    <associate|sec:conclusion|<tuple|9.5|220>>
-    <associate|sec:lwfr.2nd.order|<tuple|9.3|210>>
-    <associate|sec:results|<tuple|9.4|213>>
-    <associate|sec:swanson|<tuple|9.4.3|216>>
-    <associate|sec:transformations.parabolic|<tuple|9.2|209>>
-    <associate|sec:von.karman|<tuple|9.4.4|218>>
-    <associate|tab:max.cl.max.cp|<tuple|9.2|219>>
-    <associate|tab:swanson.forces|<tuple|9.1|218>>
+    <associate|auto-1|<tuple|9|193>>
+    <associate|auto-10|<tuple|9.5|199>>
+    <associate|auto-11|<tuple|9.5.1|199>>
+    <associate|auto-12|<tuple|9.1|200>>
+    <associate|auto-13|<tuple|9.2|200>>
+    <associate|auto-14|<tuple|9.3|201>>
+    <associate|auto-15|<tuple|9.4|201>>
+    <associate|auto-16|<tuple|9.5.2|201>>
+    <associate|auto-17|<tuple|9.5|202>>
+    <associate|auto-18|<tuple|9.6|202>>
+    <associate|auto-19|<tuple|9.5.3|202>>
+    <associate|auto-2|<tuple|9.1|193>>
+    <associate|auto-20|<tuple|9.7|203>>
+    <associate|auto-21|<tuple|9.8|204>>
+    <associate|auto-22|<tuple|9.1|204>>
+    <associate|auto-23|<tuple|9.5.4|204>>
+    <associate|auto-24|<tuple|9.9|204>>
+    <associate|auto-25|<tuple|9.10|205>>
+    <associate|auto-26|<tuple|9.11|205>>
+    <associate|auto-27|<tuple|9.2|205>>
+    <associate|auto-28|<tuple|9.6|205>>
+    <associate|auto-3|<tuple|9.2|193>>
+    <associate|auto-4|<tuple|9.3|194>>
+    <associate|auto-5|<tuple|9.3.1|194>>
+    <associate|auto-6|<tuple|9.3.2|195>>
+    <associate|auto-7|<tuple|9.3.2.1|196>>
+    <associate|auto-8|<tuple|9.3.3|196>>
+    <associate|auto-9|<tuple|9.4|197>>
+    <associate|ch:parabolic|<tuple|9|193>>
+    <associate|eq:cts.fv.1d|<tuple|9.23|197>>
+    <associate|eq:cts.u.1d|<tuple|9.21|197>>
+    <associate|eq:erik.ic|<tuple|9.25|199>>
+    <associate|eq:fvph.parabolic|<tuple|9.24|197>>
+    <associate|eq:nse.manu|<tuple|9.26|200>>
+    <associate|eq:parabolic.central.u|<tuple|9.10|195>>
+    <associate|eq:parabolic.cts.time.avg.flux|<tuple|9.16|196>>
+    <associate|eq:parabolic.flux.poly.defn|<tuple|9.20|196>>
+    <associate|eq:parabolic.ft.defn|<tuple|9.18|196>>
+    <associate|eq:parabolic.grad.transform|<tuple|9.6|194>>
+    <associate|eq:parabolic.lw.update|<tuple|9.12|195>>
+    <associate|eq:parabolic.lwfr.update.curvilinear|<tuple|9.17|196>>
+    <associate|eq:parabolic.matrix.operator.notation|<tuple|9.3|193>>
+    <associate|eq:parabolic.parabolic.eqn|<tuple|9.1|193>>
+    <associate|eq:parabolic.parabolic.in.first.order|<tuple|9.4|193>>
+    <associate|eq:parabolic.q.defn|<tuple|9.11|195>>
+    <associate|eq:parabolic.rusanov.flux.lw|<tuple|9.13|195>>
+    <associate|eq:parabolic.time.averaged.flux|<tuple|9.13|195>>
+    <associate|eq:parabolic.transformed.fo|<tuple|9.7|194>>
+    <associate|eq:parabolic.u.corrected|<tuple|9.9|195>>
+    <associate|eq:parabolic.ut.defn|<tuple|9.19|196>>
+    <associate|eq:parabolic.vector.vector|<tuple|9.2|193>>
+    <associate|eq:ueph.parabolic|<tuple|9.22|197>>
+    <associate|eq:viscous.central.flux|<tuple|9.14|195>>
+    <associate|fig:cavity|<tuple|9.6|202>>
+    <associate|fig:convergence.analysis|<tuple|9.3|201>>
+    <associate|fig:convergence.analysis.nse|<tuple|9.4|201>>
+    <associate|fig:cp.cf.swanson|<tuple|9.8|204>>
+    <associate|fig:domain.von.karman|<tuple|9.9|204>>
+    <associate|fig:erik|<tuple|9.1|200>>
+    <associate|fig:karman.forces|<tuple|9.11|205>>
+    <associate|fig:karman.vorticity|<tuple|9.10|205>>
+    <associate|fig:lid.cavity.soln|<tuple|9.5|202>>
+    <associate|fig:nse.manu|<tuple|9.2|200>>
+    <associate|fig:swanson.mesh.mach|<tuple|9.7|203>>
+    <associate|footnote-9.1|<tuple|9.1|194>>
+    <associate|footnr-9.1|<tuple|9.1|194>>
+    <associate|sec:alwp|<tuple|9.3.2.1|196>>
+    <associate|sec:conclusion|<tuple|9.6|205>>
+    <associate|sec:lwfr.2nd.order|<tuple|9.3|194>>
+    <associate|sec:parabolic.bc|<tuple|9.4|197>>
+    <associate|sec:results|<tuple|9.5|199>>
+    <associate|sec:swanson|<tuple|9.5.3|202>>
+    <associate|sec:transformations.parabolic|<tuple|9.2|193>>
+    <associate|sec:von.karman|<tuple|9.5.4|204>>
+    <associate|tab:max.cl.max.cp|<tuple|9.2|205>>
+    <associate|tab:swanson.forces|<tuple|9.1|204>>
   </collection>
 </references>
 
@@ -760,56 +931,59 @@
     <\associate|figure>
       <tuple|normal|<surround|<hidden-binding|<tuple>|9.1>||Errikson-Johnson
       test (a) Initial condition (b) Numerical solution at
-      <with|mode|<quote|math>|t=1>>|<pageref|auto-11>>
+      <with|mode|<quote|math>|t=1>>|<pageref|auto-12>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.2>|>
         Navier-Stokes equations with manufactured exact solution.
-      </surround>|<pageref|auto-12>>
+      </surround>|<pageref|auto-13>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.3>|>
         Convergence analysis for scalar advection-diffusion equation.
-      </surround>|<pageref|auto-13>>
+      </surround>|<pageref|auto-14>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.4>|>
         Convergence analysis for non-periodic advection-diffusion.
-      </surround>|<pageref|auto-14>>
+      </surround>|<pageref|auto-15>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|9.5>||Lid driven
       cavity, <with|mode|<quote|math>|x>-velocity pseudocolor plot and
-      velocity vectors.>|<pageref|auto-16>>
+      velocity vectors.>|<pageref|auto-17>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.6>|>
         Velocity profiles of lid driven cavity test.
-      </surround>|<pageref|auto-17>>
+      </surround>|<pageref|auto-18>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.7>|>
         Mach number plot for transonic flow over an airfoil.
-      </surround>|<pageref|auto-19>>
+      </surround>|<pageref|auto-20>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.8>|>
         <with|mode|<quote|math>|C<rsub|p>,C<rsub|f>> for transonic flow over
         airfoil.
-      </surround>|<pageref|auto-20>>
+      </surround>|<pageref|auto-21>>
 
-      <tuple|normal|<\surround|<hidden-binding|<tuple>|9.9>|>
-        Vorticity profile of Von Karman vortex street.
-      </surround>|<pageref|auto-23>>
+      <tuple|normal|<surround|<hidden-binding|<tuple>|9.9>||Physical domain
+      used in Von Karman street.>|<pageref|auto-24>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.10>|>
+        Vorticity profile of Von Karman vortex street.
+      </surround>|<pageref|auto-25>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|9.11>|>
         <with|mode|<quote|math>|c<rsub|l>,c<rsub|d>> for Von Karman vortex
         street.
-      </surround>|<pageref|auto-24>>
+      </surround>|<pageref|auto-26>>
     </associate>
     <\associate|table>
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.1>|>
         Transonic flow over an airfoil compared with data from Swanson,
         Langer (2016).
-      </surround>|<pageref|auto-21>>
+      </surround>|<pageref|auto-22>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.2>|>
         <with|mode|<quote|math>|c<rsub|l>,c<rsub|d>,St> for Von Karman vortex
         street.
-      </surround>|<pageref|auto-25>>
+      </surround>|<pageref|auto-27>>
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|9.<space|2spc>Parabolic
@@ -843,28 +1017,31 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8>>
 
-      9.4.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      9.4.<space|2spc>Boundary conditions
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9>
 
-      <with|par-left|<quote|1tab>|9.4.1.<space|2spc>Convergence test
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>>
+      9.5.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10>
 
-      <with|par-left|<quote|1tab>|9.4.2.<space|2spc>Lid driven cavity
+      <with|par-left|<quote|1tab>|9.5.1.<space|2spc>Convergence test
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15>>
+      <no-break><pageref|auto-11>>
 
-      <with|par-left|<quote|1tab>|9.4.3.<space|2spc>Transonic flow past
+      <with|par-left|<quote|1tab>|9.5.2.<space|2spc>Lid driven cavity
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-16>>
+
+      <with|par-left|<quote|1tab>|9.5.3.<space|2spc>Transonic flow past
       NACA-0012 airfoil <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-18>>
+      <no-break><pageref|auto-19>>
 
-      <with|par-left|<quote|1tab>|9.4.4.<space|2spc>Flow past a cylinder
+      <with|par-left|<quote|1tab>|9.5.4.<space|2spc>Flow past a cylinder
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-22>>
+      <no-break><pageref|auto-23>>
 
-      9.5.<space|2spc>Summary and Conclusion
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-26>
+      9.6.<space|2spc>Summary <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-28>
     </associate>
   </collection>
 </auxiliary>

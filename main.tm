@@ -1,4 +1,4 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.4>
 
 <style|<tuple|tmbook|style_common|preview-ref>>
 
@@ -15,1416 +15,32 @@
     List of Figures? - General - GNU TeXmacs
     Forum|http://forum.texmacs.cn/t/how-to-add-figure-numbering-to-list-of-figures/1554/2>
 
-    <assign|list-fig|0>
-
-    <assign|glossary-1|<macro|left|right|Figure
-    <assign|list-fig|<plus|<value|list-fig>|1>><value|list-fig>.
-    <arg|left><glossary-dots><arg|right>>>
+    <assign|correction|<macro|1|<arg|1>>>
   </hide-preamble>
 
   <include|title_page.tm>
 
   \;
 
+  <blanc-page>
+
   <include|prelim_pages.tm>
-
-  <include|publications.tm>
-
-  <\list-of-figures|figure>
-    <glossary-1|<\surround|<hidden-binding|<tuple>|2.1>|>
-      Solution structure for the Riemann problem of a system of conservation
-      laws.
-    </surround>|<pageref|auto-17>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|2.2>|>
-      Characteristic lines for simple waves forming the solution to a Riemann
-      problem.
-    </surround>|<pageref|auto-18>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|3.1>|>
-      Piecewise solutions and flux polynomials
-    </surround>|<pageref|auto-23>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.1>|>
-      Error convergence for constant linear advection comparing Radau and
-      <with|mode|math|g<rsub|2>> correction.
-    </surround>|<pageref|auto-48>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.2>|>
-      Error convergence for constant linear advection comparing LWFR and RKFR
-    </surround>|<pageref|auto-49>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.3>|>
-      Error growth for constant linear advection equation.
-    </surround>|<pageref|auto-50>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.4>|>
-      <with|mode|math|L<rsub|2>> norm growth for constant linear advection
-      equation.
-    </surround>|<pageref|auto-51>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.5>|>
-      Convergence for constant linear advection with Dirichlet boundary
-      conditions
-    </surround>|<pageref|auto-52>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.6>|>
-      <with|mode|math|L<rsub|2>> norm growth for constant linear advection
-      with Dirichlet boundary conditions
-    </surround>|<pageref|auto-53>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.7>|>
-      Constant linear advection of a wave packet.
-    </surround>|<pageref|auto-54>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.8>|>
-      Error convergence for constant linear advection of a wave packet.
-    </surround>|<pageref|auto-55>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.9>|>
-      Constant linear advection of hat profile without limiter.
-    </surround>|<pageref|auto-57>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.10>|>
-      Constant linear advection of hat profile with TVB limiter.
-    </surround>|<pageref|auto-58>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.11>|>
-      Constant linear advection of hat profile using RK65 with TVB limiter.
-    </surround>|<pageref|auto-59>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.12>|>
-      Constant linear advection of a composite profile without limiter.
-    </surround>|<pageref|auto-60>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.13>|>
-      Constant linear advection of a composite profile with TVB limiter.
-    </surround>|<pageref|auto-61>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.14>|>
-      Error convergence for variable linear advection with
-      <with|mode|math|a(x) = x>.
-    </surround>|<pageref|auto-63>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.15>|>
-      Error convergence for variable linear advection with
-      <with|mode|math|a(x) = x<rsup|2>>.
-    </surround>|<pageref|auto-64>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.16>|>
-      Error growth for linear advection with wave speed <with|mode|math|a(x)
-      = x<rsup|2>>
-    </surround>|<pageref|auto-65>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.17>|>
-      Solution of 1-D Burger's equation.
-    </surround>|<pageref|auto-67>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.18>|>
-      Error convergence for 1-D Burger's equation.
-    </surround>|<pageref|auto-68>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.19>|>
-      Error convergence for 1-D Burger's equation comparing numerical fluxes.
-    </surround>|<pageref|auto-69>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.20>|>
-      Solution of Buckley-Leverett model.
-    </surround>|<pageref|auto-71>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.21>|>
-      Density error convergence for 1-D Euler's equation.
-    </surround>|<pageref|auto-74>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.22>|>
-      Numerical solutions of Sod's test case.
-    </surround>|<pageref|auto-76>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.23>|>
-      Numerical solutions of Lax's test case.
-    </surround>|<pageref|auto-78>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.24>|>
-      Numerical solutions of Shu-Osher problem.
-    </surround>|<pageref|auto-80>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.25>|>
-      Numerical solutions of blast wave.
-    </surround>|<pageref|auto-82>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.26>|>
-      Numerical solutions of Blast wave comparing different numerical fluxes.
-    </surround>|<pageref|auto-84>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.27>|>
-      Numerical solutions of 1-D Euler's equations with different numerical
-      fluxes
-    </surround>|<pageref|auto-85>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.28>|>
-      Numerical solutions of Shu-Osher problem comparing Radau and
-      <with|mode|math|g<rsub|2>> correction.
-    </surround>|<pageref|auto-87>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.29>|>
-      Solution and flux points on a 2-D FR element.
-    </surround>|<pageref|auto-88>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.30>|>
-      Stability region of 2-D LWFR with Radau correction and D2 dissipation.
-    </surround>|<pageref|auto-91>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.31>|>
-      Stability region of 2-D LWFR with the <with|mode|math|g<rsub|2>>
-      correction and D2 dissipation.
-    </surround>|<pageref|auto-92>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.32>|>
-      Error convergence test for 2-D linear advection equation with velocity
-      <with|mode|math|\<b-a\>=<around|(|1,1|)>>.
-    </surround>|<pageref|auto-96>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.33>|>
-      Linear advection with velocity <with|mode|math|\<b-a\>=<around|(|-y,x|)>>.
-    </surround>|<pageref|auto-98>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.34>|>
-      Error convergence test for 2-D linear advection equation with velocity
-      <with|mode|math|\<b-a\>=<around|(|-y,x|)>>.
-    </surround>|<pageref|auto-99>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.35>|>
-      Numerical solutions of composite signal with velocity
-      <with|mode|math|<with|font-series|bold|a>=<around*|(|<frac|1|2>-y,x-<frac|1|2>|)>>.
-    </surround>|<pageref|auto-100>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.36>|>
-      Line plot across the diagonal of the solution of 2-D Burger's equation.
-    </surround>|<pageref|auto-102>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.37>|>
-      Error convergence test for 2-D Burger's equation.
-    </surround>|<pageref|auto-103>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.38>|>
-      <with|mode|math|L<rsup|2>> error, WCT for isentropic vortex versus grid
-      resolution.
-    </surround>|<pageref|auto-106>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.39>|>
-      Wall Clock Time (WCT) versus <with|mode|math|L<rsup|2>> error for
-      isentropic vortex.
-    </surround>|<pageref|auto-107>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.40>|>
-      Wall Clock Time (WCT) ratios versus grid resolution for isentropic
-      vortex.
-    </surround>|<pageref|auto-108>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.41>|>
-      Density profile of numerical solutions of double Mach reflection
-      problem.
-    </surround>|<pageref|auto-110>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.42>|>
-      Enlarged density contours of density double Mach reflection problem.
-    </surround>|<pageref|auto-111>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.43>|>
-      Grid size versus WCT RK and LW for double Mach reflection problem.
-    </surround>|<pageref|auto-112>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.1>|>
-      Subcells used by lower order scheme for degree <with|mode|math|N=4>.
-    </surround>|<pageref|auto-119>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.2>|>
-      Logistic function used to map energy to a smoothness coefficient
-      <with|mode|math|\<alpha\>\<in\><around|[|0,1|]>>.
-    </surround>|<pageref|auto-121>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.3>|>
-      Comparing TVB and blending schemes on Shu-Osher test.
-    </surround>|<pageref|auto-130>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.4>|>
-      Comparing TVB and blending schemes on blast wave.
-    </surround>|<pageref|auto-132>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.5>|>
-      Sedov's blast wave problem
-    </surround>|<pageref|auto-134>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.6>|>
-      Double rarefaction problem with LW-MH.
-    </surround>|<pageref|auto-136>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.7>|>
-      Leblanc's test with LW-MH.
-    </surround>|<pageref|auto-137>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.8>|>
-      TVB and blending schemes compared on composite signal.
-    </surround>|<pageref|auto-139>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.9>|>
-      Isentropic convergence with blending limiter.
-    </surround>|<pageref|auto-142>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.10>|>
-      LW-MH on 2-D Riemann problem.
-    </surround>|<pageref|auto-144>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.11>|>
-      Blending coefficient <with|mode|math|\<alpha\>> for 2-D Riemann
-      problem.
-    </surround>|<pageref|auto-145>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.12>|>
-      2-D Riemann problem, percentage of elements with blending coefficient
-      <with|mode|math|\<alpha\>\<gtr\>0> vs <with|mode|math|t>.
-    </surround>|<pageref|auto-146>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.13>|>
-      Double Mach reflection with LW-MH.
-    </surround>|<pageref|auto-148>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.14>|>
-      Kelvin-Helmholtz instability with LW-MH.
-    </surround>|<pageref|auto-150>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.15>|>
-      Mach 2000 astrophysical jet with LW-MH.
-    </surround>|<pageref|auto-152>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.16>|>
-      Sedov's blast with periodic domain, reference solution.
-    </surround>|<pageref|auto-154>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.17>|>
-      Sedov's blast with periodic domain, LW-MH.
-    </surround>|<pageref|auto-155>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.18>|>
-      Shock diffraction test with LW-MH.
-    </surround>|<pageref|auto-157>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.19>|>
-      Forward facing step with LW-MH.
-    </surround>|<pageref|auto-159>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|5.20>|>
-      Forward facing step, percentage of elements with blending coefficient
-      <with|mode|math|\<alpha\>\<gtr\>0> vs <with|mode|math|t>.
-    </surround>|<pageref|auto-160>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.1>|>
-      Convergence of ten moment problem with sources.
-    </surround>|<pageref|auto-172>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.2>|>
-      Ten moment problem, Sod and two rarefaction tests.
-    </surround>|<pageref|auto-174>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.3>|>
-      Ten moment Shu-Osher problem.
-    </surround>|<pageref|auto-176>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.4>|>
-      Two rarefactions with source terms
-    </surround>|<pageref|auto-178>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.5>|>
-      Ten moment 2-D near vacuum test.
-    </surround>|<pageref|auto-180>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.6>|>
-      Uniform plasma with Gaussian source.
-    </surround>|<pageref|auto-182>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|6.7>|>
-      Ten moment, realistic simulation.
-    </surround>|<pageref|auto-184>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.1>|>
-      Convergence for constant advection, MDRK and RK.
-    </surround>|<pageref|auto-203>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.2>|>
-      Convergence for variable advection with
-      <with|mode|math|a<around*|(|x|)>=x<rsup|2>>, MDRK and RK.
-    </surround>|<pageref|auto-205>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.3>|>
-      1-D Burgers' equation, <with|font-series|bold|AE> and
-      <with|font-series|bold|EA> schemes, MDRK and RK.
-    </surround>|<pageref|auto-207>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.4>|>
-      MDRK D1 and D2 dissipation for 1-D Burgers' equation.
-    </surround>|<pageref|auto-208>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.5>|>
-      Blast wave, comparing TVB and blending schemes for MDRK.
-    </surround>|<pageref|auto-211>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.6>|>
-      Titarev-Toro problem, comparing blending schemes for MDRK.
-    </surround>|<pageref|auto-213>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.7>|>
-      High density problem, comparing blending schemes for MDRK.
-    </surround>|<pageref|auto-215>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.8>|>
-      Sedov's blast wave problem, comparing TVB and blending schemes for
-      MDRK.
-    </surround>|<pageref|auto-217>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.9>|>
-      Double Mach reflection problem, MDRK.
-    </surround>|<pageref|auto-220>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.10>|>
-      Rotational low density problem at critical speed.
-    </surround>|<pageref|auto-222>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.11>|>
-      Rotational low density problem at various speeds.
-    </surround>|<pageref|auto-223>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.12>|>
-      2-D Riemann problem, MDRK.
-    </surround>|<pageref|auto-225>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.13>|>
-      Rayleigh-Taylor instability.
-    </surround>|<pageref|auto-227>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.1>|>
-      Illustration of curvilinear reference map.
-    </surround>|<pageref|auto-234>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|8.2>||Subcells in a curved
-    FR element>|<pageref|auto-240>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.3>|>
-      AMR illustration(a) hanging nodes, (b) refinement & coarsening
-    </surround>|<pageref|auto-247>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.4>|>
-      AMR illustration (a) Prolongation, (b) Projection.
-    </surround>|<pageref|auto-252>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.5>|>
-      Mach 2000 astrophysical jet with adaptive time stepping.
-    </surround>|<pageref|auto-262>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.6>|>
-      Kelvin-Helmholtz instability, adaptive mesh and time stepping.
-    </surround>|<pageref|auto-264>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.7>|>
-      Double Mach reflection, adaptive mesh and time stepping.
-    </surround>|<pageref|auto-266>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.8>|>
-      Forward facing step, adaptive non-Cartesian mesh and adaptive time
-      stepping.
-    </surround>|<pageref|auto-268>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.9>|>
-      Free stream solutions.
-    </surround>|<pageref|auto-271>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.10>|>
-      Isentropic vortex on curvilinear mesh.
-    </surround>|<pageref|auto-273>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.11>|>
-      Supersonic flow over cylinder, adaptive mesh and time stepping.
-    </surround>|<pageref|auto-275>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.12>|>
-      Mach 4 flow over blunt body, adaptive mesh and time stepping.
-    </surround>|<pageref|auto-277>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.13>|>
-      Adaptively refined NACA0012 airfoil mesh.
-    </surround>|<pageref|auto-279>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|8.14>|>
-      Transonic flow over airfoil, adaptive mesh and time stepping.
-    </surround>|<pageref|auto-280>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|9.1>||Errikson-Johnson test
-    (a) Initial condition (b) Numerical solution at
-    <with|mode|math|t=1>>|<pageref|auto-294>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.2>|>
-      Navier-Stokes equations with manufactured exact solution.
-    </surround>|<pageref|auto-295>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.3>|>
-      Convergence analysis for scalar advection-diffusion equation.
-    </surround>|<pageref|auto-296>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.4>|>
-      Convergence analysis for non-periodic advection-diffusion.
-    </surround>|<pageref|auto-297>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|9.5>||Lid driven cavity,
-    <with|mode|math|x>-velocity pseudocolor plot and velocity
-    vectors.>|<pageref|auto-299>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.6>|>
-      Velocity profiles of lid driven cavity test.
-    </surround>|<pageref|auto-300>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.7>|>
-      Mach number plot for transonic flow over an airfoil.
-    </surround>|<pageref|auto-302>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.8>|>
-      <with|mode|math|C<rsub|p>,C<rsub|f>> for transonic flow over airfoil.
-    </surround>|<pageref|auto-303>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.9>|>
-      Vorticity profile of Von Karman vortex street.
-    </surround>|<pageref|auto-306>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.10>|>
-      <with|mode|math|c<rsub|l>,c<rsub|d>> for Von Karman vortex street.
-    </surround>|<pageref|auto-307>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|A.1>|>
-      Error growth of LW-D1, LW-D2 and ADER schemes.
-    </surround>|<pageref|auto-317>>
-
-    <glossary-1|<\surround|<hidden-binding|<tuple>|D.1>|>
-      Cache blocking flux differentiation.
-    </surround>|<pageref|auto-329>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|G.1>||Non-uniform,
-    non-cell-centered finite volume grid>|<pageref|auto-335>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|G.2>||Two non-interacting
-    Riemann problems>|<pageref|auto-338>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|G.3>||Finite volume
-    evolution>|<pageref|auto-339>>
-
-    <glossary-1|<surround|<hidden-binding|<tuple>|G.4>||Two non-interacting
-    Riemann problems>|<pageref|auto-340>>
-  </list-of-figures>
-
-  <assign|list-fig|0><assign|list-fig|0><assign|glossary-1|<macro|left|right|Table
-  <assign|list-fig|<plus|<value|list-fig>|1>><value|list-fig>.
-  <arg|left><glossary-dots><arg|right>>>
 
   \;
 
-  <\list-of-tables|table>
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.1>|>
-      CFL numbers for 1-D LWFR
-    </surround>|<pageref|auto-42>>
+  \;
 
-    <glossary-1|<\surround|<hidden-binding|<tuple>|4.2>|>
-      Two dimensional CFL numbers for LWFR scheme.
-    </surround>|<pageref|auto-93>>
+  <compound|chapter-clean>
 
-    <glossary-1|<\surround|<hidden-binding|<tuple>|7.1>|>
-      CFL numbers for MDRK scheme.
-    </surround>|<pageref|auto-198>>
+  \;
 
-    <glossary-1|<surround|<hidden-binding|<tuple>|8.1>||Number of time steps
-    comparing error and CFL based methods>|<pageref|auto-282>>
+  <include|tabe_of_contents.tm>
 
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.1>|>
-      Transonic flow over an airfoil compared with data from Swanson, Langer
-      (2016).
-    </surround>|<pageref|auto-304>>
+  \;
 
-    <glossary-1|<\surround|<hidden-binding|<tuple>|9.2>|>
-      <with|mode|math|c<rsub|l>,c<rsub|d>,St> for Von Karman vortex street.
-    </surround>|<pageref|auto-308>>
-  </list-of-tables>
+  \;
 
-  <\table-of-contents|toc>
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Acknowledgements>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-1><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|List
-    of publications> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-2><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|List
-    of figures> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-3><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|List
-    of tables> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-4><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Abstract>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-5><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|1.<space|2spc>Introduction>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-6><vspace|0.5fn>
-
-    1.1.<space|2spc>Lax-Wendroff <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-7>
-
-    1.2.<space|2spc>Flux Reconstruction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-8>
-
-    1.3.<space|2spc>Shock capturing and admissibility preservation of FR
-    schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-9>
-
-    1.4.<space|2spc>Contributions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-10>
-
-    1.5.<space|2spc>Outline <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-11>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|2.<space|2spc>Equations
-    of motion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-12><vspace|0.5fn>
-
-    2.1.<space|2spc>Hyperbolic conservation laws
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-13>
-
-    <with|par-left|1tab|2.1.1.<space|2spc>Weak formulation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-14>>
-
-    <with|par-left|1tab|2.1.2.<space|2spc>Entropy condition
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-15>>
-
-    <with|par-left|1tab|2.1.3.<space|2spc>The Riemann problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-16>>
-
-    2.2.<space|2spc>Compressible Euler's equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-19>
-
-    2.3.<space|2spc>Compressible Navier-Stokes equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-20>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|3.<space|2spc>Flux
-    Reconstruction> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-21><vspace|0.5fn>
-
-    3.1.<space|2spc>Conservation law <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-22>
-
-    3.2.<space|2spc>Finite volume method <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-24>
-
-    3.3.<space|2spc>Runge-Kutta DG <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-25>
-
-    3.4.<space|2spc>Runge-Kutta FR <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-26>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|4.<space|2spc>Lax-Wendroff
-    Flux Reconstruction> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-27><vspace|0.5fn>
-
-    4.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-28>
-
-    4.2.<space|2spc>Lax-Wendroff FR scheme
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-29>
-
-    <with|par-left|1tab|4.2.1.<space|2spc>Conservation property
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-30>>
-
-    <with|par-left|1tab|4.2.2.<space|2spc>Reconstruction of the time average
-    flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-31>>
-
-    <with|par-left|1tab|4.2.3.<space|2spc>Direct flux reconstruction (DFR)
-    scheme <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-32>>
-
-    <with|par-left|1tab|4.2.4.<space|2spc>Approximate Lax-Wendroff procedure
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-33>>
-
-    <with|par-left|2tab|4.2.4.1.<space|2spc>Second order scheme,
-    <with|mode|math|N=1> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-34>>
-
-    <with|par-left|2tab|4.2.4.2.<space|2spc>Third order scheme,
-    <with|mode|math|N=2> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-35>>
-
-    <with|par-left|2tab|4.2.4.3.<space|2spc>Fourth order scheme,
-    <with|mode|math|N=3> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-36>>
-
-    <with|par-left|2tab|4.2.4.4.<space|2spc>Fifth order scheme,
-    <with|mode|math|N=4> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-37>>
-
-    4.3.<space|2spc>Numerical flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-38>
-
-    <with|par-left|1tab|4.3.1.<space|2spc>Numerical flux \U average and
-    extrapolate to face (<with|font-series|bold|AE>)
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-39>>
-
-    <with|par-left|1tab|4.3.2.<space|2spc>Numerical flux \U extrapolate to
-    face and average (<with|font-series|bold|EA>)
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-40>>
-
-    4.4.<space|2spc>Fourier stability analysis in 1-D
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-41>
-
-    4.5.<space|2spc>Boundary conditions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-43>
-
-    4.6.<space|2spc>TVD limiter <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-44>
-
-    4.7.<space|2spc>Numerical results in 1-D: scalar problems
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-45>
-
-    <with|par-left|1tab|4.7.1.<space|2spc>Linear advection equation: constant
-    speed <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-46>>
-
-    <with|par-left|2tab|4.7.1.1.<space|2spc>Smooth solutions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-47>>
-
-    <with|par-left|2tab|4.7.1.2.<space|2spc>Non-smooth solutions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-56>>
-
-    <with|par-left|1tab|4.7.2.<space|2spc>Linear equation with variable
-    coefficient <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-62>>
-
-    <with|par-left|1tab|4.7.3.<space|2spc>Inviscid Burgers' equation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-66>>
-
-    <with|par-left|1tab|4.7.4.<space|2spc>Non-convex problem:
-    Buckley-Leverett equation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-70>>
-
-    4.8.<space|2spc>Numerical results in 1-D: Euler equations
-    \ <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-72>
-
-    <with|par-left|1tab|4.8.1.<space|2spc>Smooth solution
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-73>>
-
-    <with|par-left|1tab|4.8.2.<space|2spc>Sod's shock tube problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-75>>
-
-    <with|par-left|1tab|4.8.3.<space|2spc>Lax problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-77>>
-
-    <with|par-left|1tab|4.8.4.<space|2spc>Shu-Osher problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-79>>
-
-    <with|par-left|1tab|4.8.5.<space|2spc>Blast wave
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-81>>
-
-    <with|par-left|1tab|4.8.6.<space|2spc>Numerical fluxes: LF, Roe, HLL and
-    HLLC <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-83>>
-
-    <with|par-left|1tab|4.8.7.<space|2spc>Comparison of correction functions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-86>>
-
-    4.9.<space|2spc>Two dimensional scheme
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-89>
-
-    <with|par-left|1tab|4.9.1.<space|2spc>Fourier analysis in 2-D
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-90>>
-
-    4.10.<space|2spc>Numerical results in 2D: scalar problems
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-94>
-
-    <with|par-left|1tab|4.10.1.<space|2spc>Advection of a smooth signal
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-95>>
-
-    <with|par-left|1tab|4.10.2.<space|2spc>Rotation of a composite signal
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-97>>
-
-    <with|par-left|1tab|4.10.3.<space|2spc>Inviscid Burgers' equation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-101>>
-
-    4.11.<space|2spc>Numerical results in 2-D: Euler equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-104>
-
-    <with|par-left|1tab|4.11.1.<space|2spc>Isentropic vortex
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-105>>
-
-    <with|par-left|1tab|4.11.2.<space|2spc>Double Mach reflection
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-109>>
-
-    4.12.<space|2spc>Summary <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-113>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|5.<space|2spc>Admissibility
-    preserving subcell based blending limiter>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-114><vspace|0.5fn>
-
-    5.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-115>
-
-    5.2.<space|2spc>Admissibility preservation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-116>
-
-    5.3.<space|2spc>On controlling oscillations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-117>
-
-    <with|par-left|1tab|5.3.1.<space|2spc>Blending scheme
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-118>>
-
-    <with|par-left|1tab|5.3.2.<space|2spc>Smoothness indicator
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-120>>
-
-    <with|par-left|1tab|5.3.3.<space|2spc>First order blending
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-122>>
-
-    5.4.<space|2spc>Higher order blending
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-123>
-
-    <with|par-left|1tab|5.4.1.<space|2spc>Slope limiting in practice
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-124>>
-
-    5.5.<space|2spc>Flux limiter for admissibility preservation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-125>
-
-    5.6.<space|2spc>Some implementation details
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-126>
-
-    5.7.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-127>
-
-    <with|par-left|1tab|5.7.1.<space|2spc>1-D Euler equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-128>>
-
-    <with|par-left|2tab|5.7.1.1.<space|2spc>Shu-Osher problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-129>>
-
-    <with|par-left|2tab|5.7.1.2.<space|2spc>Blast wave
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-131>>
-
-    <with|par-left|2tab|5.7.1.3.<space|2spc>Sedov's blast wave
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-133>>
-
-    <with|par-left|2tab|5.7.1.4.<space|2spc>Riemann problems
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-135>>
-
-    5.8.<space|2spc>2-D advection equation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-138>
-
-    5.9.<space|2spc>2-D Euler equations <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-140>
-
-    <with|par-left|1tab|5.9.1.<space|2spc>Isentropic vortex convergence test
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-141>>
-
-    <with|par-left|1tab|5.9.2.<space|2spc>2-D Riemann problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-143>>
-
-    <with|par-left|1tab|5.9.3.<space|2spc>Double Mach reflection
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-147>>
-
-    <with|par-left|1tab|5.9.4.<space|2spc>Kelvin-Helmholtz instability
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-149>>
-
-    <with|par-left|1tab|5.9.5.<space|2spc>Astrophysical jet
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-151>>
-
-    <with|par-left|1tab|5.9.6.<space|2spc>Sedov's blast case with periodic
-    boundary conditions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-153>>
-
-    <with|par-left|1tab|5.9.7.<space|2spc>Detonation shock diffraction
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-156>>
-
-    <with|par-left|1tab|5.9.8.<space|2spc>Forward facing step
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-158>>
-
-    5.10.<space|2spc>Summary and conclusions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-161>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|6.<space|2spc>Generalized
-    admissibility preservation with source terms>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-162><vspace|0.5fn>
-
-    6.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-163>
-
-    6.2.<space|2spc>LWFR for source terms
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-164>
-
-    <with|par-left|1tab|6.2.1.<space|2spc>Approximate Lax-Wendroff procedure
-    for degree <with|mode|math|N=2> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-165>>
-
-    <with|par-left|1tab|6.2.2.<space|2spc>Admissibility preservation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-166>>
-
-    6.3.<space|2spc>Limiting time averages
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-167>
-
-    <with|par-left|1tab|6.3.1.<space|2spc>Limiting time average flux
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-168>>
-
-    <with|par-left|1tab|6.3.2.<space|2spc>Limiting time average sources
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-169>>
-
-    6.4.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-170>
-
-    <with|par-left|1tab|6.4.1.<space|2spc>Convergence test
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-171>>
-
-    <with|par-left|1tab|6.4.2.<space|2spc>Riemann problems
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-173>>
-
-    <with|par-left|1tab|6.4.3.<space|2spc>Shu-Osher test
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-175>>
-
-    <with|par-left|1tab|6.4.4.<space|2spc>Two rarefactions with source terms
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-177>>
-
-    <with|par-left|1tab|6.4.5.<space|2spc>Two dimensional near vacuum test
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-179>>
-
-    <with|par-left|1tab|6.4.6.<space|2spc>Uniform plasma state with Gaussian
-    source <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-181>>
-
-    <with|par-left|1tab|6.4.7.<space|2spc>Realistic simulation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-183>>
-
-    6.5.<space|2spc>Summary and Conclusions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-185>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|7.<space|2spc>Multi-derivative
-    Runge-Kutta> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-186><vspace|0.5fn>
-
-    7.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-187>
-
-    7.2.<space|2spc>Multi-derivative Runge-Kutta FR scheme
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-188>
-
-    <with|par-left|1tab|7.2.1.<space|2spc>Conservation property
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-189>>
-
-    <with|par-left|1tab|7.2.2.<space|2spc>Reconstruction of the time average
-    flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-190>>
-
-    <with|par-left|1tab|7.2.3.<space|2spc>Approximate Lax-Wendroff procedure
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-191>>
-
-    <with|par-left|1tab|7.2.4.<space|2spc>Numerical flux
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-192>>
-
-    <with|par-left|1tab|7.2.5.<space|2spc>Numerical flux \U average and
-    extrapolate to face (AE) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-193>>
-
-    <with|par-left|1tab|7.2.6.<space|2spc>Numerical flux \U extrapolate to
-    face and average (EA) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-194>>
-
-    7.3.<space|2spc>Fourier stability analysis
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-195>
-
-    <with|par-left|1tab|7.3.1.<space|2spc>Stage 1
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-196>>
-
-    <with|par-left|1tab|7.3.2.<space|2spc>Stage 2
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-197>>
-
-    7.4.<space|2spc>Blending scheme <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-199>
-
-    7.5.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-200>
-
-    <with|par-left|1tab|7.5.1.<space|2spc>Scalar equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-201>>
-
-    <with|par-left|2tab|7.5.1.1.<space|2spc>Linear advection equation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-202>>
-
-    <with|par-left|2tab|7.5.1.2.<space|2spc>Variable advection equation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-204>>
-
-    <with|par-left|2tab|7.5.1.3.<space|2spc>Burgers' equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-206>>
-
-    <with|par-left|1tab|7.5.2.<space|2spc>1-D Euler equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-209>>
-
-    <with|par-left|2tab|7.5.2.1.<space|2spc>Blast
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-210>>
-
-    <with|par-left|2tab|7.5.2.2.<space|2spc>Titarev Toro
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-212>>
-
-    <with|par-left|2tab|7.5.2.3.<space|2spc>Large density ratio Riemann
-    problem <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-214>>
-
-    <with|par-left|2tab|7.5.2.4.<space|2spc>Sedov's blast
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-216>>
-
-    <with|par-left|1tab|7.5.3.<space|2spc>2-D Euler's equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-218>>
-
-    <with|par-left|2tab|7.5.3.1.<space|2spc>Double Mach reflection
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-219>>
-
-    <with|par-left|2tab|7.5.3.2.<space|2spc>Rotational low density problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-221>>
-
-    <with|par-left|2tab|7.5.3.3.<space|2spc>Two Dimensional Riemann problem
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-224>>
-
-    <with|par-left|2tab|7.5.3.4.<space|2spc>Rayleigh-Taylor instability
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-226>>
-
-    7.6.<space|2spc>Summary and conclusions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-228>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|8.<space|2spc>Curvilinear
-    grids> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-229><vspace|0.5fn>
-
-    8.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-230>
-
-    8.2.<space|2spc>Conservation laws and curvilinear grids
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-231>
-
-    8.3.<space|2spc>LWFR on curvilinear grids
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-232>
-
-    <with|par-left|1tab|8.3.1.<space|2spc>Flux Reconstruction (FR)
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-233>>
-
-    <with|par-left|1tab|8.3.2.<space|2spc>Lax-Wendroff Flux Reconstruction
-    (LWFR) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-235>>
-
-    <with|par-left|1tab|8.3.3.<space|2spc>Approximate Lax-Wendroff procedure
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-236>>
-
-    <with|par-left|1tab|8.3.4.<space|2spc>Free stream preservation for LWFR
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-237>>
-
-    8.4.<space|2spc>Shock capturing and admissibility preservation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-238>
-
-    <with|par-left|1tab|8.4.1.<space|2spc>Low order scheme for curvilinear
-    grids <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-239>>
-
-    <with|par-left|1tab|8.4.2.<space|2spc>Smoothness indicator
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-241>>
-
-    <with|par-left|1tab|8.4.3.<space|2spc>Flux limiter for admissibility
-    preservation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-242>>
-
-    <with|par-left|2tab|8.4.3.1.<space|2spc>Flux limiter for admissibility
-    preservation in 1-D <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-243>>
-
-    <with|par-left|2tab|8.4.3.2.<space|2spc>Flux limiter for admissibility
-    preservation on curved meshes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-244>>
-
-    8.5.<space|2spc>Adaptive mesh refinement
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-245>
-
-    <with|par-left|1tab|8.5.1.<space|2spc>Solution transfer between element
-    and subelements <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-246>>
-
-    <with|par-left|2tab|8.5.1.1.<space|2spc>Interpolation for refinement
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-248>>
-
-    <with|par-left|2tab|8.5.1.2.<space|2spc>Projection for coarsening
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-249>>
-
-    <with|par-left|1tab|8.5.2.<space|2spc>Mortar element method (MEM)
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-250>>
-
-    <with|par-left|2tab|8.5.2.1.<space|2spc>Motivation and notation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-251>>
-
-    <with|par-left|2tab|8.5.2.2.<space|2spc>Prolongation to mortars
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-253>>
-
-    <with|par-left|2tab|8.5.2.3.<space|2spc>Projection of numerical fluxes
-    from mortars to faces <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-254>>
-
-    <with|par-left|1tab|8.5.3.<space|2spc>AMR indicators
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-255>>
-
-    8.6.<space|2spc>Time stepping <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-256>
-
-    <with|par-left|1tab|8.6.1.<space|2spc>Error estimation for Runge-Kutta
-    schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-257>>
-
-    <with|par-left|1tab|8.6.2.<space|2spc>Error based time stepping for
-    Lax-Wendroff flux reconstruction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-258>>
-
-    8.7.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-259>
-
-    <with|par-left|1tab|8.7.1.<space|2spc>Results on Cartesian grids
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-260>>
-
-    <with|par-left|2tab|8.7.1.1.<space|2spc>Mach 2000 astrophysical jet
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-261>>
-
-    <with|par-left|2tab|8.7.1.2.<space|2spc>Kelvin-Helmholtz instability
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-263>>
-
-    <with|par-left|2tab|8.7.1.3.<space|2spc>Double mach reflection
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-265>>
-
-    <with|par-left|2tab|8.7.1.4.<space|2spc>Forward facing step
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-267>>
-
-    <with|par-left|1tab|8.7.2.<space|2spc>Results on curved grids
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-269>>
-
-    <with|par-left|2tab|8.7.2.1.<space|2spc>Free stream preservation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-270>>
-
-    <with|par-left|2tab|8.7.2.2.<space|2spc>Isentropic vortex
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-272>>
-
-    <with|par-left|2tab|8.7.2.3.<space|2spc>Supersonic flow over cylinder
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-274>>
-
-    <with|par-left|2tab|8.7.2.4.<space|2spc>Inviscid bow shock upstream of a
-    blunt body <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-276>>
-
-    <with|par-left|2tab|8.7.2.5.<space|2spc>Transonic flow over NACA0012
-    airfoil <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-278>>
-
-    <with|par-left|1tab|8.7.3.<space|2spc>Performance comparison of time
-    stepping schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-281>>
-
-    8.8.<space|2spc>Summary and conclusions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-283>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|9.<space|2spc>Parabolic
-    equations> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-284><vspace|0.5fn>
-
-    9.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-285>
-
-    9.2.<space|2spc>Curvilinear coordinates for parabolic equations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-286>
-
-    9.3.<space|2spc>Lax-Wendroff flux reconstruction
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-287>
-
-    <with|par-left|1tab|9.3.1.<space|2spc>Solving for \<b-q\>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-288>>
-
-    <with|par-left|1tab|9.3.2.<space|2spc>Time averaging
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-289>>
-
-    <with|par-left|2tab|9.3.2.1.<space|2spc>Approximate Lax-Wendroff
-    procedure <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-290>>
-
-    <with|par-left|1tab|9.3.3.<space|2spc>Free stream preservation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-291>>
-
-    9.4.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-292>
-
-    <with|par-left|1tab|9.4.1.<space|2spc>Convergence test
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-293>>
-
-    <with|par-left|1tab|9.4.2.<space|2spc>Lid driven cavity
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-298>>
-
-    <with|par-left|1tab|9.4.3.<space|2spc>Transonic flow past NACA-0012
-    airfoil <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-301>>
-
-    <with|par-left|1tab|9.4.4.<space|2spc>Flow past a cylinder
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-305>>
-
-    9.5.<space|2spc>Summary and Conclusion
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-309>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|10.<space|2spc>Conclusions>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-310><vspace|0.5fn>
-
-    10.1.<space|2spc>Future scope <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-311>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    A.<space|2spc>ADER-FR and LWFR for linear problems>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-312><vspace|0.5fn>
-
-    A.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-313>
-
-    A.2.<space|2spc>ADER Discontinuous Galerkin and Flux Reconstruction
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-314>
-
-    A.3.<space|2spc>Equivalence <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-315>
-
-    A.4.<space|2spc>Numerical validation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-316>
-
-    A.5.<space|2spc>Conclusions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-318>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    B.<space|2spc>Some numerical fluxes> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-319><vspace|0.5fn>
-
-    B.1.<space|2spc>Rusanov flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-320>
-
-    B.2.<space|2spc>Roe flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-321>
-
-    B.3.<space|2spc>HLL flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-322>
-
-    B.4.<space|2spc>HLLC flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-323>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    C.<space|2spc>Equivalence of DG and FR>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-324><vspace|0.5fn>
-
-    C.1.<space|2spc>Discontinuous Galerkin on curvilinear grids
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-325>
-
-    C.2.<space|2spc>Equivalence with Flux Reconstruction
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-326>
-
-    <with|par-left|1tab|C.2.1.<space|2spc>Corrector function identitites
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-327>>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    D.<space|2spc>Efficient local differential operators>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-328><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    E.<space|2spc>Equivalence with DFR> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-330><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    F.<space|2spc>Scaling limiter> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-331><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    G.<space|2spc>Admissibility of MUSCL-Hancock on general grids>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-332><vspace|0.5fn>
-
-    G.1.<space|2spc>Introduction and notations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-333>
-
-    G.2.<space|2spc>Review of MUSCL-Hancock scheme
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-334>
-
-    G.3.<space|2spc>Primary generalization for proof
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-336>
-
-    G.4.<space|2spc>Proving admissibility
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-337>
-
-    G.5.<space|2spc>Non-conservation reconstruction
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-341>
-
-    G.6.<space|2spc>MUSCL-Hancock scheme in 2-D
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-342>
-
-    <with|par-left|1tab|G.6.1.<space|2spc>First evolution step
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-343>>
-
-    <with|par-left|1tab|G.6.2.<space|2spc>Finite volume step
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-344>>
-
-    <with|par-left|1tab|G.6.3.<space|2spc>Limiting numerical flux in 2-D
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-345>>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Appendix
-    H.<space|2spc>Formal accuracy of multiderivative RK>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-346><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|font-shape|small-caps|Bibliography>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <pageref|auto-347><vspace|0.5fn>
-  </table-of-contents>
+  \;
 
   <include|abstract.tm>
 
@@ -1448,18 +64,21 @@
 
   <include|conclusion.tm>
 
-  <include|appendix.tm>
+  \;
 
-  <include|bibliography.tm>
+  \;
+
+  <include|annexures.tm>
 </body>
 
 <\initial>
   <\collection>
     <associate|font-base-size|12>
     <associate|info-flag|detailed>
-    <associate|page-even|1.0in>
+    <associate|page-even|1in>
     <associate|page-medium|paper>
-    <associate|page-odd|1.0in>
+    <associate|page-odd|1in>
+    <associate|page-right|auto>
     <associate|page-screen-left|5mm>
     <associate|page-screen-margin|false>
     <associate|page-width-margin|false>
@@ -6423,1218 +5042,1224 @@
 
 <\references>
   <\collection>
-    <associate|alg:blended.flux|<tuple|8.1|184|ch6_curved_meshes.tm>>
-    <associate|alg:blended.flux.2d|<tuple|G.1|267|appendix.tm>>
-    <associate|alg:cache.blocking|<tuple|D.1|244|appendix.tm>>
-    <associate|alg:cell.residual|<tuple|8.2|196|ch6_curved_meshes.tm>>
-    <associate|alg:flux.limit|<tuple|5.1|115|ch3_blending_limiter.tm>>
-    <associate|alg:high.level.lw|<tuple|5.2|117|ch3_blending_limiter.tm>>
-    <associate|alg:lw.residual|<tuple|8.3|196|ch6_curved_meshes.tm>>
-    <associate|alg:lwfr.paper1|<tuple|4.2|63|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|alg:rkfr.paper1|<tuple|4.1|62|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|alg:scaling|<tuple|F.1|249|appendix.tm>>
-    <associate|alg:source.limit|<tuple|6.1|139|ch5_10_moment_problem.tm>>
-    <associate|alg:time.stepping|<tuple|8.4|197|ch6_curved_meshes.tm>>
-    <associate|app:efficient.diff|<tuple|D|243|appendix.tm>>
-    <associate|app:equiv.dg.fr|<tuple|C|237|appendix.tm>>
-    <associate|app:scaling.limiter|<tuple|F|249|appendix.tm>>
-    <associate|auto-1|<tuple|?|3|acknowledgements.tm>>
-    <associate|auto-10|<tuple|1.4|25|ch0_introduction.tm>>
-    <associate|auto-100|<tuple|4.35|95|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-101|<tuple|4.10.3|95|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-102|<tuple|4.36|96|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-103|<tuple|4.37|96|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-104|<tuple|4.11|96|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-105|<tuple|4.11.1|97|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-106|<tuple|4.38|98|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-107|<tuple|4.39|99|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-108|<tuple|4.40|99|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-109|<tuple|4.11.2|99|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-11|<tuple|1.5|29|ch0_introduction.tm>>
-    <associate|auto-110|<tuple|4.41|100|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-111|<tuple|4.42|101|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-112|<tuple|4.43|101|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-113|<tuple|4.12|101|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-114|<tuple|5|103|ch3_blending_limiter.tm>>
-    <associate|auto-115|<tuple|5.1|103|ch3_blending_limiter.tm>>
-    <associate|auto-116|<tuple|5.2|103|ch3_blending_limiter.tm>>
-    <associate|auto-117|<tuple|5.3|105|ch3_blending_limiter.tm>>
-    <associate|auto-118|<tuple|5.3.1|105|ch3_blending_limiter.tm>>
-    <associate|auto-119|<tuple|5.1|106|ch3_blending_limiter.tm>>
-    <associate|auto-12|<tuple|2|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-120|<tuple|5.3.2|108|ch3_blending_limiter.tm>>
-    <associate|auto-121|<tuple|5.2|109|ch3_blending_limiter.tm>>
-    <associate|auto-122|<tuple|5.3.3|109|ch3_blending_limiter.tm>>
-    <associate|auto-123|<tuple|5.4|110|ch3_blending_limiter.tm>>
-    <associate|auto-124|<tuple|5.4.1|112|ch3_blending_limiter.tm>>
-    <associate|auto-125|<tuple|5.5|113|ch3_blending_limiter.tm>>
-    <associate|auto-126|<tuple|5.6|116|ch3_blending_limiter.tm>>
-    <associate|auto-127|<tuple|5.7|117|ch3_blending_limiter.tm>>
-    <associate|auto-128|<tuple|5.7.1|118|ch3_blending_limiter.tm>>
-    <associate|auto-129|<tuple|5.7.1.1|118|ch3_blending_limiter.tm>>
-    <associate|auto-13|<tuple|2.1|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-130|<tuple|5.3|118|ch3_blending_limiter.tm>>
-    <associate|auto-131|<tuple|5.7.1.2|119|ch3_blending_limiter.tm>>
-    <associate|auto-132|<tuple|5.4|119|ch3_blending_limiter.tm>>
-    <associate|auto-133|<tuple|5.7.1.3|119|ch3_blending_limiter.tm>>
-    <associate|auto-134|<tuple|5.5|120|ch3_blending_limiter.tm>>
-    <associate|auto-135|<tuple|5.7.1.4|120|ch3_blending_limiter.tm>>
-    <associate|auto-136|<tuple|5.6|121|ch3_blending_limiter.tm>>
-    <associate|auto-137|<tuple|5.7|121|ch3_blending_limiter.tm>>
-    <associate|auto-138|<tuple|5.8|121|ch3_blending_limiter.tm>>
-    <associate|auto-139|<tuple|5.8|122|ch3_blending_limiter.tm>>
-    <associate|auto-14|<tuple|2.1.1|32|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-140|<tuple|5.9|122|ch3_blending_limiter.tm>>
-    <associate|auto-141|<tuple|5.9.1|123|ch3_blending_limiter.tm>>
-    <associate|auto-142|<tuple|5.9|123|ch3_blending_limiter.tm>>
-    <associate|auto-143|<tuple|5.9.2|123|ch3_blending_limiter.tm>>
-    <associate|auto-144|<tuple|5.10|124|ch3_blending_limiter.tm>>
-    <associate|auto-145|<tuple|5.11|125|ch3_blending_limiter.tm>>
-    <associate|auto-146|<tuple|5.12|125|ch3_blending_limiter.tm>>
-    <associate|auto-147|<tuple|5.9.3|125|ch3_blending_limiter.tm>>
-    <associate|auto-148|<tuple|5.13|126|ch3_blending_limiter.tm>>
-    <associate|auto-149|<tuple|5.9.4|126|ch3_blending_limiter.tm>>
-    <associate|auto-15|<tuple|2.1.2|33|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-150|<tuple|5.14|127|ch3_blending_limiter.tm>>
-    <associate|auto-151|<tuple|5.9.5|127|ch3_blending_limiter.tm>>
-    <associate|auto-152|<tuple|5.15|128|ch3_blending_limiter.tm>>
-    <associate|auto-153|<tuple|5.9.6|128|ch3_blending_limiter.tm>>
-    <associate|auto-154|<tuple|5.16|129|ch3_blending_limiter.tm>>
-    <associate|auto-155|<tuple|5.17|130|ch3_blending_limiter.tm>>
-    <associate|auto-156|<tuple|5.9.7|130|ch3_blending_limiter.tm>>
-    <associate|auto-157|<tuple|5.18|131|ch3_blending_limiter.tm>>
-    <associate|auto-158|<tuple|5.9.8|131|ch3_blending_limiter.tm>>
-    <associate|auto-159|<tuple|5.19|132|ch3_blending_limiter.tm>>
-    <associate|auto-16|<tuple|2.1.3|34|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-160|<tuple|5.20|133|ch3_blending_limiter.tm>>
-    <associate|auto-161|<tuple|5.10|133|ch3_blending_limiter.tm>>
-    <associate|auto-162|<tuple|6|135|ch5_10_moment_problem.tm>>
-    <associate|auto-163|<tuple|6.1|135|ch5_10_moment_problem.tm>>
-    <associate|auto-164|<tuple|6.2|135|ch5_10_moment_problem.tm>>
-    <associate|auto-165|<tuple|6.2.1|137|ch5_10_moment_problem.tm>>
-    <associate|auto-166|<tuple|6.2.2|137|ch5_10_moment_problem.tm>>
-    <associate|auto-167|<tuple|6.3|137|ch5_10_moment_problem.tm>>
-    <associate|auto-168|<tuple|6.3.1|137|ch5_10_moment_problem.tm>>
-    <associate|auto-169|<tuple|6.3.2|139|ch5_10_moment_problem.tm>>
-    <associate|auto-17|<tuple|2.1|34|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-170|<tuple|6.4|140|ch5_10_moment_problem.tm>>
-    <associate|auto-171|<tuple|6.4.1|141|ch5_10_moment_problem.tm>>
-    <associate|auto-172|<tuple|6.1|141|ch5_10_moment_problem.tm>>
-    <associate|auto-173|<tuple|6.4.2|142|ch5_10_moment_problem.tm>>
-    <associate|auto-174|<tuple|6.2|142|ch5_10_moment_problem.tm>>
-    <associate|auto-175|<tuple|6.4.3|142|ch5_10_moment_problem.tm>>
-    <associate|auto-176|<tuple|6.3|143|ch5_10_moment_problem.tm>>
-    <associate|auto-177|<tuple|6.4.4|143|ch5_10_moment_problem.tm>>
-    <associate|auto-178|<tuple|6.4|144|ch5_10_moment_problem.tm>>
-    <associate|auto-179|<tuple|6.4.5|143|ch5_10_moment_problem.tm>>
-    <associate|auto-18|<tuple|2.2|35|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-180|<tuple|6.5|144|ch5_10_moment_problem.tm>>
-    <associate|auto-181|<tuple|6.4.6|145|ch5_10_moment_problem.tm>>
-    <associate|auto-182|<tuple|6.6|145|ch5_10_moment_problem.tm>>
-    <associate|auto-183|<tuple|6.4.7|145|ch5_10_moment_problem.tm>>
-    <associate|auto-184|<tuple|6.7|146|ch5_10_moment_problem.tm>>
-    <associate|auto-185|<tuple|6.5|146|ch5_10_moment_problem.tm>>
-    <associate|auto-186|<tuple|7|147|ch4_mdrk.tm>>
-    <associate|auto-187|<tuple|7.1|147|ch4_mdrk.tm>>
-    <associate|auto-188|<tuple|7.2|148|ch4_mdrk.tm>>
-    <associate|auto-189|<tuple|7.2.1|149|ch4_mdrk.tm>>
-    <associate|auto-19|<tuple|2.2|35|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-190|<tuple|7.2.2|149|ch4_mdrk.tm>>
-    <associate|auto-191|<tuple|7.2.3|150|ch4_mdrk.tm>>
-    <associate|auto-192|<tuple|7.2.4|151|ch4_mdrk.tm>>
-    <associate|auto-193|<tuple|7.2.5|151|ch4_mdrk.tm>>
-    <associate|auto-194|<tuple|7.2.6|152|ch4_mdrk.tm>>
-    <associate|auto-195|<tuple|7.3|153|ch4_mdrk.tm>>
-    <associate|auto-196|<tuple|7.3.1|153|ch4_mdrk.tm>>
-    <associate|auto-197|<tuple|7.3.2|154|ch4_mdrk.tm>>
-    <associate|auto-198|<tuple|7.1|155|ch4_mdrk.tm>>
-    <associate|auto-199|<tuple|7.4|155|ch4_mdrk.tm>>
-    <associate|auto-2|<tuple|?|5|publications.tm>>
-    <associate|auto-20|<tuple|2.3|36|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|auto-200|<tuple|7.5|157|ch4_mdrk.tm>>
-    <associate|auto-201|<tuple|7.5.1|158|ch4_mdrk.tm>>
-    <associate|auto-202|<tuple|7.5.1.1|158|ch4_mdrk.tm>>
-    <associate|auto-203|<tuple|7.1|158|ch4_mdrk.tm>>
-    <associate|auto-204|<tuple|7.5.1.2|158|ch4_mdrk.tm>>
-    <associate|auto-205|<tuple|7.2|159|ch4_mdrk.tm>>
-    <associate|auto-206|<tuple|7.5.1.3|159|ch4_mdrk.tm>>
-    <associate|auto-207|<tuple|7.3|159|ch4_mdrk.tm>>
-    <associate|auto-208|<tuple|7.4|160|ch4_mdrk.tm>>
-    <associate|auto-209|<tuple|7.5.2|160|ch4_mdrk.tm>>
-    <associate|auto-21|<tuple|3|39|ch1b_finite_volume_method.tm>>
-    <associate|auto-210|<tuple|7.5.2.1|160|ch4_mdrk.tm>>
-    <associate|auto-211|<tuple|7.5|160|ch4_mdrk.tm>>
-    <associate|auto-212|<tuple|7.5.2.2|161|ch4_mdrk.tm>>
-    <associate|auto-213|<tuple|7.6|161|ch4_mdrk.tm>>
-    <associate|auto-214|<tuple|7.5.2.3|161|ch4_mdrk.tm>>
-    <associate|auto-215|<tuple|7.7|162|ch4_mdrk.tm>>
-    <associate|auto-216|<tuple|7.5.2.4|162|ch4_mdrk.tm>>
-    <associate|auto-217|<tuple|7.8|162|ch4_mdrk.tm>>
-    <associate|auto-218|<tuple|7.5.3|162|ch4_mdrk.tm>>
-    <associate|auto-219|<tuple|7.5.3.1|163|ch4_mdrk.tm>>
-    <associate|auto-22|<tuple|3.1|39|ch1b_finite_volume_method.tm>>
-    <associate|auto-220|<tuple|7.9|163|ch4_mdrk.tm>>
-    <associate|auto-221|<tuple|7.5.3.2|163|ch4_mdrk.tm>>
-    <associate|auto-222|<tuple|7.10|165|ch4_mdrk.tm>>
-    <associate|auto-223|<tuple|7.11|165|ch4_mdrk.tm>>
-    <associate|auto-224|<tuple|7.5.3.3|165|ch4_mdrk.tm>>
-    <associate|auto-225|<tuple|7.12|166|ch4_mdrk.tm>>
-    <associate|auto-226|<tuple|7.5.3.4|166|ch4_mdrk.tm>>
-    <associate|auto-227|<tuple|7.13|167|ch4_mdrk.tm>>
-    <associate|auto-228|<tuple|7.6|167|ch4_mdrk.tm>>
-    <associate|auto-229|<tuple|8|169|ch6_curved_meshes.tm>>
-    <associate|auto-23|<tuple|3.1|40|ch1b_finite_volume_method.tm>>
-    <associate|auto-230|<tuple|8.1|169|ch6_curved_meshes.tm>>
-    <associate|auto-231|<tuple|8.2|169|ch6_curved_meshes.tm>>
-    <associate|auto-232|<tuple|8.3|172|ch6_curved_meshes.tm>>
-    <associate|auto-233|<tuple|8.3.1|172|ch6_curved_meshes.tm>>
-    <associate|auto-234|<tuple|8.1|173|ch6_curved_meshes.tm>>
-    <associate|auto-235|<tuple|8.3.2|174|ch6_curved_meshes.tm>>
-    <associate|auto-236|<tuple|8.3.3|176|ch6_curved_meshes.tm>>
-    <associate|auto-237|<tuple|8.3.4|177|ch6_curved_meshes.tm>>
-    <associate|auto-238|<tuple|8.4|179|ch6_curved_meshes.tm>>
-    <associate|auto-239|<tuple|8.4.1|180|ch6_curved_meshes.tm>>
-    <associate|auto-24|<tuple|3.2|41|ch1b_finite_volume_method.tm>>
-    <associate|auto-240|<tuple|8.2|180|ch6_curved_meshes.tm>>
-    <associate|auto-241|<tuple|8.4.2|182|ch6_curved_meshes.tm>>
-    <associate|auto-242|<tuple|8.4.3|183|ch6_curved_meshes.tm>>
-    <associate|auto-243|<tuple|8.4.3.1|184|ch6_curved_meshes.tm>>
-    <associate|auto-244|<tuple|8.4.3.2|185|ch6_curved_meshes.tm>>
-    <associate|auto-245|<tuple|8.5|186|ch6_curved_meshes.tm>>
-    <associate|auto-246|<tuple|8.5.1|187|ch6_curved_meshes.tm>>
-    <associate|auto-247|<tuple|8.3|187|ch6_curved_meshes.tm>>
-    <associate|auto-248|<tuple|8.5.1.1|188|ch6_curved_meshes.tm>>
-    <associate|auto-249|<tuple|8.5.1.2|188|ch6_curved_meshes.tm>>
-    <associate|auto-25|<tuple|3.3|43|ch1b_finite_volume_method.tm>>
-    <associate|auto-250|<tuple|8.5.2|189|ch6_curved_meshes.tm>>
-    <associate|auto-251|<tuple|8.5.2.1|189|ch6_curved_meshes.tm>>
-    <associate|auto-252|<tuple|8.4|189|ch6_curved_meshes.tm>>
-    <associate|auto-253|<tuple|8.5.2.2|191|ch6_curved_meshes.tm>>
-    <associate|auto-254|<tuple|8.5.2.3|191|ch6_curved_meshes.tm>>
-    <associate|auto-255|<tuple|8.5.3|193|ch6_curved_meshes.tm>>
-    <associate|auto-256|<tuple|8.6|194|ch6_curved_meshes.tm>>
-    <associate|auto-257|<tuple|8.6.1|195|ch6_curved_meshes.tm>>
-    <associate|auto-258|<tuple|8.6.2|195|ch6_curved_meshes.tm>>
-    <associate|auto-259|<tuple|8.7|197|ch6_curved_meshes.tm>>
-    <associate|auto-26|<tuple|3.4|44|ch1b_finite_volume_method.tm>>
-    <associate|auto-260|<tuple|8.7.1|198|ch6_curved_meshes.tm>>
-    <associate|auto-261|<tuple|8.7.1.1|198|ch6_curved_meshes.tm>>
-    <associate|auto-262|<tuple|8.5|199|ch6_curved_meshes.tm>>
-    <associate|auto-263|<tuple|8.7.1.2|199|ch6_curved_meshes.tm>>
-    <associate|auto-264|<tuple|8.6|200|ch6_curved_meshes.tm>>
-    <associate|auto-265|<tuple|8.7.1.3|200|ch6_curved_meshes.tm>>
-    <associate|auto-266|<tuple|8.7|201|ch6_curved_meshes.tm>>
-    <associate|auto-267|<tuple|8.7.1.4|201|ch6_curved_meshes.tm>>
-    <associate|auto-268|<tuple|8.8|202|ch6_curved_meshes.tm>>
-    <associate|auto-269|<tuple|8.7.2|202|ch6_curved_meshes.tm>>
-    <associate|auto-27|<tuple|4|47|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-270|<tuple|8.7.2.1|202|ch6_curved_meshes.tm>>
-    <associate|auto-271|<tuple|8.9|203|ch6_curved_meshes.tm>>
-    <associate|auto-272|<tuple|8.7.2.2|203|ch6_curved_meshes.tm>>
-    <associate|auto-273|<tuple|8.10|204|ch6_curved_meshes.tm>>
-    <associate|auto-274|<tuple|8.7.2.3|204|ch6_curved_meshes.tm>>
-    <associate|auto-275|<tuple|8.11|205|ch6_curved_meshes.tm>>
-    <associate|auto-276|<tuple|8.7.2.4|206|ch6_curved_meshes.tm>>
-    <associate|auto-277|<tuple|8.12|206|ch6_curved_meshes.tm>>
-    <associate|auto-278|<tuple|8.7.2.5|206|ch6_curved_meshes.tm>>
-    <associate|auto-279|<tuple|8.13|207|ch6_curved_meshes.tm>>
-    <associate|auto-28|<tuple|4.1|47|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-280|<tuple|8.14|207|ch6_curved_meshes.tm>>
-    <associate|auto-281|<tuple|8.7.3|208|ch6_curved_meshes.tm>>
-    <associate|auto-282|<tuple|8.1|208|ch6_curved_meshes.tm>>
-    <associate|auto-283|<tuple|8.8|209|ch6_curved_meshes.tm>>
-    <associate|auto-284|<tuple|9|211|ch_parabolic.tm>>
-    <associate|auto-285|<tuple|9.1|211|ch_parabolic.tm>>
-    <associate|auto-286|<tuple|9.2|211|ch_parabolic.tm>>
-    <associate|auto-287|<tuple|9.3|212|ch_parabolic.tm>>
-    <associate|auto-288|<tuple|9.3.1|212|ch_parabolic.tm>>
-    <associate|auto-289|<tuple|9.3.2|213|ch_parabolic.tm>>
-    <associate|auto-29|<tuple|4.2|47|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-290|<tuple|9.3.2.1|214|ch_parabolic.tm>>
-    <associate|auto-291|<tuple|9.3.3|214|ch_parabolic.tm>>
-    <associate|auto-292|<tuple|9.4|215|ch_parabolic.tm>>
-    <associate|auto-293|<tuple|9.4.1|215|ch_parabolic.tm>>
-    <associate|auto-294|<tuple|9.1|216|ch_parabolic.tm>>
-    <associate|auto-295|<tuple|9.2|216|ch_parabolic.tm>>
-    <associate|auto-296|<tuple|9.3|217|ch_parabolic.tm>>
-    <associate|auto-297|<tuple|9.4|217|ch_parabolic.tm>>
-    <associate|auto-298|<tuple|9.4.2|217|ch_parabolic.tm>>
-    <associate|auto-299|<tuple|9.5|218|ch_parabolic.tm>>
-    <associate|auto-3|<tuple|7|7>>
-    <associate|auto-30|<tuple|4.2.1|49|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-300|<tuple|9.6|218|ch_parabolic.tm>>
-    <associate|auto-301|<tuple|9.4.3|218|ch_parabolic.tm>>
-    <associate|auto-302|<tuple|9.7|219|ch_parabolic.tm>>
-    <associate|auto-303|<tuple|9.8|220|ch_parabolic.tm>>
-    <associate|auto-304|<tuple|9.1|220|ch_parabolic.tm>>
-    <associate|auto-305|<tuple|9.4.4|220|ch_parabolic.tm>>
-    <associate|auto-306|<tuple|9.9|221|ch_parabolic.tm>>
-    <associate|auto-307|<tuple|9.10|221|ch_parabolic.tm>>
-    <associate|auto-308|<tuple|9.2|221|ch_parabolic.tm>>
-    <associate|auto-309|<tuple|9.5|222|ch_parabolic.tm>>
-    <associate|auto-31|<tuple|4.2.2|49|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-310|<tuple|10|223|conclusion.tm>>
-    <associate|auto-311|<tuple|10.1|224|conclusion.tm>>
-    <associate|auto-312|<tuple|A|227|appendix.tm>>
-    <associate|auto-313|<tuple|A.1|227|appendix.tm>>
-    <associate|auto-314|<tuple|A.2|227|appendix.tm>>
-    <associate|auto-315|<tuple|A.3|230|appendix.tm>>
-    <associate|auto-316|<tuple|A.4|231|appendix.tm>>
-    <associate|auto-317|<tuple|A.1|232|appendix.tm>>
-    <associate|auto-318|<tuple|A.5|232|appendix.tm>>
-    <associate|auto-319|<tuple|B|233|appendix.tm>>
-    <associate|auto-32|<tuple|4.2.3|50|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-320|<tuple|B.1|233|appendix.tm>>
-    <associate|auto-321|<tuple|B.2|233|appendix.tm>>
-    <associate|auto-322|<tuple|B.3|233|appendix.tm>>
-    <associate|auto-323|<tuple|B.4|234|appendix.tm>>
-    <associate|auto-324|<tuple|C|237|appendix.tm>>
-    <associate|auto-325|<tuple|C.1|237|appendix.tm>>
-    <associate|auto-326|<tuple|C.2|238|appendix.tm>>
-    <associate|auto-327|<tuple|C.2.1|240|appendix.tm>>
-    <associate|auto-328|<tuple|D|243|appendix.tm>>
-    <associate|auto-329|<tuple|D.1|245|appendix.tm>>
-    <associate|auto-33|<tuple|4.2.4|51|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-330|<tuple|E|247|appendix.tm>>
-    <associate|auto-331|<tuple|F|249|appendix.tm>>
-    <associate|auto-332|<tuple|G|251|appendix.tm>>
-    <associate|auto-333|<tuple|G.1|251|appendix.tm>>
-    <associate|auto-334|<tuple|G.2|251|appendix.tm>>
-    <associate|auto-335|<tuple|G.1|252|appendix.tm>>
-    <associate|auto-336|<tuple|G.3|252|appendix.tm>>
-    <associate|auto-337|<tuple|G.4|253|appendix.tm>>
-    <associate|auto-338|<tuple|G.2|255|appendix.tm>>
-    <associate|auto-339|<tuple|G.3|255|appendix.tm>>
-    <associate|auto-34|<tuple|4.2.4.1|52|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-340|<tuple|G.4|258|appendix.tm>>
-    <associate|auto-341|<tuple|G.5|259|appendix.tm>>
-    <associate|auto-342|<tuple|G.6|260|appendix.tm>>
-    <associate|auto-343|<tuple|G.6.1|261|appendix.tm>>
-    <associate|auto-344|<tuple|G.6.2|262|appendix.tm>>
-    <associate|auto-345|<tuple|G.6.3|265|appendix.tm>>
-    <associate|auto-346|<tuple|H|269|appendix.tm>>
-    <associate|auto-347|<tuple|H.18|271|bibliography.tm>>
-    <associate|auto-35|<tuple|4.2.4.2|52|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-36|<tuple|4.2.4.3|52|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-37|<tuple|4.2.4.4|53|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-38|<tuple|4.3|54|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-39|<tuple|4.3.1|56|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-4|<tuple|7|11>>
-    <associate|auto-40|<tuple|4.3.2|56|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-41|<tuple|4.4|57|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-42|<tuple|4.1|59|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-43|<tuple|4.5|59|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-44|<tuple|4.6|61|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-45|<tuple|4.7|62|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-46|<tuple|4.7.1|63|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-47|<tuple|4.7.1.1|63|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-48|<tuple|4.1|63|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-49|<tuple|4.2|64|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-5|<tuple|7|19|abstract.tm>>
-    <associate|auto-50|<tuple|4.3|65|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-51|<tuple|4.4|66|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-52|<tuple|4.5|67|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-53|<tuple|4.6|67|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-54|<tuple|4.7|68|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-55|<tuple|4.8|68|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-56|<tuple|4.7.1.2|68|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-57|<tuple|4.9|69|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-58|<tuple|4.10|69|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-59|<tuple|4.11|70|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-6|<tuple|1|21|ch0_introduction.tm>>
-    <associate|auto-60|<tuple|4.12|70|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-61|<tuple|4.13|71|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-62|<tuple|4.7.2|71|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-63|<tuple|4.14|72|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-64|<tuple|4.15|73|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-65|<tuple|4.16|74|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-66|<tuple|4.7.3|74|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-67|<tuple|4.17|74|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-68|<tuple|4.18|75|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-69|<tuple|4.19|76|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-7|<tuple|1.1|21|ch0_introduction.tm>>
-    <associate|auto-70|<tuple|4.7.4|76|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-71|<tuple|4.20|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-72|<tuple|4.8|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-73|<tuple|4.8.1|78|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-74|<tuple|4.21|79|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-75|<tuple|4.8.2|79|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-76|<tuple|4.22|80|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-77|<tuple|4.8.3|80|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-78|<tuple|4.23|81|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-79|<tuple|4.8.4|81|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-8|<tuple|1.2|23|ch0_introduction.tm>>
-    <associate|auto-80|<tuple|4.24|82|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-81|<tuple|4.8.5|82|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-82|<tuple|4.25|83|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-83|<tuple|4.8.6|83|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-84|<tuple|4.26|84|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-85|<tuple|4.27|85|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-86|<tuple|4.8.7|85|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-87|<tuple|4.28|86|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-88|<tuple|4.29|86|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-89|<tuple|4.9|87|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-9|<tuple|1.3|24|ch0_introduction.tm>>
-    <associate|auto-90|<tuple|4.9.1|89|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-91|<tuple|4.30|91|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-92|<tuple|4.31|91|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-93|<tuple|4.2|92|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-94|<tuple|4.10|92|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-95|<tuple|4.10.1|92|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-96|<tuple|4.32|93|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-97|<tuple|4.10.2|93|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-98|<tuple|4.33|94|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|auto-99|<tuple|4.34|94|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|bib-Abe2015|<tuple|1|271|bibliography.tm>>
-    <associate|bib-Abgrall2020|<tuple|2|271|bibliography.tm>>
-    <associate|bib-Artzi2006|<tuple|24|272|bibliography.tm>>
-    <associate|bib-Asthana2015|<tuple|5|271|bibliography.tm>>
-    <associate|bib-Balsara2007|<tuple|20|272|bibliography.tm>>
-    <associate|bib-Balsara2009a|<tuple|21|272|bibliography.tm>>
-    <associate|bib-Bassi1997|<tuple|22|272|bibliography.tm>>
-    <associate|bib-Batten1997|<tuple|23|272|bibliography.tm>>
-    <associate|bib-Berthon2006|<tuple|26|272|bibliography.tm>>
-    <associate|bib-Berthon2015|<tuple|27|272|bibliography.tm>>
-    <associate|bib-Berthon_TMP_2006|<tuple|25|272|bibliography.tm>>
-    <associate|bib-Bezanson2017|<tuple|29|272|bibliography.tm>>
-    <associate|bib-Biswas1994|<tuple|31|272|bibliography.tm>>
-    <associate|bib-Biswas2021|<tuple|30|272|bibliography.tm>>
-    <associate|bib-Bogacki1989|<tuple|32|272|bibliography.tm>>
-    <associate|bib-Burbeau2001|<tuple|33|272|bibliography.tm>>
-    <associate|bib-Burger2017|<tuple|34|272|bibliography.tm>>
-    <associate|bib-Butcher2016|<tuple|35|272|bibliography.tm>>
-    <associate|bib-Canuto2007|<tuple|37|272|bibliography.tm>>
-    <associate|bib-Carpenter1995|<tuple|38|272|bibliography.tm>>
-    <associate|bib-Carrillo2021|<tuple|39|272|bibliography.tm>>
-    <associate|bib-Carrillo2021a|<tuple|40|272|bibliography.tm>>
-    <associate|bib-Castro2008|<tuple|42|273|bibliography.tm>>
-    <associate|bib-Cenaero2017|<tuple|36|272|bibliography.tm>>
-    <associate|bib-Chen2016|<tuple|43|273|bibliography.tm>>
-    <associate|bib-Choe1991|<tuple|44|273|bibliography.tm>>
-    <associate|bib-Choe1992|<tuple|45|273|bibliography.tm>>
-    <associate|bib-Cicchino2022|<tuple|46|273|bibliography.tm>>
-    <associate|bib-Cicchino2022a|<tuple|47|273|bibliography.tm>>
-    <associate|bib-Clain2011|<tuple|48|273|bibliography.tm>>
-    <associate|bib-Cockburn1989|<tuple|50|273|bibliography.tm>>
-    <associate|bib-Cockburn1989a|<tuple|51|273|bibliography.tm>>
-    <associate|bib-Cockburn1991|<tuple|52|273|bibliography.tm>>
-    <associate|bib-Cockburn1998a|<tuple|53|273|bibliography.tm>>
-    <associate|bib-Colella1984|<tuple|55|273|bibliography.tm>>
-    <associate|bib-Colella1990|<tuple|54|273|bibliography.tm>>
-    <associate|bib-Cui2023|<tuple|56|273|bibliography.tm>>
-    <associate|bib-Diot2012|<tuple|59|273|bibliography.tm>>
-    <associate|bib-Diot2013|<tuple|60|273|bibliography.tm>>
-    <associate|bib-Dumbser2006|<tuple|67|274|bibliography.tm>>
-    <associate|bib-Dumbser2007|<tuple|66|274|bibliography.tm>>
-    <associate|bib-Dumbser2008|<tuple|63|274|bibliography.tm>>
-    <associate|bib-Dumbser2008a|<tuple|64|274|bibliography.tm>>
-    <associate|bib-Dumbser2009|<tuple|68|274|bibliography.tm>>
-    <associate|bib-Dumbser2014|<tuple|62|274|bibliography.tm>>
-    <associate|bib-Dumbser2018|<tuple|65|274|bibliography.tm>>
-    <associate|bib-Dumbser2019|<tuple|61|274|bibliography.tm>>
-    <associate|bib-Einfeldt1988|<tuple|71|274|bibliography.tm>>
-    <associate|bib-Ellis2016|<tuple|72|274|bibliography.tm>>
-    <associate|bib-Engquist1981|<tuple|74|274|bibliography.tm>>
-    <associate|bib-Fambri2017|<tuple|75|274|bibliography.tm>>
-    <associate|bib-Gassner2011a|<tuple|76|274|bibliography.tm>>
-    <associate|bib-Gassner2012|<tuple|77|274|bibliography.tm>>
-    <associate|bib-Gassner_Winters_Hindenlang_Kopriva_2018|<tuple|78|274|bibliography.tm>>
-    <associate|bib-Ghia1982|<tuple|79|274|bibliography.tm>>
-    <associate|bib-Glimm1985|<tuple|80|274|bibliography.tm>>
-    <associate|bib-Gottlieb2001|<tuple|82|275|bibliography.tm>>
-    <associate|bib-Grazia2014|<tuple|57|273|bibliography.tm>>
-    <associate|bib-Guermond2016|<tuple|83|275|bibliography.tm>>
-    <associate|bib-Guo2015|<tuple|84|275|bibliography.tm>>
-    <associate|bib-Guthrey2019|<tuple|85|275|bibliography.tm>>
-    <associate|bib-Han2010|<tuple|87|275|bibliography.tm>>
-    <associate|bib-Harten1983a|<tuple|89|275|bibliography.tm>>
-    <associate|bib-Harten1987|<tuple|88|275|bibliography.tm>>
-    <associate|bib-Hirsch1990|<tuple|92|275|bibliography.tm>>
-    <associate|bib-Huynh2007|<tuple|94|275|bibliography.tm>>
-    <associate|bib-Jackson2017|<tuple|95|275|bibliography.tm>>
-    <associate|bib-Jameson2012|<tuple|97|275|bibliography.tm>>
-    <associate|bib-Jiang1996|<tuple|98|275|bibliography.tm>>
-    <associate|bib-Jiang2013|<tuple|99|275|bibliography.tm>>
-    <associate|bib-Kaser2005|<tuple|100|275|bibliography.tm>>
-    <associate|bib-Kopriva1996|<tuple|106|276|bibliography.tm>>
-    <associate|bib-Kopriva2002|<tuple|107|276|bibliography.tm>>
-    <associate|bib-Kopriva2006|<tuple|105|276|bibliography.tm>>
-    <associate|bib-Kopriva2019|<tuple|104|276|bibliography.tm>>
-    <associate|bib-Kozdon2018|<tuple|109|276|bibliography.tm>>
-    <associate|bib-Krivodonova2007|<tuple|110|276|bibliography.tm>>
-    <associate|bib-Lax1954|<tuple|111|276|bibliography.tm>>
-    <associate|bib-Lax1960|<tuple|113|276|bibliography.tm>>
-    <associate|bib-Lax1998|<tuple|112|276|bibliography.tm>>
-    <associate|bib-LeFloch2002|<tuple|115|276|bibliography.tm>>
-    <associate|bib-LeVeque1992|<tuple|116|276|bibliography.tm>>
-    <associate|bib-LeVeque1996|<tuple|117|276|bibliography.tm>>
-    <associate|bib-Lee2021|<tuple|114|276|bibliography.tm>>
-    <associate|bib-Levermore_1996|<tuple|118|276|bibliography.tm>>
-    <associate|bib-Lopez2014|<tuple|121|276|bibliography.tm>>
-    <associate|bib-Lou2020|<tuple|122|276|bibliography.tm>>
-    <associate|bib-Lu2021|<tuple|123|276|bibliography.tm>>
-    <associate|bib-Meena2020|<tuple|126|276|bibliography.tm>>
-    <associate|bib-Meena_Kumar_Chandrashekar_2017|<tuple|125|276|bibliography.tm>>
-    <associate|bib-Mengaldo2015|<tuple|127|277|bibliography.tm>>
-    <associate|bib-Montecinos2020|<tuple|129|277|bibliography.tm>>
-    <associate|bib-Offner2019|<tuple|131|277|bibliography.tm>>
-    <associate|bib-Pan2016|<tuple|132|277|bibliography.tm>>
-    <associate|bib-Pazner2021|<tuple|133|277|bibliography.tm>>
-    <associate|bib-Peraire2012|<tuple|93|275|bibliography.tm>>
-    <associate|bib-Peraire2013|<tuple|41|272|bibliography.tm>>
-    <associate|bib-Persson2006|<tuple|134|277|bibliography.tm>>
-    <associate|bib-Qiu2003|<tuple|138|277|bibliography.tm>>
-    <associate|bib-Qiu2005|<tuple|135|277|bibliography.tm>>
-    <associate|bib-Qiu2005b|<tuple|137|277|bibliography.tm>>
-    <associate|bib-Qiu2007|<tuple|136|277|bibliography.tm>>
-    <associate|bib-Rackauckas2017|<tuple|139|277|bibliography.tm>>
-    <associate|bib-Ramirez2020|<tuple|148|278|bibliography.tm>>
-    <associate|bib-Ranocha2021|<tuple|140|277|bibliography.tm>>
-    <associate|bib-Ranocha2022|<tuple|141|277|bibliography.tm>>
-    <associate|bib-Rasha2021|<tuple|96|275|bibliography.tm>>
-    <associate|bib-Ray2017|<tuple|144|277|bibliography.tm>>
-    <associate|bib-Roe1981|<tuple|146|277|bibliography.tm>>
-    <associate|bib-Romero2016|<tuple|147|278|bibliography.tm>>
-    <associate|bib-Rosa2018|<tuple|58|273|bibliography.tm>>
-    <associate|bib-Rueda2021|<tuple|149|278|bibliography.tm>>
-    <associate|bib-Rusanov1962|<tuple|152|278|bibliography.tm>>
-    <associate|bib-Ruuth2002|<tuple|153|278|bibliography.tm>>
-    <associate|bib-Safjan1995|<tuple|154|278|bibliography.tm>>
-    <associate|bib-Schafer1996|<tuple|156|278|bibliography.tm>>
-    <associate|bib-Seal2013|<tuple|159|278|bibliography.tm>>
-    <associate|bib-Shi2003|<tuple|161|278|bibliography.tm>>
-    <associate|bib-Shu1988|<tuple|162|278|bibliography.tm>>
-    <associate|bib-Shu1989|<tuple|163|278|bibliography.tm>>
-    <associate|bib-Sod1978|<tuple|164|278|bibliography.tm>>
-    <associate|bib-Sonntag2014|<tuple|165|278|bibliography.tm>>
-    <associate|bib-Spiegel2016|<tuple|166|278|bibliography.tm>>
-    <associate|bib-Spiteri2002|<tuple|167|278|bibliography.tm>>
-    <associate|bib-Sun2017|<tuple|170|279|bibliography.tm>>
-    <associate|bib-Swanson_Langer_2016|<tuple|171|279|bibliography.tm>>
-    <associate|bib-Tabarrok1994|<tuple|172|279|bibliography.tm>>
-    <associate|bib-Takayama1991|<tuple|173|279|bibliography.tm>>
-    <associate|bib-Tang2006|<tuple|174|279|bibliography.tm>>
-    <associate|bib-Titarev2002|<tuple|175|279|bibliography.tm>>
-    <associate|bib-Titarev2004|<tuple|176|279|bibliography.tm>>
-    <associate|bib-Titarev2005|<tuple|177|279|bibliography.tm>>
-    <associate|bib-Toro1994|<tuple|180|279|bibliography.tm>>
-    <associate|bib-Toro2001|<tuple|178|279|bibliography.tm>>
-    <associate|bib-Toro2009|<tuple|181|279|bibliography.tm>>
-    <associate|bib-Toro2020|<tuple|179|279|bibliography.tm>>
-    <associate|bib-Trojak2021|<tuple|182|279|bibliography.tm>>
-    <associate|bib-Tsitouras2011|<tuple|183|279|bibliography.tm>>
-    <associate|bib-Vandenhoeck2019|<tuple|186|279|bibliography.tm>>
-    <associate|bib-Vermeire2017|<tuple|187|279|bibliography.tm>>
-    <associate|bib-Vilar2019|<tuple|188|279|bibliography.tm>>
-    <associate|bib-Vincent2011|<tuple|190|279|bibliography.tm>>
-    <associate|bib-Vincent2011a|<tuple|189|279|bibliography.tm>>
-    <associate|bib-Vincent2015|<tuple|191|279|bibliography.tm>>
-    <associate|bib-Vincent2016|<tuple|193|280|bibliography.tm>>
-    <associate|bib-Vincent2022|<tuple|192|280|bibliography.tm>>
-    <associate|bib-Volker2010|<tuple|168|279|bibliography.tm>>
-    <associate|bib-Witherden2021|<tuple|196|280|bibliography.tm>>
-    <associate|bib-Woodward1984|<tuple|197|280|bibliography.tm>>
-    <associate|bib-Xu2019|<tuple|198|280|bibliography.tm>>
-    <associate|bib-Xu2022|<tuple|199|280|bibliography.tm>>
-    <associate|bib-Yee1999|<tuple|200|280|bibliography.tm>>
-    <associate|bib-Youn1995|<tuple|201|280|bibliography.tm>>
-    <associate|bib-Zanotti2015|<tuple|202|280|bibliography.tm>>
-    <associate|bib-Zhang1990|<tuple|203|280|bibliography.tm>>
-    <associate|bib-Zhang1997|<tuple|204|280|bibliography.tm>>
-    <associate|bib-Zhang2010b|<tuple|205|280|bibliography.tm>>
-    <associate|bib-Zorio2017|<tuple|208|280|bibliography.tm>>
-    <associate|bib-akkurt2022|<tuple|3|271|bibliography.tm>>
-    <associate|bib-arpit_babbar_2024_10816439|<tuple|7|271|bibliography.tm>>
-    <associate|bib-attig2011|<tuple|6|271|bibliography.tm>>
-    <associate|bib-babbar2022|<tuple|18|271|bibliography.tm>>
-    <associate|bib-babbar2023admissibility|<tuple|19|271|bibliography.tm>>
-    <associate|bib-babbar2024curved|<tuple|13|271|bibliography.tm>>
-    <associate|bib-babbar2024equivalence|<tuple|9|271|bibliography.tm>>
-    <associate|bib-babbar2024generalized|<tuple|11|271|bibliography.tm>>
-    <associate|bib-babbar2024laxwendroff|<tuple|12|271|bibliography.tm>>
-    <associate|bib-babbar2024multiderivative|<tuple|14|271|bibliography.tm>>
-    <associate|bib-berzins1995|<tuple|28|272|bibliography.tm>>
-    <associate|bib-cockburn2000|<tuple|49|273|bibliography.tm>>
-    <associate|bib-curvedrepo|<tuple|10|271|bibliography.tm>>
-    <associate|bib-dzanic2022|<tuple|69|274|bibliography.tm>>
-    <associate|bib-emery1968|<tuple|73|274|bibliography.tm>>
-    <associate|bib-godunov1959|<tuple|81|275|bibliography.tm>>
-    <associate|bib-ha2005|<tuple|86|275|bibliography.tm>>
-    <associate|bib-hennemann2021|<tuple|90|275|bibliography.tm>>
-    <associate|bib-hildebrand1973|<tuple|91|275|bibliography.tm>>
-    <associate|bib-icosahom2023_tmp|<tuple|8|271|bibliography.tm>>
-    <associate|bib-ketcheson2020|<tuple|101|275|bibliography.tm>>
-    <associate|bib-klockner2011|<tuple|102|275|bibliography.tm>>
-    <associate|bib-kopriva2009|<tuple|103|275|bibliography.tm>>
-    <associate|bib-kopriva2010|<tuple|108|276|bibliography.tm>>
-    <associate|bib-li2016|<tuple|119|276|bibliography.tm>>
-    <associate|bib-lohner1987|<tuple|120|276|bibliography.tm>>
-    <associate|bib-meena2017|<tuple|124|276|bibliography.tm>>
-    <associate|bib-moe2017|<tuple|128|277|bibliography.tm>>
-    <associate|bib-naca1951|<tuple|4|271|bibliography.tm>>
-    <associate|bib-nsrepo|<tuple|15|271|bibliography.tm>>
-    <associate|bib-obrechkoff1940neue|<tuple|130|277|bibliography.tm>>
-    <associate|bib-paperrepo|<tuple|16|271|bibliography.tm>>
-    <associate|bib-ramirez2021|<tuple|151|278|bibliography.tm>>
-    <associate|bib-ramirez2022|<tuple|150|278|bibliography.tm>>
-    <associate|bib-ranocha2023|<tuple|142|277|bibliography.tm>>
-    <associate|bib-raythesis|<tuple|143|277|bibliography.tm>>
-    <associate|bib-reed1973|<tuple|145|277|bibliography.tm>>
-    <associate|bib-schaal2015|<tuple|155|278|bibliography.tm>>
-    <associate|bib-schlottkelakemper2020trixi|<tuple|157|278|bibliography.tm>>
-    <associate|bib-schlottkelakemper2021purely|<tuple|158|278|bibliography.tm>>
-    <associate|bib-sedov1959|<tuple|160|278|bibliography.tm>>
-    <associate|bib-su2|<tuple|70|274|bibliography.tm>>
-    <associate|bib-subcommittee2014|<tuple|169|279|bibliography.tm>>
-    <associate|bib-tenkai|<tuple|17|271|bibliography.tm>>
-    <associate|bib-vanleer1977|<tuple|184|279|bibliography.tm>>
-    <associate|bib-vanleer1984|<tuple|185|279|bibliography.tm>>
-    <associate|bib-ware1995|<tuple|194|280|bibliography.tm>>
-    <associate|bib-witherden2014|<tuple|195|280|bibliography.tm>>
-    <associate|bib-zhang2010c|<tuple|206|280|bibliography.tm>>
-    <associate|bib-zhang2012|<tuple|207|280|bibliography.tm>>
-    <associate|ch:10mom|<tuple|6|135|ch5_10_moment_problem.tm>>
-    <associate|ch:con.law|<tuple|2|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|ch:curved.meshes|<tuple|8|169|ch6_curved_meshes.tm>>
-    <associate|ch:fvm.dg|<tuple|3|39|ch1b_finite_volume_method.tm>>
-    <associate|ch:lw.subcell.limiter|<tuple|5|103|ch3_blending_limiter.tm>>
-    <associate|ch:lwfr|<tuple|4|47|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|ch:mdrk|<tuple|7|147|ch4_mdrk.tm>>
-    <associate|ch:parabolic|<tuple|9|211|ch_parabolic.tm>>
-    <associate|defn.mean|<tuple|8.30|175|ch6_curved_meshes.tm>>
-    <associate|defn:adm.pres|<tuple|5.1|104|ch3_blending_limiter.tm>>
-    <associate|defn:admissible.fvm|<tuple|3.1|42|ch1b_finite_volume_method.tm>>
-    <associate|defn:curved.contravariant.basis|<tuple|8.2|171|ch6_curved_meshes.tm>>
-    <associate|defn:curved.covariant.basis|<tuple|8.1|171|ch6_curved_meshes.tm>>
-    <associate|defn:curved.well.constructed.mesh|<tuple|8.4|178|ch6_curved_meshes.tm>>
-    <associate|defn:hyperbolic|<tuple|2.1|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|defn:mean.pres|<tuple|5.2|105|ch3_blending_limiter.tm>>
-    <associate|eq:1d.rh|<tuple|2.9|33|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:1d.smoothness.E|<tuple|5.12|108|ch3_blending_limiter.tm>>
-    <associate|eq:1deuler|<tuple|4.15|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:2DMH1|<tuple|G.22|260|appendix.tm>>
-    <associate|eq:2DMH2|<tuple|G.23|260|appendix.tm>>
-    <associate|eq:2DMH3|<tuple|G.24|260|appendix.tm>>
-    <associate|eq:2Dupdates|<tuple|G.27|261|appendix.tm>>
-    <associate|eq:2d.adm.numflux.desired.x|<tuple|G.38|266|appendix.tm>>
-    <associate|eq:2d.adm.numflux.desired.y|<tuple|G.38|266|appendix.tm>>
-    <associate|eq:2d.hyp.con.law|<tuple|G.1|251|appendix.tm>>
-    <associate|eq:2d.low.update.admissibility.condn|<tuple|G.38|266|appendix.tm>>
-    <associate|eq:2d.mh.final.subs|<tuple|G.32|262|appendix.tm>>
-    <associate|eq:2d.new.cfl2|<tuple|G.33|263|appendix.tm>>
-    <associate|eq:2d.new.cfl3.conservative|<tuple|G.36|265|appendix.tm>>
-    <associate|eq:2d.xy.implies.admissibility|<tuple|G.39|266|appendix.tm>>
-    <associate|eq:2dadv|<tuple|4.25|89|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:2dburger|<tuple|4.28|95|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:2dcfldom|<tuple|4.26|91|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:2deuler|<tuple|2.16|36|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:2dns|<tuple|2.18|37|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:2dstate|<tuple|2.15|35|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:2dvaradv|<tuple|4.27|92|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:3deuler|<tuple|2.14|35|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:3dns|<tuple|2.17|36|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:Fblend|<tuple|5.11|107|ch3_blending_limiter.tm>>
-    <associate|eq:Uh.defn|<tuple|A.11|230|appendix.tm>>
-    <associate|eq:VlVr|<tuple|3.6|40|ch1b_finite_volume_method.tm>>
-    <associate|eq:ader.corr.flux|<tuple|A.8|230|appendix.tm>>
-    <associate|eq:ader.corr1|<tuple|A.4|228|appendix.tm>>
-    <associate|eq:ader.evolution|<tuple|A.6|229|appendix.tm>>
-    <associate|eq:ader.fr.flux|<tuple|A.7|229|appendix.tm>>
-    <associate|eq:adm2.coeff1|<tuple|G.34|264|appendix.tm>>
-    <associate|eq:adm2.coeff2|<tuple|G.35|264|appendix.tm>>
-    <associate|eq:all.fvm.updates|<tuple|G.12|256|appendix.tm>>
-    <associate|eq:blended.scheme|<tuple|5.6|106|ch3_blending_limiter.tm>>
-    <associate|eq:cache.blocking|<tuple|D.1|245|appendix.tm>>
-    <associate|eq:cauchy.problem|<tuple|2.6|32|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:con.law|<tuple|3.1|39|ch1b_finite_volume_method.tm>>
-    <associate|eq:con.law.dt|<tuple|G.8|253|appendix.tm>>
-    <associate|eq:concave.theta|<tuple|5.24|112|ch3_blending_limiter.tm>>
-    <associate|eq:concave.theta.source|<tuple|6.15|139|ch5_10_moment_problem.tm>>
-    <associate|eq:conservation.blending.scheme|<tuple|5.10|107|ch3_blending_limiter.tm>>
-    <associate|eq:conv.pres.con.law|<tuple|5.4|104|ch3_blending_limiter.tm>>
-    <associate|eq:corr.expressions|<tuple|C.8|240|appendix.tm>>
-    <associate|eq:curved.2d.adm.numflux.desired|<tuple|8.53|185|ch6_curved_meshes.tm>>
-    <associate|eq:curved.2d.low.update.admissibility.condn|<tuple|8.52|185|ch6_curved_meshes.tm>>
-    <associate|eq:curved.2d.xy.implies.admissibility|<tuple|8.54|185|ch6_curved_meshes.tm>>
-    <associate|eq:curved.4to1proj|<tuple|8.62|188|ch6_curved_meshes.tm>>
-    <associate|eq:curved.Fdelta.low|<tuple|8.76|195|ch6_curved_meshes.tm>>
-    <associate|eq:curved.Fisf|<tuple|8.41|179|ch6_curved_meshes.tm>>
-    <associate|eq:curved.I0.defn|<tuple|8.55|186|ch6_curved_meshes.tm>>
-    <associate|eq:curved.Nnd|<tuple|8.5|170|ch6_curved_meshes.tm>>
-    <associate|eq:curved.Uisu|<tuple|8.42|179|ch6_curved_meshes.tm>>
-    <associate|eq:curved.approx.soln|<tuple|8.15|172|ch6_curved_meshes.tm>>
-    <associate|eq:curved.blended.flux.in.curved|<tuple|8.48|181|ch6_curved_meshes.tm>>
-    <associate|eq:curved.cfl.effective|<tuple|8.79|199|ch6_curved_meshes.tm>>
-    <associate|eq:curved.cfl.formula|<tuple|8.72|194|ch6_curved_meshes.tm>>
-    <associate|eq:curved.cfl.time.step|<tuple|8.78|198|ch6_curved_meshes.tm>>
-    <associate|eq:curved.compact.prolongation|<tuple|8.67|191|ch6_curved_meshes.tm>>
-    <associate|eq:curved.con.law|<tuple|8.1|169|ch6_curved_meshes.tm>>
-    <associate|eq:curved.conservation.lw|<tuple|8.29|175|ch6_curved_meshes.tm>>
-    <associate|eq:curved.contravariant.flux.defn|<tuple|8.13|171|ch6_curved_meshes.tm>>
-    <associate|eq:curved.contravariant.identity|<tuple|8.9|171|ch6_curved_meshes.tm>>
-    <associate|eq:curved.cts.num.flux|<tuple|8.18|173|ch6_curved_meshes.tm>>
-    <associate|eq:curved.cts.time.avg.flux|<tuple|8.25|175|ch6_curved_meshes.tm>>
-    <associate|eq:curved.defn1.div|<tuple|8.2|170|ch6_curved_meshes.tm>>
-    <associate|eq:curved.divergence.transform.contravariant|<tuple|8.10|171|ch6_curved_meshes.tm>>
-    <associate|eq:curved.dtnp1.formula|<tuple|8.73|195|ch6_curved_meshes.tm>>
-    <associate|eq:curved.error.estimator|<tuple|8.74|195|ch6_curved_meshes.tm>>
-    <associate|eq:curved.final.int.identity.fxi|<tuple|8.66|191|ch6_curved_meshes.tm>>
-    <associate|eq:curved.flux.poly.defn|<tuple|8.17|173|ch6_curved_meshes.tm>>
-    <associate|eq:curved.fo.rusanov|<tuple|8.47|181|ch6_curved_meshes.tm>>
-    <associate|eq:curved.fr.update.curvilinear|<tuple|8.22|174|ch6_curved_meshes.tm>>
-    <associate|eq:curved.ft.defn|<tuple|8.32|176|ch6_curved_meshes.tm>>
-    <associate|eq:curved.gradient.transform.contravariant|<tuple|8.11|171|ch6_curved_meshes.tm>>
-    <associate|eq:curved.integral.identities|<tuple|8.64|189|ch6_curved_meshes.tm>>
-    <associate|eq:curved.interpolation.defn|<tuple|8.36|177|ch6_curved_meshes.tm>>
-    <associate|eq:curved.interpolation.ue|<tuple|8.5.1.1|188|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lagrange.basis|<tuple|8.6|170|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lo.numflux|<tuple|8.46|181|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lohner.ind|<tuple|8.71|193|ch6_curved_meshes.tm>>
-    <associate|eq:curved.low.order.cell.avg.update.curved|<tuple|8.49|181|ch6_curved_meshes.tm>>
-    <associate|eq:curved.low.update.2d|<tuple|8.51|185|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lower.order.curved|<tuple|8.45|180|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lower.order.flux.curved|<tuple|8.44|180|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lw.update|<tuple|8.23|174|ch6_curved_meshes.tm>>
-    <associate|eq:curved.lwfr.update.curvilinear|<tuple|8.28|175|ch6_curved_meshes.tm>>
-    <associate|eq:curved.metric.identity.contravariant|<tuple|8.14|172|ch6_curved_meshes.tm>>
-    <associate|eq:curved.metric.identity.contravariant.inter|<tuple|8.35|177|ch6_curved_meshes.tm>>
-    <associate|eq:curved.metric.identity.contravariant.poly|<tuple|8.37|177|ch6_curved_meshes.tm>>
-    <associate|eq:curved.partition|<tuple|8.3|170|ch6_curved_meshes.tm>>
-    <associate|eq:curved.pro4.with.lagrange|<tuple|8.63|188|ch6_curved_meshes.tm>>
-    <associate|eq:curved.proP.defn|<tuple|8.59|187|ch6_curved_meshes.tm>>
-    <associate|eq:curved.product.of.operators|<tuple|8.60|187|ch6_curved_meshes.tm>>
-    <associate|eq:curved.proj.mortar.int.id|<tuple|8.68|192|ch6_curved_meshes.tm>>
-    <associate|eq:curved.projection.integral.equation|<tuple|8.69|192|ch6_curved_meshes.tm>>
-    <associate|eq:curved.reference.map|<tuple|8.4|170|ch6_curved_meshes.tm>>
-    <associate|eq:curved.rusanov.flux|<tuple|8.19|173|ch6_curved_meshes.tm>>
-    <associate|eq:curved.rusanov.flux.lw|<tuple|8.26|175|ch6_curved_meshes.tm>>
-    <associate|eq:curved.semi.discrete.fr|<tuple|8.21|174|ch6_curved_meshes.tm>>
-    <associate|eq:curved.subint.op|<tuple|8.58|186|ch6_curved_meshes.tm>>
-    <associate|eq:curved.submap|<tuple|8.56|186|ch6_curved_meshes.tm>>
-    <associate|eq:curved.submap.inverse|<tuple|8.57|186|ch6_curved_meshes.tm>>
-    <associate|eq:curved.time.averaged.flux|<tuple|8.24|174|ch6_curved_meshes.tm>>
-    <associate|eq:curved.time.avg.is.physical.flux|<tuple|8.39|178|ch6_curved_meshes.tm>>
-    <associate|eq:curved.transformed.conservation.law|<tuple|8.12|171|ch6_curved_meshes.tm>>
-    <associate|eq:curved.uXidefn|<tuple|8.65|191|ch6_curved_meshes.tm>>
-    <associate|eq:curved.ueues.defn|<tuple|8.61|188|ch6_curved_meshes.tm>>
-    <associate|eq:curved.uloc.high|<tuple|8.75|195|ch6_curved_meshes.tm>>
-    <associate|eq:curved.unp1.low|<tuple|8.77|196|ch6_curved_meshes.tm>>
-    <associate|eq:curved.ut.defn|<tuple|8.33|176|ch6_curved_meshes.tm>>
-    <associate|eq:curved.utt.defn|<tuple|8.34|177|ch6_curved_meshes.tm>>
-    <associate|eq:curved.well.constructed|<tuple|8.38|178|ch6_curved_meshes.tm>>
-    <associate|eq:curved.xis.notation|<tuple|8.16|172|ch6_curved_meshes.tm>>
-    <associate|eq:delta.defn|<tuple|5.17|110|ch3_blending_limiter.tm>>
-    <associate|eq:dg.collocated|<tuple|C.5|239|appendix.tm>>
-    <associate|eq:dg.discontinuous.flux|<tuple|3.15|43|ch1b_finite_volume_method.tm>>
-    <associate|eq:dg.is.fr.corr|<tuple|C.6|239|appendix.tm>>
-    <associate|eq:dg.rusanov|<tuple|C.2|237|appendix.tm>>
-    <associate|eq:dg.scheme|<tuple|C.1|237|appendix.tm>>
-    <associate|eq:dg.weak|<tuple|C.4|238|appendix.tm>>
-    <associate|eq:diff.matrix|<tuple|3.5|40|ch1b_finite_volume_method.tm>>
-    <associate|eq:dt.lw|<tuple|4.17|78|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:entropy.condition|<tuple|2.11|33|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:erik.ic|<tuple|9.20|215|ch_parabolic.tm>>
-    <associate|eq:evolution|<tuple|5.19|111|ch3_blending_limiter.tm>>
-    <associate|eq:evolution.general|<tuple|G.5|252|appendix.tm>>
-    <associate|eq:explicit.fvm.scheme|<tuple|3.12|42|ch1b_finite_volume_method.tm>>
-    <associate|eq:fder|<tuple|4.8|50|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:final.claim|<tuple|A.15|231|appendix.tm>>
-    <associate|eq:first.time.average.flux|<tuple|A.10|230|appendix.tm>>
-    <associate|eq:flux.concave.theta|<tuple|5.29|115|ch3_blending_limiter.tm>>
-    <associate|eq:flux.optimization.problem|<tuple|5.28|115|ch3_blending_limiter.tm>>
-    <associate|eq:fo.at.face|<tuple|5.14|110|ch3_blending_limiter.tm>>
-    <associate|eq:forward.euler|<tuple|3.9|41|ch1b_finite_volume_method.tm>>
-    <associate|eq:fravgup|<tuple|5.3|104|ch3_blending_limiter.tm>>
-    <associate|eq:frcontflux|<tuple|4.7|50|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:ftilde.free.stream|<tuple|8.40|178|ch6_curved_meshes.tm>>
-    <associate|eq:fvm.admissibility|<tuple|3.13|42|ch1b_finite_volume_method.tm>>
-    <associate|eq:fvm.fr.corr.functions|<tuple|3.17|44|ch1b_finite_volume_method.tm>>
-    <associate|eq:fvm.mol|<tuple|3.7|41|ch1b_finite_volume_method.tm>>
-    <associate|eq:fvm.numflux|<tuple|3.8|41|ch1b_finite_volume_method.tm>>
-    <associate|eq:g2|<tuple|3.19|45|ch1b_finite_volume_method.tm>>
-    <associate|eq:g2.simplifier|<tuple|C.17|241|appendix.tm>>
-    <associate|eq:general.pk.source|<tuple|6.14|139|ch5_10_moment_problem.tm>>
-    <associate|eq:genuinely.nonlinear|<tuple|2.4|32|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:ghu|<tuple|C.18|241|appendix.tm>>
-    <associate|eq:gl.lagrange|<tuple|C.9|240|appendix.tm>>
-    <associate|eq:global.lf|<tuple|3.10|41|ch1b_finite_volume_method.tm>>
-    <associate|eq:gradau|<tuple|3.18|45|ch1b_finite_volume_method.tm>>
-    <associate|eq:integral.con.law|<tuple|2.3|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:intro.con.law|<tuple|2.2|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:intro.rp|<tuple|2.13|34|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:intro.u|<tuple|2.1|31|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:kx.defn|<tuple|G.30|261|appendix.tm>>
-    <associate|eq:lag.poly.1d|<tuple|3.4|39|ch1b_finite_volume_method.tm>>
-    <associate|eq:laup|<tuple|4.14|58|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:leg.id1|<tuple|C.12|240|appendix.tm>>
-    <associate|eq:leg.id2|<tuple|C.13|240|appendix.tm>>
-    <associate|eq:linearly.degenerate|<tuple|2.5|32|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:low.order.cell.avg.update|<tuple|5.9|107|ch3_blending_limiter.tm>>
-    <associate|eq:low.order.high.level|<tuple|5.5|105|ch3_blending_limiter.tm>>
-    <associate|eq:low.order.tilde.update|<tuple|5.27|115|ch3_blending_limiter.tm>>
-    <associate|eq:low.order.update|<tuple|5.8|106|ch3_blending_limiter.tm>>
-    <associate|eq:low.update.2d|<tuple|G.37|266|appendix.tm>>
-    <associate|eq:lw.corr.flux|<tuple|A.13|230|appendix.tm>>
-    <associate|eq:lwfr.2d.explicit|<tuple|4.22|88|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:lwfr.evolution|<tuple|A.9|230|appendix.tm>>
-    <associate|eq:lwfr.time.average.cts|<tuple|4.6|49|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:lwtay|<tuple|4.1|48|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:mdrk.2stage.update.eqn|<tuple|7.13|153|ch4_mdrk.tm>>
-    <associate|eq:mdrk.A.star.defn|<tuple|7.16|153|ch4_mdrk.tm>>
-    <associate|eq:mdrk.A0A1.matrices|<tuple|7.14|153|ch4_mdrk.tm>>
-    <associate|eq:mdrk.Fblend|<tuple|7.24|157|ch4_mdrk.tm>>
-    <associate|eq:mdrk.blended.scheme|<tuple|7.21|156|ch4_mdrk.tm>>
-    <associate|eq:mdrk.c1|<tuple|H.5|269|appendix.tm>>
-    <associate|eq:mdrk.c2|<tuple|H.6|270|appendix.tm>>
-    <associate|eq:mdrk.c3|<tuple|H.7|270|appendix.tm>>
-    <associate|eq:mdrk.c4|<tuple|H.8|270|appendix.tm>>
-    <associate|eq:mdrk.c5|<tuple|H.9|270|appendix.tm>>
-    <associate|eq:mdrk.c6|<tuple|H.10|270|appendix.tm>>
-    <associate|eq:mdrk.c7|<tuple|H.11|270|appendix.tm>>
-    <associate|eq:mdrk.c8|<tuple|H.12|270|appendix.tm>>
-    <associate|eq:mdrk.d1|<tuple|H.14|270|appendix.tm>>
-    <associate|eq:mdrk.d2|<tuple|H.15|270|appendix.tm>>
-    <associate|eq:mdrk.d3|<tuple|H.16|270|appendix.tm>>
-    <associate|eq:mdrk.d4|<tuple|H.17|270|appendix.tm>>
-    <associate|eq:mdrk.d5|<tuple|H.18|270|appendix.tm>>
-    <associate|eq:mdrk.f2.defn|<tuple|7.5|148|ch4_mdrk.tm>>
-    <associate|eq:mdrk.far.field.solution|<tuple|7.25|164|ch4_mdrk.tm>>
-    <associate|eq:mdrk.ho.method|<tuple|7.19|156|ch4_mdrk.tm>>
-    <associate|eq:mdrk.intro.us.evolution|<tuple|7.1|147|ch4_mdrk.tm>>
-    <associate|eq:mdrk.lo.method|<tuple|7.20|156|ch4_mdrk.tm>>
-    <associate|eq:mdrk.low.order.cell.avg.update|<tuple|7.23|156|ch4_mdrk.tm>>
-    <associate|eq:mdrk.low.order.update|<tuple|7.22|156|ch4_mdrk.tm>>
-    <associate|eq:mdrk.mdrk.first.stage|<tuple|7.2|148|ch4_mdrk.tm>>
-    <associate|eq:mdrk.mdrk.second.stage|<tuple|7.3|148|ch4_mdrk.tm>>
-    <associate|eq:mdrk.nfdiss1|<tuple|7.10|151|ch4_mdrk.tm>>
-    <associate|eq:mdrk.nfdiss2|<tuple|7.11|151|ch4_mdrk.tm>>
-    <associate|eq:mdrk.tavgsol|<tuple|7.12|151|ch4_mdrk.tm>>
-    <associate|eq:mdrk.taylor.u.five|<tuple|H.4|269|appendix.tm>>
-    <associate|eq:mdrk.unp.approximate|<tuple|H.2|269|appendix.tm>>
-    <associate|eq:mdrk.uplwfr|<tuple|7.6|148|ch4_mdrk.tm>>
-    <associate|eq:mdrk.upmean|<tuple|7.8|149|ch4_mdrk.tm>>
-    <associate|eq:mdrk.us.fourier|<tuple|7.15|153|ch4_mdrk.tm>>
-    <associate|eq:mdrk.ut.ders|<tuple|H.3|269|appendix.tm>>
-    <associate|eq:mh.at.face|<tuple|5.20|111|ch3_blending_limiter.tm>>
-    <associate|eq:mh.corr.flux|<tuple|5.16|110|ch3_blending_limiter.tm>>
-    <associate|eq:mu.pm|<tuple|G.7|253|appendix.tm>>
-    <associate|eq:muscl.final.general|<tuple|G.6|252|appendix.tm>>
-    <associate|eq:muxy.defn|<tuple|G.26|261|appendix.tm>>
-    <associate|eq:new.cfl1|<tuple|G.10|254|appendix.tm>>
-    <associate|eq:new.cfl1.2d|<tuple|G.31|262|appendix.tm>>
-    <associate|eq:new.cfl2|<tuple|G.13|256|appendix.tm>>
-    <associate|eq:new.cfl3|<tuple|G.17|257|appendix.tm>>
-    <associate|eq:new.cfl3.conservative|<tuple|G.19|258|appendix.tm>>
-    <associate|eq:nfdiss1|<tuple|4.9|54|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:nfdiss2|<tuple|4.10|54|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:nflin1|<tuple|4.12|55|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:nflin2|<tuple|4.13|55|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:non.cell.centred.defn|<tuple|G.3|251|appendix.tm>>
-    <associate|eq:non.con.face.defn1|<tuple|G.21|259|appendix.tm>>
-    <associate|eq:nse.manu|<tuple|9.21|216|ch_parabolic.tm>>
-    <associate|eq:num.soln|<tuple|3.3|39|ch1b_finite_volume_method.tm>>
-    <associate|eq:numflux.admissibility.cfl|<tuple|G.2|251|appendix.tm>>
-    <associate|eq:numflux.d1|<tuple|A.14|230|appendix.tm>>
-    <associate|eq:numflux.d2|<tuple|A.12|230|appendix.tm>>
-    <associate|eq:numflux.defn|<tuple|A.5|228|appendix.tm>>
-    <associate|eq:numresults.2dadv|<tuple|5.8|121|ch3_blending_limiter.tm>>
-    <associate|eq:ode.L|<tuple|7.2|148|ch4_mdrk.tm>>
-    <associate|eq:optimization.problem|<tuple|5.23|112|ch3_blending_limiter.tm>>
-    <associate|eq:parabolic.central.u|<tuple|9.10|213|ch_parabolic.tm>>
-    <associate|eq:parabolic.cts.time.avg.flux|<tuple|9.15|214|ch_parabolic.tm>>
-    <associate|eq:parabolic.flux.poly.defn|<tuple|9.19|214|ch_parabolic.tm>>
-    <associate|eq:parabolic.ft.defn|<tuple|9.17|214|ch_parabolic.tm>>
-    <associate|eq:parabolic.grad.transform|<tuple|9.6|212|ch_parabolic.tm>>
-    <associate|eq:parabolic.lw.update|<tuple|9.12|213|ch_parabolic.tm>>
-    <associate|eq:parabolic.lwfr.update.curvilinear|<tuple|9.16|214|ch_parabolic.tm>>
-    <associate|eq:parabolic.matrix.operator.notation|<tuple|9.3|211|ch_parabolic.tm>>
-    <associate|eq:parabolic.parabolic.eqn|<tuple|9.1|211|ch_parabolic.tm>>
-    <associate|eq:parabolic.parabolic.in.first.order|<tuple|9.4|211|ch_parabolic.tm>>
-    <associate|eq:parabolic.q.defn|<tuple|9.11|213|ch_parabolic.tm>>
-    <associate|eq:parabolic.rusanov.flux.lw|<tuple|9.14|213|ch_parabolic.tm>>
-    <associate|eq:parabolic.time.averaged.flux|<tuple|9.13|213|ch_parabolic.tm>>
-    <associate|eq:parabolic.transformed.fo|<tuple|9.7|212|ch_parabolic.tm>>
-    <associate|eq:parabolic.u.corrected|<tuple|9.9|213|ch_parabolic.tm>>
-    <associate|eq:parabolic.ut.defn|<tuple|9.18|214|ch_parabolic.tm>>
-    <associate|eq:parabolic.vector.vector|<tuple|9.2|211|ch_parabolic.tm>>
-    <associate|eq:pk.slope.correction|<tuple|5.25|113|ch3_blending_limiter.tm>>
-    <associate|eq:predictor.defn|<tuple|A.2|228|appendix.tm>>
-    <associate|eq:predictor.eqn|<tuple|A.3|228|appendix.tm>>
-    <associate|eq:predictor.linear.solution|<tuple|A.16|231|appendix.tm>>
-    <associate|eq:pstar|<tuple|B.1|234|appendix.tm>>
-    <associate|eq:radau.corrector|<tuple|C.11|240|appendix.tm>>
-    <associate|eq:radau.poly|<tuple|C.12|240|appendix.tm>>
-    <associate|eq:radau.simplifier.1|<tuple|C.15|240|appendix.tm>>
-    <associate|eq:radau.simplifier.2|<tuple|C.16|240|appendix.tm>>
-    <associate|eq:reconstruction|<tuple|5.18|111|ch3_blending_limiter.tm>>
-    <associate|eq:reconstruction.general|<tuple|G.4|252|appendix.tm>>
-    <associate|eq:regularized.con.law|<tuple|2.10|33|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:rh.cond|<tuple|2.8|32|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:riemann.problem|<tuple|5.15|110|ch3_blending_limiter.tm>>
-    <associate|eq:rusanov.fvm|<tuple|3.11|42|ch1b_finite_volume_method.tm>>
-    <associate|eq:rusanov.lambda|<tuple|8.20|173|ch6_curved_meshes.tm>>
-    <associate|eq:scalar.con.law|<tuple|A.1|227|appendix.tm>>
-    <associate|eq:scaling.conv.theta|<tuple|F.1|249|appendix.tm>>
-    <associate|eq:scaling.general.theta|<tuple|F.2|249|appendix.tm>>
-    <associate|eq:semi.integral.form|<tuple|8.31|176|ch6_curved_meshes.tm>>
-    <associate|eq:semidiscrete.dg|<tuple|3.14|43|ch1b_finite_volume_method.tm>>
-    <associate|eq:shuosher|<tuple|4.20|81|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:smoothing|<tuple|5.13|109|ch3_blending_limiter.tm>>
-    <associate|eq:sod|<tuple|4.18|79|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:soln.points|<tuple|3.2|39|ch1b_finite_volume_method.tm>>
-    <associate|eq:state|<tuple|4.16|78|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:strong.form.dg.1d|<tuple|3.16|44|ch1b_finite_volume_method.tm>>
-    <associate|eq:subcell.defn|<tuple|5.7|106|ch3_blending_limiter.tm>>
-    <associate|eq:tavgflux|<tuple|4.2|48|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:tavgsol|<tuple|4.11|54|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:time.step.2d|<tuple|4.29|97|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:tmp.F.S.split|<tuple|6.13|139|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.cell.avg.decomp|<tuple|6.10|138|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.con.law|<tuple|6.1|135|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.fravgup|<tuple|6.8|137|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.low.order.tilde.update|<tuple|6.11|138|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.low.order.update|<tuple|6.9|138|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.lwtay|<tuple|6.2|136|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.pure.low.order.tilde.update|<tuple|6.12|138|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.tavgS|<tuple|6.4|136|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.tavgflux|<tuple|6.3|136|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.tenmom.source|<tuple|6.17|140|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.tmp|<tuple|6.16|140|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.tvgproperty|<tuple|6.5|136|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.tvgproperty.S|<tuple|6.6|136|ch5_10_moment_problem.tm>>
-    <associate|eq:tmp.uplwfr|<tuple|6.7|136|ch5_10_moment_problem.tm>>
-    <associate|eq:tvgproperty|<tuple|4.3|48|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:uad.form|<tuple|5.1|103|ch3_blending_limiter.tm>>
-    <associate|eq:uj.nph.s|<tuple|G.11|255|appendix.tm>>
-    <associate|eq:uj.nph.s.explicit|<tuple|G.14|256|appendix.tm>>
-    <associate|eq:ujph.s.identity|<tuple|G.18|257|appendix.tm>>
-    <associate|eq:um.lw|<tuple|4.24|88|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:unphsxy|<tuple|G.32|263|appendix.tm>>
-    <associate|eq:up2d|<tuple|4.23|88|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:update.x.combination|<tuple|G.28|261|appendix.tm>>
-    <associate|eq:update.x.combination2|<tuple|G.29|261|appendix.tm>>
-    <associate|eq:uplwfr|<tuple|4.4|48|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:upmean|<tuple|4.5|49|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|eq:us.conservative|<tuple|G.20|259|appendix.tm>>
-    <associate|eq:us.defn.main|<tuple|5.21|111|ch3_blending_limiter.tm>>
-    <associate|eq:use.weak.convexity|<tuple|5.25|113|ch3_blending_limiter.tm>>
-    <associate|eq:uss.defn|<tuple|G.15|257|appendix.tm>>
-    <associate|eq:ustar.2d|<tuple|G.25|261|appendix.tm>>
-    <associate|eq:ustar.defn|<tuple|G.9|254|appendix.tm>>
-    <associate|eq:ustar.in.uad|<tuple|5.22|112|ch3_blending_limiter.tm>>
-    <associate|eq:wave.speed.dg|<tuple|C.2|238|appendix.tm>>
-    <associate|eq:weak.convexity|<tuple|5.2|104|ch3_blending_limiter.tm>>
-    <associate|eq:weak.form|<tuple|2.7|32|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|eq:wj.expression|<tuple|C.10|240|appendix.tm>>
-    <associate|eq:wss.simplified|<tuple|G.16|257|appendix.tm>>
-    <associate|fig:2d.near.vacuum|<tuple|6.5|144|ch5_10_moment_problem.tm>>
-    <associate|fig:2dcfl_g2|<tuple|4.31|91|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:2dcfl_radau|<tuple|4.30|91|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:ShuOsher|<tuple|4.24|82|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:ShuOsher.chblend|<tuple|5.3|118|ch3_blending_limiter.tm>>
-    <associate|fig:ShuOsherCorr|<tuple|4.28|86|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:alpha.func|<tuple|5.2|109|ch3_blending_limiter.tm>>
-    <associate|fig:astrophysical.jet|<tuple|5.15|128|ch3_blending_limiter.tm>>
-    <associate|fig:blast|<tuple|4.25|83|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:blast.chblend|<tuple|5.4|119|ch3_blending_limiter.tm>>
-    <associate|fig:blast.periodic|<tuple|5.17|130|ch3_blending_limiter.tm>>
-    <associate|fig:blast.periodic.reference|<tuple|5.16|129|ch3_blending_limiter.tm>>
-    <associate|fig:bucklev1|<tuple|4.20|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:burg1|<tuple|4.17|74|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:burg2|<tuple|4.18|75|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:burg4|<tuple|4.19|76|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:cavity|<tuple|9.6|218|ch_parabolic.tm>>
-    <associate|fig:chars|<tuple|2.2|35|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|fig:cla1|<tuple|4.1|63|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:cla2|<tuple|4.2|64|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:cla2_dirichlet|<tuple|4.5|67|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:cla3|<tuple|4.3|65|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:cla4|<tuple|4.4|66|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:cla5|<tuple|4.6|67|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:composite.signal.2d|<tuple|5.8|122|ch3_blending_limiter.tm>>
-    <associate|fig:conv linear adv 2d|<tuple|4.32|93|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:conv linear rotate 2d|<tuple|4.34|94|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:conv_burger2d|<tuple|4.37|96|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:convergence|<tuple|6.1|141|ch5_10_moment_problem.tm>>
-    <associate|fig:convergence.analysis|<tuple|9.3|217|ch_parabolic.tm>>
-    <associate|fig:convergence.analysis.nse|<tuple|9.4|217|ch_parabolic.tm>>
-    <associate|fig:cp.cf.swanson|<tuple|9.8|220|ch_parabolic.tm>>
-    <associate|fig:curved.blunt|<tuple|8.12|206|ch6_curved_meshes.tm>>
-    <associate|fig:curved.curved.subcells|<tuple|8.2|180|ch6_curved_meshes.tm>>
-    <associate|fig:curved.dmr|<tuple|8.7|201|ch6_curved_meshes.tm>>
-    <associate|fig:curved.forward.step|<tuple|8.8|202|ch6_curved_meshes.tm>>
-    <associate|fig:curved.free.stream|<tuple|8.9|203|ch6_curved_meshes.tm>>
-    <associate|fig:curved.isentropic|<tuple|8.10|204|ch6_curved_meshes.tm>>
-    <associate|fig:curved.kh|<tuple|8.6|200|ch6_curved_meshes.tm>>
-    <associate|fig:curved.m2000|<tuple|8.5|199|ch6_curved_meshes.tm>>
-    <associate|fig:curved.mortar|<tuple|8.4|189|ch6_curved_meshes.tm>>
-    <associate|fig:curved.naca|<tuple|8.14|207|ch6_curved_meshes.tm>>
-    <associate|fig:curved.naca.mesh|<tuple|8.13|207|ch6_curved_meshes.tm>>
-    <associate|fig:curved.ref.map|<tuple|8.1|173|ch6_curved_meshes.tm>>
-    <associate|fig:curved.refine.coarsen|<tuple|8.3|187|ch6_curved_meshes.tm>>
-    <associate|fig:curved.supersonic.cylinder|<tuple|8.11|205|ch6_curved_meshes.tm>>
-    <associate|fig:dmr|<tuple|5.13|126|ch3_blending_limiter.tm>>
-    <associate|fig:dmr.plot|<tuple|4.41|100|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:dmr.plot.zoom|<tuple|4.42|101|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:dmr.wct|<tuple|4.43|101|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:dofs2d|<tuple|4.29|86|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:double.rarefaction|<tuple|5.6|121|ch3_blending_limiter.tm>>
-    <associate|fig:dwave|<tuple|4.21|79|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:erik|<tuple|9.1|216|ch_parabolic.tm>>
-    <associate|fig:error|<tuple|A.1|232|appendix.tm>>
-    <associate|fig:ffs.alpha.stats|<tuple|5.20|133|ch3_blending_limiter.tm>>
-    <associate|fig:forward.step|<tuple|5.19|132|ch3_blending_limiter.tm>>
-    <associate|fig:fv.evolution|<tuple|G.3|255|appendix.tm>>
-    <associate|fig:gauss.source|<tuple|6.6|145|ch5_10_moment_problem.tm>>
-    <associate|fig:general.grid|<tuple|G.1|252|appendix.tm>>
-    <associate|fig:hat1|<tuple|4.9|69|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:hat2|<tuple|4.10|69|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:hat3|<tuple|4.11|70|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:interactions|<tuple|4.35|95|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:isentropic.convergence|<tuple|4.38|98|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:isentropic.convergence.chblend|<tuple|5.9|123|ch3_blending_limiter.tm>>
-    <associate|fig:isentropic.ratios.vs.grid.1.2.3.4|<tuple|4.40|99|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:isentropic.time.vs.error|<tuple|4.39|99|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:karman.forces|<tuple|9.10|221|ch_parabolic.tm>>
-    <associate|fig:karman.vorticity|<tuple|9.9|221|ch_parabolic.tm>>
-    <associate|fig:kh|<tuple|5.14|127|ch3_blending_limiter.tm>>
-    <associate|fig:lax|<tuple|4.23|81|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:leblanc|<tuple|5.7|121|ch3_blending_limiter.tm>>
-    <associate|fig:lid.cavity.soln|<tuple|9.5|218|ch_parabolic.tm>>
-    <associate|fig:lin2d_rotate_soln|<tuple|4.33|94|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:lineplot_burg2d|<tuple|4.36|96|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:mdrk.blast|<tuple|7.5|160|ch4_mdrk.tm>>
-    <associate|fig:mdrk.burg1|<tuple|7.3|159|ch4_mdrk.tm>>
-    <associate|fig:mdrk.burg2|<tuple|7.4|160|ch4_mdrk.tm>>
-    <associate|fig:mdrk.cla1|<tuple|7.1|158|ch4_mdrk.tm>>
-    <associate|fig:mdrk.dmr|<tuple|7.9|163|ch4_mdrk.tm>>
-    <associate|fig:mdrk.high.density|<tuple|7.7|162|ch4_mdrk.tm>>
-    <associate|fig:mdrk.hurricane.critical|<tuple|7.10|165|ch4_mdrk.tm>>
-    <associate|fig:mdrk.rayleigh.taylor|<tuple|7.13|167|ch4_mdrk.tm>>
-    <associate|fig:mdrk.rotational.all.speed|<tuple|7.11|165|ch4_mdrk.tm>>
-    <associate|fig:mdrk.rp2d|<tuple|7.12|166|ch4_mdrk.tm>>
-    <associate|fig:mdrk.sedov.blast|<tuple|7.8|162|ch4_mdrk.tm>>
-    <associate|fig:mdrk.titarev.toro|<tuple|7.6|161|ch4_mdrk.tm>>
-    <associate|fig:mdrk.vla2|<tuple|7.2|159|ch4_mdrk.tm>>
-    <associate|fig:mult1|<tuple|4.12|70|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:mult2|<tuple|4.13|71|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:non.interacting.rp1|<tuple|G.2|255|appendix.tm>>
-    <associate|fig:non.interacting.rp2|<tuple|G.4|258|appendix.tm>>
-    <associate|fig:nse.manu|<tuple|9.2|216|ch_parabolic.tm>>
-    <associate|fig:numflux_toro5_contact|<tuple|4.27|85|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:numflx|<tuple|4.26|84|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:realistic|<tuple|6.7|146|ch5_10_moment_problem.tm>>
-    <associate|fig:rp|<tuple|6.2|142|ch5_10_moment_problem.tm>>
-    <associate|fig:rp2d|<tuple|5.10|124|ch3_blending_limiter.tm>>
-    <associate|fig:rp2d.alpha|<tuple|5.11|125|ch3_blending_limiter.tm>>
-    <associate|fig:rp2d.alpha.stats|<tuple|5.12|125|ch3_blending_limiter.tm>>
-    <associate|fig:sedov.blast|<tuple|5.5|120|ch3_blending_limiter.tm>>
-    <associate|fig:shock.diffraction|<tuple|5.18|131|ch3_blending_limiter.tm>>
-    <associate|fig:shuosher|<tuple|6.3|143|ch5_10_moment_problem.tm>>
-    <associate|fig:sod|<tuple|4.22|80|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:sol.struc|<tuple|2.1|34|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|fig:solflux1|<tuple|3.1|40|ch1b_finite_volume_method.tm>>
-    <associate|fig:subcells|<tuple|5.1|106|ch3_blending_limiter.tm>>
-    <associate|fig:swanson.mesh.mach|<tuple|9.7|219|ch_parabolic.tm>>
-    <associate|fig:two.rare.sources|<tuple|6.4|144|ch5_10_moment_problem.tm>>
-    <associate|fig:vla1|<tuple|4.14|72|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:vla2|<tuple|4.15|73|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:vla3|<tuple|4.16|74|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:wp1|<tuple|4.7|68|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|fig:wp2|<tuple|4.8|68|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|footnote-4.1|<tuple|4.1|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|footnote-5.1|<tuple|5.1|111|ch3_blending_limiter.tm>>
-    <associate|footnote-6.1|<tuple|6.1|139|ch5_10_moment_problem.tm>>
-    <associate|footnote-9.1|<tuple|9.1|212|ch_parabolic.tm>>
-    <associate|footnote-C.1|<tuple|C.1|239|appendix.tm>>
-    <associate|footnote-D.1|<tuple|D.1|244|appendix.tm>>
-    <associate|footnr-4.1|<tuple|4.1|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|footnr-5.1|<tuple|5.1|111|ch3_blending_limiter.tm>>
-    <associate|footnr-6.1|<tuple|6.1|139|ch5_10_moment_problem.tm>>
-    <associate|footnr-9.1|<tuple|9.1|212|ch_parabolic.tm>>
-    <associate|footnr-C.1|<tuple|C.1|239|appendix.tm>>
-    <associate|footnr-D.1|<tuple|D.1|244|appendix.tm>>
-    <associate|lemma:2d.muscl.step2.general|<tuple|G.10|263|appendix.tm>>
-    <associate|lemma:2d.muscl.step3.conservative|<tuple|G.11|265|appendix.tm>>
-    <associate|lemma:avg.riemann.problem|<tuple|G.1|253|appendix.tm>>
-    <associate|lemma:m.h.step.1|<tuple|G.2|254|appendix.tm>>
-    <associate|lemma:m.h.step.1.2d|<tuple|G.9|262|appendix.tm>>
-    <associate|lemma:muscl.step2.general|<tuple|G.3|256|appendix.tm>>
-    <associate|lemma:muscl.step3.conservative|<tuple|G.5|258|appendix.tm>>
-    <associate|lemma:muscl.step3.wss|<tuple|G.4|257|appendix.tm>>
-    <associate|part:abstract.tm|<tuple|7|19>>
-    <associate|part:acknowledgements.tm|<tuple|?|3|prelim_pages.tm>>
-    <associate|part:appendix.tm|<tuple|7|225>>
-    <associate|part:bibliography.tm|<tuple|H.18|270>>
-    <associate|part:ch0_introduction.tm|<tuple|7|19>>
-    <associate|part:ch1_hyperbolic_conservation_laws.tm|<tuple|1.5|30>>
-    <associate|part:ch1b_finite_volume_method.tm|<tuple|2.18|39>>
-    <associate|part:ch2_lax_wendroff_flux_reconstruction.tm|<tuple|3.19|45>>
-    <associate|part:ch3_blending_limiter.tm|<tuple|4.12|102>>
-    <associate|part:ch4_mdrk.tm|<tuple|6.5|146>>
-    <associate|part:ch5_10_moment_problem.tm|<tuple|5.10|134>>
-    <associate|part:ch6_curved_meshes.tm|<tuple|7.6|168>>
-    <associate|part:ch_parabolic.tm|<tuple|8.8|209>>
-    <associate|part:conclusion.tm|<tuple|9.5|223>>
-    <associate|part:declaration.tm|<tuple|?|2|prelim_pages.tm>>
-    <associate|part:prelim_pages.tm|<tuple|?|2>>
-    <associate|part:publications.tm|<tuple|?|3>>
-    <associate|part:title_page.tm|<tuple|?|1>>
-    <associate|rmk:amr.metric.terms|<tuple|8.7|192|ch6_curved_meshes.tm>>
-    <associate|rmk:mh.restriction.for.fr|<tuple|G.7|259|appendix.tm>>
-    <associate|rmk:non.linear|<tuple|A.2|231|appendix.tm>>
-    <associate|rmk:why.same.flux|<tuple|5.3|107|ch3_blending_limiter.tm>>
-    <associate|sec: vla|<tuple|4.7.2|71|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:2d.admissibility|<tuple|G.6.3|265|appendix.tm>>
-    <associate|sec:2d.mh|<tuple|G.6|260|appendix.tm>>
-    <associate|sec:2drp|<tuple|5.9.2|123|ch3_blending_limiter.tm>>
-    <associate|sec:DFR|<tuple|4.2.3|50|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:ader.dg|<tuple|A.2|227|appendix.tm>>
-    <associate|sec:admissibility.preservation|<tuple|5.5|113|ch3_blending_limiter.tm>>
-    <associate|sec:alg|<tuple|5.6|116|ch3_blending_limiter.tm>>
-    <associate|sec:alw|<tuple|4.2.4|51|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:alwp|<tuple|9.3.2.1|214|ch_parabolic.tm>>
-    <associate|sec:blast|<tuple|4.8.5|82|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:blast.chblend|<tuple|5.7.1.2|119|ch3_blending_limiter.tm>>
-    <associate|sec:blend.review|<tuple|5.2|103|ch3_blending_limiter.tm>>
-    <associate|sec:blending.scheme|<tuple|5.3.1|105|ch3_blending_limiter.tm>>
-    <associate|sec:cla|<tuple|4.7.1|63|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:con|<tuple|A.5|232|appendix.tm>>
-    <associate|sec:conclusion|<tuple|9.5|222|ch_parabolic.tm>>
-    <associate|sec:controlling.oscillations|<tuple|5.3|105|ch3_blending_limiter.tm>>
-    <associate|sec:curved.alwp|<tuple|8.3.3|176|ch6_curved_meshes.tm>>
-    <associate|sec:curved.amr|<tuple|8.5|186|ch6_curved_meshes.tm>>
-    <associate|sec:curved.amr.indicator|<tuple|8.5.3|193|ch6_curved_meshes.tm>>
-    <associate|sec:curved.blunt|<tuple|8.7.2.4|206|ch6_curved_meshes.tm>>
-    <associate|sec:curved.conclusions|<tuple|8.8|209|ch6_curved_meshes.tm>>
-    <associate|sec:curved.cons.lw|<tuple|8.3|172|ch6_curved_meshes.tm>>
-    <associate|sec:curved.curvilinear.coords|<tuple|8.2|169|ch6_curved_meshes.tm>>
-    <associate|sec:curved.cylinder|<tuple|8.7.2.3|204|ch6_curved_meshes.tm>>
-    <associate|sec:curved.dmr|<tuple|8.7.1.3|200|ch6_curved_meshes.tm>>
-    <associate|sec:curved.el2mortar|<tuple|8.5.2.2|191|ch6_curved_meshes.tm>>
-    <associate|sec:curved.error.lw|<tuple|8.6.2|195|ch6_curved_meshes.tm>>
-    <associate|sec:curved.flux.correction|<tuple|8.4.3|183|ch6_curved_meshes.tm>>
-    <associate|sec:curved.flux.correction.curved|<tuple|8.4.3.2|185|ch6_curved_meshes.tm>>
-    <associate|sec:curved.flux.limiter.1d|<tuple|8.4.3.1|184|ch6_curved_meshes.tm>>
-    <associate|sec:curved.forward.step|<tuple|8.7.1.4|201|ch6_curved_meshes.tm>>
-    <associate|sec:curved.fr|<tuple|8.3.1|172|ch6_curved_meshes.tm>>
-    <associate|sec:curved.free.stream.lwfr|<tuple|8.3.4|177|ch6_curved_meshes.tm>>
-    <associate|sec:curved.handling.mortars|<tuple|8.5.2|189|ch6_curved_meshes.tm>>
-    <associate|sec:curved.isentropic|<tuple|8.7.2.2|203|ch6_curved_meshes.tm>>
-    <associate|sec:curved.lwfr.curved|<tuple|8.3.2|174|ch6_curved_meshes.tm>>
-    <associate|sec:curved.naca|<tuple|8.7.2.5|206|ch6_curved_meshes.tm>>
-    <associate|sec:curved.numerical.results|<tuple|8.7|197|ch6_curved_meshes.tm>>
-    <associate|sec:curved.proj.elem|<tuple|8.5.1.2|188|ch6_curved_meshes.tm>>
-    <associate|sec:curved.proj.face|<tuple|8.5.2.3|191|ch6_curved_meshes.tm>>
-    <associate|sec:curved.rk.error.section|<tuple|8.6.1|195|ch6_curved_meshes.tm>>
-    <associate|sec:curved.shock.capturing|<tuple|8.4|179|ch6_curved_meshes.tm>>
-    <associate|sec:curved.smooth.ind|<tuple|8.4.2|182|ch6_curved_meshes.tm>>
-    <associate|sec:curved.soln.transfer|<tuple|8.5.1|187|ch6_curved_meshes.tm>>
-    <associate|sec:curved.time.stepping|<tuple|8.6|194|ch6_curved_meshes.tm>>
-    <associate|sec:dmr|<tuple|4.11.2|99|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:ea.scheme|<tuple|4.3.2|56|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:ffs|<tuple|5.9.8|131|ch3_blending_limiter.tm>>
-    <associate|sec:fo|<tuple|5.3.3|109|ch3_blending_limiter.tm>>
-    <associate|sec:formal.accuracy|<tuple|H|269|appendix.tm>>
-    <associate|sec:four1d|<tuple|4.4|57|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:fourier2d|<tuple|4.9.1|89|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:fr.corr.identities|<tuple|C.2.1|240|appendix.tm>>
-    <associate|sec:frdfr|<tuple|E|247|appendix.tm>>
-    <associate|sec:intro.contri|<tuple|1.4|25|ch0_introduction.tm>>
-    <associate|sec:intro.fr|<tuple|1.2|23|ch0_introduction.tm>>
-    <associate|sec:intro.lw|<tuple|1.1|21|ch0_introduction.tm>>
-    <associate|sec:intro.outline|<tuple|1.5|29|ch0_introduction.tm>>
-    <associate|sec:intro.shock.capturing|<tuple|1.3|24|ch0_introduction.tm>>
-    <associate|sec:isentropic.vortex|<tuple|4.11.1|97|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:kh|<tuple|5.9.4|126|ch3_blending_limiter.tm>>
-    <associate|sec:lim|<tuple|4.6|61|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:linear.equivalence|<tuple|A.3|230|appendix.tm>>
-    <associate|sec:lw|<tuple|4.2|47|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:lw.bc|<tuple|4.5|59|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:lwfr.2d|<tuple|4.9|87|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:lwfr.2nd.order|<tuple|9.3|212|ch_parabolic.tm>>
-    <associate|sec:lwfr.numfluxes|<tuple|B|233|appendix.tm>>
-    <associate|sec:lwfr.res1d|<tuple|4.7|62|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:lwfr.res2d.euler|<tuple|4.11|96|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:lwfr.res2d.scalar|<tuple|4.10|92|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:m2000|<tuple|5.9.5|127|ch3_blending_limiter.tm>>
-    <associate|sec:mdrk|<tuple|7.2|148|ch4_mdrk.tm>>
-    <associate|sec:mdrk.ae|<tuple|7.2.5|151|ch4_mdrk.tm>>
-    <associate|sec:mdrk.alw|<tuple|7.2.3|150|ch4_mdrk.tm>>
-    <associate|sec:mdrk.blending|<tuple|7.4|155|ch4_mdrk.tm>>
-    <associate|sec:mdrk.cla|<tuple|7.5.1.1|158|ch4_mdrk.tm>>
-    <associate|sec:mdrk.conclusion|<tuple|7.6|167|ch4_mdrk.tm>>
-    <associate|sec:mdrk.ea|<tuple|7.2.6|152|ch4_mdrk.tm>>
-    <associate|sec:mdrk.fourier|<tuple|7.3|153|ch4_mdrk.tm>>
-    <associate|sec:mdrk.num|<tuple|7.5|157|ch4_mdrk.tm>>
-    <associate|sec:mdrk.numflux|<tuple|7.2.4|151|ch4_mdrk.tm>>
-    <associate|sec:mdrk.reconstruction|<tuple|7.2.2|149|ch4_mdrk.tm>>
-    <associate|sec:mdrk.res1dsys|<tuple|7.5.2|160|ch4_mdrk.tm>>
-    <associate|sec:mh|<tuple|5.4|110|ch3_blending_limiter.tm>>
-    <associate|sec:mh.adm|<tuple|G.4|253|appendix.tm>>
-    <associate|sec:muscl.admissibility.proof|<tuple|G|251|appendix.tm>>
-    <associate|sec:num|<tuple|A.4|231|appendix.tm>>
-    <associate|sec:num.results.chblend|<tuple|5.7|117|ch3_blending_limiter.tm>>
-    <associate|sec:numflux|<tuple|4.3|54|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:numresults.2d.euler|<tuple|5.9|122|ch3_blending_limiter.tm>>
-    <associate|sec:reconstruction|<tuple|4.2.2|49|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:res1dsys|<tuple|4.8|77|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:res1dsys.chblend|<tuple|5.7.1|118|ch3_blending_limiter.tm>>
-    <associate|sec:results|<tuple|9.4|215|ch_parabolic.tm>>
-    <associate|sec:riemann.problem|<tuple|2.1.3|34|ch1_hyperbolic_conservation_laws.tm>>
-    <associate|sec:rk|<tuple|3.4|44|ch1b_finite_volume_method.tm>>
-    <associate|sec:rotate.composite|<tuple|4.10.2|93|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:scl|<tuple|3.1|39|ch1b_finite_volume_method.tm>>
-    <associate|sec:sedov.blast.1d|<tuple|5.7.1.3|119|ch3_blending_limiter.tm>>
-    <associate|sec:shuosher|<tuple|4.8.4|81|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:shuosher.blend|<tuple|5.7.1.1|118|ch3_blending_limiter.tm>>
-    <associate|sec:slope.limiting|<tuple|5.4.1|112|ch3_blending_limiter.tm>>
-    <associate|sec:smooth.ind|<tuple|5.3.2|108|ch3_blending_limiter.tm>>
-    <associate|sec:sum|<tuple|4.12|101|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|sec:sum.blend|<tuple|5.10|133|ch3_blending_limiter.tm>>
-    <associate|sec:swanson|<tuple|9.4.3|218|ch_parabolic.tm>>
-    <associate|sec:tmp.adm.pres|<tuple|6.3|137|ch5_10_moment_problem.tm>>
-    <associate|sec:tmp.approximate.lw|<tuple|6.2.1|137|ch5_10_moment_problem.tm>>
-    <associate|sec:tmp.conclusion|<tuple|6.5|146|ch5_10_moment_problem.tm>>
-    <associate|sec:tmp.flux.correction|<tuple|6.3.1|137|ch5_10_moment_problem.tm>>
-    <associate|sec:tmp.lwfr|<tuple|6.2|135|ch5_10_moment_problem.tm>>
-    <associate|sec:tmp.numerical.results|<tuple|6.4|140|ch5_10_moment_problem.tm>>
-    <associate|sec:tmp.source.limiter|<tuple|6.3.2|139|ch5_10_moment_problem.tm>>
-    <associate|sec:transformations.parabolic|<tuple|9.2|211|ch_parabolic.tm>>
-    <associate|sec:von.karman|<tuple|9.4.4|220|ch_parabolic.tm>>
-    <associate|tab:2Dcfl|<tuple|4.2|92|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|tab:cfl|<tuple|4.1|59|ch2_lax_wendroff_flux_reconstruction.tm>>
-    <associate|tab:cfl.error|<tuple|8.1|208|ch6_curved_meshes.tm>>
-    <associate|tab:max.cl.max.cp|<tuple|9.2|221|ch_parabolic.tm>>
-    <associate|tab:mdrk.cfl|<tuple|7.1|155|ch4_mdrk.tm>>
-    <associate|tab:swanson.forces|<tuple|9.1|220|ch_parabolic.tm>>
-    <associate|thm:curved.lwfr.admissibility|<tuple|8.6|183|ch6_curved_meshes.tm>>
-    <associate|thm:final.condn.conservative|<tuple|G.6|259|appendix.tm>>
-    <associate|thm:final.condn.conservative.2d|<tuple|G.12|265|appendix.tm>>
-    <associate|thm:lwfr.admissibility|<tuple|5.5|114|ch3_blending_limiter.tm>>
-    <associate|thm:muscl.admissibility.theorem|<tuple|5.4|111|ch3_blending_limiter.tm>>
-    <associate|thm:non.conservative.mh|<tuple|G.8|260|appendix.tm>>
-    <associate|thm:rh|<tuple|2.4|32|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|alg:blended.flux|<tuple|8.1|170|ch6_curved_meshes.tm>>
+    <associate|alg:blended.flux.2d|<tuple|H.1|259|appendix.tm>>
+    <associate|alg:cache.blocking|<tuple|E.1|236|appendix.tm>>
+    <associate|alg:cell.residual|<tuple|8.2|182|ch6_curved_meshes.tm>>
+    <associate|alg:flux.limit|<tuple|5.1|99|ch3_blending_limiter.tm>>
+    <associate|alg:high.level.lw|<tuple|5.2|101|ch3_blending_limiter.tm>>
+    <associate|alg:lw.residual|<tuple|8.3|182|ch6_curved_meshes.tm>>
+    <associate|alg:lwfr.paper1|<tuple|4.2|47|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|alg:rkfr.paper1|<tuple|4.1|46|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|alg:scaling|<tuple|F.1|239|appendix.tm>>
+    <associate|alg:source.limit|<tuple|6.1|124|ch5_10_moment_problem.tm>>
+    <associate|alg:time.stepping|<tuple|8.4|183|ch6_curved_meshes.tm>>
+    <associate|app:efficient.diff|<tuple|E|235|appendix.tm>>
+    <associate|app:equiv.dg.fr|<tuple|B|223|appendix.tm>>
+    <associate|app:scaling.limiter|<tuple|F|239|appendix.tm>>
+    <associate|auto-1|<tuple|?|1|abstract.tm>>
+    <associate|auto-10|<tuple|2.1.1|16|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-100|<tuple|4.11.1|81|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-101|<tuple|4.38|82|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-102|<tuple|4.39|82|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-103|<tuple|4.40|83|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-104|<tuple|4.11.2|83|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-105|<tuple|4.41|84|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-106|<tuple|4.42|84|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-107|<tuple|4.43|85|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-108|<tuple|4.12|85|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-109|<tuple|5|87|ch3_blending_limiter.tm>>
+    <associate|auto-11|<tuple|2.1.2|17|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-110|<tuple|5.1|87|ch3_blending_limiter.tm>>
+    <associate|auto-111|<tuple|5.2|87|ch3_blending_limiter.tm>>
+    <associate|auto-112|<tuple|5.3|89|ch3_blending_limiter.tm>>
+    <associate|auto-113|<tuple|5.3.1|89|ch3_blending_limiter.tm>>
+    <associate|auto-114|<tuple|5.1|90|ch3_blending_limiter.tm>>
+    <associate|auto-115|<tuple|5.3.2|92|ch3_blending_limiter.tm>>
+    <associate|auto-116|<tuple|5.2|93|ch3_blending_limiter.tm>>
+    <associate|auto-117|<tuple|5.3.3|93|ch3_blending_limiter.tm>>
+    <associate|auto-118|<tuple|5.4|94|ch3_blending_limiter.tm>>
+    <associate|auto-119|<tuple|5.4.1|96|ch3_blending_limiter.tm>>
+    <associate|auto-12|<tuple|2.1|17|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-120|<tuple|5.5|97|ch3_blending_limiter.tm>>
+    <associate|auto-121|<tuple|5.6|100|ch3_blending_limiter.tm>>
+    <associate|auto-122|<tuple|5.7|101|ch3_blending_limiter.tm>>
+    <associate|auto-123|<tuple|5.7.1|102|ch3_blending_limiter.tm>>
+    <associate|auto-124|<tuple|5.7.1.1|102|ch3_blending_limiter.tm>>
+    <associate|auto-125|<tuple|5.3|103|ch3_blending_limiter.tm>>
+    <associate|auto-126|<tuple|5.4|103|ch3_blending_limiter.tm>>
+    <associate|auto-127|<tuple|5.7.1.2|103|ch3_blending_limiter.tm>>
+    <associate|auto-128|<tuple|5.5|104|ch3_blending_limiter.tm>>
+    <associate|auto-129|<tuple|5.7.1.3|104|ch3_blending_limiter.tm>>
+    <associate|auto-13|<tuple|2.2|18|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-130|<tuple|5.6|105|ch3_blending_limiter.tm>>
+    <associate|auto-131|<tuple|5.7.1.4|105|ch3_blending_limiter.tm>>
+    <associate|auto-132|<tuple|5.7|106|ch3_blending_limiter.tm>>
+    <associate|auto-133|<tuple|5.8|106|ch3_blending_limiter.tm>>
+    <associate|auto-134|<tuple|5.8|106|ch3_blending_limiter.tm>>
+    <associate|auto-135|<tuple|5.9|107|ch3_blending_limiter.tm>>
+    <associate|auto-136|<tuple|5.9|107|ch3_blending_limiter.tm>>
+    <associate|auto-137|<tuple|5.9.1|108|ch3_blending_limiter.tm>>
+    <associate|auto-138|<tuple|5.10|108|ch3_blending_limiter.tm>>
+    <associate|auto-139|<tuple|5.9.2|108|ch3_blending_limiter.tm>>
+    <associate|auto-14|<tuple|2.2|19|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-140|<tuple|5.11|109|ch3_blending_limiter.tm>>
+    <associate|auto-141|<tuple|5.12|109|ch3_blending_limiter.tm>>
+    <associate|auto-142|<tuple|5.9.3|109|ch3_blending_limiter.tm>>
+    <associate|auto-143|<tuple|5.13|110|ch3_blending_limiter.tm>>
+    <associate|auto-144|<tuple|5.14|110|ch3_blending_limiter.tm>>
+    <associate|auto-145|<tuple|5.15|111|ch3_blending_limiter.tm>>
+    <associate|auto-146|<tuple|5.9.4|111|ch3_blending_limiter.tm>>
+    <associate|auto-147|<tuple|5.16|112|ch3_blending_limiter.tm>>
+    <associate|auto-148|<tuple|5.9.5|112|ch3_blending_limiter.tm>>
+    <associate|auto-149|<tuple|5.17|113|ch3_blending_limiter.tm>>
+    <associate|auto-15|<tuple|2.3|20|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-150|<tuple|5.9.6|113|ch3_blending_limiter.tm>>
+    <associate|auto-151|<tuple|5.18|114|ch3_blending_limiter.tm>>
+    <associate|auto-152|<tuple|5.19|114|ch3_blending_limiter.tm>>
+    <associate|auto-153|<tuple|5.9.7|114|ch3_blending_limiter.tm>>
+    <associate|auto-154|<tuple|5.20|115|ch3_blending_limiter.tm>>
+    <associate|auto-155|<tuple|5.9.8|115|ch3_blending_limiter.tm>>
+    <associate|auto-156|<tuple|5.21|116|ch3_blending_limiter.tm>>
+    <associate|auto-157|<tuple|5.22|117|ch3_blending_limiter.tm>>
+    <associate|auto-158|<tuple|5.10|118|ch3_blending_limiter.tm>>
+    <associate|auto-159|<tuple|6|119|ch5_10_moment_problem.tm>>
+    <associate|auto-16|<tuple|3|23|ch1b_finite_volume_method.tm>>
+    <associate|auto-160|<tuple|6.1|119|ch5_10_moment_problem.tm>>
+    <associate|auto-161|<tuple|6.2|119|ch5_10_moment_problem.tm>>
+    <associate|auto-162|<tuple|6.2.1|121|ch5_10_moment_problem.tm>>
+    <associate|auto-163|<tuple|6.2.2|121|ch5_10_moment_problem.tm>>
+    <associate|auto-164|<tuple|6.3|122|ch5_10_moment_problem.tm>>
+    <associate|auto-165|<tuple|6.3.1|122|ch5_10_moment_problem.tm>>
+    <associate|auto-166|<tuple|6.3.2|123|ch5_10_moment_problem.tm>>
+    <associate|auto-167|<tuple|6.4|125|ch5_10_moment_problem.tm>>
+    <associate|auto-168|<tuple|6.4.1|127|ch5_10_moment_problem.tm>>
+    <associate|auto-169|<tuple|6.1|127|ch5_10_moment_problem.tm>>
+    <associate|auto-17|<tuple|3.1|23|ch1b_finite_volume_method.tm>>
+    <associate|auto-170|<tuple|6.4.2|127|ch5_10_moment_problem.tm>>
+    <associate|auto-171|<tuple|6.2|128|ch5_10_moment_problem.tm>>
+    <associate|auto-172|<tuple|6.4.3|128|ch5_10_moment_problem.tm>>
+    <associate|auto-173|<tuple|6.3|128|ch5_10_moment_problem.tm>>
+    <associate|auto-174|<tuple|6.4.4|129|ch5_10_moment_problem.tm>>
+    <associate|auto-175|<tuple|6.4|129|ch5_10_moment_problem.tm>>
+    <associate|auto-176|<tuple|6.4.5|129|ch5_10_moment_problem.tm>>
+    <associate|auto-177|<tuple|6.5|130|ch5_10_moment_problem.tm>>
+    <associate|auto-178|<tuple|6.4.6|130|ch5_10_moment_problem.tm>>
+    <associate|auto-179|<tuple|6.6|130|ch5_10_moment_problem.tm>>
+    <associate|auto-18|<tuple|3.1|24|ch1b_finite_volume_method.tm>>
+    <associate|auto-180|<tuple|6.4.7|131|ch5_10_moment_problem.tm>>
+    <associate|auto-181|<tuple|6.7|131|ch5_10_moment_problem.tm>>
+    <associate|auto-182|<tuple|6.5|131|ch5_10_moment_problem.tm>>
+    <associate|auto-183|<tuple|7|133|ch4_mdrk.tm>>
+    <associate|auto-184|<tuple|7.1|133|ch4_mdrk.tm>>
+    <associate|auto-185|<tuple|7.2|134|ch4_mdrk.tm>>
+    <associate|auto-186|<tuple|7.2.1|135|ch4_mdrk.tm>>
+    <associate|auto-187|<tuple|7.2.2|135|ch4_mdrk.tm>>
+    <associate|auto-188|<tuple|7.2.3|136|ch4_mdrk.tm>>
+    <associate|auto-189|<tuple|7.2.4|137|ch4_mdrk.tm>>
+    <associate|auto-19|<tuple|3.2|25|ch1b_finite_volume_method.tm>>
+    <associate|auto-190|<tuple|7.2.5|137|ch4_mdrk.tm>>
+    <associate|auto-191|<tuple|7.2.6|138|ch4_mdrk.tm>>
+    <associate|auto-192|<tuple|7.3|139|ch4_mdrk.tm>>
+    <associate|auto-193|<tuple|7.3.1|139|ch4_mdrk.tm>>
+    <associate|auto-194|<tuple|7.3.2|140|ch4_mdrk.tm>>
+    <associate|auto-195|<tuple|7.1|141|ch4_mdrk.tm>>
+    <associate|auto-196|<tuple|7.4|142|ch4_mdrk.tm>>
+    <associate|auto-197|<tuple|7.5|144|ch4_mdrk.tm>>
+    <associate|auto-198|<tuple|7.5.1|144|ch4_mdrk.tm>>
+    <associate|auto-199|<tuple|7.5.1.1|144|ch4_mdrk.tm>>
+    <associate|auto-2|<tuple|1|3|ch0_introduction.tm>>
+    <associate|auto-20|<tuple|3.3|27|ch1b_finite_volume_method.tm>>
+    <associate|auto-200|<tuple|7.1|144|ch4_mdrk.tm>>
+    <associate|auto-201|<tuple|7.5.1.2|144|ch4_mdrk.tm>>
+    <associate|auto-202|<tuple|7.2|145|ch4_mdrk.tm>>
+    <associate|auto-203|<tuple|7.5.1.3|145|ch4_mdrk.tm>>
+    <associate|auto-204|<tuple|7.3|145|ch4_mdrk.tm>>
+    <associate|auto-205|<tuple|7.4|146|ch4_mdrk.tm>>
+    <associate|auto-206|<tuple|7.5.2|146|ch4_mdrk.tm>>
+    <associate|auto-207|<tuple|7.5.2.1|146|ch4_mdrk.tm>>
+    <associate|auto-208|<tuple|7.5|146|ch4_mdrk.tm>>
+    <associate|auto-209|<tuple|7.5.2.2|147|ch4_mdrk.tm>>
+    <associate|auto-21|<tuple|3.4|28|ch1b_finite_volume_method.tm>>
+    <associate|auto-210|<tuple|7.6|147|ch4_mdrk.tm>>
+    <associate|auto-211|<tuple|7.5.2.3|147|ch4_mdrk.tm>>
+    <associate|auto-212|<tuple|7.7|148|ch4_mdrk.tm>>
+    <associate|auto-213|<tuple|7.5.2.4|148|ch4_mdrk.tm>>
+    <associate|auto-214|<tuple|7.8|148|ch4_mdrk.tm>>
+    <associate|auto-215|<tuple|7.5.3|148|ch4_mdrk.tm>>
+    <associate|auto-216|<tuple|7.5.3.1|149|ch4_mdrk.tm>>
+    <associate|auto-217|<tuple|7.9|149|ch4_mdrk.tm>>
+    <associate|auto-218|<tuple|7.5.3.2|149|ch4_mdrk.tm>>
+    <associate|auto-219|<tuple|7.10|151|ch4_mdrk.tm>>
+    <associate|auto-22|<tuple|4|31|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-220|<tuple|7.11|151|ch4_mdrk.tm>>
+    <associate|auto-221|<tuple|7.5.3.3|151|ch4_mdrk.tm>>
+    <associate|auto-222|<tuple|7.12|152|ch4_mdrk.tm>>
+    <associate|auto-223|<tuple|7.5.3.4|152|ch4_mdrk.tm>>
+    <associate|auto-224|<tuple|7.13|153|ch4_mdrk.tm>>
+    <associate|auto-225|<tuple|7.6|153|ch4_mdrk.tm>>
+    <associate|auto-226|<tuple|8|155|ch6_curved_meshes.tm>>
+    <associate|auto-227|<tuple|8.1|155|ch6_curved_meshes.tm>>
+    <associate|auto-228|<tuple|8.2|155|ch6_curved_meshes.tm>>
+    <associate|auto-229|<tuple|8.3|158|ch6_curved_meshes.tm>>
+    <associate|auto-23|<tuple|4.1|31|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-230|<tuple|8.3.1|158|ch6_curved_meshes.tm>>
+    <associate|auto-231|<tuple|8.1|159|ch6_curved_meshes.tm>>
+    <associate|auto-232|<tuple|8.3.2|160|ch6_curved_meshes.tm>>
+    <associate|auto-233|<tuple|8.3.3|162|ch6_curved_meshes.tm>>
+    <associate|auto-234|<tuple|8.3.4|163|ch6_curved_meshes.tm>>
+    <associate|auto-235|<tuple|8.4|165|ch6_curved_meshes.tm>>
+    <associate|auto-236|<tuple|8.4.1|166|ch6_curved_meshes.tm>>
+    <associate|auto-237|<tuple|8.2|166|ch6_curved_meshes.tm>>
+    <associate|auto-238|<tuple|8.4.2|168|ch6_curved_meshes.tm>>
+    <associate|auto-239|<tuple|8.4.3|169|ch6_curved_meshes.tm>>
+    <associate|auto-24|<tuple|4.2|31|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-240|<tuple|8.4.3.1|170|ch6_curved_meshes.tm>>
+    <associate|auto-241|<tuple|8.4.3.2|171|ch6_curved_meshes.tm>>
+    <associate|auto-242|<tuple|8.5|172|ch6_curved_meshes.tm>>
+    <associate|auto-243|<tuple|8.5.1|173|ch6_curved_meshes.tm>>
+    <associate|auto-244|<tuple|8.3|173|ch6_curved_meshes.tm>>
+    <associate|auto-245|<tuple|8.5.1.1|174|ch6_curved_meshes.tm>>
+    <associate|auto-246|<tuple|8.5.1.2|174|ch6_curved_meshes.tm>>
+    <associate|auto-247|<tuple|8.5.2|175|ch6_curved_meshes.tm>>
+    <associate|auto-248|<tuple|8.5.2.1|175|ch6_curved_meshes.tm>>
+    <associate|auto-249|<tuple|8.4|175|ch6_curved_meshes.tm>>
+    <associate|auto-25|<tuple|4.2.1|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-250|<tuple|8.5.2.2|176|ch6_curved_meshes.tm>>
+    <associate|auto-251|<tuple|8.5.2.3|177|ch6_curved_meshes.tm>>
+    <associate|auto-252|<tuple|8.5.3|179|ch6_curved_meshes.tm>>
+    <associate|auto-253|<tuple|8.6|180|ch6_curved_meshes.tm>>
+    <associate|auto-254|<tuple|8.6.1|180|ch6_curved_meshes.tm>>
+    <associate|auto-255|<tuple|8.6.2|181|ch6_curved_meshes.tm>>
+    <associate|auto-256|<tuple|8.7|183|ch6_curved_meshes.tm>>
+    <associate|auto-257|<tuple|8.7.1|184|ch6_curved_meshes.tm>>
+    <associate|auto-258|<tuple|8.7.1.1|184|ch6_curved_meshes.tm>>
+    <associate|auto-259|<tuple|8.5|185|ch6_curved_meshes.tm>>
+    <associate|auto-26|<tuple|4.2.2|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-260|<tuple|8.7.1.2|185|ch6_curved_meshes.tm>>
+    <associate|auto-261|<tuple|8.6|186|ch6_curved_meshes.tm>>
+    <associate|auto-262|<tuple|8.7.1.3|186|ch6_curved_meshes.tm>>
+    <associate|auto-263|<tuple|8.7|187|ch6_curved_meshes.tm>>
+    <associate|auto-264|<tuple|8.7.1.4|187|ch6_curved_meshes.tm>>
+    <associate|auto-265|<tuple|8.8|188|ch6_curved_meshes.tm>>
+    <associate|auto-266|<tuple|8.7.2|188|ch6_curved_meshes.tm>>
+    <associate|auto-267|<tuple|8.7.2.1|188|ch6_curved_meshes.tm>>
+    <associate|auto-268|<tuple|8.9|189|ch6_curved_meshes.tm>>
+    <associate|auto-269|<tuple|8.7.2.2|189|ch6_curved_meshes.tm>>
+    <associate|auto-27|<tuple|4.2.3|34|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-270|<tuple|8.10|190|ch6_curved_meshes.tm>>
+    <associate|auto-271|<tuple|8.7.2.3|190|ch6_curved_meshes.tm>>
+    <associate|auto-272|<tuple|8.11|191|ch6_curved_meshes.tm>>
+    <associate|auto-273|<tuple|8.7.2.4|192|ch6_curved_meshes.tm>>
+    <associate|auto-274|<tuple|8.12|192|ch6_curved_meshes.tm>>
+    <associate|auto-275|<tuple|8.7.2.5|192|ch6_curved_meshes.tm>>
+    <associate|auto-276|<tuple|8.13|193|ch6_curved_meshes.tm>>
+    <associate|auto-277|<tuple|8.14|193|ch6_curved_meshes.tm>>
+    <associate|auto-278|<tuple|8.7.3|194|ch6_curved_meshes.tm>>
+    <associate|auto-279|<tuple|8.1|194|ch6_curved_meshes.tm>>
+    <associate|auto-28|<tuple|4.2.4|35|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-280|<tuple|8.8|195|ch6_curved_meshes.tm>>
+    <associate|auto-281|<tuple|9|197|ch_parabolic.tm>>
+    <associate|auto-282|<tuple|9.1|197|ch_parabolic.tm>>
+    <associate|auto-283|<tuple|9.2|197|ch_parabolic.tm>>
+    <associate|auto-284|<tuple|9.3|198|ch_parabolic.tm>>
+    <associate|auto-285|<tuple|9.3.1|198|ch_parabolic.tm>>
+    <associate|auto-286|<tuple|9.3.2|199|ch_parabolic.tm>>
+    <associate|auto-287|<tuple|9.3.2.1|200|ch_parabolic.tm>>
+    <associate|auto-288|<tuple|9.3.3|200|ch_parabolic.tm>>
+    <associate|auto-289|<tuple|9.4|201|ch_parabolic.tm>>
+    <associate|auto-29|<tuple|4.2.4.1|36|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-290|<tuple|9.5|203|ch_parabolic.tm>>
+    <associate|auto-291|<tuple|9.5.1|203|ch_parabolic.tm>>
+    <associate|auto-292|<tuple|9.1|204|ch_parabolic.tm>>
+    <associate|auto-293|<tuple|9.2|204|ch_parabolic.tm>>
+    <associate|auto-294|<tuple|9.3|205|ch_parabolic.tm>>
+    <associate|auto-295|<tuple|9.4|205|ch_parabolic.tm>>
+    <associate|auto-296|<tuple|9.5.2|205|ch_parabolic.tm>>
+    <associate|auto-297|<tuple|9.5|206|ch_parabolic.tm>>
+    <associate|auto-298|<tuple|9.6|206|ch_parabolic.tm>>
+    <associate|auto-299|<tuple|9.5.3|206|ch_parabolic.tm>>
+    <associate|auto-3|<tuple|1.1|3|ch0_introduction.tm>>
+    <associate|auto-30|<tuple|4.2.4.2|36|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-300|<tuple|9.7|207|ch_parabolic.tm>>
+    <associate|auto-301|<tuple|9.8|208|ch_parabolic.tm>>
+    <associate|auto-302|<tuple|9.1|208|ch_parabolic.tm>>
+    <associate|auto-303|<tuple|9.5.4|208|ch_parabolic.tm>>
+    <associate|auto-304|<tuple|9.9|208|ch_parabolic.tm>>
+    <associate|auto-305|<tuple|9.10|209|ch_parabolic.tm>>
+    <associate|auto-306|<tuple|9.11|209|ch_parabolic.tm>>
+    <associate|auto-307|<tuple|9.2|209|ch_parabolic.tm>>
+    <associate|auto-308|<tuple|9.6|209|ch_parabolic.tm>>
+    <associate|auto-309|<tuple|10|211|conclusion.tm>>
+    <associate|auto-31|<tuple|4.2.4.3|36|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-310|<tuple|10.1|212|conclusion.tm>>
+    <associate|auto-311|<tuple|A|215|appendix.tm>>
+    <associate|auto-312|<tuple|A.1|215|appendix.tm>>
+    <associate|auto-313|<tuple|A.2|215|appendix.tm>>
+    <associate|auto-314|<tuple|A.3|218|appendix.tm>>
+    <associate|auto-315|<tuple|A.4|220|appendix.tm>>
+    <associate|auto-316|<tuple|A.1|220|appendix.tm>>
+    <associate|auto-317|<tuple|A.5|221|appendix.tm>>
+    <associate|auto-318|<tuple|B|223|appendix.tm>>
+    <associate|auto-319|<tuple|B.1|223|appendix.tm>>
+    <associate|auto-32|<tuple|4.2.4.4|37|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-320|<tuple|B.2|224|appendix.tm>>
+    <associate|auto-321|<tuple|B.2.1|225|appendix.tm>>
+    <associate|auto-322|<tuple|C|229|appendix.tm>>
+    <associate|auto-323|<tuple|D|231|appendix.tm>>
+    <associate|auto-324|<tuple|D.1|231|appendix.tm>>
+    <associate|auto-325|<tuple|D.2|231|appendix.tm>>
+    <associate|auto-326|<tuple|D.3|231|appendix.tm>>
+    <associate|auto-327|<tuple|D.4|232|appendix.tm>>
+    <associate|auto-328|<tuple|E|235|appendix.tm>>
+    <associate|auto-329|<tuple|E.1|237|appendix.tm>>
+    <associate|auto-33|<tuple|4.3|38|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-330|<tuple|F|239|appendix.tm>>
+    <associate|auto-331|<tuple|G|241|appendix.tm>>
+    <associate|auto-332|<tuple|G.1|241|appendix.tm>>
+    <associate|auto-333|<tuple|G.2|242|appendix.tm>>
+    <associate|auto-334|<tuple|G.1|242|appendix.tm>>
+    <associate|auto-335|<tuple|G.3|243|appendix.tm>>
+    <associate|auto-336|<tuple|G.4|243|appendix.tm>>
+    <associate|auto-337|<tuple|G.2|245|appendix.tm>>
+    <associate|auto-338|<tuple|G.3|246|appendix.tm>>
+    <associate|auto-339|<tuple|G.4|248|appendix.tm>>
+    <associate|auto-34|<tuple|4.3.1|40|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-340|<tuple|G.5|249|appendix.tm>>
+    <associate|auto-341|<tuple|G.6|250|appendix.tm>>
+    <associate|auto-342|<tuple|G.6.1|251|appendix.tm>>
+    <associate|auto-343|<tuple|G.6.2|253|appendix.tm>>
+    <associate|auto-344|<tuple|H|257|appendix.tm>>
+    <associate|auto-345|<tuple|I|261|appendix.tm>>
+    <associate|auto-346|<tuple|I.18|263|publications.tm>>
+    <associate|auto-347|<tuple|7|265|bibliography.tm>>
+    <associate|auto-35|<tuple|4.3.2|40|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-36|<tuple|4.4|41|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-37|<tuple|4.1|43|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-38|<tuple|4.5|43|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-39|<tuple|4.6|45|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-4|<tuple|1.2|5|ch0_introduction.tm>>
+    <associate|auto-40|<tuple|4.7|46|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-41|<tuple|4.7.1|47|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-42|<tuple|4.7.1.1|47|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-43|<tuple|4.1|47|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-44|<tuple|4.2|48|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-45|<tuple|4.3|49|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-46|<tuple|4.4|50|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-47|<tuple|4.5|51|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-48|<tuple|4.6|51|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-49|<tuple|4.7|52|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-5|<tuple|1.3|6|ch0_introduction.tm>>
+    <associate|auto-50|<tuple|4.8|52|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-51|<tuple|4.7.1.2|53|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-52|<tuple|4.9|53|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-53|<tuple|4.10|54|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-54|<tuple|4.11|54|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-55|<tuple|4.12|55|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-56|<tuple|4.13|55|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-57|<tuple|4.7.2|55|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-58|<tuple|4.14|56|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-59|<tuple|4.15|57|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-6|<tuple|1.4|7|ch0_introduction.tm>>
+    <associate|auto-60|<tuple|4.16|58|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-61|<tuple|4.7.3|58|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-62|<tuple|4.17|58|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-63|<tuple|4.18|59|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-64|<tuple|4.19|60|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-65|<tuple|4.7.4|60|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-66|<tuple|4.20|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-67|<tuple|4.8|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-68|<tuple|4.8.1|62|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-69|<tuple|4.21|63|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-7|<tuple|1.5|12|ch0_introduction.tm>>
+    <associate|auto-70|<tuple|4.8.2|63|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-71|<tuple|4.22|64|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-72|<tuple|4.8.3|64|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-73|<tuple|4.23|65|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-74|<tuple|4.8.4|65|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-75|<tuple|4.24|66|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-76|<tuple|4.8.5|66|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-77|<tuple|4.25|67|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-78|<tuple|4.8.6|67|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-79|<tuple|4.26|68|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-8|<tuple|2|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-80|<tuple|4.27|69|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-81|<tuple|4.8.7|69|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-82|<tuple|4.28|70|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-83|<tuple|4.29|70|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-84|<tuple|4.9|70|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-85|<tuple|4.9.1|73|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-86|<tuple|4.30|75|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-87|<tuple|4.31|75|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-88|<tuple|4.2|76|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-89|<tuple|4.10|76|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-9|<tuple|2.1|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|auto-90|<tuple|4.10.1|76|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-91|<tuple|4.32|77|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-92|<tuple|4.10.2|77|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-93|<tuple|4.33|78|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-94|<tuple|4.34|78|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-95|<tuple|4.35|79|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-96|<tuple|4.10.3|79|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-97|<tuple|4.36|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-98|<tuple|4.37|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|auto-99|<tuple|4.11|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|bib-Abe2015|<tuple|1|265|bibliography.tm>>
+    <associate|bib-Abgrall2020|<tuple|2|265|bibliography.tm>>
+    <associate|bib-Artzi2006|<tuple|24|266|bibliography.tm>>
+    <associate|bib-Asthana2015|<tuple|5|265|bibliography.tm>>
+    <associate|bib-Balsara2007|<tuple|20|266|bibliography.tm>>
+    <associate|bib-Balsara2009a|<tuple|21|266|bibliography.tm>>
+    <associate|bib-Bassi1997|<tuple|22|266|bibliography.tm>>
+    <associate|bib-Batten1997|<tuple|23|266|bibliography.tm>>
+    <associate|bib-Berthon2006|<tuple|26|266|bibliography.tm>>
+    <associate|bib-Berthon2015|<tuple|27|266|bibliography.tm>>
+    <associate|bib-Berthon_TMP_2006|<tuple|25|266|bibliography.tm>>
+    <associate|bib-Bezanson2017|<tuple|29|266|bibliography.tm>>
+    <associate|bib-Biswas1994|<tuple|31|266|bibliography.tm>>
+    <associate|bib-Biswas2021|<tuple|30|266|bibliography.tm>>
+    <associate|bib-Bogacki1989|<tuple|32|266|bibliography.tm>>
+    <associate|bib-Burbeau2001|<tuple|33|266|bibliography.tm>>
+    <associate|bib-Burger2017|<tuple|34|266|bibliography.tm>>
+    <associate|bib-Butcher2016|<tuple|35|266|bibliography.tm>>
+    <associate|bib-Canuto2007|<tuple|37|266|bibliography.tm>>
+    <associate|bib-Carpenter1995|<tuple|38|266|bibliography.tm>>
+    <associate|bib-Carrillo2021|<tuple|39|266|bibliography.tm>>
+    <associate|bib-Carrillo2021a|<tuple|40|266|bibliography.tm>>
+    <associate|bib-Castro2008|<tuple|42|267|bibliography.tm>>
+    <associate|bib-Cenaero2017|<tuple|36|266|bibliography.tm>>
+    <associate|bib-Chen2016|<tuple|43|267|bibliography.tm>>
+    <associate|bib-Choe1991|<tuple|44|267|bibliography.tm>>
+    <associate|bib-Choe1992|<tuple|45|267|bibliography.tm>>
+    <associate|bib-Cicchino2022|<tuple|46|267|bibliography.tm>>
+    <associate|bib-Cicchino2022a|<tuple|47|267|bibliography.tm>>
+    <associate|bib-Clain2011|<tuple|48|267|bibliography.tm>>
+    <associate|bib-Cockburn1989|<tuple|50|267|bibliography.tm>>
+    <associate|bib-Cockburn1989a|<tuple|51|267|bibliography.tm>>
+    <associate|bib-Cockburn1991|<tuple|52|267|bibliography.tm>>
+    <associate|bib-Cockburn1998a|<tuple|53|267|bibliography.tm>>
+    <associate|bib-Colella1984|<tuple|55|267|bibliography.tm>>
+    <associate|bib-Colella1990|<tuple|54|267|bibliography.tm>>
+    <associate|bib-Cui2023|<tuple|56|267|bibliography.tm>>
+    <associate|bib-Diot2012|<tuple|59|267|bibliography.tm>>
+    <associate|bib-Diot2013|<tuple|60|267|bibliography.tm>>
+    <associate|bib-Dumbser2006|<tuple|67|268|bibliography.tm>>
+    <associate|bib-Dumbser2007|<tuple|66|268|bibliography.tm>>
+    <associate|bib-Dumbser2008|<tuple|63|268|bibliography.tm>>
+    <associate|bib-Dumbser2008a|<tuple|64|268|bibliography.tm>>
+    <associate|bib-Dumbser2009|<tuple|68|268|bibliography.tm>>
+    <associate|bib-Dumbser2014|<tuple|62|268|bibliography.tm>>
+    <associate|bib-Dumbser2018|<tuple|65|268|bibliography.tm>>
+    <associate|bib-Dumbser2019|<tuple|61|268|bibliography.tm>>
+    <associate|bib-Einfeldt1988|<tuple|71|268|bibliography.tm>>
+    <associate|bib-Ellis2016|<tuple|72|268|bibliography.tm>>
+    <associate|bib-Engquist1981|<tuple|74|268|bibliography.tm>>
+    <associate|bib-Fambri2017|<tuple|75|268|bibliography.tm>>
+    <associate|bib-Gassner2011a|<tuple|76|268|bibliography.tm>>
+    <associate|bib-Gassner2012|<tuple|77|268|bibliography.tm>>
+    <associate|bib-Gassner_Winters_Hindenlang_Kopriva_2018|<tuple|78|268|bibliography.tm>>
+    <associate|bib-Ghia1982|<tuple|79|268|bibliography.tm>>
+    <associate|bib-Glimm1985|<tuple|80|268|bibliography.tm>>
+    <associate|bib-Gottlieb2001|<tuple|82|269|bibliography.tm>>
+    <associate|bib-Grazia2014|<tuple|57|267|bibliography.tm>>
+    <associate|bib-Guermond2016|<tuple|83|269|bibliography.tm>>
+    <associate|bib-Guo2015|<tuple|84|269|bibliography.tm>>
+    <associate|bib-Guthrey2019|<tuple|85|269|bibliography.tm>>
+    <associate|bib-Han2010|<tuple|87|269|bibliography.tm>>
+    <associate|bib-Harten1983a|<tuple|89|269|bibliography.tm>>
+    <associate|bib-Harten1987|<tuple|88|269|bibliography.tm>>
+    <associate|bib-Hirsch1990|<tuple|92|269|bibliography.tm>>
+    <associate|bib-Huynh2007|<tuple|94|269|bibliography.tm>>
+    <associate|bib-Jackson2017|<tuple|95|269|bibliography.tm>>
+    <associate|bib-Jameson2012|<tuple|97|269|bibliography.tm>>
+    <associate|bib-Jiang1996|<tuple|98|269|bibliography.tm>>
+    <associate|bib-Jiang2013|<tuple|99|269|bibliography.tm>>
+    <associate|bib-Kaser2005|<tuple|100|269|bibliography.tm>>
+    <associate|bib-Kopriva1996|<tuple|106|270|bibliography.tm>>
+    <associate|bib-Kopriva2002|<tuple|107|270|bibliography.tm>>
+    <associate|bib-Kopriva2006|<tuple|105|270|bibliography.tm>>
+    <associate|bib-Kopriva2019|<tuple|104|270|bibliography.tm>>
+    <associate|bib-Kozdon2018|<tuple|109|270|bibliography.tm>>
+    <associate|bib-Krivodonova2007|<tuple|110|270|bibliography.tm>>
+    <associate|bib-Lax1954|<tuple|111|270|bibliography.tm>>
+    <associate|bib-Lax1960|<tuple|113|270|bibliography.tm>>
+    <associate|bib-Lax1998|<tuple|112|270|bibliography.tm>>
+    <associate|bib-LeFloch2002|<tuple|115|270|bibliography.tm>>
+    <associate|bib-LeVeque1992|<tuple|116|270|bibliography.tm>>
+    <associate|bib-LeVeque1996|<tuple|117|270|bibliography.tm>>
+    <associate|bib-Lee2021|<tuple|114|270|bibliography.tm>>
+    <associate|bib-Levermore_1996|<tuple|118|270|bibliography.tm>>
+    <associate|bib-Lopez2014|<tuple|121|270|bibliography.tm>>
+    <associate|bib-Lou2020|<tuple|122|270|bibliography.tm>>
+    <associate|bib-Lu2021|<tuple|123|270|bibliography.tm>>
+    <associate|bib-Meena2020|<tuple|126|270|bibliography.tm>>
+    <associate|bib-Meena_Kumar_Chandrashekar_2017|<tuple|125|270|bibliography.tm>>
+    <associate|bib-Mengaldo2015|<tuple|127|271|bibliography.tm>>
+    <associate|bib-Montecinos2020|<tuple|129|271|bibliography.tm>>
+    <associate|bib-Offner2019|<tuple|131|271|bibliography.tm>>
+    <associate|bib-Pan2016|<tuple|132|271|bibliography.tm>>
+    <associate|bib-Pazner2021|<tuple|133|271|bibliography.tm>>
+    <associate|bib-Peraire2012|<tuple|93|269|bibliography.tm>>
+    <associate|bib-Peraire2013|<tuple|41|266|bibliography.tm>>
+    <associate|bib-Persson2006|<tuple|134|271|bibliography.tm>>
+    <associate|bib-Qiu2003|<tuple|138|271|bibliography.tm>>
+    <associate|bib-Qiu2005|<tuple|135|271|bibliography.tm>>
+    <associate|bib-Qiu2005b|<tuple|137|271|bibliography.tm>>
+    <associate|bib-Qiu2007|<tuple|136|271|bibliography.tm>>
+    <associate|bib-Rackauckas2017|<tuple|139|271|bibliography.tm>>
+    <associate|bib-Ramirez2020|<tuple|148|272|bibliography.tm>>
+    <associate|bib-Ranocha2021|<tuple|140|271|bibliography.tm>>
+    <associate|bib-Ranocha2022|<tuple|141|271|bibliography.tm>>
+    <associate|bib-Rasha2021|<tuple|96|269|bibliography.tm>>
+    <associate|bib-Ray2017|<tuple|144|271|bibliography.tm>>
+    <associate|bib-Roe1981|<tuple|146|271|bibliography.tm>>
+    <associate|bib-Romero2016|<tuple|147|272|bibliography.tm>>
+    <associate|bib-Rosa2018|<tuple|58|267|bibliography.tm>>
+    <associate|bib-Rueda2021|<tuple|149|272|bibliography.tm>>
+    <associate|bib-Rusanov1962|<tuple|152|272|bibliography.tm>>
+    <associate|bib-Ruuth2002|<tuple|153|272|bibliography.tm>>
+    <associate|bib-Safjan1995|<tuple|154|272|bibliography.tm>>
+    <associate|bib-Schafer1996|<tuple|156|272|bibliography.tm>>
+    <associate|bib-Seal2013|<tuple|159|272|bibliography.tm>>
+    <associate|bib-Shi2003|<tuple|161|272|bibliography.tm>>
+    <associate|bib-Shu1988|<tuple|162|272|bibliography.tm>>
+    <associate|bib-Shu1989|<tuple|163|272|bibliography.tm>>
+    <associate|bib-Sod1978|<tuple|164|272|bibliography.tm>>
+    <associate|bib-Sonntag2014|<tuple|165|272|bibliography.tm>>
+    <associate|bib-Spiegel2016|<tuple|166|272|bibliography.tm>>
+    <associate|bib-Spiteri2002|<tuple|167|272|bibliography.tm>>
+    <associate|bib-Sun2017|<tuple|170|273|bibliography.tm>>
+    <associate|bib-Swanson_Langer_2016|<tuple|171|273|bibliography.tm>>
+    <associate|bib-Tabarrok1994|<tuple|172|273|bibliography.tm>>
+    <associate|bib-Takayama1991|<tuple|173|273|bibliography.tm>>
+    <associate|bib-Tang2006|<tuple|174|273|bibliography.tm>>
+    <associate|bib-Titarev2002|<tuple|175|273|bibliography.tm>>
+    <associate|bib-Titarev2004|<tuple|176|273|bibliography.tm>>
+    <associate|bib-Titarev2005|<tuple|177|273|bibliography.tm>>
+    <associate|bib-Toro1994|<tuple|180|273|bibliography.tm>>
+    <associate|bib-Toro2001|<tuple|178|273|bibliography.tm>>
+    <associate|bib-Toro2009|<tuple|181|273|bibliography.tm>>
+    <associate|bib-Toro2020|<tuple|179|273|bibliography.tm>>
+    <associate|bib-Trojak2021|<tuple|182|273|bibliography.tm>>
+    <associate|bib-Tsitouras2011|<tuple|183|273|bibliography.tm>>
+    <associate|bib-Vandenhoeck2019|<tuple|186|273|bibliography.tm>>
+    <associate|bib-Vermeire2017|<tuple|187|273|bibliography.tm>>
+    <associate|bib-Vilar2019|<tuple|188|273|bibliography.tm>>
+    <associate|bib-Vincent2011|<tuple|190|273|bibliography.tm>>
+    <associate|bib-Vincent2011a|<tuple|189|273|bibliography.tm>>
+    <associate|bib-Vincent2015|<tuple|191|273|bibliography.tm>>
+    <associate|bib-Vincent2016|<tuple|193|274|bibliography.tm>>
+    <associate|bib-Vincent2022|<tuple|192|274|bibliography.tm>>
+    <associate|bib-Volker2010|<tuple|168|273|bibliography.tm>>
+    <associate|bib-Witherden2021|<tuple|196|274|bibliography.tm>>
+    <associate|bib-Woodward1984|<tuple|197|274|bibliography.tm>>
+    <associate|bib-Xu2019|<tuple|198|274|bibliography.tm>>
+    <associate|bib-Xu2022|<tuple|199|274|bibliography.tm>>
+    <associate|bib-Yee1999|<tuple|200|274|bibliography.tm>>
+    <associate|bib-Youn1995|<tuple|201|274|bibliography.tm>>
+    <associate|bib-Zanotti2015|<tuple|202|274|bibliography.tm>>
+    <associate|bib-Zhang1990|<tuple|203|274|bibliography.tm>>
+    <associate|bib-Zhang1997|<tuple|204|274|bibliography.tm>>
+    <associate|bib-Zhang2010b|<tuple|205|274|bibliography.tm>>
+    <associate|bib-Zorio2017|<tuple|208|274|bibliography.tm>>
+    <associate|bib-akkurt2022|<tuple|3|265|bibliography.tm>>
+    <associate|bib-arpit_babbar_2024_10816439|<tuple|7|265|bibliography.tm>>
+    <associate|bib-attig2011|<tuple|6|265|bibliography.tm>>
+    <associate|bib-babbar2022|<tuple|18|265|bibliography.tm>>
+    <associate|bib-babbar2023admissibility|<tuple|19|265|bibliography.tm>>
+    <associate|bib-babbar2024curved|<tuple|13|265|bibliography.tm>>
+    <associate|bib-babbar2024equivalence|<tuple|9|265|bibliography.tm>>
+    <associate|bib-babbar2024generalized|<tuple|11|265|bibliography.tm>>
+    <associate|bib-babbar2024laxwendroff|<tuple|12|265|bibliography.tm>>
+    <associate|bib-babbar2024multiderivative|<tuple|14|265|bibliography.tm>>
+    <associate|bib-berzins1995|<tuple|28|266|bibliography.tm>>
+    <associate|bib-cockburn2000|<tuple|49|267|bibliography.tm>>
+    <associate|bib-curvedrepo|<tuple|10|265|bibliography.tm>>
+    <associate|bib-dzanic2022|<tuple|69|268|bibliography.tm>>
+    <associate|bib-emery1968|<tuple|73|268|bibliography.tm>>
+    <associate|bib-godunov1959|<tuple|81|269|bibliography.tm>>
+    <associate|bib-ha2005|<tuple|86|269|bibliography.tm>>
+    <associate|bib-hennemann2021|<tuple|90|269|bibliography.tm>>
+    <associate|bib-hildebrand1973|<tuple|91|269|bibliography.tm>>
+    <associate|bib-icosahom2023_tmp|<tuple|8|265|bibliography.tm>>
+    <associate|bib-ketcheson2020|<tuple|101|269|bibliography.tm>>
+    <associate|bib-klockner2011|<tuple|102|269|bibliography.tm>>
+    <associate|bib-kopriva2009|<tuple|103|269|bibliography.tm>>
+    <associate|bib-kopriva2010|<tuple|108|270|bibliography.tm>>
+    <associate|bib-li2016|<tuple|119|270|bibliography.tm>>
+    <associate|bib-lohner1987|<tuple|120|270|bibliography.tm>>
+    <associate|bib-meena2017|<tuple|124|270|bibliography.tm>>
+    <associate|bib-moe2017|<tuple|128|271|bibliography.tm>>
+    <associate|bib-naca1951|<tuple|4|265|bibliography.tm>>
+    <associate|bib-nsrepo|<tuple|15|265|bibliography.tm>>
+    <associate|bib-obrechkoff1940neue|<tuple|130|271|bibliography.tm>>
+    <associate|bib-paperrepo|<tuple|16|265|bibliography.tm>>
+    <associate|bib-ramirez2021|<tuple|151|272|bibliography.tm>>
+    <associate|bib-ramirez2022|<tuple|150|272|bibliography.tm>>
+    <associate|bib-ranocha2023|<tuple|142|271|bibliography.tm>>
+    <associate|bib-raythesis|<tuple|143|271|bibliography.tm>>
+    <associate|bib-reed1973|<tuple|145|271|bibliography.tm>>
+    <associate|bib-schaal2015|<tuple|155|272|bibliography.tm>>
+    <associate|bib-schlottkelakemper2020trixi|<tuple|157|272|bibliography.tm>>
+    <associate|bib-schlottkelakemper2021purely|<tuple|158|272|bibliography.tm>>
+    <associate|bib-sedov1959|<tuple|160|272|bibliography.tm>>
+    <associate|bib-su2|<tuple|70|268|bibliography.tm>>
+    <associate|bib-subcommittee2014|<tuple|169|273|bibliography.tm>>
+    <associate|bib-tenkai|<tuple|17|265|bibliography.tm>>
+    <associate|bib-vanleer1977|<tuple|184|273|bibliography.tm>>
+    <associate|bib-vanleer1984|<tuple|185|273|bibliography.tm>>
+    <associate|bib-ware1995|<tuple|194|274|bibliography.tm>>
+    <associate|bib-witherden2014|<tuple|195|274|bibliography.tm>>
+    <associate|bib-zhang2010c|<tuple|206|274|bibliography.tm>>
+    <associate|bib-zhang2012|<tuple|207|274|bibliography.tm>>
+    <associate|ch:10mom|<tuple|6|119|ch5_10_moment_problem.tm>>
+    <associate|ch:con.law|<tuple|2|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|ch:curved.meshes|<tuple|8|155|ch6_curved_meshes.tm>>
+    <associate|ch:fvm.dg|<tuple|3|23|ch1b_finite_volume_method.tm>>
+    <associate|ch:lw.subcell.limiter|<tuple|5|87|ch3_blending_limiter.tm>>
+    <associate|ch:lwfr|<tuple|4|31|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|ch:mdrk|<tuple|7|133|ch4_mdrk.tm>>
+    <associate|ch:parabolic|<tuple|9|197|ch_parabolic.tm>>
+    <associate|defn.mean|<tuple|8.30|162|ch6_curved_meshes.tm>>
+    <associate|defn:adm.pres|<tuple|5.1|88|ch3_blending_limiter.tm>>
+    <associate|defn:admissible.fvm|<tuple|3.1|26|ch1b_finite_volume_method.tm>>
+    <associate|defn:curved.contravariant.basis|<tuple|8.2|157|ch6_curved_meshes.tm>>
+    <associate|defn:curved.covariant.basis|<tuple|8.1|157|ch6_curved_meshes.tm>>
+    <associate|defn:curved.well.constructed.mesh|<tuple|8.4|164|ch6_curved_meshes.tm>>
+    <associate|defn:hyperbolic|<tuple|2.1|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|defn:mean.pres|<tuple|5.2|89|ch3_blending_limiter.tm>>
+    <associate|eq:1d.rh|<tuple|2.9|17|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:1d.smoothness.E|<tuple|5.12|92|ch3_blending_limiter.tm>>
+    <associate|eq:1deuler|<tuple|4.16|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:2DMH1|<tuple|G.22|250|appendix.tm>>
+    <associate|eq:2DMH2|<tuple|G.23|251|appendix.tm>>
+    <associate|eq:2DMH3|<tuple|G.24|251|appendix.tm>>
+    <associate|eq:2Dupdates|<tuple|G.27|251|appendix.tm>>
+    <associate|eq:2d.adm.numflux.desired.x|<tuple|H.2|258|appendix.tm>>
+    <associate|eq:2d.adm.numflux.desired.y|<tuple|H.2|258|appendix.tm>>
+    <associate|eq:2d.hyp.con.law|<tuple|G.1|241|appendix.tm>>
+    <associate|eq:2d.low.update.admissibility.condn|<tuple|H.2|258|appendix.tm>>
+    <associate|eq:2d.mh.final.subs|<tuple|G.32|253|appendix.tm>>
+    <associate|eq:2d.new.cfl2|<tuple|G.33|254|appendix.tm>>
+    <associate|eq:2d.new.cfl3.conservative|<tuple|G.36|255|appendix.tm>>
+    <associate|eq:2d.xy.implies.admissibility|<tuple|H.3|258|appendix.tm>>
+    <associate|eq:2dadv|<tuple|4.26|73|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:2dburger|<tuple|4.29|79|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:2dcfldom|<tuple|4.27|75|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:2deuler|<tuple|2.13|19|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:2dns|<tuple|2.16|21|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:2dstate|<tuple|2.12|19|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:2dvaradv|<tuple|4.28|76|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:3deuler|<tuple|2.11|19|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:3dns|<tuple|2.14|20|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:Fblend|<tuple|5.11|91|ch3_blending_limiter.tm>>
+    <associate|eq:Uh.defn|<tuple|A.11|218|appendix.tm>>
+    <associate|eq:VlVr|<tuple|3.6|24|ch1b_finite_volume_method.tm>>
+    <associate|eq:ader.corr.flux|<tuple|A.8|218|appendix.tm>>
+    <associate|eq:ader.corr1|<tuple|A.4|216|appendix.tm>>
+    <associate|eq:ader.evolution|<tuple|A.6|217|appendix.tm>>
+    <associate|eq:ader.fr.flux|<tuple|A.7|217|appendix.tm>>
+    <associate|eq:adm2.coeff1|<tuple|G.34|254|appendix.tm>>
+    <associate|eq:adm2.coeff2|<tuple|G.35|254|appendix.tm>>
+    <associate|eq:all.fvm.updates|<tuple|G.12|246|appendix.tm>>
+    <associate|eq:big.tau|<tuple|2.15|20|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:blended.scheme|<tuple|5.6|90|ch3_blending_limiter.tm>>
+    <associate|eq:cache.blocking|<tuple|E.1|237|appendix.tm>>
+    <associate|eq:cauchy.problem|<tuple|2.6|16|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:cfl.adm.res|<tuple|3.13|26|ch1b_finite_volume_method.tm>>
+    <associate|eq:con.law|<tuple|3.1|23|ch1b_finite_volume_method.tm>>
+    <associate|eq:con.law.dt|<tuple|G.8|243|appendix.tm>>
+    <associate|eq:concave.theta|<tuple|5.24|96|ch3_blending_limiter.tm>>
+    <associate|eq:concave.theta.source|<tuple|6.16|124|ch5_10_moment_problem.tm>>
+    <associate|eq:conservation.blending.scheme|<tuple|5.10|91|ch3_blending_limiter.tm>>
+    <associate|eq:conv.pres.con.law|<tuple|5.4|88|ch3_blending_limiter.tm>>
+    <associate|eq:corr.expressions|<tuple|B.6|225|appendix.tm>>
+    <associate|eq:cts.fv.1d|<tuple|9.23|201|ch_parabolic.tm>>
+    <associate|eq:cts.u.1d|<tuple|9.21|201|ch_parabolic.tm>>
+    <associate|eq:curved.2d.adm.numflux.desired|<tuple|8.53|171|ch6_curved_meshes.tm>>
+    <associate|eq:curved.2d.low.update.admissibility.condn|<tuple|8.52|171|ch6_curved_meshes.tm>>
+    <associate|eq:curved.2d.xy.implies.admissibility|<tuple|8.54|171|ch6_curved_meshes.tm>>
+    <associate|eq:curved.4to1proj|<tuple|8.62|174|ch6_curved_meshes.tm>>
+    <associate|eq:curved.Fdelta.low|<tuple|8.76|182|ch6_curved_meshes.tm>>
+    <associate|eq:curved.Fisf|<tuple|8.41|165|ch6_curved_meshes.tm>>
+    <associate|eq:curved.I0.defn|<tuple|8.55|172|ch6_curved_meshes.tm>>
+    <associate|eq:curved.Nnd|<tuple|8.5|156|ch6_curved_meshes.tm>>
+    <associate|eq:curved.Uisu|<tuple|8.42|165|ch6_curved_meshes.tm>>
+    <associate|eq:curved.approx.soln|<tuple|8.15|158|ch6_curved_meshes.tm>>
+    <associate|eq:curved.blended.flux.in.curved|<tuple|8.48|167|ch6_curved_meshes.tm>>
+    <associate|eq:curved.cfl.effective|<tuple|8.79|185|ch6_curved_meshes.tm>>
+    <associate|eq:curved.cfl.formula|<tuple|8.72|180|ch6_curved_meshes.tm>>
+    <associate|eq:curved.cfl.time.step|<tuple|8.78|184|ch6_curved_meshes.tm>>
+    <associate|eq:curved.compact.prolongation|<tuple|8.67|177|ch6_curved_meshes.tm>>
+    <associate|eq:curved.con.law|<tuple|8.1|155|ch6_curved_meshes.tm>>
+    <associate|eq:curved.conservation.lw|<tuple|8.29|161|ch6_curved_meshes.tm>>
+    <associate|eq:curved.contravariant.flux.defn|<tuple|8.13|157|ch6_curved_meshes.tm>>
+    <associate|eq:curved.contravariant.identity|<tuple|8.9|157|ch6_curved_meshes.tm>>
+    <associate|eq:curved.cts.num.flux|<tuple|8.18|159|ch6_curved_meshes.tm>>
+    <associate|eq:curved.cts.time.avg.flux|<tuple|8.25|161|ch6_curved_meshes.tm>>
+    <associate|eq:curved.defn1.div|<tuple|8.2|156|ch6_curved_meshes.tm>>
+    <associate|eq:curved.divergence.transform.contravariant|<tuple|8.10|157|ch6_curved_meshes.tm>>
+    <associate|eq:curved.dtnp1.formula|<tuple|8.73|181|ch6_curved_meshes.tm>>
+    <associate|eq:curved.error.estimator|<tuple|8.74|181|ch6_curved_meshes.tm>>
+    <associate|eq:curved.final.int.identity.fxi|<tuple|8.66|177|ch6_curved_meshes.tm>>
+    <associate|eq:curved.flux.poly.defn|<tuple|8.17|159|ch6_curved_meshes.tm>>
+    <associate|eq:curved.fo.rusanov|<tuple|8.47|167|ch6_curved_meshes.tm>>
+    <associate|eq:curved.fr.update.curvilinear|<tuple|8.22|160|ch6_curved_meshes.tm>>
+    <associate|eq:curved.ft.defn|<tuple|8.32|162|ch6_curved_meshes.tm>>
+    <associate|eq:curved.gradient.transform.contravariant|<tuple|8.11|157|ch6_curved_meshes.tm>>
+    <associate|eq:curved.integral.identities|<tuple|8.64|175|ch6_curved_meshes.tm>>
+    <associate|eq:curved.interpolation.defn|<tuple|8.36|163|ch6_curved_meshes.tm>>
+    <associate|eq:curved.interpolation.ue|<tuple|8.5.1.1|174|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lagrange.basis|<tuple|8.6|156|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lo.numflux|<tuple|8.46|167|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lohner.ind|<tuple|8.71|179|ch6_curved_meshes.tm>>
+    <associate|eq:curved.low.order.cell.avg.update.curved|<tuple|8.49|167|ch6_curved_meshes.tm>>
+    <associate|eq:curved.low.update.2d|<tuple|8.51|171|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lower.order.curved|<tuple|8.45|167|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lower.order.flux.curved|<tuple|8.44|166|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lw.update|<tuple|8.23|160|ch6_curved_meshes.tm>>
+    <associate|eq:curved.lwfr.update.curvilinear|<tuple|8.28|161|ch6_curved_meshes.tm>>
+    <associate|eq:curved.metric.identity.contravariant|<tuple|8.14|158|ch6_curved_meshes.tm>>
+    <associate|eq:curved.metric.identity.contravariant.inter|<tuple|8.35|163|ch6_curved_meshes.tm>>
+    <associate|eq:curved.metric.identity.contravariant.poly|<tuple|8.37|163|ch6_curved_meshes.tm>>
+    <associate|eq:curved.partition|<tuple|8.3|156|ch6_curved_meshes.tm>>
+    <associate|eq:curved.pro4.with.lagrange|<tuple|8.63|174|ch6_curved_meshes.tm>>
+    <associate|eq:curved.proP.defn|<tuple|8.59|173|ch6_curved_meshes.tm>>
+    <associate|eq:curved.product.of.operators|<tuple|8.60|173|ch6_curved_meshes.tm>>
+    <associate|eq:curved.proj.mortar.int.id|<tuple|8.68|177|ch6_curved_meshes.tm>>
+    <associate|eq:curved.projection.integral.equation|<tuple|8.69|177|ch6_curved_meshes.tm>>
+    <associate|eq:curved.reference.map|<tuple|8.4|156|ch6_curved_meshes.tm>>
+    <associate|eq:curved.rusanov.flux|<tuple|8.19|159|ch6_curved_meshes.tm>>
+    <associate|eq:curved.rusanov.flux.lw|<tuple|8.26|161|ch6_curved_meshes.tm>>
+    <associate|eq:curved.semi.discrete.fr|<tuple|8.21|160|ch6_curved_meshes.tm>>
+    <associate|eq:curved.subint.op|<tuple|8.58|172|ch6_curved_meshes.tm>>
+    <associate|eq:curved.submap|<tuple|8.56|172|ch6_curved_meshes.tm>>
+    <associate|eq:curved.submap.inverse|<tuple|8.57|172|ch6_curved_meshes.tm>>
+    <associate|eq:curved.time.averaged.flux|<tuple|8.24|160|ch6_curved_meshes.tm>>
+    <associate|eq:curved.time.avg.is.physical.flux|<tuple|8.39|164|ch6_curved_meshes.tm>>
+    <associate|eq:curved.transformed.conservation.law|<tuple|8.12|157|ch6_curved_meshes.tm>>
+    <associate|eq:curved.uXidefn|<tuple|8.65|176|ch6_curved_meshes.tm>>
+    <associate|eq:curved.ueues.defn|<tuple|8.61|174|ch6_curved_meshes.tm>>
+    <associate|eq:curved.uloc.high|<tuple|8.75|181|ch6_curved_meshes.tm>>
+    <associate|eq:curved.unp1.low|<tuple|8.77|182|ch6_curved_meshes.tm>>
+    <associate|eq:curved.ut.defn|<tuple|8.33|162|ch6_curved_meshes.tm>>
+    <associate|eq:curved.utt.defn|<tuple|8.34|163|ch6_curved_meshes.tm>>
+    <associate|eq:curved.well.constructed|<tuple|8.38|164|ch6_curved_meshes.tm>>
+    <associate|eq:curved.xis.notation|<tuple|8.16|158|ch6_curved_meshes.tm>>
+    <associate|eq:delta.defn|<tuple|5.17|94|ch3_blending_limiter.tm>>
+    <associate|eq:dg.collocated|<tuple|B.3|225|appendix.tm>>
+    <associate|eq:dg.discontinuous.flux|<tuple|3.16|27|ch1b_finite_volume_method.tm>>
+    <associate|eq:dg.is.fr.corr|<tuple|B.4|225|appendix.tm>>
+    <associate|eq:dg.scheme|<tuple|B.1|223|appendix.tm>>
+    <associate|eq:dg.weak|<tuple|B.2|224|appendix.tm>>
+    <associate|eq:diff.matrix|<tuple|3.5|24|ch1b_finite_volume_method.tm>>
+    <associate|eq:dt.lw|<tuple|4.18|62|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:erik.ic|<tuple|9.25|203|ch_parabolic.tm>>
+    <associate|eq:evolution|<tuple|5.19|95|ch3_blending_limiter.tm>>
+    <associate|eq:evolution.general|<tuple|G.5|242|appendix.tm>>
+    <associate|eq:explicit.fvm.scheme|<tuple|3.12|26|ch1b_finite_volume_method.tm>>
+    <associate|eq:fder|<tuple|4.9|34|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:final.claim|<tuple|A.15|219|appendix.tm>>
+    <associate|eq:first.time.average.flux|<tuple|A.10|218|appendix.tm>>
+    <associate|eq:flux.concave.theta|<tuple|5.29|99|ch3_blending_limiter.tm>>
+    <associate|eq:flux.optimization.problem|<tuple|5.28|99|ch3_blending_limiter.tm>>
+    <associate|eq:fo.at.face|<tuple|5.14|94|ch3_blending_limiter.tm>>
+    <associate|eq:forward.euler|<tuple|3.9|25|ch1b_finite_volume_method.tm>>
+    <associate|eq:fravgup|<tuple|5.3|88|ch3_blending_limiter.tm>>
+    <associate|eq:frcontflux|<tuple|4.8|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:ftilde.free.stream|<tuple|8.40|164|ch6_curved_meshes.tm>>
+    <associate|eq:fvm.admissibility|<tuple|3.14|26|ch1b_finite_volume_method.tm>>
+    <associate|eq:fvm.fr.corr.functions|<tuple|3.18|28|ch1b_finite_volume_method.tm>>
+    <associate|eq:fvm.mol|<tuple|3.7|25|ch1b_finite_volume_method.tm>>
+    <associate|eq:fvm.numflux|<tuple|3.8|25|ch1b_finite_volume_method.tm>>
+    <associate|eq:fvph.parabolic|<tuple|9.24|201|ch_parabolic.tm>>
+    <associate|eq:g2|<tuple|3.20|29|ch1b_finite_volume_method.tm>>
+    <associate|eq:g2.simplifier|<tuple|B.15|226|appendix.tm>>
+    <associate|eq:general.pk.source|<tuple|6.15|124|ch5_10_moment_problem.tm>>
+    <associate|eq:genuinely.nonlinear|<tuple|2.4|16|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:ghu|<tuple|B.16|227|appendix.tm>>
+    <associate|eq:gl.lagrange|<tuple|B.7|226|appendix.tm>>
+    <associate|eq:global.lf|<tuple|3.10|25|ch1b_finite_volume_method.tm>>
+    <associate|eq:gradau|<tuple|3.19|29|ch1b_finite_volume_method.tm>>
+    <associate|eq:integral.con.law|<tuple|2.3|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:intro.con.law|<tuple|2.2|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:intro.rp|<tuple|2.10|17|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:intro.u|<tuple|2.1|15|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:kx.defn|<tuple|G.30|252|appendix.tm>>
+    <associate|eq:lag.poly.1d|<tuple|3.4|23|ch1b_finite_volume_method.tm>>
+    <associate|eq:laup|<tuple|4.15|42|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:leg.id1|<tuple|B.10|226|appendix.tm>>
+    <associate|eq:leg.id2|<tuple|B.11|226|appendix.tm>>
+    <associate|eq:linearly.degenerate|<tuple|2.5|16|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:low.order.cell.avg.update|<tuple|5.9|91|ch3_blending_limiter.tm>>
+    <associate|eq:low.order.high.level|<tuple|5.5|89|ch3_blending_limiter.tm>>
+    <associate|eq:low.order.tilde.update|<tuple|5.27|99|ch3_blending_limiter.tm>>
+    <associate|eq:low.order.update|<tuple|5.8|90|ch3_blending_limiter.tm>>
+    <associate|eq:low.source.up|<tuple|6.14|124|ch5_10_moment_problem.tm>>
+    <associate|eq:low.update.2d|<tuple|H.1|258|appendix.tm>>
+    <associate|eq:lw.corr.flux|<tuple|A.13|219|appendix.tm>>
+    <associate|eq:lwfr.2d.explicit|<tuple|4.23|71|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:lwfr.evolution|<tuple|A.9|218|appendix.tm>>
+    <associate|eq:lwfr.time.average.cts|<tuple|4.7|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:lwtay|<tuple|4.1|32|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:mdrk.2stage.update.eqn|<tuple|7.13|139|ch4_mdrk.tm>>
+    <associate|eq:mdrk.A.star.defn|<tuple|7.16|140|ch4_mdrk.tm>>
+    <associate|eq:mdrk.A0A1.matrices|<tuple|7.14|139|ch4_mdrk.tm>>
+    <associate|eq:mdrk.Fblend|<tuple|7.24|143|ch4_mdrk.tm>>
+    <associate|eq:mdrk.blended.scheme|<tuple|7.21|142|ch4_mdrk.tm>>
+    <associate|eq:mdrk.c1|<tuple|I.5|261|appendix.tm>>
+    <associate|eq:mdrk.c2|<tuple|I.6|262|appendix.tm>>
+    <associate|eq:mdrk.c3|<tuple|I.7|262|appendix.tm>>
+    <associate|eq:mdrk.c4|<tuple|I.8|262|appendix.tm>>
+    <associate|eq:mdrk.c5|<tuple|I.9|262|appendix.tm>>
+    <associate|eq:mdrk.c6|<tuple|I.10|262|appendix.tm>>
+    <associate|eq:mdrk.c7|<tuple|I.11|262|appendix.tm>>
+    <associate|eq:mdrk.c8|<tuple|I.12|262|appendix.tm>>
+    <associate|eq:mdrk.d1|<tuple|I.14|262|appendix.tm>>
+    <associate|eq:mdrk.d2|<tuple|I.15|262|appendix.tm>>
+    <associate|eq:mdrk.d3|<tuple|I.16|262|appendix.tm>>
+    <associate|eq:mdrk.d4|<tuple|I.17|262|appendix.tm>>
+    <associate|eq:mdrk.d5|<tuple|I.18|262|appendix.tm>>
+    <associate|eq:mdrk.f2.defn|<tuple|7.5|134|ch4_mdrk.tm>>
+    <associate|eq:mdrk.far.field.solution|<tuple|7.25|150|ch4_mdrk.tm>>
+    <associate|eq:mdrk.ho.method|<tuple|7.19|142|ch4_mdrk.tm>>
+    <associate|eq:mdrk.intro.us.evolution|<tuple|7.1|133|ch4_mdrk.tm>>
+    <associate|eq:mdrk.lo.method|<tuple|7.20|142|ch4_mdrk.tm>>
+    <associate|eq:mdrk.low.order.cell.avg.update|<tuple|7.23|143|ch4_mdrk.tm>>
+    <associate|eq:mdrk.low.order.update|<tuple|7.22|142|ch4_mdrk.tm>>
+    <associate|eq:mdrk.mdrk.first.stage|<tuple|7.2|134|ch4_mdrk.tm>>
+    <associate|eq:mdrk.mdrk.second.stage|<tuple|7.3|134|ch4_mdrk.tm>>
+    <associate|eq:mdrk.nfdiss1|<tuple|7.10|137|ch4_mdrk.tm>>
+    <associate|eq:mdrk.nfdiss2|<tuple|7.11|137|ch4_mdrk.tm>>
+    <associate|eq:mdrk.tavgsol|<tuple|7.12|137|ch4_mdrk.tm>>
+    <associate|eq:mdrk.taylor.u.five|<tuple|I.4|261|appendix.tm>>
+    <associate|eq:mdrk.unp.approximate|<tuple|I.2|261|appendix.tm>>
+    <associate|eq:mdrk.uplwfr|<tuple|7.6|134|ch4_mdrk.tm>>
+    <associate|eq:mdrk.upmean|<tuple|7.8|135|ch4_mdrk.tm>>
+    <associate|eq:mdrk.us.fourier|<tuple|7.15|139|ch4_mdrk.tm>>
+    <associate|eq:mdrk.ut.ders|<tuple|I.3|261|appendix.tm>>
+    <associate|eq:mh.at.face|<tuple|5.20|95|ch3_blending_limiter.tm>>
+    <associate|eq:mh.corr.flux|<tuple|5.16|94|ch3_blending_limiter.tm>>
+    <associate|eq:mu.pm|<tuple|G.7|243|appendix.tm>>
+    <associate|eq:muscl.final.general|<tuple|G.6|242|appendix.tm>>
+    <associate|eq:muxy.defn|<tuple|G.26|251|appendix.tm>>
+    <associate|eq:new.cfl1|<tuple|G.10|244|appendix.tm>>
+    <associate|eq:new.cfl1.2d|<tuple|G.31|253|appendix.tm>>
+    <associate|eq:new.cfl2|<tuple|G.13|246|appendix.tm>>
+    <associate|eq:new.cfl3|<tuple|G.17|247|appendix.tm>>
+    <associate|eq:new.cfl3.conservative|<tuple|G.19|248|appendix.tm>>
+    <associate|eq:nfdiss1|<tuple|4.10|38|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:nfdiss2|<tuple|4.11|38|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:nflin1|<tuple|4.13|39|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:nflin2|<tuple|4.14|39|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:non.cell.centred.defn|<tuple|G.3|242|appendix.tm>>
+    <associate|eq:non.con.face.defn1|<tuple|G.21|250|appendix.tm>>
+    <associate|eq:nse.manu|<tuple|9.26|204|ch_parabolic.tm>>
+    <associate|eq:num.soln|<tuple|3.3|23|ch1b_finite_volume_method.tm>>
+    <associate|eq:numflux.admissibility.cfl|<tuple|G.2|241|appendix.tm>>
+    <associate|eq:numflux.d1|<tuple|A.14|219|appendix.tm>>
+    <associate|eq:numflux.d2|<tuple|A.12|218|appendix.tm>>
+    <associate|eq:numflux.defn|<tuple|A.5|216|appendix.tm>>
+    <associate|eq:numresults.2dadv|<tuple|5.8|106|ch3_blending_limiter.tm>>
+    <associate|eq:ode.L|<tuple|7.2|134|ch4_mdrk.tm>>
+    <associate|eq:optimization.problem|<tuple|5.23|96|ch3_blending_limiter.tm>>
+    <associate|eq:parabolic.central.u|<tuple|9.10|199|ch_parabolic.tm>>
+    <associate|eq:parabolic.cts.time.avg.flux|<tuple|9.16|200|ch_parabolic.tm>>
+    <associate|eq:parabolic.flux.poly.defn|<tuple|9.20|200|ch_parabolic.tm>>
+    <associate|eq:parabolic.ft.defn|<tuple|9.18|200|ch_parabolic.tm>>
+    <associate|eq:parabolic.grad.transform|<tuple|9.6|198|ch_parabolic.tm>>
+    <associate|eq:parabolic.lw.update|<tuple|9.12|199|ch_parabolic.tm>>
+    <associate|eq:parabolic.lwfr.update.curvilinear|<tuple|9.17|200|ch_parabolic.tm>>
+    <associate|eq:parabolic.matrix.operator.notation|<tuple|9.3|197|ch_parabolic.tm>>
+    <associate|eq:parabolic.parabolic.eqn|<tuple|9.1|197|ch_parabolic.tm>>
+    <associate|eq:parabolic.parabolic.in.first.order|<tuple|9.4|197|ch_parabolic.tm>>
+    <associate|eq:parabolic.q.defn|<tuple|9.11|199|ch_parabolic.tm>>
+    <associate|eq:parabolic.rusanov.flux.lw|<tuple|9.13|199|ch_parabolic.tm>>
+    <associate|eq:parabolic.time.averaged.flux|<tuple|9.13|199|ch_parabolic.tm>>
+    <associate|eq:parabolic.transformed.fo|<tuple|9.7|198|ch_parabolic.tm>>
+    <associate|eq:parabolic.u.corrected|<tuple|9.9|199|ch_parabolic.tm>>
+    <associate|eq:parabolic.ut.defn|<tuple|9.19|200|ch_parabolic.tm>>
+    <associate|eq:parabolic.vector.vector|<tuple|9.2|197|ch_parabolic.tm>>
+    <associate|eq:pk.slope.correction|<tuple|5.25|97|ch3_blending_limiter.tm>>
+    <associate|eq:predictor.defn|<tuple|A.2|216|appendix.tm>>
+    <associate|eq:predictor.eqn|<tuple|A.3|216|appendix.tm>>
+    <associate|eq:predictor.linear.solution|<tuple|A.16|219|appendix.tm>>
+    <associate|eq:pstar|<tuple|D.1|232|appendix.tm>>
+    <associate|eq:radau.corrector|<tuple|B.9|226|appendix.tm>>
+    <associate|eq:radau.poly|<tuple|B.10|226|appendix.tm>>
+    <associate|eq:radau.simplifier.1|<tuple|B.13|226|appendix.tm>>
+    <associate|eq:radau.simplifier.2|<tuple|B.14|226|appendix.tm>>
+    <associate|eq:reconstruction|<tuple|5.18|95|ch3_blending_limiter.tm>>
+    <associate|eq:reconstruction.general|<tuple|G.4|242|appendix.tm>>
+    <associate|eq:rh.cond|<tuple|2.8|16|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:riemann.problem|<tuple|5.15|94|ch3_blending_limiter.tm>>
+    <associate|eq:rusanov.fvm|<tuple|3.11|26|ch1b_finite_volume_method.tm>>
+    <associate|eq:rusanov.lambda|<tuple|8.20|159|ch6_curved_meshes.tm>>
+    <associate|eq:scalar.con.law|<tuple|A.1|215|appendix.tm>>
+    <associate|eq:scaling.conv.theta|<tuple|F.1|239|appendix.tm>>
+    <associate|eq:scaling.general.theta|<tuple|F.2|239|appendix.tm>>
+    <associate|eq:semi.integral.form|<tuple|8.31|162|ch6_curved_meshes.tm>>
+    <associate|eq:semidiscrete.dg|<tuple|3.15|27|ch1b_finite_volume_method.tm>>
+    <associate|eq:shuosher|<tuple|4.21|65|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:smoothing|<tuple|5.13|93|ch3_blending_limiter.tm>>
+    <associate|eq:sod|<tuple|4.19|63|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:soln.points|<tuple|3.2|23|ch1b_finite_volume_method.tm>>
+    <associate|eq:state|<tuple|4.17|62|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:strong.form.dg.1d|<tuple|3.17|28|ch1b_finite_volume_method.tm>>
+    <associate|eq:subcell.defn|<tuple|5.7|90|ch3_blending_limiter.tm>>
+    <associate|eq:tavg.values|<tuple|4.6|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:tavgflux|<tuple|4.2|32|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:tavgsol|<tuple|4.12|38|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:time.step.2d|<tuple|4.30|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:tmp.F.S.split|<tuple|6.13|123|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.cell.avg.decomp|<tuple|6.10|122|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.con.law|<tuple|6.1|119|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.fravgup|<tuple|6.8|121|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.low.order.tilde.update|<tuple|6.11|123|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.low.order.update|<tuple|6.9|122|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.lwtay|<tuple|6.2|120|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.pure.low.order.tilde.update|<tuple|6.12|123|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.tavgS|<tuple|6.4|120|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.tavgflux|<tuple|6.3|120|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.tenmom.source|<tuple|6.18|125|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.tmp|<tuple|6.17|125|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.tvgproperty|<tuple|6.5|120|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.tvgproperty.S|<tuple|6.6|120|ch5_10_moment_problem.tm>>
+    <associate|eq:tmp.uplwfr|<tuple|6.7|121|ch5_10_moment_problem.tm>>
+    <associate|eq:total.source.update|<tuple|6.19|126|ch5_10_moment_problem.tm>>
+    <associate|eq:tvgproperty|<tuple|4.3|32|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:uad.form|<tuple|5.1|87|ch3_blending_limiter.tm>>
+    <associate|eq:ueph.parabolic|<tuple|9.22|201|ch_parabolic.tm>>
+    <associate|eq:uj.nph.s|<tuple|G.11|245|appendix.tm>>
+    <associate|eq:uj.nph.s.explicit|<tuple|G.14|247|appendix.tm>>
+    <associate|eq:ujph.s.identity|<tuple|G.18|247|appendix.tm>>
+    <associate|eq:um.lw|<tuple|4.25|72|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:unphsxy|<tuple|G.32|253|appendix.tm>>
+    <associate|eq:up2d|<tuple|4.24|72|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:update.x.combination|<tuple|G.28|252|appendix.tm>>
+    <associate|eq:update.x.combination2|<tuple|G.29|252|appendix.tm>>
+    <associate|eq:uplwfr|<tuple|4.4|32|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:upmean|<tuple|4.5|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|eq:us.conservative|<tuple|G.20|249|appendix.tm>>
+    <associate|eq:us.defn.main|<tuple|5.21|95|ch3_blending_limiter.tm>>
+    <associate|eq:use.weak.convexity|<tuple|5.25|97|ch3_blending_limiter.tm>>
+    <associate|eq:uss.defn|<tuple|G.15|247|appendix.tm>>
+    <associate|eq:ustar.2d|<tuple|G.25|251|appendix.tm>>
+    <associate|eq:ustar.defn|<tuple|G.9|244|appendix.tm>>
+    <associate|eq:ustar.in.uad|<tuple|5.22|96|ch3_blending_limiter.tm>>
+    <associate|eq:viscous.central.flux|<tuple|9.14|199|ch_parabolic.tm>>
+    <associate|eq:weak.convexity|<tuple|5.2|88|ch3_blending_limiter.tm>>
+    <associate|eq:weak.form|<tuple|2.7|16|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|eq:wj.expression|<tuple|B.8|226|appendix.tm>>
+    <associate|eq:wss.simplified|<tuple|G.16|247|appendix.tm>>
+    <associate|fig:2d.near.vacuum|<tuple|6.5|130|ch5_10_moment_problem.tm>>
+    <associate|fig:2dcfl_g2|<tuple|4.31|75|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:2dcfl_radau|<tuple|4.30|75|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:ShuOsher|<tuple|4.24|66|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:ShuOsher.chblend|<tuple|5.4|103|ch3_blending_limiter.tm>>
+    <associate|fig:ShuOsher.chblend.nozoom|<tuple|5.3|103|ch3_blending_limiter.tm>>
+    <associate|fig:ShuOsherCorr|<tuple|4.28|70|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:alpha.func|<tuple|5.2|93|ch3_blending_limiter.tm>>
+    <associate|fig:astrophysical.jet|<tuple|5.17|113|ch3_blending_limiter.tm>>
+    <associate|fig:blast|<tuple|4.25|67|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:blast.chblend|<tuple|5.5|104|ch3_blending_limiter.tm>>
+    <associate|fig:blast.periodic|<tuple|5.19|114|ch3_blending_limiter.tm>>
+    <associate|fig:blast.periodic.reference|<tuple|5.18|114|ch3_blending_limiter.tm>>
+    <associate|fig:bucklev1|<tuple|4.20|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:burg1|<tuple|4.17|58|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:burg2|<tuple|4.18|59|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:burg4|<tuple|4.19|60|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:cavity|<tuple|9.6|206|ch_parabolic.tm>>
+    <associate|fig:chars|<tuple|2.2|18|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|fig:cla1|<tuple|4.1|47|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:cla2|<tuple|4.2|48|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:cla2_dirichlet|<tuple|4.5|51|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:cla3|<tuple|4.3|49|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:cla4|<tuple|4.4|50|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:cla5|<tuple|4.6|51|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:composite.signal.2d|<tuple|5.9|107|ch3_blending_limiter.tm>>
+    <associate|fig:conv linear adv 2d|<tuple|4.32|77|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:conv linear rotate 2d|<tuple|4.34|78|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:conv_burger2d|<tuple|4.37|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:convergence|<tuple|6.1|127|ch5_10_moment_problem.tm>>
+    <associate|fig:convergence.analysis|<tuple|9.3|205|ch_parabolic.tm>>
+    <associate|fig:convergence.analysis.nse|<tuple|9.4|205|ch_parabolic.tm>>
+    <associate|fig:cp.cf.swanson|<tuple|9.8|208|ch_parabolic.tm>>
+    <associate|fig:curved.blunt|<tuple|8.12|192|ch6_curved_meshes.tm>>
+    <associate|fig:curved.curved.subcells|<tuple|8.2|166|ch6_curved_meshes.tm>>
+    <associate|fig:curved.dmr|<tuple|8.7|187|ch6_curved_meshes.tm>>
+    <associate|fig:curved.forward.step|<tuple|8.8|188|ch6_curved_meshes.tm>>
+    <associate|fig:curved.free.stream|<tuple|8.9|189|ch6_curved_meshes.tm>>
+    <associate|fig:curved.isentropic|<tuple|8.10|190|ch6_curved_meshes.tm>>
+    <associate|fig:curved.kh|<tuple|8.6|186|ch6_curved_meshes.tm>>
+    <associate|fig:curved.m2000|<tuple|8.5|185|ch6_curved_meshes.tm>>
+    <associate|fig:curved.mortar|<tuple|8.4|175|ch6_curved_meshes.tm>>
+    <associate|fig:curved.naca|<tuple|8.14|193|ch6_curved_meshes.tm>>
+    <associate|fig:curved.naca.mesh|<tuple|8.13|193|ch6_curved_meshes.tm>>
+    <associate|fig:curved.ref.map|<tuple|8.1|159|ch6_curved_meshes.tm>>
+    <associate|fig:curved.refine.coarsen|<tuple|8.3|173|ch6_curved_meshes.tm>>
+    <associate|fig:curved.supersonic.cylinder|<tuple|8.11|191|ch6_curved_meshes.tm>>
+    <associate|fig:dmr|<tuple|5.12|109|ch3_blending_limiter.tm>>
+    <associate|fig:dmr.full|<tuple|5.11|109|ch3_blending_limiter.tm>>
+    <associate|fig:dmr.plot|<tuple|4.41|84|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:dmr.plot.zoom|<tuple|4.42|84|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:dmr.wct|<tuple|4.43|85|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:dofs2d|<tuple|4.29|70|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:domain.von.karman|<tuple|9.9|208|ch_parabolic.tm>>
+    <associate|fig:double.rarefaction|<tuple|5.7|106|ch3_blending_limiter.tm>>
+    <associate|fig:dwave|<tuple|4.21|63|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:erik|<tuple|9.1|204|ch_parabolic.tm>>
+    <associate|fig:error|<tuple|A.1|220|appendix.tm>>
+    <associate|fig:ffs.alpha.stats|<tuple|5.21|116|ch3_blending_limiter.tm>>
+    <associate|fig:forward.step|<tuple|5.22|117|ch3_blending_limiter.tm>>
+    <associate|fig:fv.evolution|<tuple|G.3|246|appendix.tm>>
+    <associate|fig:gauss.source|<tuple|6.6|130|ch5_10_moment_problem.tm>>
+    <associate|fig:general.grid|<tuple|G.1|242|appendix.tm>>
+    <associate|fig:hat1|<tuple|4.9|53|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:hat2|<tuple|4.10|54|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:hat3|<tuple|4.11|54|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:interactions|<tuple|4.35|79|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:isentropic.convergence|<tuple|4.38|82|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:isentropic.convergence.chblend|<tuple|5.10|108|ch3_blending_limiter.tm>>
+    <associate|fig:isentropic.ratios.vs.grid.1.2.3.4|<tuple|4.40|83|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:isentropic.time.vs.error|<tuple|4.39|82|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:karman.forces|<tuple|9.11|209|ch_parabolic.tm>>
+    <associate|fig:karman.vorticity|<tuple|9.10|209|ch_parabolic.tm>>
+    <associate|fig:kh|<tuple|5.16|112|ch3_blending_limiter.tm>>
+    <associate|fig:lax|<tuple|4.23|65|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:leblanc|<tuple|5.8|106|ch3_blending_limiter.tm>>
+    <associate|fig:lid.cavity.soln|<tuple|9.5|206|ch_parabolic.tm>>
+    <associate|fig:lin2d_rotate_soln|<tuple|4.33|78|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:lineplot_burg2d|<tuple|4.36|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:mdrk.blast|<tuple|7.5|146|ch4_mdrk.tm>>
+    <associate|fig:mdrk.burg1|<tuple|7.3|145|ch4_mdrk.tm>>
+    <associate|fig:mdrk.burg2|<tuple|7.4|146|ch4_mdrk.tm>>
+    <associate|fig:mdrk.cla1|<tuple|7.1|144|ch4_mdrk.tm>>
+    <associate|fig:mdrk.dmr|<tuple|7.9|149|ch4_mdrk.tm>>
+    <associate|fig:mdrk.high.density|<tuple|7.7|148|ch4_mdrk.tm>>
+    <associate|fig:mdrk.hurricane.critical|<tuple|7.10|151|ch4_mdrk.tm>>
+    <associate|fig:mdrk.rayleigh.taylor|<tuple|7.13|153|ch4_mdrk.tm>>
+    <associate|fig:mdrk.rotational.all.speed|<tuple|7.11|151|ch4_mdrk.tm>>
+    <associate|fig:mdrk.rp2d|<tuple|7.12|152|ch4_mdrk.tm>>
+    <associate|fig:mdrk.sedov.blast|<tuple|7.8|148|ch4_mdrk.tm>>
+    <associate|fig:mdrk.titarev.toro|<tuple|7.6|147|ch4_mdrk.tm>>
+    <associate|fig:mdrk.vla2|<tuple|7.2|145|ch4_mdrk.tm>>
+    <associate|fig:mult1|<tuple|4.12|55|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:mult2|<tuple|4.13|55|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:non.interacting.rp1|<tuple|G.2|245|appendix.tm>>
+    <associate|fig:non.interacting.rp2|<tuple|G.4|248|appendix.tm>>
+    <associate|fig:nse.manu|<tuple|9.2|204|ch_parabolic.tm>>
+    <associate|fig:numflux_toro5_contact|<tuple|4.27|69|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:numflx|<tuple|4.26|68|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:realistic|<tuple|6.7|131|ch5_10_moment_problem.tm>>
+    <associate|fig:rp|<tuple|6.2|128|ch5_10_moment_problem.tm>>
+    <associate|fig:rp2d|<tuple|5.13|110|ch3_blending_limiter.tm>>
+    <associate|fig:rp2d.alpha|<tuple|5.14|110|ch3_blending_limiter.tm>>
+    <associate|fig:rp2d.alpha.stats|<tuple|5.15|111|ch3_blending_limiter.tm>>
+    <associate|fig:sedov.blast|<tuple|5.6|105|ch3_blending_limiter.tm>>
+    <associate|fig:shock.diffraction|<tuple|5.20|115|ch3_blending_limiter.tm>>
+    <associate|fig:shuosher|<tuple|6.3|128|ch5_10_moment_problem.tm>>
+    <associate|fig:sod|<tuple|4.22|64|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:sol.struc|<tuple|2.1|17|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|fig:solflux1|<tuple|3.1|24|ch1b_finite_volume_method.tm>>
+    <associate|fig:subcells|<tuple|5.1|90|ch3_blending_limiter.tm>>
+    <associate|fig:swanson.mesh.mach|<tuple|9.7|207|ch_parabolic.tm>>
+    <associate|fig:two.rare.sources|<tuple|6.4|129|ch5_10_moment_problem.tm>>
+    <associate|fig:vla1|<tuple|4.14|56|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:vla2|<tuple|4.15|57|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:vla3|<tuple|4.16|58|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:wp1|<tuple|4.7|52|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|fig:wp2|<tuple|4.8|52|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|footnote-4.1|<tuple|4.1|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|footnote-5.1|<tuple|5.1|95|ch3_blending_limiter.tm>>
+    <associate|footnote-6.1|<tuple|6.1|124|ch5_10_moment_problem.tm>>
+    <associate|footnote-8.1|<tuple|8.1|163|ch6_curved_meshes.tm>>
+    <associate|footnote-8.2|<tuple|8.2|174|ch6_curved_meshes.tm>>
+    <associate|footnote-9.1|<tuple|9.1|198|ch_parabolic.tm>>
+    <associate|footnote-B.1|<tuple|B.1|225|appendix.tm>>
+    <associate|footnote-E.1|<tuple|E.1|236|appendix.tm>>
+    <associate|footnote-G.1|<tuple|G.1|242|appendix.tm>>
+    <associate|footnr-4.1|<tuple|4.1|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|footnr-5.1|<tuple|5.1|95|ch3_blending_limiter.tm>>
+    <associate|footnr-6.1|<tuple|6.1|124|ch5_10_moment_problem.tm>>
+    <associate|footnr-8.1|<tuple|8.1|163|ch6_curved_meshes.tm>>
+    <associate|footnr-8.2|<tuple|8.2|174|ch6_curved_meshes.tm>>
+    <associate|footnr-9.1|<tuple|9.1|198|ch_parabolic.tm>>
+    <associate|footnr-B.1|<tuple|B.1|225|appendix.tm>>
+    <associate|footnr-E.1|<tuple|E.1|236|appendix.tm>>
+    <associate|footnr-G.1|<tuple|G.1|242|appendix.tm>>
+    <associate|lemma:2d.muscl.step2.general|<tuple|G.12|254|appendix.tm>>
+    <associate|lemma:2d.muscl.step3.conservative|<tuple|G.13|255|appendix.tm>>
+    <associate|lemma:avg.riemann.problem|<tuple|G.1|243|appendix.tm>>
+    <associate|lemma:m.h.step.1|<tuple|G.2|244|appendix.tm>>
+    <associate|lemma:m.h.step.1.2d|<tuple|G.11|252|appendix.tm>>
+    <associate|lemma:muscl.step2.general|<tuple|G.3|246|appendix.tm>>
+    <associate|lemma:muscl.step3.conservative|<tuple|G.5|248|appendix.tm>>
+    <associate|lemma:muscl.step3.wss|<tuple|G.4|247|appendix.tm>>
+    <associate|part:abstract.tm|<tuple|?|xvi>>
+    <associate|part:acknowledgements.tm|<tuple|?|ii|prelim_pages.tm>>
+    <associate|part:annexures.tm|<tuple|8|213>>
+    <associate|part:appendix.tm|<tuple|8|213|annexures.tm>>
+    <associate|part:bibliography.tm|<tuple|7|263|annexures.tm>>
+    <associate|part:ch0_introduction.tm|<tuple|?|1>>
+    <associate|part:ch1_hyperbolic_conservation_laws.tm|<tuple|1.5|13>>
+    <associate|part:ch1b_finite_volume_method.tm|<tuple|2.16|21>>
+    <associate|part:ch2_lax_wendroff_flux_reconstruction.tm|<tuple|3.20|29>>
+    <associate|part:ch3_blending_limiter.tm|<tuple|4.12|86>>
+    <associate|part:ch4_mdrk.tm|<tuple|6.5|131>>
+    <associate|part:ch5_10_moment_problem.tm|<tuple|5.10|118>>
+    <associate|part:ch6_curved_meshes.tm|<tuple|7.6|153>>
+    <associate|part:ch_parabolic.tm|<tuple|8.8|195>>
+    <associate|part:conclusion.tm|<tuple|9.6|210>>
+    <associate|part:prelim_pages.tm|<tuple|?|ii>>
+    <associate|part:publications.tm|<tuple|I.18|262|annexures.tm>>
+    <associate|part:tabe_of_contents.tm|<tuple|?|ix>>
+    <associate|part:title_page.tm|<tuple|?|i>>
+    <associate|rmk:amr.metric.terms|<tuple|8.7|178|ch6_curved_meshes.tm>>
+    <associate|rmk:kx.ky|<tuple|G.10|252|appendix.tm>>
+    <associate|rmk:mh.restriction.for.fr|<tuple|G.7|249|appendix.tm>>
+    <associate|rmk:non.linear|<tuple|A.2|220|appendix.tm>>
+    <associate|rmk:why.same.flux|<tuple|5.3|91|ch3_blending_limiter.tm>>
+    <associate|sec: vla|<tuple|4.7.2|55|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:2d.admissibility|<tuple|H|257|appendix.tm>>
+    <associate|sec:2d.mh|<tuple|G.6|250|appendix.tm>>
+    <associate|sec:2drp|<tuple|5.9.3|109|ch3_blending_limiter.tm>>
+    <associate|sec:DFR|<tuple|4.2.3|34|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:ader.dg|<tuple|A.2|215|appendix.tm>>
+    <associate|sec:admissibility.preservation|<tuple|5.5|97|ch3_blending_limiter.tm>>
+    <associate|sec:alg|<tuple|5.6|100|ch3_blending_limiter.tm>>
+    <associate|sec:alw|<tuple|4.2.4|35|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:alwp|<tuple|9.3.2.1|200|ch_parabolic.tm>>
+    <associate|sec:blast|<tuple|4.8.5|66|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:blast.chblend|<tuple|5.7.1.2|103|ch3_blending_limiter.tm>>
+    <associate|sec:blend.review|<tuple|5.2|87|ch3_blending_limiter.tm>>
+    <associate|sec:blending.scheme|<tuple|5.3.1|89|ch3_blending_limiter.tm>>
+    <associate|sec:burger.test|<tuple|4.7.3|58|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:cla|<tuple|4.7.1|47|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:con|<tuple|A.5|221|appendix.tm>>
+    <associate|sec:conclusion|<tuple|9.6|209|ch_parabolic.tm>>
+    <associate|sec:controlling.oscillations|<tuple|5.3|89|ch3_blending_limiter.tm>>
+    <associate|sec:curved.alwp|<tuple|8.3.3|162|ch6_curved_meshes.tm>>
+    <associate|sec:curved.amr|<tuple|8.5|172|ch6_curved_meshes.tm>>
+    <associate|sec:curved.amr.indicator|<tuple|8.5.3|179|ch6_curved_meshes.tm>>
+    <associate|sec:curved.blunt|<tuple|8.7.2.4|192|ch6_curved_meshes.tm>>
+    <associate|sec:curved.conclusions|<tuple|8.8|195|ch6_curved_meshes.tm>>
+    <associate|sec:curved.cons.lw|<tuple|8.3|158|ch6_curved_meshes.tm>>
+    <associate|sec:curved.curvilinear.coords|<tuple|8.2|155|ch6_curved_meshes.tm>>
+    <associate|sec:curved.cylinder|<tuple|8.7.2.3|190|ch6_curved_meshes.tm>>
+    <associate|sec:curved.dmr|<tuple|8.7.1.3|186|ch6_curved_meshes.tm>>
+    <associate|sec:curved.el2mortar|<tuple|8.5.2.2|176|ch6_curved_meshes.tm>>
+    <associate|sec:curved.error.lw|<tuple|8.6.2|181|ch6_curved_meshes.tm>>
+    <associate|sec:curved.flux.correction|<tuple|8.4.3|169|ch6_curved_meshes.tm>>
+    <associate|sec:curved.flux.correction.curved|<tuple|8.4.3.2|171|ch6_curved_meshes.tm>>
+    <associate|sec:curved.flux.limiter.1d|<tuple|8.4.3.1|170|ch6_curved_meshes.tm>>
+    <associate|sec:curved.forward.step|<tuple|8.7.1.4|187|ch6_curved_meshes.tm>>
+    <associate|sec:curved.fr|<tuple|8.3.1|158|ch6_curved_meshes.tm>>
+    <associate|sec:curved.free.stream.lwfr|<tuple|8.3.4|163|ch6_curved_meshes.tm>>
+    <associate|sec:curved.handling.mortars|<tuple|8.5.2|175|ch6_curved_meshes.tm>>
+    <associate|sec:curved.isentropic|<tuple|8.7.2.2|189|ch6_curved_meshes.tm>>
+    <associate|sec:curved.lwfr.curved|<tuple|8.3.2|160|ch6_curved_meshes.tm>>
+    <associate|sec:curved.naca|<tuple|8.7.2.5|192|ch6_curved_meshes.tm>>
+    <associate|sec:curved.numerical.results|<tuple|8.7|183|ch6_curved_meshes.tm>>
+    <associate|sec:curved.proj.elem|<tuple|8.5.1.2|174|ch6_curved_meshes.tm>>
+    <associate|sec:curved.proj.face|<tuple|8.5.2.3|177|ch6_curved_meshes.tm>>
+    <associate|sec:curved.rk.error.section|<tuple|8.6.1|180|ch6_curved_meshes.tm>>
+    <associate|sec:curved.shock.capturing|<tuple|8.4|165|ch6_curved_meshes.tm>>
+    <associate|sec:curved.smooth.ind|<tuple|8.4.2|168|ch6_curved_meshes.tm>>
+    <associate|sec:curved.soln.transfer|<tuple|8.5.1|173|ch6_curved_meshes.tm>>
+    <associate|sec:curved.time.stepping|<tuple|8.6|180|ch6_curved_meshes.tm>>
+    <associate|sec:dmr|<tuple|4.11.2|83|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:ea.scheme|<tuple|4.3.2|40|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:ffs|<tuple|5.9.8|115|ch3_blending_limiter.tm>>
+    <associate|sec:fo|<tuple|5.3.3|93|ch3_blending_limiter.tm>>
+    <associate|sec:formal.accuracy|<tuple|I|261|appendix.tm>>
+    <associate|sec:four1d|<tuple|4.4|41|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:fourier2d|<tuple|4.9.1|73|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:fr.corr.identities|<tuple|B.2.1|225|appendix.tm>>
+    <associate|sec:frdfr|<tuple|C|229|appendix.tm>>
+    <associate|sec:intro.contri|<tuple|1.4|7|ch0_introduction.tm>>
+    <associate|sec:intro.fr|<tuple|1.2|5|ch0_introduction.tm>>
+    <associate|sec:intro.lw|<tuple|1.1|3|ch0_introduction.tm>>
+    <associate|sec:intro.outline|<tuple|1.5|12|ch0_introduction.tm>>
+    <associate|sec:intro.shock.capturing|<tuple|1.3|6|ch0_introduction.tm>>
+    <associate|sec:isentropic.vortex|<tuple|4.11.1|81|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:kh|<tuple|5.9.4|111|ch3_blending_limiter.tm>>
+    <associate|sec:lim|<tuple|4.6|45|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:linear.equivalence|<tuple|A.3|218|appendix.tm>>
+    <associate|sec:low.order.curvilinear|<tuple|8.4.1|166|ch6_curved_meshes.tm>>
+    <associate|sec:lw|<tuple|4.2|31|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:lw.bc|<tuple|4.5|43|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:lwfr.2d|<tuple|4.9|70|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:lwfr.2nd.order|<tuple|9.3|198|ch_parabolic.tm>>
+    <associate|sec:lwfr.numfluxes|<tuple|D|231|appendix.tm>>
+    <associate|sec:lwfr.res1d|<tuple|4.7|46|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:lwfr.res2d.euler|<tuple|4.11|80|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:lwfr.res2d.scalar|<tuple|4.10|76|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:m2000|<tuple|5.9.5|112|ch3_blending_limiter.tm>>
+    <associate|sec:mdrk|<tuple|7.2|134|ch4_mdrk.tm>>
+    <associate|sec:mdrk.ae|<tuple|7.2.5|137|ch4_mdrk.tm>>
+    <associate|sec:mdrk.alw|<tuple|7.2.3|136|ch4_mdrk.tm>>
+    <associate|sec:mdrk.blending|<tuple|7.4|142|ch4_mdrk.tm>>
+    <associate|sec:mdrk.cla|<tuple|7.5.1.1|144|ch4_mdrk.tm>>
+    <associate|sec:mdrk.conclusion|<tuple|7.6|153|ch4_mdrk.tm>>
+    <associate|sec:mdrk.ea|<tuple|7.2.6|138|ch4_mdrk.tm>>
+    <associate|sec:mdrk.fourier|<tuple|7.3|139|ch4_mdrk.tm>>
+    <associate|sec:mdrk.num|<tuple|7.5|144|ch4_mdrk.tm>>
+    <associate|sec:mdrk.numflux|<tuple|7.2.4|137|ch4_mdrk.tm>>
+    <associate|sec:mdrk.reconstruction|<tuple|7.2.2|135|ch4_mdrk.tm>>
+    <associate|sec:mdrk.res1dsys|<tuple|7.5.2|146|ch4_mdrk.tm>>
+    <associate|sec:mh|<tuple|5.4|94|ch3_blending_limiter.tm>>
+    <associate|sec:mh.adm|<tuple|G.4|243|appendix.tm>>
+    <associate|sec:muscl.admissibility.proof|<tuple|G|241|appendix.tm>>
+    <associate|sec:num|<tuple|A.4|220|appendix.tm>>
+    <associate|sec:num.results.chblend|<tuple|5.7|101|ch3_blending_limiter.tm>>
+    <associate|sec:numflux|<tuple|4.3|38|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:numresults.2d.euler|<tuple|5.9|107|ch3_blending_limiter.tm>>
+    <associate|sec:parabolic.bc|<tuple|9.4|201|ch_parabolic.tm>>
+    <associate|sec:reconstruction|<tuple|4.2.2|33|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:res1dsys|<tuple|4.8|61|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:res1dsys.chblend|<tuple|5.7.1|102|ch3_blending_limiter.tm>>
+    <associate|sec:results|<tuple|9.5|203|ch_parabolic.tm>>
+    <associate|sec:riemann.problem|<tuple|2.1.2|17|ch1_hyperbolic_conservation_laws.tm>>
+    <associate|sec:rk|<tuple|3.4|28|ch1b_finite_volume_method.tm>>
+    <associate|sec:rotate.composite|<tuple|4.10.2|77|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:scl|<tuple|3.1|23|ch1b_finite_volume_method.tm>>
+    <associate|sec:sedov.blast.1d|<tuple|5.7.1.3|104|ch3_blending_limiter.tm>>
+    <associate|sec:shuosher|<tuple|4.8.4|65|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:shuosher.blend|<tuple|5.7.1.1|102|ch3_blending_limiter.tm>>
+    <associate|sec:slope.limiting|<tuple|5.4.1|96|ch3_blending_limiter.tm>>
+    <associate|sec:smooth.ind|<tuple|5.3.2|92|ch3_blending_limiter.tm>>
+    <associate|sec:sum|<tuple|4.12|85|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|sec:sum.blend|<tuple|5.10|118|ch3_blending_limiter.tm>>
+    <associate|sec:swanson|<tuple|9.5.3|206|ch_parabolic.tm>>
+    <associate|sec:tmp.adm.pres|<tuple|6.3|122|ch5_10_moment_problem.tm>>
+    <associate|sec:tmp.approximate.lw|<tuple|6.2.1|121|ch5_10_moment_problem.tm>>
+    <associate|sec:tmp.conclusion|<tuple|6.5|131|ch5_10_moment_problem.tm>>
+    <associate|sec:tmp.flux.correction|<tuple|6.3.1|122|ch5_10_moment_problem.tm>>
+    <associate|sec:tmp.lwfr|<tuple|6.2|119|ch5_10_moment_problem.tm>>
+    <associate|sec:tmp.numerical.results|<tuple|6.4|125|ch5_10_moment_problem.tm>>
+    <associate|sec:tmp.source.limiter|<tuple|6.3.2|123|ch5_10_moment_problem.tm>>
+    <associate|sec:transformations.parabolic|<tuple|9.2|197|ch_parabolic.tm>>
+    <associate|sec:von.karman|<tuple|9.5.4|208|ch_parabolic.tm>>
+    <associate|tab:2Dcfl|<tuple|4.2|76|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|tab:cfl|<tuple|4.1|43|ch2_lax_wendroff_flux_reconstruction.tm>>
+    <associate|tab:cfl.error|<tuple|8.1|194|ch6_curved_meshes.tm>>
+    <associate|tab:max.cl.max.cp|<tuple|9.2|209|ch_parabolic.tm>>
+    <associate|tab:mdrk.cfl|<tuple|7.1|141|ch4_mdrk.tm>>
+    <associate|tab:swanson.forces|<tuple|9.1|208|ch_parabolic.tm>>
+    <associate|thm:curved.lwfr.admissibility|<tuple|8.6|169|ch6_curved_meshes.tm>>
+    <associate|thm:final.condn.conservative|<tuple|G.6|249|appendix.tm>>
+    <associate|thm:final.condn.conservative.2d|<tuple|G.14|255|appendix.tm>>
+    <associate|thm:lwfr.admissibility|<tuple|5.5|98|ch3_blending_limiter.tm>>
+    <associate|thm:muscl.admissibility.theorem|<tuple|5.4|95|ch3_blending_limiter.tm>>
+    <associate|thm:non.conservative.mh|<tuple|G.8|250|appendix.tm>>
+    <associate|thm:rh|<tuple|2.4|16|ch1_hyperbolic_conservation_laws.tm>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|bib>
-      babbar2022
-
-      babbar2023admissibility
-
-      babbar2024curved
-
-      babbar2024equivalence
-
-      babbar2024generalized
-
-      babbar2024laxwendroff
-
-      babbar2024multiderivative
-
       attig2011
 
       subcommittee2014
@@ -7883,8 +6508,6 @@
 
       Lu2021
 
-      babbar2022
-
       Zorio2017
 
       Lou2020
@@ -7987,11 +6610,11 @@
 
       LeFloch2002
 
-      LeFloch2002
-
       raythesis
 
       LeFloch2002
+
+      raythesis
 
       LeVeque1992
 
@@ -8024,6 +6647,12 @@
       Zorio2017
 
       Lou2020
+
+      Huynh2007
+
+      Trojak2021
+
+      Vincent2011a
 
       Romero2016
 
@@ -8303,8 +6932,6 @@
 
       Woodward1984
 
-      babbar2022
-
       hennemann2021
 
       zhang2010c
@@ -8347,15 +6974,17 @@
 
       Meena_Kumar_Chandrashekar_2017
 
+      meena2017
+
       Meena_Kumar_Chandrashekar_2017
+
+      meena2017
 
       Meena_Kumar_Chandrashekar_2017
 
       meena2017
 
       Meena2020
-
-      babbar2022
 
       tenkai
 
@@ -8413,8 +7042,6 @@
 
       Tang2006
 
-      babbar2023admissibility
-
       babbar2024generalized
 
       babbar2023admissibility
@@ -8443,11 +7070,7 @@
 
       kopriva2009
 
-      babbar2022
-
       Kopriva2006
-
-      babbar2023admissibility
 
       Kopriva1996
 
@@ -8471,9 +7094,13 @@
 
       Huynh2007
 
+      Zorio2017
+
       babbar2022
 
       Zorio2017
+
+      Kopriva2006
 
       Kopriva2006
 
@@ -8493,11 +7120,7 @@
 
       babbar2023admissibility
 
-      babbar2023admissibility
-
       Zhang2010b
-
-      babbar2023admissibility
 
       Zhang2010b
 
@@ -8517,13 +7140,9 @@
 
       lohner1987
 
+      lohner1987
+
       Ranocha2021
-
-      babbar2022
-
-      babbar2023admissibility
-
-      babbar2022
 
       Ranocha2021
 
@@ -8655,10 +7274,6 @@
 
       Dumbser2008
 
-      Huynh2007
-
-      Huynh2007
-
       Zorio2017
 
       Burger2017
@@ -8677,35 +7292,11 @@
 
       Gassner2011a
 
-      Rusanov1962
-
-      Roe1981
-
-      Harten1983a
-
-      Einfeldt1988
-
-      Batten1997
-
-      Toro2009
-
-      Guermond2016
-
-      Toro2020
-
-      Toro2009
-
-      Toro1994
-
       Huynh2007
 
       Mengaldo2015
 
       Rusanov1962
-
-      Ranocha2022
-
-      Ranocha2022
 
       Huynh2007
 
@@ -8731,6 +7322,28 @@
 
       Huynh2007
 
+      Romero2016
+
+      Rusanov1962
+
+      Roe1981
+
+      Harten1983a
+
+      Einfeldt1988
+
+      Batten1997
+
+      Toro2009
+
+      Guermond2016
+
+      Toro2020
+
+      Toro2009
+
+      Toro1994
+
       akkurt2022
 
       Ranocha2022
@@ -8742,8 +7355,6 @@
       Bezanson2017
 
       Vincent2022
-
-      Romero2016
 
       Zhang2010b
 
@@ -8757,517 +7368,542 @@
 
       Berthon2006
 
+      Berthon2006
+
       Zhang2010b
 
       Cui2023
+
+      babbar2022
+
+      babbar2023admissibility
+
+      babbar2024curved
+
+      babbar2024equivalence
+
+      babbar2024generalized
+
+      babbar2024laxwendroff
+
+      babbar2024multiderivative
     </associate>
     <\associate|figure>
       <tuple|normal|<\surround|<hidden-binding|<tuple>|2.1>|>
         Solution structure for the Riemann problem of a system of
         conservation laws.
-      </surround>|<pageref|auto-17>>
+      </surround>|<pageref|auto-12>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|2.2>|>
         Characteristic lines for simple waves forming the solution to a
         Riemann problem.
-      </surround>|<pageref|auto-18>>
+      </surround>|<pageref|auto-13>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|3.1>|>
         Piecewise solutions and flux polynomials
-      </surround>|<pageref|auto-23>>
+      </surround>|<pageref|auto-18>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.1>|>
         Error convergence for constant linear advection comparing Radau and
         <with|mode|<quote|math>|g<rsub|2>> correction.
-      </surround>|<pageref|auto-48>>
+      </surround>|<pageref|auto-43>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.2>|>
         Error convergence for constant linear advection comparing LWFR and
         RKFR
-      </surround>|<pageref|auto-49>>
+      </surround>|<pageref|auto-44>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.3>|>
         Error growth for constant linear advection equation.
-      </surround>|<pageref|auto-50>>
+      </surround>|<pageref|auto-45>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.4>|>
         <with|mode|<quote|math>|L<rsub|2>> norm growth for constant linear
         advection equation.
-      </surround>|<pageref|auto-51>>
+      </surround>|<pageref|auto-46>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.5>|>
         Convergence for constant linear advection with Dirichlet boundary
         conditions
-      </surround>|<pageref|auto-52>>
+      </surround>|<pageref|auto-47>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.6>|>
         <with|mode|<quote|math>|L<rsub|2>> norm growth for constant linear
         advection with Dirichlet boundary conditions
-      </surround>|<pageref|auto-53>>
+      </surround>|<pageref|auto-48>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.7>|>
         Constant linear advection of a wave packet.
-      </surround>|<pageref|auto-54>>
+      </surround>|<pageref|auto-49>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.8>|>
         Error convergence for constant linear advection of a wave packet.
-      </surround>|<pageref|auto-55>>
+      </surround>|<pageref|auto-50>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.9>|>
         Constant linear advection of hat profile without limiter.
-      </surround>|<pageref|auto-57>>
+      </surround>|<pageref|auto-52>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.10>|>
         Constant linear advection of hat profile with TVB limiter.
-      </surround>|<pageref|auto-58>>
+      </surround>|<pageref|auto-53>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.11>|>
         Constant linear advection of hat profile using RK65 with TVB limiter.
-      </surround>|<pageref|auto-59>>
+      </surround>|<pageref|auto-54>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.12>|>
         Constant linear advection of a composite profile without limiter.
-      </surround>|<pageref|auto-60>>
+      </surround>|<pageref|auto-55>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.13>|>
         Constant linear advection of a composite profile with TVB limiter.
-      </surround>|<pageref|auto-61>>
+      </surround>|<pageref|auto-56>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.14>|>
         Error convergence for variable linear advection with
         <with|mode|<quote|math>|a(x) = x>.
-      </surround>|<pageref|auto-63>>
+      </surround>|<pageref|auto-58>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.15>|>
         Error convergence for variable linear advection with
         <with|mode|<quote|math>|a(x) = x<rsup|2>>.
-      </surround>|<pageref|auto-64>>
+      </surround>|<pageref|auto-59>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.16>|>
         Error growth for linear advection with wave speed
         <with|mode|<quote|math>|a(x) = x<rsup|2>>
-      </surround>|<pageref|auto-65>>
+      </surround>|<pageref|auto-60>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.17>|>
-        Solution of 1-D Burger's equation.
-      </surround>|<pageref|auto-67>>
+        Solution of 1-D Burgers' equation.
+      </surround>|<pageref|auto-62>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.18>|>
-        Error convergence for 1-D Burger's equation.
-      </surround>|<pageref|auto-68>>
+        Error convergence for 1-D Burgers' equation.
+      </surround>|<pageref|auto-63>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.19>|>
-        Error convergence for 1-D Burger's equation comparing numerical
+        Error convergence for 1-D Burgers' equation comparing numerical
         fluxes.
-      </surround>|<pageref|auto-69>>
+      </surround>|<pageref|auto-64>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.20>|>
         Solution of Buckley-Leverett model.
-      </surround>|<pageref|auto-71>>
+      </surround>|<pageref|auto-66>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.21>|>
         Density error convergence for 1-D Euler's equation.
-      </surround>|<pageref|auto-74>>
+      </surround>|<pageref|auto-69>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.22>|>
         Numerical solutions of Sod's test case.
-      </surround>|<pageref|auto-76>>
+      </surround>|<pageref|auto-71>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.23>|>
         Numerical solutions of Lax's test case.
-      </surround>|<pageref|auto-78>>
+      </surround>|<pageref|auto-73>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.24>|>
         Numerical solutions of Shu-Osher problem.
-      </surround>|<pageref|auto-80>>
+      </surround>|<pageref|auto-75>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.25>|>
         Numerical solutions of blast wave.
-      </surround>|<pageref|auto-82>>
+      </surround>|<pageref|auto-77>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.26>|>
         Numerical solutions of Blast wave comparing different numerical
         fluxes.
-      </surround>|<pageref|auto-84>>
+      </surround>|<pageref|auto-79>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.27>|>
         Numerical solutions of 1-D Euler's equations with different numerical
         fluxes
-      </surround>|<pageref|auto-85>>
+      </surround>|<pageref|auto-80>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.28>|>
         Numerical solutions of Shu-Osher problem comparing Radau and
         <with|mode|<quote|math>|g<rsub|2>> correction.
-      </surround>|<pageref|auto-87>>
+      </surround>|<pageref|auto-82>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.29>|>
         Solution and flux points on a 2-D FR element.
-      </surround>|<pageref|auto-88>>
+      </surround>|<pageref|auto-83>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.30>|>
         Stability region of 2-D LWFR with Radau correction and D2
         dissipation.
-      </surround>|<pageref|auto-91>>
+      </surround>|<pageref|auto-86>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.31>|>
         Stability region of 2-D LWFR with the
         <with|mode|<quote|math>|g<rsub|2>> correction and D2 dissipation.
-      </surround>|<pageref|auto-92>>
+      </surround>|<pageref|auto-87>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.32>|>
         Error convergence test for 2-D linear advection equation with
         velocity <with|mode|<quote|math>|\<b-a\>=<around|(|1,1|)>>.
-      </surround>|<pageref|auto-96>>
+      </surround>|<pageref|auto-91>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.33>|>
         Linear advection with velocity <with|mode|<quote|math>|\<b-a\>=<around|(|-y,x|)>>.
-      </surround>|<pageref|auto-98>>
+      </surround>|<pageref|auto-93>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.34>|>
         Error convergence test for 2-D linear advection equation with
         velocity <with|mode|<quote|math>|\<b-a\>=<around|(|-y,x|)>>.
-      </surround>|<pageref|auto-99>>
+      </surround>|<pageref|auto-94>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.35>|>
         Numerical solutions of composite signal with velocity
         <with|mode|<quote|math>|<with|font-series|<quote|bold>|a>=<around*|(|<frac|1|2>-y,x-<frac|1|2>|)>>.
-      </surround>|<pageref|auto-100>>
+      </surround>|<pageref|auto-95>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.36>|>
         Line plot across the diagonal of the solution of 2-D Burger's
         equation.
-      </surround>|<pageref|auto-102>>
+      </surround>|<pageref|auto-97>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.37>|>
-        Error convergence test for 2-D Burger's equation.
-      </surround>|<pageref|auto-103>>
+        Error convergence test for 2-D Burgers' equation.
+      </surround>|<pageref|auto-98>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.38>|>
         <with|mode|<quote|math>|L<rsup|2>> error, WCT for isentropic vortex
         versus grid resolution.
-      </surround>|<pageref|auto-106>>
+      </surround>|<pageref|auto-101>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.39>|>
         Wall Clock Time (WCT) versus <with|mode|<quote|math>|L<rsup|2>> error
         for isentropic vortex.
-      </surround>|<pageref|auto-107>>
+      </surround>|<pageref|auto-102>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.40>|>
         Wall Clock Time (WCT) ratios versus grid resolution for isentropic
         vortex.
-      </surround>|<pageref|auto-108>>
+      </surround>|<pageref|auto-103>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.41>|>
         Density profile of numerical solutions of double Mach reflection
         problem.
-      </surround>|<pageref|auto-110>>
+      </surround>|<pageref|auto-105>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.42>|>
         Enlarged density contours of density double Mach reflection problem.
-      </surround>|<pageref|auto-111>>
+      </surround>|<pageref|auto-106>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.43>|>
         Grid size versus WCT RK and LW for double Mach reflection problem.
-      </surround>|<pageref|auto-112>>
+      </surround>|<pageref|auto-107>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.1>|>
         Subcells used by lower order scheme for degree
         <with|mode|<quote|math>|N=4>.
-      </surround>|<pageref|auto-119>>
+      </surround>|<pageref|auto-114>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.2>|>
         Logistic function used to map energy to a smoothness coefficient
         <with|mode|<quote|math>|\<alpha\>\<in\><around|[|0,1|]>>.
-      </surround>|<pageref|auto-121>>
+      </surround>|<pageref|auto-116>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.3>|>
         Comparing TVB and blending schemes on Shu-Osher test.
-      </surround>|<pageref|auto-130>>
+      </surround>|<pageref|auto-125>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.4>|>
-        Comparing TVB and blending schemes on blast wave.
-      </surround>|<pageref|auto-132>>
+        Zoomed plot comparing TVB and blending schemes on Shu-Osher test.
+      </surround>|<pageref|auto-126>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.5>|>
-        Sedov's blast wave problem
-      </surround>|<pageref|auto-134>>
+        Comparing TVB and blending schemes on blast wave.
+      </surround>|<pageref|auto-128>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.6>|>
-        Double rarefaction problem with LW-MH.
-      </surround>|<pageref|auto-136>>
+        Sedov's blast wave problem
+      </surround>|<pageref|auto-130>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.7>|>
-        Leblanc's test with LW-MH.
-      </surround>|<pageref|auto-137>>
+        Double rarefaction problem with LW-MH.
+      </surround>|<pageref|auto-132>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.8>|>
-        TVB and blending schemes compared on composite signal.
-      </surround>|<pageref|auto-139>>
+        Leblanc's test with LW-MH.
+      </surround>|<pageref|auto-133>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.9>|>
-        Isentropic convergence with blending limiter.
-      </surround>|<pageref|auto-142>>
+        TVB and blending schemes compared on composite signal.
+      </surround>|<pageref|auto-135>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.10>|>
-        LW-MH on 2-D Riemann problem.
-      </surround>|<pageref|auto-144>>
+        Isentropic convergence with blending limiter.
+      </surround>|<pageref|auto-138>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.11>|>
-        Blending coefficient <with|mode|<quote|math>|\<alpha\>> for 2-D
-        Riemann problem.
-      </surround>|<pageref|auto-145>>
+        Double Mach reflection with LW-MH.
+      </surround>|<pageref|auto-140>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.12>|>
+        Double Mach reflection with LW-MH.
+      </surround>|<pageref|auto-141>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.13>|>
+        LW-MH on 2-D Riemann problem.
+      </surround>|<pageref|auto-143>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.14>|>
+        Blending coefficient <with|mode|<quote|math>|\<alpha\>> for 2-D
+        Riemann problem.
+      </surround>|<pageref|auto-144>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.15>|>
         2-D Riemann problem, percentage of elements with blending coefficient
         <with|mode|<quote|math>|\<alpha\>\<gtr\>0> vs
         <with|mode|<quote|math>|t>.
-      </surround>|<pageref|auto-146>>
-
-      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.13>|>
-        Double Mach reflection with LW-MH.
-      </surround>|<pageref|auto-148>>
-
-      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.14>|>
-        Kelvin-Helmholtz instability with LW-MH.
-      </surround>|<pageref|auto-150>>
-
-      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.15>|>
-        Mach 2000 astrophysical jet with LW-MH.
-      </surround>|<pageref|auto-152>>
+      </surround>|<pageref|auto-145>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.16>|>
-        Sedov's blast with periodic domain, reference solution.
-      </surround>|<pageref|auto-154>>
+        Kelvin-Helmholtz instability with LW-MH.
+      </surround>|<pageref|auto-147>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.17>|>
-        Sedov's blast with periodic domain, LW-MH.
-      </surround>|<pageref|auto-155>>
+        Mach 2000 astrophysical jet with LW-MH.
+      </surround>|<pageref|auto-149>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.18>|>
-        Shock diffraction test with LW-MH.
-      </surround>|<pageref|auto-157>>
+        Sedov's blast with periodic domain, reference solution.
+      </surround>|<pageref|auto-151>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.19>|>
-        Forward facing step with LW-MH.
-      </surround>|<pageref|auto-159>>
+        Sedov's blast with periodic domain, LW-MH.
+      </surround>|<pageref|auto-152>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.20>|>
+        Shock diffraction test with LW-MH.
+      </surround>|<pageref|auto-154>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.21>|>
         Forward facing step, percentage of elements with blending coefficient
         <with|mode|<quote|math>|\<alpha\>\<gtr\>0> vs
         <with|mode|<quote|math>|t>.
-      </surround>|<pageref|auto-160>>
+      </surround>|<pageref|auto-156>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.22>|>
+        Forward facing step with LW-MH.
+      </surround>|<pageref|auto-157>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.1>|>
         Convergence of ten moment problem with sources.
-      </surround>|<pageref|auto-172>>
+      </surround>|<pageref|auto-169>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.2>|>
         Ten moment problem, Sod and two rarefaction tests.
-      </surround>|<pageref|auto-174>>
+      </surround>|<pageref|auto-171>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.3>|>
         Ten moment Shu-Osher problem.
-      </surround>|<pageref|auto-176>>
+      </surround>|<pageref|auto-173>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.4>|>
         Two rarefactions with source terms
-      </surround>|<pageref|auto-178>>
+      </surround>|<pageref|auto-175>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.5>|>
         Ten moment 2-D near vacuum test.
-      </surround>|<pageref|auto-180>>
+      </surround>|<pageref|auto-177>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.6>|>
         Uniform plasma with Gaussian source.
-      </surround>|<pageref|auto-182>>
+      </surround>|<pageref|auto-179>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|6.7>|>
         Ten moment, realistic simulation.
-      </surround>|<pageref|auto-184>>
+      </surround>|<pageref|auto-181>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.1>|>
         Convergence for constant advection, MDRK and RK.
-      </surround>|<pageref|auto-203>>
+      </surround>|<pageref|auto-200>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.2>|>
         Convergence for variable advection with
         <with|mode|<quote|math>|a<around*|(|x|)>=x<rsup|2>>, MDRK and RK.
-      </surround>|<pageref|auto-205>>
+      </surround>|<pageref|auto-202>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.3>|>
         1-D Burgers' equation, <with|font-series|<quote|bold>|AE> and
         <with|font-series|<quote|bold>|EA> schemes, MDRK and RK.
-      </surround>|<pageref|auto-207>>
+      </surround>|<pageref|auto-204>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.4>|>
         MDRK D1 and D2 dissipation for 1-D Burgers' equation.
-      </surround>|<pageref|auto-208>>
+      </surround>|<pageref|auto-205>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.5>|>
         Blast wave, comparing TVB and blending schemes for MDRK.
-      </surround>|<pageref|auto-211>>
+      </surround>|<pageref|auto-208>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.6>|>
         Titarev-Toro problem, comparing blending schemes for MDRK.
-      </surround>|<pageref|auto-213>>
+      </surround>|<pageref|auto-210>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.7>|>
         High density problem, comparing blending schemes for MDRK.
-      </surround>|<pageref|auto-215>>
+      </surround>|<pageref|auto-212>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.8>|>
         Sedov's blast wave problem, comparing TVB and blending schemes for
         MDRK.
-      </surround>|<pageref|auto-217>>
+      </surround>|<pageref|auto-214>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.9>|>
         Double Mach reflection problem, MDRK.
-      </surround>|<pageref|auto-220>>
+      </surround>|<pageref|auto-217>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.10>|>
         Rotational low density problem at critical speed.
-      </surround>|<pageref|auto-222>>
+      </surround>|<pageref|auto-219>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.11>|>
         Rotational low density problem at various speeds.
-      </surround>|<pageref|auto-223>>
+      </surround>|<pageref|auto-220>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.12>|>
         2-D Riemann problem, MDRK.
-      </surround>|<pageref|auto-225>>
+      </surround>|<pageref|auto-222>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7.13>|>
         Rayleigh-Taylor instability.
-      </surround>|<pageref|auto-227>>
+      </surround>|<pageref|auto-224>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.1>|>
         Illustration of curvilinear reference map.
-      </surround>|<pageref|auto-234>>
+      </surround>|<pageref|auto-231>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|8.2>||Subcells in a
-      curved FR element>|<pageref|auto-240>>
+      curved FR element>|<pageref|auto-237>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.3>|>
-        AMR illustration(a) hanging nodes, (b) refinement & coarsening
-      </surround>|<pageref|auto-247>>
+        AMR illustration (a) hanging nodes, (b) refinement & coarsening
+      </surround>|<pageref|auto-244>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.4>|>
         AMR illustration (a) Prolongation, (b) Projection.
-      </surround>|<pageref|auto-252>>
+      </surround>|<pageref|auto-249>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.5>|>
         Mach 2000 astrophysical jet with adaptive time stepping.
-      </surround>|<pageref|auto-262>>
+      </surround>|<pageref|auto-259>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.6>|>
         Kelvin-Helmholtz instability, adaptive mesh and time stepping.
-      </surround>|<pageref|auto-264>>
+      </surround>|<pageref|auto-261>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.7>|>
         Double Mach reflection, adaptive mesh and time stepping.
-      </surround>|<pageref|auto-266>>
+      </surround>|<pageref|auto-263>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.8>|>
         Forward facing step, adaptive non-Cartesian mesh and adaptive time
         stepping.
-      </surround>|<pageref|auto-268>>
+      </surround>|<pageref|auto-265>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.9>|>
         Free stream solutions.
-      </surround>|<pageref|auto-271>>
+      </surround>|<pageref|auto-268>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.10>|>
         Isentropic vortex on curvilinear mesh.
-      </surround>|<pageref|auto-273>>
+      </surround>|<pageref|auto-270>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.11>|>
         Supersonic flow over cylinder, adaptive mesh and time stepping.
-      </surround>|<pageref|auto-275>>
+      </surround>|<pageref|auto-272>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.12>|>
         Mach 4 flow over blunt body, adaptive mesh and time stepping.
-      </surround>|<pageref|auto-277>>
+      </surround>|<pageref|auto-274>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.13>|>
         Adaptively refined NACA0012 airfoil mesh.
-      </surround>|<pageref|auto-279>>
+      </surround>|<pageref|auto-276>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|8.14>|>
         Transonic flow over airfoil, adaptive mesh and time stepping.
-      </surround>|<pageref|auto-280>>
+      </surround>|<pageref|auto-277>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|9.1>||Errikson-Johnson
       test (a) Initial condition (b) Numerical solution at
-      <with|mode|<quote|math>|t=1>>|<pageref|auto-294>>
+      <with|mode|<quote|math>|t=1>>|<pageref|auto-292>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.2>|>
         Navier-Stokes equations with manufactured exact solution.
-      </surround>|<pageref|auto-295>>
+      </surround>|<pageref|auto-293>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.3>|>
         Convergence analysis for scalar advection-diffusion equation.
-      </surround>|<pageref|auto-296>>
+      </surround>|<pageref|auto-294>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.4>|>
         Convergence analysis for non-periodic advection-diffusion.
-      </surround>|<pageref|auto-297>>
+      </surround>|<pageref|auto-295>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|9.5>||Lid driven
       cavity, <with|mode|<quote|math>|x>-velocity pseudocolor plot and
-      velocity vectors.>|<pageref|auto-299>>
+      velocity vectors.>|<pageref|auto-297>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.6>|>
         Velocity profiles of lid driven cavity test.
-      </surround>|<pageref|auto-300>>
+      </surround>|<pageref|auto-298>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.7>|>
         Mach number plot for transonic flow over an airfoil.
-      </surround>|<pageref|auto-302>>
+      </surround>|<pageref|auto-300>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.8>|>
         <with|mode|<quote|math>|C<rsub|p>,C<rsub|f>> for transonic flow over
         airfoil.
-      </surround>|<pageref|auto-303>>
+      </surround>|<pageref|auto-301>>
 
-      <tuple|normal|<\surround|<hidden-binding|<tuple>|9.9>|>
-        Vorticity profile of Von Karman vortex street.
-      </surround>|<pageref|auto-306>>
+      <tuple|normal|<surround|<hidden-binding|<tuple>|9.9>||Physical domain
+      used in Von Karman street.>|<pageref|auto-304>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.10>|>
+        Vorticity profile of Von Karman vortex street.
+      </surround>|<pageref|auto-305>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|9.11>|>
         <with|mode|<quote|math>|c<rsub|l>,c<rsub|d>> for Von Karman vortex
         street.
-      </surround>|<pageref|auto-307>>
+      </surround>|<pageref|auto-306>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|A.1>|>
         Error growth of LW-D1, LW-D2 and ADER schemes.
-      </surround>|<pageref|auto-317>>
+      </surround>|<pageref|auto-316>>
 
-      <tuple|normal|<\surround|<hidden-binding|<tuple>|D.1>|>
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|E.1>|>
         Cache blocking flux differentiation.
       </surround>|<pageref|auto-329>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|G.1>||Non-uniform,
-      non-cell-centered finite volume grid>|<pageref|auto-335>>
+      non-cell-centered finite volume grid>|<pageref|auto-334>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|G.2>||Two
-      non-interacting Riemann problems>|<pageref|auto-338>>
+      non-interacting Riemann problems>|<pageref|auto-337>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|G.3>||Finite volume
-      evolution>|<pageref|auto-339>>
+      evolution>|<pageref|auto-338>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|G.4>||Two
-      non-interacting Riemann problems>|<pageref|auto-340>>
+      non-interacting Riemann problems>|<pageref|auto-339>>
     </associate>
     <\associate|parts>
       <tuple|title_page.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
 
       <tuple|prelim_pages.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
 
-      <tuple|declaration.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
-
       <tuple|acknowledgements.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
 
-      <tuple|publications.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
+      <tuple|tabe_of_contents.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
 
       <tuple|abstract.tm|chapter-nr|0|section-nr|0|subsection-nr|0>
 
@@ -9289,917 +7925,908 @@
 
       <tuple|ch_parabolic.tm|chapter-nr|8|section-nr|8|subsection-nr|0>
 
-      <tuple|conclusion.tm|chapter-nr|9|section-nr|5|subsection-nr|0>
+      <tuple|conclusion.tm|chapter-nr|9|section-nr|6|subsection-nr|0>
+
+      <tuple|annexures.tm|chapter-nr|10|section-nr|1|subsection-nr|0>
 
       <tuple|appendix.tm|chapter-nr|10|section-nr|1|subsection-nr|0>
 
-      <tuple|bibliography.tm|chapter-nr|10|section-nr|0|subsection-nr|3>
+      <tuple|publications.tm|chapter-nr|10|section-nr|0|subsection-nr|2>
+
+      <tuple|bibliography.tm|chapter-nr|10|section-nr|0|subsection-nr|2>
     </associate>
     <\associate|table>
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.1>|>
         CFL numbers for 1-D LWFR
-      </surround>|<pageref|auto-42>>
+      </surround>|<pageref|auto-37>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|4.2>|>
         Two dimensional CFL numbers for LWFR scheme.
-      </surround>|<pageref|auto-93>>
+      </surround>|<pageref|auto-88>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|7.1>||CFL numbers for
-      MDRK scheme.>|<pageref|auto-198>>
+      MDRK scheme.>|<pageref|auto-195>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|8.1>||Number of time
-      steps comparing error and CFL based methods>|<pageref|auto-282>>
+      steps comparing error and CFL based methods>|<pageref|auto-279>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.1>|>
         Transonic flow over an airfoil compared with data from Swanson,
         Langer (2016).
-      </surround>|<pageref|auto-304>>
+      </surround>|<pageref|auto-302>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|9.2>|>
         <with|mode|<quote|math>|c<rsub|l>,c<rsub|d>,St> for Von Karman vortex
         street.
-      </surround>|<pageref|auto-308>>
+      </surround>|<pageref|auto-307>>
     </associate>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Acknowledgements>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Abstract>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <pageref|auto-1><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|List
-      of publications> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-2><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|List
-      of figures> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-3><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|List
-      of tables> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-4><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Abstract>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-5><vspace|0.5fn>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|1.<space|2spc>Introduction>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-6><vspace|0.5fn>
+      <pageref|auto-2><vspace|0.5fn>
 
       1.1.<space|2spc>Lax-Wendroff <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>
+      <no-break><pageref|auto-3>
 
       1.2.<space|2spc>Flux Reconstruction
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>
+      <no-break><pageref|auto-4>
 
       1.3.<space|2spc>Shock capturing and admissibility preservation of FR
       schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9>
+      <no-break><pageref|auto-5>
 
       1.4.<space|2spc>Contributions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>
+      <no-break><pageref|auto-6>
 
       1.5.<space|2spc>Outline <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>
+      <no-break><pageref|auto-7>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|2.<space|2spc>Equations
       of motion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-12><vspace|0.5fn>
+      <pageref|auto-8><vspace|0.5fn>
 
       2.1.<space|2spc>Hyperbolic conservation laws
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13>
+      <no-break><pageref|auto-9>
 
       <with|par-left|<quote|1tab>|2.1.1.<space|2spc>Weak formulation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14>>
+      <no-break><pageref|auto-10>>
 
-      <with|par-left|<quote|1tab>|2.1.2.<space|2spc>Entropy condition
+      <with|par-left|<quote|1tab>|2.1.2.<space|2spc>The Riemann problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15>>
-
-      <with|par-left|<quote|1tab>|2.1.3.<space|2spc>The Riemann problem
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16>>
+      <no-break><pageref|auto-11>>
 
       2.2.<space|2spc>Compressible Euler's equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-19>
+      <no-break><pageref|auto-14>
 
       2.3.<space|2spc>Compressible Navier-Stokes equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-20>
+      <no-break><pageref|auto-15>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|3.<space|2spc>Flux
       Reconstruction> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-21><vspace|0.5fn>
+      <pageref|auto-16><vspace|0.5fn>
 
       3.1.<space|2spc>Conservation law <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-22>
+      <no-break><pageref|auto-17>
 
       3.2.<space|2spc>Finite volume method
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-24>
+      <no-break><pageref|auto-19>
 
       3.3.<space|2spc>Runge-Kutta DG <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-25>
+      <no-break><pageref|auto-20>
 
       3.4.<space|2spc>Runge-Kutta FR <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-26>
+      <no-break><pageref|auto-21>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|4.<space|2spc>Lax-Wendroff
       Flux Reconstruction> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-27><vspace|0.5fn>
+      <pageref|auto-22><vspace|0.5fn>
 
       4.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-28>
+      <no-break><pageref|auto-23>
 
       4.2.<space|2spc>Lax-Wendroff FR scheme
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-29>
+      <no-break><pageref|auto-24>
 
       <with|par-left|<quote|1tab>|4.2.1.<space|2spc>Conservation property
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-30>>
+      <no-break><pageref|auto-25>>
 
       <with|par-left|<quote|1tab>|4.2.2.<space|2spc>Reconstruction of the
       time average flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-31>>
+      <no-break><pageref|auto-26>>
 
       <with|par-left|<quote|1tab>|4.2.3.<space|2spc>Direct flux
       reconstruction (DFR) scheme <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-32>>
+      <no-break><pageref|auto-27>>
 
       <with|par-left|<quote|1tab>|4.2.4.<space|2spc>Approximate Lax-Wendroff
       procedure <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-33>>
+      <no-break><pageref|auto-28>>
 
       <with|par-left|<quote|2tab>|4.2.4.1.<space|2spc>Second order scheme,
       <with|mode|<quote|math>|N=1> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-34>>
+      <no-break><pageref|auto-29>>
 
       <with|par-left|<quote|2tab>|4.2.4.2.<space|2spc>Third order scheme,
       <with|mode|<quote|math>|N=2> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-35>>
+      <no-break><pageref|auto-30>>
 
       <with|par-left|<quote|2tab>|4.2.4.3.<space|2spc>Fourth order scheme,
       <with|mode|<quote|math>|N=3> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-36>>
+      <no-break><pageref|auto-31>>
 
       <with|par-left|<quote|2tab>|4.2.4.4.<space|2spc>Fifth order scheme,
       <with|mode|<quote|math>|N=4> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-37>>
+      <no-break><pageref|auto-32>>
 
       4.3.<space|2spc>Numerical flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-38>
+      <no-break><pageref|auto-33>
 
       <with|par-left|<quote|1tab>|4.3.1.<space|2spc>Numerical flux \U average
       and extrapolate to face (<with|font-series|<quote|bold>|AE>)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-39>>
+      <no-break><pageref|auto-34>>
 
       <with|par-left|<quote|1tab>|4.3.2.<space|2spc>Numerical flux \U
       extrapolate to face and average (<with|font-series|<quote|bold>|EA>)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-40>>
+      <no-break><pageref|auto-35>>
 
       4.4.<space|2spc>Fourier stability analysis in 1-D
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-41>
+      <no-break><pageref|auto-36>
 
       4.5.<space|2spc>Boundary conditions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-43>
+      <no-break><pageref|auto-38>
 
       4.6.<space|2spc>TVD limiter <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-44>
+      <no-break><pageref|auto-39>
 
       4.7.<space|2spc>Numerical results in 1-D: scalar problems
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-45>
+      <no-break><pageref|auto-40>
 
       <with|par-left|<quote|1tab>|4.7.1.<space|2spc>Linear advection
       equation: constant speed <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-46>>
+      <no-break><pageref|auto-41>>
 
       <with|par-left|<quote|2tab>|4.7.1.1.<space|2spc>Smooth solutions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-47>>
+      <no-break><pageref|auto-42>>
 
       <with|par-left|<quote|2tab>|4.7.1.2.<space|2spc>Non-smooth solutions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-56>>
+      <no-break><pageref|auto-51>>
 
       <with|par-left|<quote|1tab>|4.7.2.<space|2spc>Linear equation with
       variable coefficient <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-62>>
+      <no-break><pageref|auto-57>>
 
       <with|par-left|<quote|1tab>|4.7.3.<space|2spc>Inviscid Burgers'
       equation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-66>>
+      <no-break><pageref|auto-61>>
 
       <with|par-left|<quote|1tab>|4.7.4.<space|2spc>Non-convex problem:
       Buckley-Leverett equation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-70>>
+      <no-break><pageref|auto-65>>
 
       4.8.<space|2spc>Numerical results in 1-D: Euler equations
       \ <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72>
+      <no-break><pageref|auto-67>
 
       <with|par-left|<quote|1tab>|4.8.1.<space|2spc>Smooth solution
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-73>>
+      <no-break><pageref|auto-68>>
 
       <with|par-left|<quote|1tab>|4.8.2.<space|2spc>Sod's shock tube problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-75>>
+      <no-break><pageref|auto-70>>
 
       <with|par-left|<quote|1tab>|4.8.3.<space|2spc>Lax problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-77>>
+      <no-break><pageref|auto-72>>
 
       <with|par-left|<quote|1tab>|4.8.4.<space|2spc>Shu-Osher problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-79>>
+      <no-break><pageref|auto-74>>
 
       <with|par-left|<quote|1tab>|4.8.5.<space|2spc>Blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-81>>
+      <no-break><pageref|auto-76>>
 
       <with|par-left|<quote|1tab>|4.8.6.<space|2spc>Numerical fluxes: LF,
       Roe, HLL and HLLC <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-83>>
+      <no-break><pageref|auto-78>>
 
       <with|par-left|<quote|1tab>|4.8.7.<space|2spc>Comparison of correction
       functions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-86>>
+      <no-break><pageref|auto-81>>
 
       4.9.<space|2spc>Two dimensional scheme
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-89>
+      <no-break><pageref|auto-84>
 
       <with|par-left|<quote|1tab>|4.9.1.<space|2spc>Fourier analysis in 2-D
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-90>>
+      <no-break><pageref|auto-85>>
 
       4.10.<space|2spc>Numerical results in 2D: scalar problems
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-94>
+      <no-break><pageref|auto-89>
 
       <with|par-left|<quote|1tab>|4.10.1.<space|2spc>Advection of a smooth
       signal <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-95>>
+      <no-break><pageref|auto-90>>
 
       <with|par-left|<quote|1tab>|4.10.2.<space|2spc>Rotation of a composite
       signal <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-97>>
+      <no-break><pageref|auto-92>>
 
       <with|par-left|<quote|1tab>|4.10.3.<space|2spc>Inviscid Burgers'
       equation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-101>>
+      <no-break><pageref|auto-96>>
 
       4.11.<space|2spc>Numerical results in 2-D: Euler equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-104>
+      <no-break><pageref|auto-99>
 
       <with|par-left|<quote|1tab>|4.11.1.<space|2spc>Isentropic vortex
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-105>>
+      <no-break><pageref|auto-100>>
 
       <with|par-left|<quote|1tab>|4.11.2.<space|2spc>Double Mach reflection
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-109>>
+      <no-break><pageref|auto-104>>
 
       4.12.<space|2spc>Summary <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-113>
+      <no-break><pageref|auto-108>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|5.<space|2spc>Admissibility
-      preserving subcell based blending limiter>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-114><vspace|0.5fn>
+      preserving subcell limiter> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <pageref|auto-109><vspace|0.5fn>
 
       5.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-115>
+      <no-break><pageref|auto-110>
 
       5.2.<space|2spc>Admissibility preservation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-116>
+      <no-break><pageref|auto-111>
 
       5.3.<space|2spc>On controlling oscillations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-117>
+      <no-break><pageref|auto-112>
 
       <with|par-left|<quote|1tab>|5.3.1.<space|2spc>Blending scheme
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-118>>
+      <no-break><pageref|auto-113>>
 
       <with|par-left|<quote|1tab>|5.3.2.<space|2spc>Smoothness indicator
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-120>>
+      <no-break><pageref|auto-115>>
 
       <with|par-left|<quote|1tab>|5.3.3.<space|2spc>First order blending
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-122>>
+      <no-break><pageref|auto-117>>
 
       5.4.<space|2spc>Higher order blending
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-123>
+      <no-break><pageref|auto-118>
 
       <with|par-left|<quote|1tab>|5.4.1.<space|2spc>Slope limiting in
       practice <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-124>>
+      <no-break><pageref|auto-119>>
 
       5.5.<space|2spc>Flux limiter for admissibility preservation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-125>
+      <no-break><pageref|auto-120>
 
       5.6.<space|2spc>Some implementation details
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-126>
+      <no-break><pageref|auto-121>
 
       5.7.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-127>
+      <no-break><pageref|auto-122>
 
       <with|par-left|<quote|1tab>|5.7.1.<space|2spc>1-D Euler equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-128>>
+      <no-break><pageref|auto-123>>
 
       <with|par-left|<quote|2tab>|5.7.1.1.<space|2spc>Shu-Osher problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-129>>
+      <no-break><pageref|auto-124>>
 
       <with|par-left|<quote|2tab>|5.7.1.2.<space|2spc>Blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-131>>
+      <no-break><pageref|auto-127>>
 
       <with|par-left|<quote|2tab>|5.7.1.3.<space|2spc>Sedov's blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-133>>
+      <no-break><pageref|auto-129>>
 
       <with|par-left|<quote|2tab>|5.7.1.4.<space|2spc>Riemann problems
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-135>>
+      <no-break><pageref|auto-131>>
 
       5.8.<space|2spc>2-D advection equation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-138>
+      <no-break><pageref|auto-134>
 
       5.9.<space|2spc>2-D Euler equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-140>
+      <no-break><pageref|auto-136>
 
       <with|par-left|<quote|1tab>|5.9.1.<space|2spc>Isentropic vortex
       convergence test <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-141>>
+      <no-break><pageref|auto-137>>
 
-      <with|par-left|<quote|1tab>|5.9.2.<space|2spc>2-D Riemann problem
+      <with|par-left|<quote|1tab>|5.9.2.<space|2spc>Double Mach reflection
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-143>>
+      <no-break><pageref|auto-139>>
 
-      <with|par-left|<quote|1tab>|5.9.3.<space|2spc>Double Mach reflection
+      <with|par-left|<quote|1tab>|5.9.3.<space|2spc>2-D Riemann problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-147>>
+      <no-break><pageref|auto-142>>
 
       <with|par-left|<quote|1tab>|5.9.4.<space|2spc>Kelvin-Helmholtz
       instability <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-149>>
+      <no-break><pageref|auto-146>>
 
       <with|par-left|<quote|1tab>|5.9.5.<space|2spc>Astrophysical jet
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-151>>
+      <no-break><pageref|auto-148>>
 
       <with|par-left|<quote|1tab>|5.9.6.<space|2spc>Sedov's blast case with
       periodic boundary conditions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-153>>
+      <no-break><pageref|auto-150>>
 
       <with|par-left|<quote|1tab>|5.9.7.<space|2spc>Detonation shock
       diffraction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-156>>
+      <no-break><pageref|auto-153>>
 
       <with|par-left|<quote|1tab>|5.9.8.<space|2spc>Forward facing step
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-158>>
+      <no-break><pageref|auto-155>>
 
       5.10.<space|2spc>Summary and conclusions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-161>
+      <no-break><pageref|auto-158>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|6.<space|2spc>Generalized
-      admissibility preservation with source terms>
+      admissibility preservation and source terms>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-162><vspace|0.5fn>
+      <pageref|auto-159><vspace|0.5fn>
 
       6.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-163>
+      <no-break><pageref|auto-160>
 
       6.2.<space|2spc>LWFR for source terms
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-164>
+      <no-break><pageref|auto-161>
 
       <with|par-left|<quote|1tab>|6.2.1.<space|2spc>Approximate Lax-Wendroff
       procedure for degree <with|mode|<quote|math>|N=2>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-165>>
+      <no-break><pageref|auto-162>>
 
       <with|par-left|<quote|1tab>|6.2.2.<space|2spc>Admissibility
       preservation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-166>>
+      <no-break><pageref|auto-163>>
 
       6.3.<space|2spc>Limiting time averages
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-167>
+      <no-break><pageref|auto-164>
 
       <with|par-left|<quote|1tab>|6.3.1.<space|2spc>Limiting time average
       flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-168>>
+      <no-break><pageref|auto-165>>
 
       <with|par-left|<quote|1tab>|6.3.2.<space|2spc>Limiting time average
       sources <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-169>>
+      <no-break><pageref|auto-166>>
 
       6.4.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-170>
+      <no-break><pageref|auto-167>
 
       <with|par-left|<quote|1tab>|6.4.1.<space|2spc>Convergence test
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-171>>
+      <no-break><pageref|auto-168>>
 
       <with|par-left|<quote|1tab>|6.4.2.<space|2spc>Riemann problems
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-173>>
+      <no-break><pageref|auto-170>>
 
       <with|par-left|<quote|1tab>|6.4.3.<space|2spc>Shu-Osher test
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-175>>
+      <no-break><pageref|auto-172>>
 
       <with|par-left|<quote|1tab>|6.4.4.<space|2spc>Two rarefactions with
       source terms <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-177>>
+      <no-break><pageref|auto-174>>
 
       <with|par-left|<quote|1tab>|6.4.5.<space|2spc>Two dimensional near
       vacuum test <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-179>>
+      <no-break><pageref|auto-176>>
 
       <with|par-left|<quote|1tab>|6.4.6.<space|2spc>Uniform plasma state with
       Gaussian source <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-181>>
+      <no-break><pageref|auto-178>>
 
-      <with|par-left|<quote|1tab>|6.4.7.<space|2spc>Realistic simulation
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-183>>
+      <with|par-left|<quote|1tab>|6.4.7.<space|2spc>Realistic simulation with
+      inverse bremsstrahlung <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-180>>
 
       6.5.<space|2spc>Summary and Conclusions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-185>
+      <no-break><pageref|auto-182>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|7.<space|2spc>Multi-derivative
       Runge-Kutta> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-186><vspace|0.5fn>
+      <pageref|auto-183><vspace|0.5fn>
 
       7.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-187>
+      <no-break><pageref|auto-184>
 
       7.2.<space|2spc>Multi-derivative Runge-Kutta FR scheme
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-188>
+      <no-break><pageref|auto-185>
 
       <with|par-left|<quote|1tab>|7.2.1.<space|2spc>Conservation property
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-189>>
+      <no-break><pageref|auto-186>>
 
       <with|par-left|<quote|1tab>|7.2.2.<space|2spc>Reconstruction of the
       time average flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-190>>
+      <no-break><pageref|auto-187>>
 
       <with|par-left|<quote|1tab>|7.2.3.<space|2spc>Approximate Lax-Wendroff
       procedure <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-191>>
+      <no-break><pageref|auto-188>>
 
       <with|par-left|<quote|1tab>|7.2.4.<space|2spc>Numerical flux
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-192>>
+      <no-break><pageref|auto-189>>
 
       <with|par-left|<quote|1tab>|7.2.5.<space|2spc>Numerical flux \U average
       and extrapolate to face (AE) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-193>>
+      <no-break><pageref|auto-190>>
 
       <with|par-left|<quote|1tab>|7.2.6.<space|2spc>Numerical flux \U
       extrapolate to face and average (EA)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-194>>
+      <no-break><pageref|auto-191>>
 
       7.3.<space|2spc>Fourier stability analysis
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-195>
+      <no-break><pageref|auto-192>
 
       <with|par-left|<quote|1tab>|7.3.1.<space|2spc>Stage 1
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-196>>
+      <no-break><pageref|auto-193>>
 
       <with|par-left|<quote|1tab>|7.3.2.<space|2spc>Stage 2
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-197>>
+      <no-break><pageref|auto-194>>
 
       7.4.<space|2spc>Blending scheme <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-199>
+      <no-break><pageref|auto-196>
 
       7.5.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-200>
+      <no-break><pageref|auto-197>
 
       <with|par-left|<quote|1tab>|7.5.1.<space|2spc>Scalar equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-201>>
+      <no-break><pageref|auto-198>>
 
       <with|par-left|<quote|2tab>|7.5.1.1.<space|2spc>Linear advection
       equation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-202>>
+      <no-break><pageref|auto-199>>
 
       <with|par-left|<quote|2tab>|7.5.1.2.<space|2spc>Variable advection
       equation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-204>>
+      <no-break><pageref|auto-201>>
 
       <with|par-left|<quote|2tab>|7.5.1.3.<space|2spc>Burgers' equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-206>>
+      <no-break><pageref|auto-203>>
 
       <with|par-left|<quote|1tab>|7.5.2.<space|2spc>1-D Euler equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-209>>
+      <no-break><pageref|auto-206>>
 
-      <with|par-left|<quote|2tab>|7.5.2.1.<space|2spc>Blast
+      <with|par-left|<quote|2tab>|7.5.2.1.<space|2spc>Blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-210>>
+      <no-break><pageref|auto-207>>
 
       <with|par-left|<quote|2tab>|7.5.2.2.<space|2spc>Titarev Toro
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-212>>
+      <no-break><pageref|auto-209>>
 
       <with|par-left|<quote|2tab>|7.5.2.3.<space|2spc>Large density ratio
       Riemann problem <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-214>>
+      <no-break><pageref|auto-211>>
 
       <with|par-left|<quote|2tab>|7.5.2.4.<space|2spc>Sedov's blast
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-216>>
+      <no-break><pageref|auto-213>>
 
       <with|par-left|<quote|1tab>|7.5.3.<space|2spc>2-D Euler's equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-218>>
+      <no-break><pageref|auto-215>>
 
       <with|par-left|<quote|2tab>|7.5.3.1.<space|2spc>Double Mach reflection
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-219>>
+      <no-break><pageref|auto-216>>
 
       <with|par-left|<quote|2tab>|7.5.3.2.<space|2spc>Rotational low density
       problem <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-221>>
+      <no-break><pageref|auto-218>>
 
       <with|par-left|<quote|2tab>|7.5.3.3.<space|2spc>Two Dimensional Riemann
       problem <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-224>>
+      <no-break><pageref|auto-221>>
 
       <with|par-left|<quote|2tab>|7.5.3.4.<space|2spc>Rayleigh-Taylor
       instability <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-226>>
+      <no-break><pageref|auto-223>>
 
       7.6.<space|2spc>Summary and conclusions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-228>
+      <no-break><pageref|auto-225>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|8.<space|2spc>Curvilinear
       grids> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-229><vspace|0.5fn>
+      <pageref|auto-226><vspace|0.5fn>
 
       8.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-230>
+      <no-break><pageref|auto-227>
 
       8.2.<space|2spc>Conservation laws and curvilinear grids
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-231>
+      <no-break><pageref|auto-228>
 
       8.3.<space|2spc>LWFR on curvilinear grids
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-232>
+      <no-break><pageref|auto-229>
 
       <with|par-left|<quote|1tab>|8.3.1.<space|2spc>Flux Reconstruction (FR)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-233>>
+      <no-break><pageref|auto-230>>
 
       <with|par-left|<quote|1tab>|8.3.2.<space|2spc>Lax-Wendroff Flux
       Reconstruction (LWFR) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-235>>
+      <no-break><pageref|auto-232>>
 
       <with|par-left|<quote|1tab>|8.3.3.<space|2spc>Approximate Lax-Wendroff
       procedure <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-236>>
+      <no-break><pageref|auto-233>>
 
       <with|par-left|<quote|1tab>|8.3.4.<space|2spc>Free stream preservation
       for LWFR <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-237>>
+      <no-break><pageref|auto-234>>
 
       8.4.<space|2spc>Shock capturing and admissibility preservation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-238>
+      <no-break><pageref|auto-235>
 
       <with|par-left|<quote|1tab>|8.4.1.<space|2spc>Low order scheme for
       curvilinear grids <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-239>>
+      <no-break><pageref|auto-236>>
 
       <with|par-left|<quote|1tab>|8.4.2.<space|2spc>Smoothness indicator
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-241>>
+      <no-break><pageref|auto-238>>
 
       <with|par-left|<quote|1tab>|8.4.3.<space|2spc>Flux limiter for
       admissibility preservation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-242>>
+      <no-break><pageref|auto-239>>
 
       <with|par-left|<quote|2tab>|8.4.3.1.<space|2spc>Flux limiter for
       admissibility preservation in 1-D <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-243>>
+      <no-break><pageref|auto-240>>
 
       <with|par-left|<quote|2tab>|8.4.3.2.<space|2spc>Flux limiter for
       admissibility preservation on curved meshes
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-244>>
+      <no-break><pageref|auto-241>>
 
       8.5.<space|2spc>Adaptive mesh refinement
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-245>
+      <no-break><pageref|auto-242>
 
       <with|par-left|<quote|1tab>|8.5.1.<space|2spc>Solution transfer between
       element and subelements <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-246>>
+      <no-break><pageref|auto-243>>
 
       <with|par-left|<quote|2tab>|8.5.1.1.<space|2spc>Interpolation for
       refinement <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-248>>
+      <no-break><pageref|auto-245>>
 
       <with|par-left|<quote|2tab>|8.5.1.2.<space|2spc>Projection for
       coarsening <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-249>>
+      <no-break><pageref|auto-246>>
 
       <with|par-left|<quote|1tab>|8.5.2.<space|2spc>Mortar element method
       (MEM) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-250>>
+      <no-break><pageref|auto-247>>
 
       <with|par-left|<quote|2tab>|8.5.2.1.<space|2spc>Motivation and notation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-251>>
+      <no-break><pageref|auto-248>>
 
       <with|par-left|<quote|2tab>|8.5.2.2.<space|2spc>Prolongation to mortars
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-253>>
+      <no-break><pageref|auto-250>>
 
       <with|par-left|<quote|2tab>|8.5.2.3.<space|2spc>Projection of numerical
       fluxes from mortars to faces <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-254>>
+      <no-break><pageref|auto-251>>
 
       <with|par-left|<quote|1tab>|8.5.3.<space|2spc>AMR indicators
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-255>>
+      <no-break><pageref|auto-252>>
 
       8.6.<space|2spc>Time stepping <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-256>
+      <no-break><pageref|auto-253>
 
       <with|par-left|<quote|1tab>|8.6.1.<space|2spc>Error estimation for
       Runge-Kutta schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-257>>
+      <no-break><pageref|auto-254>>
 
       <with|par-left|<quote|1tab>|8.6.2.<space|2spc>Error based time stepping
       for Lax-Wendroff flux reconstruction
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-258>>
+      <no-break><pageref|auto-255>>
 
       8.7.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-259>
+      <no-break><pageref|auto-256>
 
       <with|par-left|<quote|1tab>|8.7.1.<space|2spc>Results on Cartesian
       grids <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-260>>
+      <no-break><pageref|auto-257>>
 
       <with|par-left|<quote|2tab>|8.7.1.1.<space|2spc>Mach 2000 astrophysical
       jet <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-261>>
+      <no-break><pageref|auto-258>>
 
       <with|par-left|<quote|2tab>|8.7.1.2.<space|2spc>Kelvin-Helmholtz
       instability <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-263>>
+      <no-break><pageref|auto-260>>
 
       <with|par-left|<quote|2tab>|8.7.1.3.<space|2spc>Double mach reflection
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-265>>
+      <no-break><pageref|auto-262>>
 
       <with|par-left|<quote|2tab>|8.7.1.4.<space|2spc>Forward facing step
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-267>>
+      <no-break><pageref|auto-264>>
 
       <with|par-left|<quote|1tab>|8.7.2.<space|2spc>Results on curved grids
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-269>>
+      <no-break><pageref|auto-266>>
 
       <with|par-left|<quote|2tab>|8.7.2.1.<space|2spc>Free stream
       preservation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-270>>
+      <no-break><pageref|auto-267>>
 
       <with|par-left|<quote|2tab>|8.7.2.2.<space|2spc>Isentropic vortex
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-272>>
+      <no-break><pageref|auto-269>>
 
       <with|par-left|<quote|2tab>|8.7.2.3.<space|2spc>Supersonic flow over
       cylinder <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-274>>
+      <no-break><pageref|auto-271>>
 
       <with|par-left|<quote|2tab>|8.7.2.4.<space|2spc>Inviscid bow shock
       upstream of a blunt body <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-276>>
+      <no-break><pageref|auto-273>>
 
       <with|par-left|<quote|2tab>|8.7.2.5.<space|2spc>Transonic flow over
       NACA0012 airfoil <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-278>>
+      <no-break><pageref|auto-275>>
 
       <with|par-left|<quote|1tab>|8.7.3.<space|2spc>Performance comparison of
       time stepping schemes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-281>>
+      <no-break><pageref|auto-278>>
 
       8.8.<space|2spc>Summary and conclusions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-283>
+      <no-break><pageref|auto-280>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|9.<space|2spc>Parabolic
       equations> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-284><vspace|0.5fn>
+      <pageref|auto-281><vspace|0.5fn>
 
       9.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-285>
+      <no-break><pageref|auto-282>
 
       9.2.<space|2spc>Curvilinear coordinates for parabolic equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-286>
+      <no-break><pageref|auto-283>
 
       9.3.<space|2spc>Lax-Wendroff flux reconstruction
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-287>
+      <no-break><pageref|auto-284>
 
       <with|par-left|<quote|1tab>|9.3.1.<space|2spc>Solving for \<b-q\>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-288>>
+      <no-break><pageref|auto-285>>
 
       <with|par-left|<quote|1tab>|9.3.2.<space|2spc>Time averaging
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-289>>
+      <no-break><pageref|auto-286>>
 
       <with|par-left|<quote|2tab>|9.3.2.1.<space|2spc>Approximate
       Lax-Wendroff procedure <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-290>>
+      <no-break><pageref|auto-287>>
 
       <with|par-left|<quote|1tab>|9.3.3.<space|2spc>Free stream preservation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-288>>
+
+      9.4.<space|2spc>Boundary conditions
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-289>
+
+      9.5.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-290>
+
+      <with|par-left|<quote|1tab>|9.5.1.<space|2spc>Convergence test
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-291>>
 
-      9.4.<space|2spc>Numerical results <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-292>
-
-      <with|par-left|<quote|1tab>|9.4.1.<space|2spc>Convergence test
+      <with|par-left|<quote|1tab>|9.5.2.<space|2spc>Lid driven cavity
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-293>>
+      <no-break><pageref|auto-296>>
 
-      <with|par-left|<quote|1tab>|9.4.2.<space|2spc>Lid driven cavity
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-298>>
-
-      <with|par-left|<quote|1tab>|9.4.3.<space|2spc>Transonic flow past
+      <with|par-left|<quote|1tab>|9.5.3.<space|2spc>Transonic flow past
       NACA-0012 airfoil <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-301>>
+      <no-break><pageref|auto-299>>
 
-      <with|par-left|<quote|1tab>|9.4.4.<space|2spc>Flow past a cylinder
+      <with|par-left|<quote|1tab>|9.5.4.<space|2spc>Flow past a cylinder
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-305>>
+      <no-break><pageref|auto-303>>
 
-      9.5.<space|2spc>Summary and Conclusion
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-309>
+      9.6.<space|2spc>Summary <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-308>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|10.<space|2spc>Conclusions>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-310><vspace|0.5fn>
+      <pageref|auto-309><vspace|0.5fn>
 
       10.1.<space|2spc>Future scope <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-311>
+      <no-break><pageref|auto-310>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
       A.<space|2spc>ADER-FR and LWFR for linear problems>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-312><vspace|0.5fn>
+      <pageref|auto-311><vspace|0.5fn>
 
       A.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-313>
+      <no-break><pageref|auto-312>
 
       A.2.<space|2spc>ADER Discontinuous Galerkin and Flux Reconstruction
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-314>
+      <no-break><pageref|auto-313>
 
       A.3.<space|2spc>Equivalence <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-315>
+      <no-break><pageref|auto-314>
 
       A.4.<space|2spc>Numerical validation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-316>
+      <no-break><pageref|auto-315>
 
       A.5.<space|2spc>Conclusions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-318>
+      <no-break><pageref|auto-317>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
-      B.<space|2spc>Some numerical fluxes>
+      B.<space|2spc>Equivalence of DG and FR>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-319><vspace|0.5fn>
+      <pageref|auto-318><vspace|0.5fn>
 
-      B.1.<space|2spc>Rusanov flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      B.1.<space|2spc>Discontinuous Galerkin on curvilinear grids
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-319>
+
+      B.2.<space|2spc>Equivalence with Flux Reconstruction
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-320>
 
-      B.2.<space|2spc>Roe flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-321>
-
-      B.3.<space|2spc>HLL flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-322>
-
-      B.4.<space|2spc>HLLC flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-323>
+      <with|par-left|<quote|1tab>|B.2.1.<space|2spc>Corrector function
+      identites <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-321>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
-      C.<space|2spc>Equivalence of DG and FR>
+      C.<space|2spc>Equivalence with DFR>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-324><vspace|0.5fn>
+      <pageref|auto-322><vspace|0.5fn>
 
-      C.1.<space|2spc>Discontinuous Galerkin on curvilinear grids
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
+      D.<space|2spc>Some numerical fluxes>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <pageref|auto-323><vspace|0.5fn>
+
+      D.1.<space|2spc>Rusanov flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-324>
+
+      D.2.<space|2spc>Roe flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-325>
 
-      C.2.<space|2spc>Equivalence with Flux Reconstruction
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      D.3.<space|2spc>HLL flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-326>
 
-      <with|par-left|<quote|1tab>|C.2.1.<space|2spc>Corrector function
-      identitites <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-327>>
+      D.4.<space|2spc>HLLC flux <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-327>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
-      D.<space|2spc>Efficient local differential operators>
+      E.<space|2spc>Efficient local differential operators>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <pageref|auto-328><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
-      E.<space|2spc>Equivalence with DFR>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-330><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
       F.<space|2spc>Scaling limiter> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-331><vspace|0.5fn>
+      <pageref|auto-330><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
       G.<space|2spc>Admissibility of MUSCL-Hancock on general grids>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-332><vspace|0.5fn>
+      <pageref|auto-331><vspace|0.5fn>
 
       G.1.<space|2spc>Introduction and notations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-333>
+      <no-break><pageref|auto-332>
 
       G.2.<space|2spc>Review of MUSCL-Hancock scheme
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-334>
+      <no-break><pageref|auto-333>
 
       G.3.<space|2spc>Primary generalization for proof
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-336>
+      <no-break><pageref|auto-335>
 
       G.4.<space|2spc>Proving admissibility
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-337>
+      <no-break><pageref|auto-336>
 
-      G.5.<space|2spc>Non-conservation reconstruction
+      G.5.<space|2spc>Non-conservative reconstruction
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-341>
+      <no-break><pageref|auto-340>
 
       G.6.<space|2spc>MUSCL-Hancock scheme in 2-D
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-342>
+      <no-break><pageref|auto-341>
 
       <with|par-left|<quote|1tab>|G.6.1.<space|2spc>First evolution step
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-343>>
+      <no-break><pageref|auto-342>>
 
       <with|par-left|<quote|1tab>|G.6.2.<space|2spc>Finite volume step
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-344>>
-
-      <with|par-left|<quote|1tab>|G.6.3.<space|2spc>Limiting numerical flux
-      in 2-D <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-345>>
+      <no-break><pageref|auto-343>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
-      H.<space|2spc>Formal accuracy of multiderivative RK>
+      H.<space|2spc>Limiting numerical flux in 2-D>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <pageref|auto-344><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Appendix
+      I.<space|2spc>Formal accuracy of multi-derivative RK>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <pageref|auto-345><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|List
+      of publications> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <pageref|auto-346><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Bibliography>

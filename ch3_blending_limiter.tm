@@ -6,13 +6,12 @@
 
 <\body>
   <\hide-preamble>
-    <assign|correction|<macro|1|<with|color|red|<arg|1>>>>
+    \;
   </hide-preamble>
 
-  <chapter|Admissibility preserving subcell based blending
-  limiter><label|ch:lw.subcell.limiter>
+  <chapter|Admissibility preserving subcell limiter>
 
-  <section|Introduction>
+  <label|ch:lw.subcell.limiter><section|Introduction>
 
   In this chapter, we develop a subcell based blending limiter for
   Lax-Wendroff Flux Reconstruction (LWFR) motivated by the work
@@ -20,18 +19,20 @@
   subcells and construct a robust low order method on the subcells. A
   smoothness indicator is then used to blend the high order LWFR scheme with
   the low order scheme, getting a robust limited scheme. In the development
-  of the blending scheme for LWFR, special attention has been paid to improve
-  accuracy and obtain provable admissibility preservation. In contrast
-  to<nbsp><cite|hennemann2021>, we use Gauss-Legendre solution points because
-  of their accuracy benefit known in the literature and also observed by us
-  in Chapter<nbsp><reference|ch:lwfr>. The low order scheme on subcells is a
-  finite volume method. A natural choice is to use a first order finite
-  volume method, but to enhance accuracy we develop a MUSCL-Hancock scheme on
-  the subcells. \ For admissibility preservation, we exploit the subcell
-  structure of the blending scheme to develop a problem independent flux
-  limiter that guarantees admissibility preservation in means.
+  of the blending scheme for LWFR, special attention has been paid to
+  improving accuracy and obtaining provable admissibility preservation. In
+  contrast to<nbsp><cite|hennemann2021>, we use Gauss-Legendre solution
+  points because of their accuracy benefit known in the literature and also
+  observed by us in Chapter<nbsp><reference|ch:lwfr>. The low order scheme on
+  subcells is a finite volume method. A natural choice is to use a first
+  order finite volume method, but to enhance accuracy we develop a
+  MUSCL-Hancock scheme on the subcells. \ For admissibility preservation, we
+  exploit the subcell structure of the blending scheme to develop a problem
+  independent flux limiter that guarantees admissibility preservation in
+  means.
 
-  In Section<nbsp><reference|sec:blend.review>, we formalize the concept of
+  The rest of this chapter is organized as follows. In
+  Section<nbsp><reference|sec:blend.review>, we formalize the concept of
   admissibility of a physical and numerical (FR) solution of hyperbolic
   conservation laws<nbsp><eqref|eq:con.law>. In
   Section<nbsp><reference|sec:controlling.oscillations>, we explain the
@@ -49,20 +50,20 @@
   compressible Euler equations are shown in
   Sections<nbsp><reference|sec:num.results.chblend>,<nbsp><reference|eq:numresults.2dadv>,<nbsp><reference|sec:numresults.2d.euler>.
   Section<nbsp><reference|sec:sum.blend> gives a summary of the proposed
-  blended scheme.
+  blending scheme.
 
   <section|Admissibility preservation><label|sec:blend.review>
 
   The solution <math|<value|uu>\<in\><re><rsup|p>> of the conservation
   law<nbsp><eqref|eq:con.law> that is physically correct is assumed to belong
-  to an admissible set, denoted by <math|<Uad>>. For example in case of
+  to an admissible set, denoted by <math|<Uad>>. For example, in case of
   compressible flows, the density and pressure (or internal energy) must
   remain positive. In case of shallow water equations, the water depth must
   remain positive. In most of the models that are of interest, the admissible
   set is a convex subset of <math|<re><rsup|p>>, and can be written as
 
   <\equation>
-    <label|eq:uad.form><Uad>=<around|{|<value|uu>\<in\><re><rsup|p>:<value|ad><rsub|k><around|(|<value|bw>|)>\<gtr\>0,1\<le\>k\<le\>K|}>
+    <label|eq:uad.form><Uad>=<around|{|<value|uu>\<in\><re><rsup|p>:<value|ad><rsub|k><around|(|<value|uu>|)>\<gtr\>0,1\<le\>k\<le\>K|}>
   </equation>
 
   Moreover, in most cases, the admissibility constraints
@@ -122,7 +123,7 @@
   can be written as
 
   <\equation>
-    <label|eq:conv.pres.con.law><bw><around|(|\<cdummy\>,t<rsub|0>|)>\<in\><Uad><space|2em>\<Longrightarrow\><space|2em><bw><around|(|\<cdummy\>,t|)>\<in\><Uad>,<space|2em>t\<gtr\>t<rsub|0>
+    <label|eq:conv.pres.con.law><value|uu><around|(|\<cdummy\>,t<rsub|0>|)>\<in\><Uad><space|2em>\<Longrightarrow\><space|2em><value|uu><around|(|\<cdummy\>,t|)>\<in\><Uad>,<space|2em>t\<gtr\>t<rsub|0>
   </equation>
 
   and thus we define an admissibility preserving scheme to be
@@ -163,7 +164,7 @@
   High order methods for hyperbolic problems necessarily produce Gibbs
   oscillations at discontinuities. In particular, it was shown by
   Godunov<nbsp><cite|godunov1959> that an oscillation free
-  <with|font-shape|italic|linear scheme> can be atmost first order accurate.
+  <with|font-shape|italic|linear scheme> can be at most first order accurate.
   The cure is to make the schemes to be non-linear even in the case of linear
   equations. For one dimensional problems, total variation diminishing
   approach provides a framework to construct non-oscillatory schemes. This is
@@ -284,7 +285,7 @@
 
   where <math|<value|F><rsub|<eph>><rsup|LW>> is the high order inter-element
   time-averaged numerical flux of the LWFR scheme<nbsp><eqref|eq:frcontflux>
-  and <math|<value|pf><rsub|<eph>>> is a admissibility preserving low order
+  and <math|<value|pf><rsub|<eph>>> is an admissibility preserving low order
   flux (Definition<nbsp><reference|defn:admissible.fvm>) at the face
   <math|x<rsub|<eph>>> shared between FR elements and
   subcells<nbsp>(<reference|eq:fo.at.face>,<nbsp><reference|eq:mh.at.face>).
@@ -377,10 +378,10 @@
   function which is in the Sobolev space <math|H<rsup|2>> decays as
   <math|O<around|(|1/N<rsup|2>|)>> (see Chapter 5, Section 5.4.2
   of<nbsp><cite|Canuto2007>). We consider smooth functions to be those whose
-  Legendre coefficients <math|<wide|q|^><rsub|N>> decay at rate proportional
-  to <math|1/N<rsup|2>> or faster so that their squares decay proportional to
-  <math|1/N<rsup|4>><nbsp><cite|Persson2006> or faster. Thus, the following
-  dimensionless threshold for smoothness is proposed
+  Legendre coefficients <math|<wide|q|^><rsub|N>> decay at a rate
+  proportional to <math|1/N<rsup|2>> or faster so that their squares decay
+  proportional to <math|1/N<rsup|4>><nbsp><cite|Persson2006> or faster. Thus,
+  the following dimensionless threshold for smoothness is proposed
   in<nbsp><cite|hennemann2021>
 
   <\equation*>
@@ -493,18 +494,18 @@
   where
 
   <\equation>
-    <value|pf><rsub|<value|pph>><rsup|<nph>>=<value|pf><around|(|<bw><rsub|p-1><rsup|<nph>,+>,<value|uu><rsub|p><rsup|<nph>,->|)><label|eq:mh.corr.flux>
+    <value|pf><rsub|<value|pph>><rsup|<nph>>=<value|pf><around|(|<value|uu><rsub|p-1><rsup|<nph>,+>,<value|uu><rsub|p><rsup|<nph>,->|)><label|eq:mh.corr.flux>
   </equation>
 
   is obtained from a numerical flux function. The numerical flux
   in<nbsp><eqref|eq:mh.corr.flux> is taken to be Rusanov's
   flux<nbsp><cite|Rusanov1962> in this work, but any admissibility preserving
   finite volume flux (Definition<nbsp><reference|defn:admissible.fvm>) can be
-  used. The <math|<bw><rsub|p><rsup|<nph>,\<pm\>>> denote the approximations
-  of solutions in subcell <math|p> at right, left faces respectively, evolved
-  to time level <math|<nph>>. Aiming to first approximate the solution at
-  <math|t<rsup|n>> on the faces, we create a linear approximation of the
-  solution in each subcell as
+  used. The <math|<value|uu><rsub|p><rsup|<nph>,\<pm\>>> denote the
+  approximations of solutions in subcell <math|p> at right, left faces
+  respectively, evolved to time level <math|<nph>>. Aiming to first
+  approximate the solution at <math|t<rsup|n>> on the faces, we create a
+  linear approximation of the solution in each subcell as
 
   <\equation>
     <label|eq:delta.defn><br><rsub|p><rsup|n><around|(|x|)>=<value|uu><rsub|p><rsup|n>+<around|(|x-x<rsub|p>|)>*<slope><rsub|p>,<space|2em><slope><rsub|p>=<text|minmod><around*|(|\<beta\>*\<Delta\><rsub|+>*<value|uu><rsub|p>,\<Delta\><rsub|c>*<value|uu><rsub|p>,\<beta\>*\<Delta\><rsub|->*<value|uu><rsub|p>|)>
@@ -525,23 +526,23 @@
     <value|uu><rsub|p>=-<frac|h<rsub|2>|h<rsub|1>*<around|(|h<rsub|1>+h<rsub|2>|)>>*<value|uu><rsup|n><rsub|p-1>+<frac|h<rsub|2>-h<rsub|1>|h<rsub|1>*h<rsub|2>>*<value|uu><rsup|n><rsub|p>+<frac|h<rsub|1>|h<rsub|2>*<around|(|h<rsub|1>+h<rsub|2>|)>>*<value|uu><rsup|n><rsub|p+1>>>>>>
   </equation*>
 
-  The <math|\<Delta\><rsub|\<pm\>>*<bw><rsub|p>> are forward and backward
-  approximations of slope respectively, and
-  <math|\<Delta\><rsub|c>*<bw><rsub|p>> is the second order approximation of
-  the slope. The value <math|\<beta\>> is chosen to lie between <math|1> and
-  <math|2>; for <math|\<beta\>=1>, we reduce to the minmod limiter and
-  <math|\<beta\>=2> corresponds to the MC (monotonized central-difference)
-  limiter of van Leer<nbsp><cite|vanleer1977>. A higher value of
-  <math|\<beta\>> tips the slope closer to the second order approximation,
-  gaining accuracy but also increasing the risk of spurious oscillations. For
-  all results in this chapter, the choice of
+  The <math|\<Delta\><rsub|\<pm\>>*<value|uu><rsub|p>> are forward and
+  backward approximations of slope respectively, and
+  <math|\<Delta\><rsub|c>*<value|uu><rsub|p>> is the second order
+  approximation of the slope. The value <math|\<beta\>> is chosen to lie
+  between <math|1> and <math|2>; for <math|\<beta\>=1>, we reduce to the
+  minmod limiter and <math|\<beta\>=2> corresponds to the MC (monotonized
+  central-difference) limiter of van Leer<nbsp><cite|vanleer1977>. A higher
+  value of <math|\<beta\>> tips the slope closer to the second order
+  approximation, gaining accuracy but also increasing the risk of spurious
+  oscillations. For all results in this chapter, the choice of
   <math|\<beta\>=2-\<alpha\><rsub|e>> is made. Thus, <math|\<beta\>> will be
   close to 2 in regions where smoothness indicator only detects mild
   irregularities in the solution, while it will be near <math|1> in regions
   with strong discontinuities. With the linear reconstructions, we can define
 
   <\equation>
-    <label|eq:reconstruction><bw><rsub|p><rsup|n,->=<br><rsup|n><rsub|p><around|(|x<rsub|<value|pmh>>|)>=<value|uu><rsub|p><rsup|n>+<slope><rsub|p>*<around|(|x<rsub|<value|pmh>>-x<rsub|p>|)>,<space|2em><bw><rsub|p><rsup|n,+>=<br><rsup|n><rsub|p><around|(|x<rsub|<value|pph>>|)>=<value|uu><rsub|p><rsup|n>+<slope><rsub|p>*<around|(|x<rsub|<value|pph>>-x<rsub|p>|)>
+    <label|eq:reconstruction><value|uu><rsub|p><rsup|n,->=<br><rsup|n><rsub|p><around|(|x<rsub|<value|pmh>>|)>=<value|uu><rsub|p><rsup|n>+<slope><rsub|p>*<around|(|x<rsub|<value|pmh>>-x<rsub|p>|)>,<space|2em><value|uu><rsub|p><rsup|n,+>=<br><rsup|n><rsub|p><around|(|x<rsub|<value|pph>>|)>=<value|uu><rsub|p><rsup|n>+<slope><rsub|p>*<around|(|x<rsub|<value|pph>>-x<rsub|p>|)>
   </equation>
 
   Using the conservation law, we approximate the temporal derivatives as
@@ -553,7 +554,7 @@
   and finally use Taylor's expansion to evolve the face values in time as
 
   <\equation>
-    <label|eq:evolution><bw><rsub|p><rsup|<nph>,->=<bw><rsub|p><rsup|n,->+<frac|\<Delta\>t|2>*\<partial\><rsub|t>*<value|uu><rsup|n><rsub|p>,<space|2em><bw><rsub|p><rsup|<nph>,+>=<bw><rsub|p><rsup|n,+>+<frac|\<Delta\>t|2>*\<partial\><rsub|t>*<value|uu><rsup|n><rsub|p>
+    <label|eq:evolution><value|uu><rsub|p><rsup|<nph>,->=<value|uu><rsub|p><rsup|n,->+<frac|\<Delta\>t|2>*\<partial\><rsub|t>*<value|uu><rsup|n><rsub|p>,<space|2em><value|uu><rsub|p><rsup|<nph>,+>=<value|uu><rsub|p><rsup|n,+>+<frac|\<Delta\>t|2>*\<partial\><rsub|t>*<value|uu><rsup|n><rsub|p>
   </equation>
 
   At the interfaces shared with the FR elements, the lower order flux used in
@@ -573,19 +574,19 @@
     <label|thm:muscl.admissibility.theorem>Consider a conservation law of the
     form<nbsp><eqref|eq:con.law> which preserves the admissible set
     <math|<Uad>><nbsp><eqref|eq:conv.pres.con.law>. Let
-    <math|<around*|{|<bw><rsub|p><rsup|n>|}><rsub|p>> be the approximate
-    solution at time level <math|n> and assume that
-    <math|<bw><rsub|p><rsup|n>\<in\><Uad>> for all <math|p>. Consider
+    <math|<around*|{|<value|uu><rsub|p><rsup|n>|}><rsub|p>> be the
+    approximate solution at time level <math|n> and assume that
+    <math|<value|uu><rsub|p><rsup|n>\<in\><Uad>> for all <math|p>. Consider
     conservative reconstructions
 
     <\equation*>
-      <bw><rsub|p><rsup|n,+>=<bw><rsub|p><rsup|n>+<around|(|x<rsub|<value|pph>>-x<rsub|p>|)><slope><rsub|p>,<space|2em><bw><rsub|p><rsup|n,->=<bw><rsub|p><rsup|n>+<around|(|x<rsub|<value|pmh>>-x<rsub|p>|)><slope><rsub|p>
+      <value|uu><rsub|p><rsup|n,+>=<value|uu><rsub|p><rsup|n>+<around|(|x<rsub|<value|pph>>-x<rsub|p>|)><slope><rsub|p>,<space|2em><value|uu><rsub|p><rsup|n,->=<value|uu><rsub|p><rsup|n>+<around|(|x<rsub|<value|pmh>>-x<rsub|p>|)><slope><rsub|p>
     </equation*>
 
-    Define <math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>> by
+    Define <math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>> by
 
     <\equation>
-      <label|eq:us.defn.main><mum>*<bw><rsub|p><rsup|n,->+<bw><rsub|p><rsup|\<ast\>,\<pm\>>+<mup>*<bw><rsub|p><rsup|n,+>=2*<bw><rsub|p><rsup|n,\<pm\>>
+      <label|eq:us.defn.main><mum>*<value|uu><rsub|p><rsup|n,->+<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>+<mup>*<value|uu><rsub|p><rsup|n,+>=2*<value|uu><rsub|p><rsup|n,\<pm\>>
     </equation>
 
     where
@@ -597,14 +598,14 @@
     Assume that the slope <math|<slope><rsub|p>> is chosen so that
 
     <\equation>
-      <bw><rsub|p><rsup|\<ast\>,\<pm\>>\<in\><Uad><label|eq:ustar.in.uad>
+      <value|uu><rsub|p><rsup|\<ast\>,\<pm\>>\<in\><Uad><label|eq:ustar.in.uad>
     </equation>
 
     Then, assuming that the first order finite volume flux used
     in<nbsp><eqref|eq:mh.corr.flux> is admissibility preserving
     (Definition<nbsp><reference|defn:admissible.fvm>), under appropriate time
     step restrictions<nbsp>(<reference|eq:new.cfl1>,<nbsp><reference|eq:new.cfl2>,<nbsp><reference|eq:new.cfl3.conservative>),
-    the updated solution <math|<bw><rsub|p><rsup|n+1>> defined by the
+    the updated solution <math|<value|uu><rsub|p><rsup|n+1>> defined by the
     MUSCL-Hancock procedure<nbsp><eqref|eq:riemann.problem> is in
     <math|<Uad>>.
   </theorem>
@@ -617,7 +618,7 @@
   problem in<nbsp><cite|meena2017>. For the MUSCL-Hancock scheme to be
   admissibility preserving, the slope <math|<slope><rsub|p>> given by the
   minmod limiter<nbsp><eqref|eq:delta.defn> has to be further limited so that
-  <math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>=<bw><rsub|p><rsup|n>+2*<around|(|x<rsub|<value|ppmh>>-x<rsub|p>|)>*<slope><rsub|p>\<in\><Uad>><nbsp><eqref|eq:us.defn.main>.
+  <math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>=<value|uu><rsub|p><rsup|n>+2*<around|(|x<rsub|<value|ppmh>>-x<rsub|p>|)>*<slope><rsub|p>\<in\><Uad>><nbsp><eqref|eq:us.defn.main>.
   Let <math|<around|{|<ad><rsub|k>,1\<le\>1\<le\>K|}>> be the admissibility
   constraints<nbsp><eqref|eq:uad.form> for the conservation
   law<nbsp><eqref|eq:con.law> to be in <math|<Uad>>. The slope is limited by
@@ -626,11 +627,11 @@
   <math|\<theta\><rsub|\<pm\>>\<in\><around|[|0,1|]>> satisfying
 
   <\equation>
-    <value|ad><rsub|k><around|(|<bw><rsub|p><rsup|n>+2*\<theta\><rsub|\<pm\>>*<around|(|x<rsub|<value|ppmh>>-x<rsub|p>|)>*<slope><rsub|p>|)>=<ad><rsub|k><around|(|\<theta\><rsub|\<pm\>>*<bw><rsub|p><rsup|\<ast\>,\<pm\>>+<around|(|1-\<theta\><rsub|\<pm\>>|)>*<bw><rsub|p><rsup|n>|)>\<geq\>\<epsilon\><rsub|p>,<space|2em>p=0,N<label|eq:optimization.problem>
+    <value|ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>+2*\<theta\><rsub|\<pm\>>*<around|(|x<rsub|<value|ppmh>>-x<rsub|p>|)>*<slope><rsub|p>|)>=<ad><rsub|k><around|(|\<theta\><rsub|\<pm\>>*<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>+<around|(|1-\<theta\><rsub|\<pm\>>|)>*<value|uu><rsub|p><rsup|n>|)>\<geq\>\<epsilon\><rsub|p>,<space|2em>p=0,N<label|eq:optimization.problem>
   </equation>
 
   where <math|\<epsilon\><rsub|p>> is a tolerance, taken to be
-  <math|<frac|1|10>*<ad><rsub|k><around|(|<bw><rsub|p><rsup|n>|)>><nbsp><cite|ramirez2021>.
+  <math|<frac|1|10>*<ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>|)>><nbsp><cite|ramirez2021>.
   The optimization problem is usually a polynomial equation in
   <math|\<theta\>>, and can be solved for its root. In this work, we use a
   general iterative solver that is independent of choice of <math|P<rsub|k>>
@@ -640,7 +641,7 @@
   sub-optimal approach of defining
 
   <\equation>
-    \<theta\><rsub|\<pm\>>=min <around*|(|min<rsub|p=0,N><around*|\||<frac|\<epsilon\><rsub|p>-<ad><rsub|k><around|(|<bw><rsub|p><rsup|n>|)>|<ad><rsub|k><around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)>-<ad><rsub|k><around|(|<bw><rsub|p><rsup|n>|)>>|\|>,1|)><label|eq:concave.theta>
+    \<theta\><rsub|\<pm\>>=min <around*|(|min<rsub|p=0,N><around*|\||<frac|\<epsilon\><rsub|p>-<ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>|)>|<ad><rsub|k><around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)>-<ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>|)>>|\|>,1|)><label|eq:concave.theta>
   </equation>
 
   In either case, by iterating over the admissibility constraints
@@ -653,12 +654,12 @@
 
       <no-indent><algo-state|<math|<slope><rsub|p>\<leftarrow\><text|minmod><around*|(|\<beta\>*\<Delta\><rsub|+>*<value|uu><rsub|p>,\<Delta\><rsub|c>*<value|uu><rsub|p>,\<beta\>*\<Delta\><rsub|->*<value|uu><rsub|p>|)>>>
 
-      <no-indent><algo-state|<math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>\<leftarrow\><bw><rsub|p><rsup|n>+2*<around|(|x<rsub|<ppmh>>-x<rsub|p>|)><slope><rsub|p>>>
+      <no-indent><algo-state|<math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>\<leftarrow\><value|uu><rsub|p><rsup|n>+2*<around|(|x<rsub|<ppmh>>-x<rsub|p>|)><slope><rsub|p>>>
 
       <no-indent><with|font-series|bold|for> <math|k=1:K>
       <with|font-series|bold|do>
 
-      <algo-state|<math|\<epsilon\><rsub|k>=<frac|1|10>*<value|ad><rsub|k><around|(|<bw><rsub|p><rsup|n>|)>>>
+      <algo-state|<math|\<epsilon\><rsub|k>=<frac|1|10>*<value|ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>|)>>>
 
       <algo-state|Find <math|\<theta\><rsub|\<pm\>>> by
       solving<nbsp><eqref|eq:optimization.problem> or by
@@ -670,7 +671,7 @@
 
       <algo-state|<math|<slope><rsub|p>\<leftarrow\>\<theta\><rsub|k>*<slope><rsub|p>>>
 
-      <algo-state|<math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>\<leftarrow\><bw><rsub|p><rsup|n>+2*<around|(|x<rsub|<value|ppmh>>-x<rsub|p>|)>*<slope><rsub|p>>>
+      <algo-state|<math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>\<leftarrow\><value|uu><rsub|p><rsup|n>+2*<around|(|x<rsub|<value|ppmh>>-x<rsub|p>|)>*<slope><rsub|p>>>
 
       <no-indent><with|font-series|bold|end for>
 
@@ -682,17 +683,18 @@
   problem<nbsp><eqref|eq:optimization.problem> will satisfy the constraint
   <math|<value|ad><rsub|k>> by definition. On the other hand, if we use
   <nbsp><eqref|eq:concave.theta> in case <math|<value|ad><rsub|k>> is
-  concave, the <math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>> computed with the
-  corrected slope <math|<slope><rsub|p>> will satisfy
+  concave, the <math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>> computed with
+  the corrected slope <math|<slope><rsub|p>> will satisfy
 
   <\equation>
-    <label|eq:pk.slope.correction><value|ad><rsub|k><around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)>=<value|ad><rsub|k>*<around|(|\<theta\><rsub|k><around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>+<around|(|1-\<theta\><rsub|k>|)>*<bw><rsub|p><rsup|n>|)>\<ge\>\<theta\><rsub|k>*<value|ad><rsub|k>*<around|(|<around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>|)>+<around|(|1-\<theta\><rsub|k>|)>*<value|ad><rsub|k><around|(|<bw><rsub|p><rsup|n>|)>\<ge\>\<epsilon\><rsub|k>
+    <label|eq:pk.slope.correction><value|ad><rsub|k><around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)>=<value|ad><rsub|k>*<around|(|\<theta\><rsub|k><around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>+<around|(|1-\<theta\><rsub|k>|)>*<value|uu><rsub|p><rsup|n>|)>\<ge\>\<theta\><rsub|k>*<value|ad><rsub|k>*<around|(|<around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>|)>+<around|(|1-\<theta\><rsub|k>|)>*<value|ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>|)>\<ge\>\<epsilon\><rsub|k>
   </equation>
 
   so that the <math|k<rsup|th>> admissibility constraint is satisfied; here
-  <math|<around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>> denotes
-  <math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>> before the <math|k<rsup|th>>
-  correction. The choice of <math|\<epsilon\><rsub|k>=<frac|1|10>*<value|ad><rsub|k><around|(|<bw><rsub|p><rsup|n>|)>>
+  <math|<around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>>
+  denotes <math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>> before the
+  <math|k<rsup|th>> correction. The choice of
+  <math|\<epsilon\><rsub|k>=<frac|1|10>*<value|ad><rsub|k><around|(|<value|uu><rsub|p><rsup|n>|)>>
   was made following<nbsp><cite|ramirez2021> to allow only a certain
   deviation below the <with|font-shape|italic|safe solution>, imposing a
   stricter requirement than positivity. Note that this limiting is performed
@@ -701,23 +703,23 @@
   <math|k<rsup|th>> correction will continue to satisfy the previous
   admissibility constraints. Thus, we assume that constraint
   <math|<value|ad><rsub|l>> is satisfied by
-  <math|<around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>> for all
-  <math|l\<less\>k> and we perform <math|k<rsup|th>> correction on it to
-  obtain<nbsp><math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>>. In case of concave
-  admissibility constraints,
+  <math|<around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>> for
+  all <math|l\<less\>k> and we perform <math|k<rsup|th>> correction on it to
+  obtain<nbsp><math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>>. In case of
+  concave admissibility constraints,
 
   <\eqnarray>
-    <tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<value|ad><rsub|l><around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)>>|<cell|=>|<cell|<value|ad><rsub|l><around|(|\<theta\><rsub|k>*<around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>+<around|(|1-\<theta\><rsub|k>|)>*<bw><rsub|p><rsup|n>|)><label|eq:use.weak.convexity><eq-number>>>|<row|<cell|>|<cell|\<geq\>>|<cell|\<theta\><rsub|k>*<value|ad><rsub|l><around|(|<around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>|)>+<around|(|1-\<theta\><rsub|k>|)>*<value|ad><rsub|l><around|(|<bw><rsub|p><rsup|n>|)>\<geq\>\<theta\><rsub|k>*\<epsilon\><rsub|l>+<around|(|1-\<theta\><rsub|k>|)>*\<epsilon\><rsub|l>=\<epsilon\><rsub|l>>>>>
+    <tformat|<cwith|2|2|3|3|cell-halign|l>|<cwith|1|1|3|3|cell-halign|l>|<table|<row|<cell|<value|ad><rsub|l><around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)>>|<cell|=>|<cell|<value|ad><rsub|l><around|(|\<theta\><rsub|k>*<around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>+<around|(|1-\<theta\><rsub|k>|)>*<value|uu><rsub|p><rsup|n>|)><label|eq:use.weak.convexity><eq-number>>>|<row|<cell|>|<cell|\<geq\>>|<cell|\<theta\><rsub|k>*<value|ad><rsub|l><around|(|<around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>|)>+<around|(|1-\<theta\><rsub|k>|)>*<value|ad><rsub|l><around|(|<value|uu><rsub|p><rsup|n>|)>\<geq\>\<theta\><rsub|k>*\<epsilon\><rsub|l>+<around|(|1-\<theta\><rsub|k>|)>*\<epsilon\><rsub|l>=\<epsilon\><rsub|l>>>>>
   </eqnarray>
 
   In case of non-concave <math|<value|ad><rsub|l>>, we
   use<nbsp><eqref|eq:weak.convexity> to obtain
-  <math|<value|ad><rsub|l><around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)>\<gtr\>\<epsilon\><rsub|l><around*|(|<around|(|<bw><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>,<bw><rsub|p><rsup|n>|)>\<gtr\>0>
+  <math|<value|ad><rsub|l><around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)>\<gtr\>\<epsilon\><rsub|l><around*|(|<around|(|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>|)><rsup|prev>,<value|uu><rsub|p><rsup|n>|)>\<gtr\>0>
   from<nbsp><eqref|eq:use.weak.convexity>. Thus, in both cases, constraints
   <math|<value|ad><rsub|l>> are satisfied for all <math|l\<less\>k> and the
   slope <math|<slope><rsub|p>> obtained at the end of <math|K> iterations
   satisfies all admissibility constraints ensuring
-  <math|<bw><rsub|p><rsup|\<ast\>,\<pm\>>\<in\><Uad>>.
+  <math|<value|uu><rsub|p><rsup|\<ast\>,\<pm\>>\<in\><Uad>>.
 
   <section|Flux limiter for admissibility
   preservation><label|sec:admissibility.preservation>
@@ -726,17 +728,17 @@
   to ensure that the lower order scheme preserves the admissible set
   <math|<Uad>>. This is always true if all the fluxes in the lower order
   method are computed with a finite volume method that is proven to be
-  admissibility preserving. But the LWFR scheme uses a time average numerical
-  flux and maintaining conservation requires that we use the same numerical
-  flux at the element interfaces for both lower and higher order schemes (see
-  Remark<nbsp><reference|rmk:why.same.flux>). To maintain accuracy and
-  admissibility, we have to carefully choose a blended numerical flux
-  <math|<value|F><rsub|<eph>>> as in<nbsp><eqref|eq:Fblend> but this choice
-  may not ensure admissibility and further limitation is required. Our
-  proposed procedure for choosing the blended numerical flux will give us an
-  admissibility preserving lower order scheme. After this step, there are two
-  possibilities for obtaining admissibility of the blending scheme. We could
-  follow the procedure of<nbsp><cite|ramirez2021> to
+  admissibility preserving. However, the LWFR scheme uses a time average
+  numerical flux and maintaining conservation requires that we use the same
+  numerical flux at the element interfaces for both lower and higher order
+  schemes (see Remark<nbsp><reference|rmk:why.same.flux>). To maintain
+  accuracy and admissibility, we have to carefully choose a blended numerical
+  flux <math|<value|F><rsub|<eph>>> as in<nbsp><eqref|eq:Fblend> but this
+  choice may not ensure admissibility, and further limitation is required.
+  Our proposed procedure for choosing the blended numerical flux will give us
+  an admissibility preserving lower order scheme. After this step, there are
+  two possibilities for obtaining admissibility of the blending scheme. We
+  could follow the procedure of<nbsp><cite|ramirez2021> to
   <with|font-shape|italic|a posteriori> modify the blending coefficient
   <math|\<alpha\>> to obtain admissibility relying directly on the
   admissibility of the lower order scheme. The other option which we take in
@@ -1052,7 +1054,7 @@
   Gauss-Legendre-Lobatto points of<nbsp><cite|hennemann2021> implemented in
   <with|font-family|tt|Trixi.jl><nbsp><cite|Ranocha2022|schlottkelakemper2021purely>.
   Our code is publicly available at<nbsp><cite|tenkai>, and the scripts for
-  reproducing results in this chapter are available at<nbsp><cite|paperrepo>.
+  generated results in this chapter are available at<nbsp><cite|paperrepo>.
   The user only needs to install <with|font-family|tt|Julia><nbsp><cite|Bezanson2017>
   and the remaining dependencies are automatically handled by
   <with|font-family|tt|Julia> environments and its package manager.
@@ -1092,18 +1094,26 @@
   <math|M=300><nbsp><cite|Qiu2005b>. The density component of the approximate
   solutions computed for the compared limiters are plotted against a
   reference solution obtained using a very fine mesh, and are given in
-  Figure<nbsp><reference|fig:ShuOsher>. The three limiters show similar
-  performance in Figure<nbsp><reference|fig:ShuOsher>a on the large scale.
-  The enlarged plot in Figure<nbsp><reference|fig:ShuOsher>b shows that the
-  MUSCL-Hancock blending scheme is able to capture smooth extrema better than
-  the first order blending and the TVB scheme.
+  Figures<nbsp><reference|fig:ShuOsher.chblend.nozoom>,<nbsp><reference|fig:ShuOsher.chblend>.
+  The three limiters show similar performance in
+  Figure<nbsp><reference|fig:ShuOsher.chblend.nozoom> on the large scale. The
+  enlarged plots in Figure<nbsp><reference|fig:ShuOsher.chblend> show that
+  the MUSCL-Hancock blending scheme is able to capture smooth extrema better
+  than the first order blending and the TVB scheme.
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler1d/shuosher_unzoom|0.45par|||>>|<cell|<image|figures/paper2/euler1d/shuosher|0.45par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:ShuOsher.chblend>>|<caption-detailed|Shu-Osher
-  problem, numerical solution with degree <math|N=4> using first order (FO)
-  and MUSCL-Hancock (MH) blending schemes, and TVB limited scheme (TVB-300)
-  with parameter <math|M=300>. (a) Full and (b) zoomed density profiles of
-  numerical solutions are shown up to time <math|t=1.8> on a mesh of 400
-  cells.|Comparing TVB and blending schemes on Shu-Osher test.>>
+  <big-figure|<with|par-mode|center|<image|figures/paper2/euler1d/shuosher_unzoom|0.55par|||>><label|fig:ShuOsher.chblend.nozoom>|<caption-detailed|Shu-Osher
+  problem, density plot of numerical solution with degree <math|N=4> using
+  first order (FO) and MUSCL-Hancock (MH) blending schemes, and TVB limited
+  scheme (TVB-300) with parameter <math|M=300>.|Comparing TVB and blending
+  schemes on Shu-Osher test.>>
+
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler1d/shuosher|0.45par|||>>|<cell|<image|figures/paper2/euler1d/shuosher_super_zoom|0.45par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:ShuOsher.chblend>>|<caption-detailed|Shu-Osher
+  problem, density plot of numerical solution with degree <math|N=4> using
+  first order (FO) and MUSCL-Hancock (MH) blending schemes, and TVB limited
+  scheme (TVB-300) with parameter <math|M=300> at time <math|t=1.8> on a mesh
+  of 400 cells.. (a) Zoomed near smooth extrema, (b) Zoomed to only show two
+  extrema.|Zoomed plot comparing TVB and blending schemes on Shu-Osher
+  test.>>
 
   <subsubsection|Blast wave><label|sec:blast.chblend>
 
@@ -1116,11 +1126,11 @@
   profile is produced. As in the previous test, we compare first order (FO)
   and MUSCL-Hancock (MH) blending schemes, and TVB limiter with parameter
   <math|M=300><nbsp><cite|Qiu2005b> (TVB-300). We compare the performance of
-  limiters in Figure<nbsp><reference|fig:blast> where the approximated
-  density and pressure profiles are compared with a reference solution
-  computed using a very fine mesh. Looking at the peak amplitude and contact
-  discontinuity of the density profile which is also shown in the zoomed
-  inset, it is clear that MUSCL-Hancock blending scheme gives the best
+  limiters in Figure<nbsp><reference|fig:blast.chblend> where the
+  approximated density and pressure profiles are compared with a reference
+  solution computed using a very fine mesh. Looking at the peak amplitude and
+  contact discontinuity of the density profile which is also shown in the
+  zoomed inset, it is clear that MUSCL-Hancock blending scheme gives the best
   resolution, especially when compared with the TVB limiter.
 
   <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler1d/blast|0.45par|||>>|<cell|<image|figures/paper2/euler1d/blast_pressure|0.45par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:blast.chblend>>|<caption-detailed|Blast
@@ -1205,7 +1215,7 @@
   <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler1d/leblanc|0.45par|||>>|<cell|<image|figures/paper2/euler1d/leblanc_pressure|0.45par|||>>>|<row|<cell|(a)>|<cell|(b)>>>>><label|fig:leblanc>>|<caption-detailed|Leblanc's
   test, numerical solution with polynomial degree <math|N=4> using first
   order (FO) and MUSCL-Hancock (MH) blending. (a) Density and (b) pressure
-  profiles of numerical solutions with log-scales are plotted at
+  profiles of numerical solutions with log scales are plotted at
   <math|t=0.001> on a mesh of <math|800> cells.|Leblanc's test with LW-MH.>>
 
   <section|2-D advection equation><label|eq:numresults.2dadv>
@@ -1286,6 +1296,37 @@
   active (b) no limiter is active.|Isentropic convergence with blending
   limiter.>>
 
+  <subsection|Double Mach reflection>
+
+  The description and significance of this test have been given in
+  Section<nbsp><reference|sec:dmr>. The simulation is run on a mesh of
+  <math|600\<times\>150> elements using degree <math|N=4> polynomials up to
+  time <math|t=0.2>. In Figure<nbsp><reference|fig:dmr.full>, the density
+  plot generated using LWFR with MUSCL-Hancock blending scheme is shown. In
+  Figure<nbsp><reference|fig:dmr>, we compare the results of
+  <with|font-family|tt|Trixi.jl> with the MUSCL-Hancock blended scheme zoomed
+  near the primary triple point with the same <math|600\<times\>150> mesh
+  resolution in Figure<nbsp><reference|fig:dmr>a,b. In
+  Figure<nbsp><reference|fig:dmr>c, we show a solution generated with
+  <verbatim|Trixi.jl> on a finer mesh of <math|1600\<times\>400> elements.
+  The MUSCL-Hancock (Figure<nbsp><reference|fig:dmr>b) captures more of the
+  small scale structures present in the reference solution
+  (Figure<nbsp><reference|fig:dmr>c) than the first order blending scheme of
+  <verbatim|Trixi.jl> (Figure<nbsp><reference|fig:dmr>a).
+
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|1|cell-row-span|1>|<cwith|1|1|1|1|cell-col-span|2>|<cwith|1|1|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/dmr/full_lw.png|0.93par|||>>>>>><label|fig:dmr.full>>|<caption-detailed|Double
+  Mach reflection problem, density plot of numerical solution at <math|t=0.2>
+  using polynomial degree <math|N=4> on a <math|600\<times\>150> mesh
+  generated using Lax-Wendroff Flux Reconstruction with MUSCL-Hancock
+  blending scheme.|Double Mach reflection with LW-MH.>>
+
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<tabular|<tformat|<cwith|1|2|1|1|cell-halign|c>|<cwith|1|2|1|1|cell-lborder|0ln>|<cwith|1|2|2|2|cell-halign|c>|<cwith|1|2|2|2|cell-rborder|0ln>|<cwith|1|2|1|2|cell-valign|c>|<cwith|1|1|1|1|cell-halign|c>|<cwith|2|2|3|3|cell-halign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/dmr/trixi.png|0.318par|||>>|<cell|<image|figures/paper2/euler2d/dmr/lwfr.png|0.318par|||>>|<cell|<image|figures/paper2/euler2d/dmr/ref_from_trixi.png|0.318par|||>>>|<row|<cell|(a)
+  <with|font-family|tt|Trixi.jl> zoomed>|<cell|(b) LW-MH zoomed>|<cell|(c)
+  Reference solution>>>>>>>>>><label|fig:dmr>>|<caption-detailed|Double Mach
+  reflection problem, density plots of numerical solution at <math|t=0.2>
+  using polynomial degree <math|N=4> on a <math|600\<times\>150> mesh zoomed
+  near the primary triple point.|Double Mach reflection with LW-MH.>>
+
   <subsection|2-D Riemann problem><label|sec:2drp>
 
   2-D Riemann problems consist of four constant states and have been studied
@@ -1313,7 +1354,7 @@
   enlarged domain up to time <math|t=0.25>. The density profiles obtained
   from the MUSCL-Hancock blending scheme and <with|font-family|tt|Trixi.jl>
   are shown in Figure<nbsp><reference|fig:rp2d>. We see that both schemes
-  give similar resolution in most regions. The MUSCL-Hancock blending scheme
+  give similar resolutions in most regions. The MUSCL-Hancock blending scheme
   gives better resolution of the small scale structures arising across the
   slip lines.
 
@@ -1325,47 +1366,29 @@
   smaller values are seen near the stationary contact discontinuities.
   Figure<nbsp><reference|fig:rp2d.alpha.stats> shows the percentage of cells
   in which the indicator function <math|\<alpha\>\<gtr\>0> as a function of
-  time. From these figures we see that limiting is only performed in a small
+  time. From these figures, we see that limiting is only performed in a small
   subset of the elements in the grid and the indicator is able to track the
   sharp features and ignore the smooth regions.
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/rp2d/trixi|0.45par|||>>|<cell|<image|figures/paper2/euler2d/rp2d/lwfr|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/rp2d/trixi|0.42par|||>>|<cell|<image|figures/paper2/euler2d/rp2d/lwfr|0.42par|||>>>|<row|<cell|(a)
   <with|font-family|tt|Trixi.jl>>|<cell|(b)
   LW-MH>>>>><label|fig:rp2d>>|<caption-detailed|2-D Riemann problem, density
   plots of numerical solution at <math|t=0.25> for degree <math|N=4> on a
   <math|256\<times\>256> mesh.|LW-MH on 2-D Riemann problem.>>
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|1|cell-row-span|1>|<cwith|1|1|1|1|cell-col-span|2>|<table|<row|<cell|<image|figures/paper2/euler2d/rp2d/color_bar.pdf|0.6par|||>>|<cell|>>|<row|<cell|<image|figures/paper2/euler2d/rp2d/alpha_003.png|0.45par|||>>|<cell|<image|figures/paper2/euler2d/rp2d/alpha_final.png|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|1|cell-row-span|1>|<cwith|1|1|1|1|cell-col-span|2>|<table|<row|<cell|<image|figures/paper2/euler2d/rp2d/color_bar.pdf|0.55par|||>>|<cell|>>|<row|<cell|<image|figures/paper2/euler2d/rp2d/alpha_003.png|0.4par|||>>|<cell|<image|figures/paper2/euler2d/rp2d/alpha_final.png|0.4par|||>>>|<row|<cell|(a)
   <with|font-family|tt|Trixi.jl>>|<cell|(b)
   LW-MH>>>>>><label|fig:rp2d.alpha>|<caption-detailed|2-D Riemann problem,
   blending coefficient <math|\<alpha\>> for degree <math|N=4> on a
   <math|256\<times\>256> mesh.|Blending coefficient <math|\<alpha\>> for 2-D
   Riemann problem.>>
 
-  <big-figure|<image|figures/paper2/euler2d/rp2d/rp2d_alp0.pdf|0.6par|||><label|fig:rp2d.alpha.stats>|<caption-detailed|2-D
+  <big-figure|<image|figures/paper2/euler2d/rp2d/rp2d_alp0.pdf|0.5par|||><label|fig:rp2d.alpha.stats>|<caption-detailed|2-D
   Riemann problem, percentage of elements where the blending coefficient
   <math|\<alpha\>\<gtr\>0> vs time <math|t>, for approximate solution with
   polynomial degree <math|N=4> on a <math|256\<times\>256> mesh.|2-D Riemann
   problem, percentage of elements with blending coefficient
   <math|\<alpha\>\<gtr\>0> vs <math|t>.>>
-
-  <subsection|Double Mach reflection>
-
-  The description and significance of this test has been given in
-  Section<nbsp><reference|sec:dmr>. The simulation is run on a mesh of
-  <math|600\<times\>150> elements using degree <math|N=4> polynomials up to
-  time <math|t=0.2>. In Figure<nbsp><reference|fig:dmr>, we compare the
-  results of <with|font-family|tt|Trixi.jl> with the MUSCL-Hancock blended
-  scheme zoomed near the primary triple point. As expected, the small scale
-  structures are captured better by the MUSCL-Hancock blended scheme.
-
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|1|cell-row-span|1>|<cwith|1|1|1|1|cell-col-span|2>|<cwith|3|3|1|1|cell-halign|c>|<cwith|2|2|1|1|cell-row-span|1>|<cwith|2|2|1|1|cell-col-span|2>|<table|<row|<cell|<image|figures/paper2/euler2d/dmr/full_lw.png|0.9par|||>>|<cell|>>|<row|<cell|(a)
-  LW-MH>|<cell|>>|<row|<cell|<image|figures/paper2/euler2d/dmr/trixi.png|0.45par|||>>|<cell|<image|figures/paper2/euler2d/dmr/lwfr.png|0.45par|||>>>|<row|<cell|(b)
-  <with|font-family|tt|Trixi.jl> zoomed>|<cell|(c) LW-MH
-  zoomed>>>>><label|fig:dmr>>|<caption-detailed|Double Mach reflection
-  problem, density plots of numerical solution at <math|t=0.2> using
-  polynomial degree <math|N=4> on a <math|600\<times\>150> mesh zoomed near
-  the primary triple point.|Double Mach reflection with LW-MH.>>
 
   <subsection|Kelvin-Helmholtz instability><label|sec:kh>
 
@@ -1401,9 +1424,9 @@
   the MUSCL-Hancock scheme suggests that the scheme has lesser dissipation
   errors and is capable of capturing small scale features.
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|1|1|cell-lborder|0ln>|<cwith|4|4|2|2|cell-halign|c>|<cwith|4|4|2|2|cell-rborder|0ln>|<cwith|4|4|1|2|cell-valign|c>|<cwith|5|5|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/kh_schaal/trixi_512x512.png|0.45par|||>>|<cell|<image|figures/paper2/euler2d/kh_schaal/lwfr_512x512.png|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|4|4|1|1|cell-halign|c>|<cwith|4|4|1|1|cell-lborder|0ln>|<cwith|4|4|2|2|cell-halign|c>|<cwith|4|4|2|2|cell-rborder|0ln>|<cwith|4|4|1|2|cell-valign|c>|<cwith|5|5|1|1|cell-halign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/kh_schaal/trixi_512x512.png|0.4par|||>>|<cell|<image|figures/paper2/euler2d/kh_schaal/lwfr_512x512.png|0.4par|||>>>|<row|<cell|(a)
   <with|font-family|tt|Trixi.jl>>|<cell|(b)
-  LW-MH>>|<row|<cell|>|<cell|>>|<row|<cell|<image|figures/paper2/euler2d/kh_schaal/trixi_512x512_zoom.png|0.45par|||>>|<cell|<image|figures/paper2/euler2d/kh_schaal/lwfr_512x512_zoom.png|0.45par|||>>>|<row|<cell|(c)
+  LW-MH>>|<row|<cell|>|<cell|>>|<row|<cell|<image|figures/paper2/euler2d/kh_schaal/trixi_512x512_zoom.png|0.4par|||>>|<cell|<image|figures/paper2/euler2d/kh_schaal/lwfr_512x512_zoom.png|0.4par|||>>>|<row|<cell|(c)
   <verbatim|Trixi.jl> zoomed around top left>|<cell|(d) LW-MH zoomed around
   top left>>>>><label|fig:kh>>|<caption-detailed|Kelvin-Helmholtz
   instability, density plots of numerical solution at <math|t=0.4> using
@@ -1452,7 +1475,7 @@
   Figure<nbsp><reference|fig:astrophysical.jet>, the LWFR with MH blending
   scheme shows more small scales near the front of the jet.
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/M2000/trixi_revised.png|0.45par|||>>|<cell|<image|figures/paper2/euler2d/M2000/lwfr_revised.png|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/M2000/trixi_revised.png|0.425par|||>>|<cell|<image|figures/paper2/euler2d/M2000/lwfr_revised.png|0.425par|||>>>|<row|<cell|(a)
   <with|font-family|tt|Trixi.jl>>|<cell|(b)
   LW-MH>>>>><label|fig:astrophysical.jet>>|<caption-detailed|Mach 2000
   astrophysical jet, density plot of numerical solution in log scales on
@@ -1474,25 +1497,25 @@
   where <math|\<sigma\><rsub|\<rho\>>=0.25> and
   <math|\<sigma\><rsub|p>=0.15>. The ambient density and ambient pressure are
   set to <math|\<rho\><rsub|0>=1>, <math|p<rsub|0>=10<rsup|-5>>. There are
-  two differences in this Sedov's test compared to the previous - the energy
-  concentrated at the origin is lesser, and domain is assumed to be periodic.
-  When shocks collide at the periodic boundaries, the resulting interaction
-  leads to the formation of small scale structures. A reference solution on a
-  <math|128<rsup|2>> element mesh with polynomial degree <math|N=4> is shown
-  in Figure<nbsp><reference|fig:blast.periodic.reference>. In
-  Figure<nbsp><reference|fig:blast.periodic>, we compare the density profiles
-  of the numerical solutions of polynomial degree <math|N=4> on a mesh of
-  <math|64<rsup|2>> elements using <with|font-family|tt|Trixi.jl> and the
-  proposed MUSCL-Hancock blending scheme in log scales. The solution on the
-  coarse mesh generated by the proposed scheme is able to resolve small scale
-  structures better than the solution of <verbatim|Trixi.jl> on the coarse
-  mesh. This is most evidently seen by looking at the
+  two differences in this Sedov's test compared to the previous one - the
+  energy concentrated at the origin is lesser, and domain is assumed to be
+  periodic. When shocks collide at the periodic boundaries, the resulting
+  interaction leads to the formation of small scale structures. A reference
+  solution on a <math|128<rsup|2>> element mesh with polynomial degree
+  <math|N=4> is shown in Figure<nbsp><reference|fig:blast.periodic.reference>.
+  In Figure<nbsp><reference|fig:blast.periodic>, we compare the density
+  profiles of the numerical solutions of polynomial degree <math|N=4> on a
+  mesh of <math|64<rsup|2>> elements using <with|font-family|tt|Trixi.jl> and
+  the proposed MUSCL-Hancock blending scheme in log scales. The solution on
+  the coarse mesh generated by the proposed scheme is able to resolve small
+  scale structures better than the solution of <verbatim|Trixi.jl> on the
+  coarse mesh. This is most evidently seen by looking at the
   <with|font-shape|italic|mushroom structures> as some of the mushroom
   structures in the MUSCL-Hancock scheme (Figure<nbsp><reference|fig:blast.periodic>b)
   look very similar to the reference solution
   (Figure<nbsp><reference|fig:blast.periodic.reference>b).
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/sedov_gassner/reference_t2|0.45par|||>>|<cell|<image|figures/paper2/euler2d/sedov_gassner/reference|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/sedov_gassner/reference_t2|0.43par|||>>|<cell|<image|figures/paper2/euler2d/sedov_gassner/reference|0.43par|||>>>|<row|<cell|(a)
   <math|t=2>>|<cell|(b) <math|t=20>>>>>><label|fig:blast.periodic.reference>>|<caption-detailed|Sedov's
   blast test with periodic domain, density plot of numerical solution on
   <math|128\<times\>128> mesh in log scales with degree <math|N=4> at (a)
@@ -1500,7 +1523,7 @@
   using <with|font-family|tt|Trixi.jl>.|Sedov's blast with periodic domain,
   reference solution.>>
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/sedov_gassner/trixi|0.45par|||>>|<cell|<image|figures/paper2/euler2d/sedov_gassner/lwfr|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/sedov_gassner/trixi|0.43par|||>>|<cell|<image|figures/paper2/euler2d/sedov_gassner/lwfr|0.43par|||>>>|<row|<cell|(a)
   <with|font-family|tt|Trixi.jl>>|<cell|(b)
   LW-MH>>>>><label|fig:blast.periodic>>|<caption-detailed|Sedov's blast test
   with periodic domain, density plot of numerical solution on
@@ -1538,7 +1561,7 @@
   the admissibility preservation and negative pressure values are obtained if
   the proposed admissibility correction is not applied.
 
-  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/shock_diffraction/density.png|0.45par|||>>|<cell|<image|figures/paper2/euler2d/shock_diffraction/mach.png|0.45par|||>>>|<row|<cell|(a)
+  <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|c>|<cwith|1|-1|2|2|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/shock_diffraction/density.png|0.43par|||>>|<cell|<image|figures/paper2/euler2d/shock_diffraction/mach.png|0.43par|||>>>|<row|<cell|(a)
   Density>|<cell|(b) Mach number>>>>><label|fig:shock.diffraction>>|<caption-detailed|Shock
   diffraction test, numerical solution at time <math|t=0.01> with polynomial
   degree <math|N=4>.|Shock diffraction test with LW-MH.>>
@@ -1590,6 +1613,13 @@
   the blending limiter is activated in a small fraction of the cells and only
   in the vicinity of shocks.
 
+  <big-figure|<image|figures/paper2/euler2d/forward_step/ffs_alp0.pdf|0.5par|||><label|fig:ffs.alpha.stats>|<caption-detailed|Forward
+  facing step test case, percentage of elements where the blending
+  coefficient <math|\<alpha\>> is non-zero versus time <math|t> for
+  approximate solution with polynomial degree <math|N=4> on a mesh with
+  <math|\<Delta\>x<rsub|max>=1/160>.|Forward facing step, percentage of
+  elements with blending coefficient <math|\<alpha\>\<gtr\>0> vs <math|t>.>>
+
   <big-figure|<with|par-mode|center|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|1|1|cell-rborder|0ln>|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|8|10|1|1|cell-halign|c>|<cwith|8|10|1|1|cell-lborder|0ln>|<cwith|8|10|1|1|cell-rborder|0ln>|<cwith|8|10|1|1|cell-valign|c>|<table|<row|<cell|<image|figures/paper2/euler2d/forward_step/colourbar.pdf|0.72par|||>>>|<row|<cell|<image|figures/paper2/euler2d/forward_step/N2.png|0.72par|||>>>|<row|<cell|(a)
   <math|N=2>>>|<row|<cell|<image|figures/paper2/euler2d/forward_step/N3.png|0.72par|||>>>|<row|<cell|(b)
   <math|N=3>>>|<row|<cell|<image|figures/paper2/euler2d/forward_step/N4.png|0.72par|||>>>|<row|<cell|(c)
@@ -1603,22 +1633,15 @@
   smaller grid spacing <math|\<Delta\>x<rsub|min>=\<Delta\>y<rsub|min>=<frac|1|4>*\<Delta\>x<rsub|max>>
   near the corner.|Forward facing step with LW-MH.>>
 
-  <big-figure|<image|figures/paper2/euler2d/forward_step/ffs_alp0.pdf|0.65par|||><label|fig:ffs.alpha.stats>|<caption-detailed|Forward
-  facing step test case, percentage of elements where the blending
-  coefficient <math|\<alpha\>> is non-zero versus time <math|t> for
-  approximate solution with polynomial degree <math|N=4> on a mesh with
-  <math|\<Delta\>x<rsub|max>=1/160>.|Forward facing step, percentage of
-  elements with blending coefficient <math|\<alpha\>\<gtr\>0> vs <math|t>.>>
-
   <section|Summary and conclusions><label|sec:sum.blend>
 
   An admissibility preserving subcell-based blending limiter for the high
   order Lax-Wendroff Flux Reconstruction (LWFR) scheme has been constructed
-  by extending the LWFR scheme proposed in<nbsp><cite|babbar2022> using the
-  blending limiter of<nbsp><cite|hennemann2021>. The scheme uses a smoothness
-  indicator to blend two single-stage solvers on the FR grid, one based on
-  the high order LWFR method and the other based on a finite volume update on
-  the subcells. At the FR element interfaces, a
+  by extending the LWFR scheme proposed in Chapter<nbsp><reference|ch:lwfr>
+  using the blending limiter of<nbsp><cite|hennemann2021>. The scheme uses a
+  smoothness indicator to blend two single-stage solvers on the FR grid, one
+  based on the high order LWFR method and the other based on a finite volume
+  update on the subcells. At the FR element interfaces, a
   <with|font-shape|italic|blended numerical flux> is constructed using the
   Lax-Wendroff time averaged flux and lower order numerical flux. The same
   blended numerical flux is used by both schemes at the element interfaces to
@@ -1655,7 +1678,7 @@
     <associate|font-base-size|12>
     <associate|info-flag|short>
     <associate|page-even|1in>
-    <associate|page-first|102>
+    <associate|page-first|104>
     <associate|page-medium|paper>
     <associate|page-odd|1in>
     <associate|page-odd-shift|0mm>
@@ -1672,134 +1695,139 @@
 
 <\references>
   <\collection>
-    <associate|alg:flux.limit|<tuple|5.1|115>>
-    <associate|alg:high.level.lw|<tuple|5.2|117>>
-    <associate|auto-1|<tuple|5|103>>
-    <associate|auto-10|<tuple|5.4|110>>
-    <associate|auto-11|<tuple|5.4.1|112>>
-    <associate|auto-12|<tuple|5.5|113>>
-    <associate|auto-13|<tuple|5.6|116>>
-    <associate|auto-14|<tuple|5.7|117>>
-    <associate|auto-15|<tuple|5.7.1|118>>
-    <associate|auto-16|<tuple|5.7.1.1|118>>
-    <associate|auto-17|<tuple|5.3|118>>
-    <associate|auto-18|<tuple|5.7.1.2|119>>
-    <associate|auto-19|<tuple|5.4|119>>
-    <associate|auto-2|<tuple|5.1|103>>
-    <associate|auto-20|<tuple|5.7.1.3|119>>
-    <associate|auto-21|<tuple|5.5|120>>
-    <associate|auto-22|<tuple|5.7.1.4|120>>
-    <associate|auto-23|<tuple|5.6|121>>
-    <associate|auto-24|<tuple|5.7|121>>
-    <associate|auto-25|<tuple|5.8|121>>
-    <associate|auto-26|<tuple|5.8|122>>
-    <associate|auto-27|<tuple|5.9|122>>
-    <associate|auto-28|<tuple|5.9.1|123>>
-    <associate|auto-29|<tuple|5.9|123>>
-    <associate|auto-3|<tuple|5.2|103>>
-    <associate|auto-30|<tuple|5.9.2|123>>
-    <associate|auto-31|<tuple|5.10|124>>
-    <associate|auto-32|<tuple|5.11|125>>
-    <associate|auto-33|<tuple|5.12|125>>
-    <associate|auto-34|<tuple|5.9.3|125>>
-    <associate|auto-35|<tuple|5.13|126>>
-    <associate|auto-36|<tuple|5.9.4|126>>
-    <associate|auto-37|<tuple|5.14|127>>
-    <associate|auto-38|<tuple|5.9.5|127>>
-    <associate|auto-39|<tuple|5.15|128>>
-    <associate|auto-4|<tuple|5.3|105>>
-    <associate|auto-40|<tuple|5.9.6|128>>
-    <associate|auto-41|<tuple|5.16|129>>
-    <associate|auto-42|<tuple|5.17|130>>
-    <associate|auto-43|<tuple|5.9.7|130>>
-    <associate|auto-44|<tuple|5.18|131>>
-    <associate|auto-45|<tuple|5.9.8|131>>
-    <associate|auto-46|<tuple|5.19|132>>
-    <associate|auto-47|<tuple|5.20|133>>
-    <associate|auto-48|<tuple|5.10|133>>
-    <associate|auto-5|<tuple|5.3.1|105>>
-    <associate|auto-6|<tuple|5.1|106>>
-    <associate|auto-7|<tuple|5.3.2|108>>
-    <associate|auto-8|<tuple|5.2|109>>
-    <associate|auto-9|<tuple|5.3.3|109>>
-    <associate|ch:lw.subcell.limiter|<tuple|5|103>>
-    <associate|defn:adm.pres|<tuple|5.1|104>>
-    <associate|defn:mean.pres|<tuple|5.2|105>>
-    <associate|eq:1d.smoothness.E|<tuple|5.12|108>>
-    <associate|eq:Fblend|<tuple|5.11|107>>
-    <associate|eq:blended.scheme|<tuple|5.6|106>>
-    <associate|eq:concave.theta|<tuple|5.24|112>>
-    <associate|eq:conservation.blending.scheme|<tuple|5.10|107>>
-    <associate|eq:conv.pres.con.law|<tuple|5.4|104>>
-    <associate|eq:delta.defn|<tuple|5.17|110>>
-    <associate|eq:evolution|<tuple|5.19|111>>
-    <associate|eq:flux.concave.theta|<tuple|5.29|115>>
-    <associate|eq:flux.optimization.problem|<tuple|5.28|115>>
-    <associate|eq:fo.at.face|<tuple|5.14|110>>
-    <associate|eq:fravgup|<tuple|5.3|104>>
-    <associate|eq:low.order.cell.avg.update|<tuple|5.9|107>>
-    <associate|eq:low.order.high.level|<tuple|5.5|105>>
-    <associate|eq:low.order.tilde.update|<tuple|5.27|115>>
-    <associate|eq:low.order.update|<tuple|5.8|106>>
-    <associate|eq:mh.at.face|<tuple|5.20|111>>
-    <associate|eq:mh.corr.flux|<tuple|5.16|110>>
-    <associate|eq:numresults.2dadv|<tuple|5.8|121>>
-    <associate|eq:optimization.problem|<tuple|5.23|112>>
-    <associate|eq:pk.slope.correction|<tuple|5.25|113>>
-    <associate|eq:reconstruction|<tuple|5.18|111>>
-    <associate|eq:riemann.problem|<tuple|5.15|110>>
-    <associate|eq:smoothing|<tuple|5.13|109>>
-    <associate|eq:subcell.defn|<tuple|5.7|106>>
-    <associate|eq:uad.form|<tuple|5.1|103>>
-    <associate|eq:us.defn.main|<tuple|5.21|111>>
-    <associate|eq:use.weak.convexity|<tuple|5.25|113>>
-    <associate|eq:ustar.in.uad|<tuple|5.22|112>>
-    <associate|eq:weak.convexity|<tuple|5.2|104>>
-    <associate|fig:ShuOsher.chblend|<tuple|5.3|118>>
-    <associate|fig:alpha.func|<tuple|5.2|109>>
-    <associate|fig:astrophysical.jet|<tuple|5.15|128>>
-    <associate|fig:blast.chblend|<tuple|5.4|119>>
-    <associate|fig:blast.periodic|<tuple|5.17|130>>
-    <associate|fig:blast.periodic.reference|<tuple|5.16|129>>
-    <associate|fig:composite.signal.2d|<tuple|5.8|122>>
-    <associate|fig:dmr|<tuple|5.13|126>>
-    <associate|fig:double.rarefaction|<tuple|5.6|121>>
-    <associate|fig:ffs.alpha.stats|<tuple|5.20|133>>
-    <associate|fig:forward.step|<tuple|5.19|132>>
-    <associate|fig:isentropic.convergence.chblend|<tuple|5.9|123>>
-    <associate|fig:kh|<tuple|5.14|127>>
-    <associate|fig:leblanc|<tuple|5.7|121>>
-    <associate|fig:rp2d|<tuple|5.10|124>>
-    <associate|fig:rp2d.alpha|<tuple|5.11|125>>
-    <associate|fig:rp2d.alpha.stats|<tuple|5.12|125>>
-    <associate|fig:sedov.blast|<tuple|5.5|120>>
-    <associate|fig:shock.diffraction|<tuple|5.18|131>>
-    <associate|fig:subcells|<tuple|5.1|106>>
-    <associate|footnote-5.1|<tuple|5.1|111>>
-    <associate|footnr-5.1|<tuple|5.1|111>>
-    <associate|rmk:why.same.flux|<tuple|5.3|107>>
-    <associate|sec:2drp|<tuple|5.9.2|123>>
-    <associate|sec:admissibility.preservation|<tuple|5.5|113>>
-    <associate|sec:alg|<tuple|5.6|116>>
-    <associate|sec:blast.chblend|<tuple|5.7.1.2|119>>
-    <associate|sec:blend.review|<tuple|5.2|103>>
-    <associate|sec:blending.scheme|<tuple|5.3.1|105>>
-    <associate|sec:controlling.oscillations|<tuple|5.3|105>>
-    <associate|sec:ffs|<tuple|5.9.8|131>>
-    <associate|sec:fo|<tuple|5.3.3|109>>
-    <associate|sec:kh|<tuple|5.9.4|126>>
-    <associate|sec:m2000|<tuple|5.9.5|127>>
-    <associate|sec:mh|<tuple|5.4|110>>
-    <associate|sec:num.results.chblend|<tuple|5.7|117>>
-    <associate|sec:numresults.2d.euler|<tuple|5.9|122>>
-    <associate|sec:res1dsys.chblend|<tuple|5.7.1|118>>
-    <associate|sec:sedov.blast.1d|<tuple|5.7.1.3|119>>
-    <associate|sec:shuosher.blend|<tuple|5.7.1.1|118>>
-    <associate|sec:slope.limiting|<tuple|5.4.1|112>>
-    <associate|sec:smooth.ind|<tuple|5.3.2|108>>
-    <associate|sec:sum.blend|<tuple|5.10|133>>
-    <associate|thm:lwfr.admissibility|<tuple|5.5|114>>
-    <associate|thm:muscl.admissibility.theorem|<tuple|5.4|111>>
+    <associate|alg:flux.limit|<tuple|5.1|117>>
+    <associate|alg:high.level.lw|<tuple|5.2|119>>
+    <associate|auto-1|<tuple|5|105>>
+    <associate|auto-10|<tuple|5.4|112>>
+    <associate|auto-11|<tuple|5.4.1|114>>
+    <associate|auto-12|<tuple|5.5|115>>
+    <associate|auto-13|<tuple|5.6|118>>
+    <associate|auto-14|<tuple|5.7|119>>
+    <associate|auto-15|<tuple|5.7.1|120>>
+    <associate|auto-16|<tuple|5.7.1.1|120>>
+    <associate|auto-17|<tuple|5.3|120>>
+    <associate|auto-18|<tuple|5.4|121>>
+    <associate|auto-19|<tuple|5.7.1.2|121>>
+    <associate|auto-2|<tuple|5.1|105>>
+    <associate|auto-20|<tuple|5.5|121>>
+    <associate|auto-21|<tuple|5.7.1.3|122>>
+    <associate|auto-22|<tuple|5.6|122>>
+    <associate|auto-23|<tuple|5.7.1.4|122>>
+    <associate|auto-24|<tuple|5.7|123>>
+    <associate|auto-25|<tuple|5.8|123>>
+    <associate|auto-26|<tuple|5.8|124>>
+    <associate|auto-27|<tuple|5.9|124>>
+    <associate|auto-28|<tuple|5.9|124>>
+    <associate|auto-29|<tuple|5.9.1|125>>
+    <associate|auto-3|<tuple|5.2|105>>
+    <associate|auto-30|<tuple|5.10|125>>
+    <associate|auto-31|<tuple|5.9.2|125>>
+    <associate|auto-32|<tuple|5.11|126>>
+    <associate|auto-33|<tuple|5.12|126>>
+    <associate|auto-34|<tuple|5.9.3|126>>
+    <associate|auto-35|<tuple|5.13|127>>
+    <associate|auto-36|<tuple|5.14|127>>
+    <associate|auto-37|<tuple|5.15|128>>
+    <associate|auto-38|<tuple|5.9.4|128>>
+    <associate|auto-39|<tuple|5.16|129>>
+    <associate|auto-4|<tuple|5.3|107>>
+    <associate|auto-40|<tuple|5.9.5|129>>
+    <associate|auto-41|<tuple|5.17|130>>
+    <associate|auto-42|<tuple|5.9.6|130>>
+    <associate|auto-43|<tuple|5.18|131>>
+    <associate|auto-44|<tuple|5.19|131>>
+    <associate|auto-45|<tuple|5.9.7|131>>
+    <associate|auto-46|<tuple|5.20|132>>
+    <associate|auto-47|<tuple|5.9.8|132>>
+    <associate|auto-48|<tuple|5.21|133>>
+    <associate|auto-49|<tuple|5.22|134>>
+    <associate|auto-5|<tuple|5.3.1|107>>
+    <associate|auto-50|<tuple|5.10|135>>
+    <associate|auto-6|<tuple|5.1|108>>
+    <associate|auto-7|<tuple|5.3.2|110>>
+    <associate|auto-8|<tuple|5.2|111>>
+    <associate|auto-9|<tuple|5.3.3|111>>
+    <associate|ch:lw.subcell.limiter|<tuple|5|105>>
+    <associate|defn:adm.pres|<tuple|5.1|106>>
+    <associate|defn:mean.pres|<tuple|5.2|107>>
+    <associate|eq:1d.smoothness.E|<tuple|5.12|110>>
+    <associate|eq:Fblend|<tuple|5.11|109>>
+    <associate|eq:blended.scheme|<tuple|5.6|108>>
+    <associate|eq:concave.theta|<tuple|5.24|114>>
+    <associate|eq:conservation.blending.scheme|<tuple|5.10|109>>
+    <associate|eq:conv.pres.con.law|<tuple|5.4|106>>
+    <associate|eq:delta.defn|<tuple|5.17|112>>
+    <associate|eq:evolution|<tuple|5.19|113>>
+    <associate|eq:flux.concave.theta|<tuple|5.29|117>>
+    <associate|eq:flux.optimization.problem|<tuple|5.28|117>>
+    <associate|eq:fo.at.face|<tuple|5.14|112>>
+    <associate|eq:fravgup|<tuple|5.3|106>>
+    <associate|eq:low.order.cell.avg.update|<tuple|5.9|109>>
+    <associate|eq:low.order.high.level|<tuple|5.5|107>>
+    <associate|eq:low.order.tilde.update|<tuple|5.27|117>>
+    <associate|eq:low.order.update|<tuple|5.8|108>>
+    <associate|eq:mh.at.face|<tuple|5.20|113>>
+    <associate|eq:mh.corr.flux|<tuple|5.16|112>>
+    <associate|eq:numresults.2dadv|<tuple|5.8|124>>
+    <associate|eq:optimization.problem|<tuple|5.23|114>>
+    <associate|eq:pk.slope.correction|<tuple|5.25|115>>
+    <associate|eq:reconstruction|<tuple|5.18|113>>
+    <associate|eq:riemann.problem|<tuple|5.15|112>>
+    <associate|eq:smoothing|<tuple|5.13|111>>
+    <associate|eq:subcell.defn|<tuple|5.7|108>>
+    <associate|eq:uad.form|<tuple|5.1|105>>
+    <associate|eq:us.defn.main|<tuple|5.21|113>>
+    <associate|eq:use.weak.convexity|<tuple|5.25|115>>
+    <associate|eq:ustar.in.uad|<tuple|5.22|114>>
+    <associate|eq:weak.convexity|<tuple|5.2|106>>
+    <associate|fig:ShuOsher.chblend|<tuple|5.4|121>>
+    <associate|fig:ShuOsher.chblend.nozoom|<tuple|5.3|120>>
+    <associate|fig:alpha.func|<tuple|5.2|111>>
+    <associate|fig:astrophysical.jet|<tuple|5.17|130>>
+    <associate|fig:blast.chblend|<tuple|5.5|121>>
+    <associate|fig:blast.periodic|<tuple|5.19|131>>
+    <associate|fig:blast.periodic.reference|<tuple|5.18|131>>
+    <associate|fig:composite.signal.2d|<tuple|5.9|124>>
+    <associate|fig:dmr|<tuple|5.12|126>>
+    <associate|fig:dmr.full|<tuple|5.11|126>>
+    <associate|fig:double.rarefaction|<tuple|5.7|123>>
+    <associate|fig:ffs.alpha.stats|<tuple|5.21|133>>
+    <associate|fig:forward.step|<tuple|5.22|134>>
+    <associate|fig:isentropic.convergence.chblend|<tuple|5.10|125>>
+    <associate|fig:kh|<tuple|5.16|129>>
+    <associate|fig:leblanc|<tuple|5.8|123>>
+    <associate|fig:rp2d|<tuple|5.13|127>>
+    <associate|fig:rp2d.alpha|<tuple|5.14|127>>
+    <associate|fig:rp2d.alpha.stats|<tuple|5.15|128>>
+    <associate|fig:sedov.blast|<tuple|5.6|122>>
+    <associate|fig:shock.diffraction|<tuple|5.20|132>>
+    <associate|fig:subcells|<tuple|5.1|108>>
+    <associate|footnote-1|<tuple|1|?>>
+    <associate|footnote-5.1|<tuple|5.1|113>>
+    <associate|footnr-5.1|<tuple|5.1|113>>
+    <associate|rmk:why.same.flux|<tuple|5.3|109>>
+    <associate|sec:2drp|<tuple|5.9.3|126>>
+    <associate|sec:admissibility.preservation|<tuple|5.5|115>>
+    <associate|sec:alg|<tuple|5.6|118>>
+    <associate|sec:blast.chblend|<tuple|5.7.1.2|121>>
+    <associate|sec:blend.review|<tuple|5.2|105>>
+    <associate|sec:blending.scheme|<tuple|5.3.1|107>>
+    <associate|sec:controlling.oscillations|<tuple|5.3|107>>
+    <associate|sec:ffs|<tuple|5.9.8|132>>
+    <associate|sec:fo|<tuple|5.3.3|111>>
+    <associate|sec:kh|<tuple|5.9.4|128>>
+    <associate|sec:m2000|<tuple|5.9.5|129>>
+    <associate|sec:mh|<tuple|5.4|112>>
+    <associate|sec:num.results.chblend|<tuple|5.7|119>>
+    <associate|sec:numresults.2d.euler|<tuple|5.9|124>>
+    <associate|sec:res1dsys.chblend|<tuple|5.7.1|120>>
+    <associate|sec:sedov.blast.1d|<tuple|5.7.1.3|122>>
+    <associate|sec:shuosher.blend|<tuple|5.7.1.1|120>>
+    <associate|sec:slope.limiting|<tuple|5.4.1|114>>
+    <associate|sec:smooth.ind|<tuple|5.3.2|110>>
+    <associate|sec:sum.blend|<tuple|5.10|135>>
+    <associate|thm:lwfr.admissibility|<tuple|5.5|116>>
+    <associate|thm:muscl.admissibility.theorem|<tuple|5.4|113>>
   </collection>
 </references>
 
@@ -1952,8 +1980,6 @@
 
       Woodward1984
 
-      babbar2022
-
       hennemann2021
 
       zhang2010c
@@ -1978,82 +2004,89 @@
       </surround>|<pageref|auto-17>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.4>|>
-        Comparing TVB and blending schemes on blast wave.
-      </surround>|<pageref|auto-19>>
+        Zoomed plot comparing TVB and blending schemes on Shu-Osher test.
+      </surround>|<pageref|auto-18>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.5>|>
-        Sedov's blast wave problem
-      </surround>|<pageref|auto-21>>
+        Comparing TVB and blending schemes on blast wave.
+      </surround>|<pageref|auto-20>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.6>|>
-        Double rarefaction problem with LW-MH.
-      </surround>|<pageref|auto-23>>
+        Sedov's blast wave problem
+      </surround>|<pageref|auto-22>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.7>|>
-        Leblanc's test with LW-MH.
+        Double rarefaction problem with LW-MH.
       </surround>|<pageref|auto-24>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.8>|>
-        TVB and blending schemes compared on composite signal.
-      </surround>|<pageref|auto-26>>
+        Leblanc's test with LW-MH.
+      </surround>|<pageref|auto-25>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.9>|>
-        Isentropic convergence with blending limiter.
-      </surround>|<pageref|auto-29>>
+        TVB and blending schemes compared on composite signal.
+      </surround>|<pageref|auto-27>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.10>|>
-        LW-MH on 2-D Riemann problem.
-      </surround>|<pageref|auto-31>>
+        Isentropic convergence with blending limiter.
+      </surround>|<pageref|auto-30>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.11>|>
-        Blending coefficient <with|mode|<quote|math>|\<alpha\>> for 2-D
-        Riemann problem.
+        Double Mach reflection with LW-MH.
       </surround>|<pageref|auto-32>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.12>|>
-        2-D Riemann problem, percentage of elements with blending coefficient
-        <with|mode|<quote|math>|\<alpha\>\<gtr\>0> vs
-        <with|mode|<quote|math>|t>.
+        Double Mach reflection with LW-MH.
       </surround>|<pageref|auto-33>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.13>|>
-        Double Mach reflection with LW-MH.
+        LW-MH on 2-D Riemann problem.
       </surround>|<pageref|auto-35>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.14>|>
-        Kelvin-Helmholtz instability with LW-MH.
-      </surround>|<pageref|auto-37>>
+        Blending coefficient <with|mode|<quote|math>|\<alpha\>> for 2-D
+        Riemann problem.
+      </surround>|<pageref|auto-36>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.15>|>
-        Mach 2000 astrophysical jet with LW-MH.
-      </surround>|<pageref|auto-39>>
+        2-D Riemann problem, percentage of elements with blending coefficient
+        <with|mode|<quote|math>|\<alpha\>\<gtr\>0> vs
+        <with|mode|<quote|math>|t>.
+      </surround>|<pageref|auto-37>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.16>|>
-        Sedov's blast with periodic domain, reference solution.
-      </surround>|<pageref|auto-41>>
+        Kelvin-Helmholtz instability with LW-MH.
+      </surround>|<pageref|auto-39>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.17>|>
-        Sedov's blast with periodic domain, LW-MH.
-      </surround>|<pageref|auto-42>>
+        Mach 2000 astrophysical jet with LW-MH.
+      </surround>|<pageref|auto-41>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.18>|>
-        Shock diffraction test with LW-MH.
-      </surround>|<pageref|auto-44>>
+        Sedov's blast with periodic domain, reference solution.
+      </surround>|<pageref|auto-43>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.19>|>
-        Forward facing step with LW-MH.
-      </surround>|<pageref|auto-46>>
+        Sedov's blast with periodic domain, LW-MH.
+      </surround>|<pageref|auto-44>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|5.20>|>
+        Shock diffraction test with LW-MH.
+      </surround>|<pageref|auto-46>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.21>|>
         Forward facing step, percentage of elements with blending coefficient
         <with|mode|<quote|math>|\<alpha\>\<gtr\>0> vs
         <with|mode|<quote|math>|t>.
-      </surround>|<pageref|auto-47>>
+      </surround>|<pageref|auto-48>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|5.22>|>
+        Forward facing step with LW-MH.
+      </surround>|<pageref|auto-49>>
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|5.<space|2spc>Admissibility
-      preserving subcell based blending limiter>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      preserving subcell limiter> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <pageref|auto-1><vspace|0.5fn>
 
       5.1.<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
@@ -2108,59 +2141,59 @@
 
       <with|par-left|<quote|2tab>|5.7.1.2.<space|2spc>Blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-18>>
+      <no-break><pageref|auto-19>>
 
       <with|par-left|<quote|2tab>|5.7.1.3.<space|2spc>Sedov's blast wave
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-20>>
+      <no-break><pageref|auto-21>>
 
       <with|par-left|<quote|2tab>|5.7.1.4.<space|2spc>Riemann problems
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-22>>
+      <no-break><pageref|auto-23>>
 
       5.8.<space|2spc>2-D advection equation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-25>
+      <no-break><pageref|auto-26>
 
       5.9.<space|2spc>2-D Euler equations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-27>
+      <no-break><pageref|auto-28>
 
       <with|par-left|<quote|1tab>|5.9.1.<space|2spc>Isentropic vortex
       convergence test <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-28>>
+      <no-break><pageref|auto-29>>
 
-      <with|par-left|<quote|1tab>|5.9.2.<space|2spc>2-D Riemann problem
+      <with|par-left|<quote|1tab>|5.9.2.<space|2spc>Double Mach reflection
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-30>>
+      <no-break><pageref|auto-31>>
 
-      <with|par-left|<quote|1tab>|5.9.3.<space|2spc>Double Mach reflection
+      <with|par-left|<quote|1tab>|5.9.3.<space|2spc>2-D Riemann problem
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-34>>
 
       <with|par-left|<quote|1tab>|5.9.4.<space|2spc>Kelvin-Helmholtz
       instability <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-36>>
+      <no-break><pageref|auto-38>>
 
       <with|par-left|<quote|1tab>|5.9.5.<space|2spc>Astrophysical jet
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-38>>
+      <no-break><pageref|auto-40>>
 
       <with|par-left|<quote|1tab>|5.9.6.<space|2spc>Sedov's blast case with
       periodic boundary conditions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-40>>
+      <no-break><pageref|auto-42>>
 
       <with|par-left|<quote|1tab>|5.9.7.<space|2spc>Detonation shock
       diffraction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-43>>
+      <no-break><pageref|auto-45>>
 
       <with|par-left|<quote|1tab>|5.9.8.<space|2spc>Forward facing step
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-45>>
+      <no-break><pageref|auto-47>>
 
       5.10.<space|2spc>Summary and conclusions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-48>
+      <no-break><pageref|auto-50>
     </associate>
   </collection>
 </auxiliary>

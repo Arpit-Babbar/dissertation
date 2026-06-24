@@ -1,70 +1,29 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1>
 
 <project|main.tm>
 
-<style|<tuple|tmbook|preview-ref|comment>>
+<style|<tuple|tmbook|preview-ref|comment|style_common>>
 
 <\body>
-  <\center>
-    <with|font-series|bold|DECLARATION>
-  </center>
-
-  \;
-
-  \;
-
-  <no-indent><blanc-page>This thesis is a presentation of my original
-  research work. Wherever contributions of others are involved, every effort
-  is made to indicate this clearly, with due reference to the literature, and
-  acknowledgement of collaborative research and discussions.
-
-  \;
-
-  <no-indent>The work was done under the guidance of my advisor Prof. Dr.
-  Praveen Chandrashekar at the Tata Institute of Fundamental Research, Centre
-  For Applicable Mathematics.
-
-  \;
-
-  \;
-
-  <\with|par-mode|right>
+  <\hide-preamble>
     \;
-  </with>
+  </hide-preamble>
 
-  <\with|par-mode|right>
-    <with|font-series|bold|Arpit Babbar>
-  </with>
+  <blanc-page><new-page>
 
-  \;
-
-  \;
-
-  <no-indent>In my capacity as supervisor of the candidate's thesis, I
-  certify that the above statements are true to the best of my
-  knowledge.<next-line>
-
-  \;
-
-  <\with|par-mode|right>
-    <with|font-series|bold|Prof. Dr. Praveen Chandrashekar>
-
-    \;
-
-    \;
-
-    Date: <date|>
-  </with>
+  <image|declaration_signed_cropped.pdf|1.0par|||><blanc-page>
 </body>
 
 <\initial>
   <\collection>
     <associate|chapter-nr|0>
     <associate|font-base-size|12>
-    <associate|page-even|1in>
-    <associate|page-first|2>
+    <associate|page-even|0in>
+    <associate|page-first|ii>
     <associate|page-medium|paper>
-    <associate|page-odd|1in>
+    <associate|page-odd|0in>
+    <associate|page-right|0in>
+    <associate|page-screen-margin|false>
     <associate|page-width-margin|false>
     <associate|par-width|165mm>
     <associate|section-nr|0>

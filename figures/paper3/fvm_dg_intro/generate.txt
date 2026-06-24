@@ -1,0 +1,2 @@
+go to lwfr_arpit branch thesis_fvmdg
+sh thesis_data.sh

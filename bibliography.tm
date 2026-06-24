@@ -2,7 +2,7 @@
 
 <project|main.tm>
 
-<style|<tuple|tmbook|preview-ref|comment>>
+<style|<tuple|tmbook|preview-ref|comment|style_common>>
 
 <\body>
   <\hide-preamble>
@@ -13,14 +13,14 @@
     <\bib-list|208>
       <bibitem*|1><label|bib-Abe2015>Yoshiaki Abe, Takanori Haga, Taku
       Nonomura<localize|, and >Kozo Fujii. <newblock>On the freestream
-      preservation of high-order conservative flux-reconstruction schemes.
+      preservation of high-order conservative Flux-Reconstruction schemes.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       281:28\U54, 2015.<newblock>
 
       <bibitem*|2><label|bib-Abgrall2020>Rémi Abgrall, Elise<nbsp>le Mélédo,
       Philipp Öffner<localize|, and >Hendrik Ranocha. <newblock>Error
       boundedness of correction procedure via Reconstruction/Flux
-      reconstruction and the connection to residual distribution schemes.
+      Reconstruction and the connection to residual distribution schemes.
       <newblock><localize|In >Alberto Bressan, Marta Lewicka, Dehua
       Wang<localize|, and >Yuxi Zheng<localize|, editors>,
       <with|font-shape|italic|Hyperbolic problems: Theory, numerics,
@@ -31,7 +31,7 @@
 
       <bibitem*|3><label|bib-akkurt2022>Semih Akkurt, Freddie
       Witherden<localize|, and >Peter Vincent. <newblock>Cache blocking
-      strategies applied to flux reconstruction.
+      strategies applied to Flux Reconstruction.
       <newblock><with|font-shape|italic|Computer Physics Communications>,
       271:108193, 2022.<newblock>
 
@@ -71,7 +71,7 @@
 
       <bibitem*|11><label|bib-babbar2024generalized>Arpit Babbar<localize|
       and >Praveen Chandrashekar. <newblock>Generalized framework for
-      admissibility preserving lax-wendroff flux reconstruction for
+      admissibility preserving Lax-Wendroff Flux Reconstruction for
       hyperbolic conservation laws with source terms.
       <newblock>2024.<newblock>
 
@@ -81,7 +81,7 @@
       <newblock>2024.<newblock>
 
       <bibitem*|13><label|bib-babbar2024curved>Arpit Babbar<localize| and
-      >Praveen Chandrashekar. <newblock>Lax-wendroff flux reconstruction on
+      >Praveen Chandrashekar. <newblock>Lax-Wendroff Flux Reconstruction on
       adaptive curvilinear meshes with error based time stepping for
       hyperbolic conservation laws. <newblock>2024.<newblock>
 
@@ -109,14 +109,14 @@
 
       <bibitem*|18><label|bib-babbar2022>Arpit Babbar, Sudarshan<nbsp>Kumar
       Kenettinkara<localize|, and >Praveen Chandrashekar.
-      <newblock>Lax-wendroff flux reconstruction method for hyperbolic
+      <newblock>Lax-wendroff Flux Reconstruction method for hyperbolic
       conservation laws. <newblock><with|font-shape|italic|Journal of
       Computational Physics>, <localize|page >111423, 2022.<newblock>
 
       <bibitem*|19><label|bib-babbar2023admissibility>Arpit Babbar,
       Sudarshan<nbsp>Kumar Kenettinkara<localize|, and >Praveen
       Chandrashekar. <newblock>Admissibility preserving subcell limiter for
-      lax-wendroff flux reconstruction. <newblock>2023.<newblock>
+      Lax-Wendroff Flux Reconstruction. <newblock>2023.<newblock>
 
       <bibitem*|20><label|bib-Balsara2007>D.<nbsp>Balsara, C.<nbsp>Altmann,
       C.D.<nbsp>Munz<localize|, and >M.<nbsp>Dumbser. <newblock>A sub-cell
@@ -134,7 +134,7 @@
       <bibitem*|22><label|bib-Bassi1997>F.<nbsp>Bassi<localize| and
       >S.<nbsp>Rebay. <newblock>A high-order accurate discontinuous finite
       element method for the numerical solution of the compressible
-      navier\Ustokes equations. <newblock><with|font-shape|italic|Journal of
+      Navier\UStokes equations. <newblock><with|font-shape|italic|Journal of
       Computational Physics>, 131(2):267\U279, 1997.<newblock>
 
       <bibitem*|23><label|bib-Batten1997>P.<nbsp>Batten, N.<nbsp>Clarke,
@@ -155,7 +155,7 @@
       75(256):1809\U1831, jun 2006.<newblock>
 
       <bibitem*|26><label|bib-Berthon2006>Christophe Berthon. <newblock>Why
-      the MUSCL\UHancock scheme is l1-stable.
+      the MUSCL\UHancock scheme is L1-stable.
       <newblock><with|font-shape|italic|Numerische Mathematik>,
       104(1):27\U46, jun 2006.<newblock>
 
@@ -178,7 +178,7 @@
 
       <bibitem*|30><label|bib-Biswas2021>Biswarup Biswas, Harish
       Kumar<localize|, and >Anshu Yadav. <newblock>Entropy stable
-      discontinuous galerkin methods for ten-moment gaussian closure
+      discontinuous Galerkin methods for ten-moment gaussian closure
       equations. <newblock><with|font-shape|italic|Journal of Computational
       Physics>, 431:110148, 2021.<newblock>
 
@@ -195,8 +195,8 @@
 
       <bibitem*|33><label|bib-Burbeau2001>A.<nbsp>Burbeau,
       P.<nbsp>Sagaut<localize|, and >Ch.-H.<nbsp>Bruneau. <newblock>A
-      problem-independent limiter for high-order runge\Ukutta discontinuous
-      galerkin methods. <newblock><with|font-shape|italic|Journal of
+      problem-independent limiter for high-order Runge\UKutta discontinuous
+      Galerkin methods. <newblock><with|font-shape|italic|Journal of
       Computational Physics>, 169(1):111\U150, 2001.<newblock>
 
       <bibitem*|34><label|bib-Burger2017>Raimund Bürger, Sudarshan<nbsp>Kumar
@@ -252,7 +252,7 @@
 
       <bibitem*|43><label|bib-Chen2016>Zheng Chen, Hongying Huang<localize|,
       and >Jue Yan. <newblock>Third order maximum-principle-satisfying direct
-      discontinuous galerkin methods for time dependent convection diffusion
+      discontinuous Galerkin methods for time dependent convection diffusion
       equations on unstructured triangular meshes.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       308:198\U217, 2016.<newblock>
@@ -273,13 +273,13 @@
       <bibitem*|46><label|bib-Cicchino2022>Alexander Cicchino,
       David<nbsp>C.<nbsp>Del Rey Fernández, Siva Nadarajah, Jesse
       Chan<localize|, and >Mark<nbsp>H.<nbsp>Carpenter. <newblock>Provably
-      stable flux reconstruction high-order methods on curvilinear elements.
+      stable Flux Reconstruction high-order methods on curvilinear elements.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       463:111259, 2022.<newblock>
 
       <bibitem*|47><label|bib-Cicchino2022a>Alexander Cicchino, Siva
       Nadarajah<localize|, and >David<nbsp>C.<nbsp>Del Rey Fernández.
-      <newblock>Nonlinearly stable flux reconstruction high-order methods in
+      <newblock>Nonlinearly stable Flux Reconstruction high-order methods in
       split form. <newblock><with|font-shape|italic|Journal of Computational
       Physics>, 458:111094, 2022.<newblock>
 
@@ -314,7 +314,7 @@
 
       <bibitem*|52><label|bib-Cockburn1991>Bernardo Cockburn<localize| and
       >Chi-Wang Shu. <newblock>The runge-kutta local projection
-      <math|P<rsup|1>>-discontinuous-galerkin finite element method for
+      <math|P<rsup|1>>-discontinuous-Galerkin finite element method for
       scalar conservation laws. <newblock><with|font-shape|italic|ESAIM:
       Mathematical Modelling and Numerical Analysis - Modélisation
       Mathématique et Analyse Numérique>, 25(3):337\U361, 1991.<newblock>
@@ -344,7 +344,7 @@
       <bibitem*|57><label|bib-Grazia2014>D.<nbsp>De Grazia, G.<nbsp>Mengaldo,
       D.<nbsp>Moxey, P.<nbsp>E.<nbsp>Vincent<localize|, and
       >S.<nbsp>J.<nbsp>Sherwin. <newblock>Connections between the
-      discontinuous galerkin method and high-order flux reconstruction
+      discontinuous Galerkin method and high-order Flux Reconstruction
       schemes. <newblock>75(12):860\U877, 2014.<newblock>
 
       <bibitem*|58><label|bib-Rosa2018>J.<nbsp>N.<nbsp>de
@@ -449,8 +449,8 @@
 
       <bibitem*|75><label|bib-Fambri2017>Francesco Fambri, Michael
       Dumbser<localize|, and >Olindo Zanotti. <newblock>Space\Utime adaptive
-      ader-dg schemes for dissipative flows: compressible navier\Ustokes and
-      resistive mhd equations. <newblock><with|font-shape|italic|Computer
+      ader-dg schemes for dissipative flows: compressible Navier\UStokes and
+      resistive MHD equations. <newblock><with|font-shape|italic|Computer
       Physics Communications>, 220:297\U318, 2017.<newblock>
 
       <bibitem*|76><label|bib-Gassner2011a>Gregor Gassner, Michael Dumbser,
@@ -469,7 +469,7 @@
       <bibitem*|78><label|bib-Gassner_Winters_Hindenlang_Kopriva_2018>Gregor<nbsp>J.<nbsp>Gassner,
       Andrew<nbsp>R.<nbsp>Winters, Florian<nbsp>J.<nbsp>Hindenlang<localize|,
       and >David<nbsp>A.<nbsp>Kopriva. <newblock>The br1 scheme is stable for
-      the compressible navier\Ustokes equations.
+      the compressible Navier\UStokes equations.
       <newblock><with|font-shape|italic|Journal of Scientific Computing>,
       77(1):154\U200, 2018. <newblock>Citation Key: Gassner2018.<newblock>
 
@@ -481,7 +481,7 @@
 
       <bibitem*|80><label|bib-Glimm1985>James Glimm, Christian Klingenberg,
       Oliver McBryan, Bradley Plohr, David Sharp<localize|, and >Sara Yaniv.
-      <newblock>Front tracking and two-dimensional riemann problems.
+      <newblock>Front tracking and two-dimensional Riemann problems.
       <newblock><with|font-shape|italic|Advances in Applied Mathematics>,
       6(3):259\U290, 1985.<newblock>
 
@@ -540,7 +540,7 @@
       Andrés<nbsp>M.<nbsp>Rueda-Ramírez, Florian<nbsp>J.<nbsp>Hindenlang<localize|,
       and >Gregor<nbsp>J.<nbsp>Gassner. <newblock>A provably entropy stable
       subcell shock capturing approach for high order split form dg for the
-      compressible euler equations. <newblock><with|font-shape|italic|Journal
+      compressible Euler equations. <newblock><with|font-shape|italic|Journal
       of Computational Physics>, 426:109935, 2021.<newblock>
 
       <bibitem*|91><label|bib-hildebrand1973>Francis<nbsp>Begnaud Hildebrand.
@@ -604,7 +604,7 @@
 
       <bibitem*|102><label|bib-klockner2011>Andreas Klöckner, Tim
       Warburton<localize|, and >Jan Hesthaven. <newblock>Viscous shock
-      capturing in a time-explicit discontinuous galerkin method.
+      capturing in a time-explicit discontinuous Galerkin method.
       <newblock><with|font-shape|italic|Mathematical Modelling of Natural
       Phenomena>, 6:0, 02 2011.<newblock>
 
@@ -615,7 +615,7 @@
       <bibitem*|104><label|bib-Kopriva2019>David<nbsp>A Kopriva,
       Florian<nbsp>J Hindenlang, Thomas Bolemann<localize|, and
       >Gregor<nbsp>J Gassner. <newblock>Free-stream preservation for curved
-      geometrically non-conforming discontinuous galerkin spectral elements.
+      geometrically non-conforming discontinuous Galerkin spectral elements.
       <newblock><with|font-shape|italic|J. Sci. Comput.>, 79(3):1389\U1408,
       jun 2019.<newblock>
 
@@ -639,18 +639,18 @@
 
       <bibitem*|108><label|bib-kopriva2010>David Kopriva<localize| and
       >Gregor Gassner. <newblock>On the quadrature and weak form choices in
-      collocation type discontinuous galerkin spectral element methods.
+      collocation type discontinuous Galerkin spectral element methods.
       <newblock><with|font-shape|italic|J. Sci. Comput.>, 44:136\U155, 08
       2010.<newblock>
 
       <bibitem*|109><label|bib-Kozdon2018>Jeremy<nbsp>E.<nbsp>Kozdon<localize|
       and >Lucas<nbsp>C.<nbsp>Wilcox. <newblock>An energy stable approach for
       discretizing hyperbolic equations with nonconforming discontinuous
-      galerkin methods. <newblock><with|font-shape|italic|Journal of
+      Galerkin methods. <newblock><with|font-shape|italic|Journal of
       Scientific Computing>, 76(3):1742\U1784, mar 2018.<newblock>
 
       <bibitem*|110><label|bib-Krivodonova2007>Lilia Krivodonova.
-      <newblock>Limiters for high-order discontinuous galerkin methods.
+      <newblock>Limiters for high-order discontinuous Galerkin methods.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       226(1):879\U896, 2007.<newblock>
 
@@ -660,7 +660,7 @@
       and Applied Mathematics>, 7(1):159\U193, feb 1954.<newblock>
 
       <bibitem*|112><label|bib-Lax1998>Peter<nbsp>D.<nbsp>Lax<localize| and
-      >Xu-Dong Liu. <newblock>Solution of two-dimensional riemann problems of
+      >Xu-Dong Liu. <newblock>Solution of two-dimensional Riemann problems of
       gas dynamics by positive schemes. <newblock><with|font-shape|italic|SIAM
       Journal on Scientific Computing>, 19(2):319\U340, 1998.<newblock>
 
@@ -695,7 +695,7 @@
 
       <bibitem*|119><label|bib-li2016>Jiequan Li<localize| and >Zhifang Du.
       <newblock>A two-stage fourth order time-accurate discretization for
-      lax\Uwendroff type flow solvers i. hyperbolic conservation laws.
+      Lax\UWendroff type flow solvers i. hyperbolic conservation laws.
       <newblock><with|font-shape|italic|SIAM Journal on Scientific
       Computing>, 38(5):0, 2016.<newblock>
 
@@ -721,7 +721,7 @@
       Scientific Computing>, 82(2):42, feb 2020.<newblock>
 
       <bibitem*|123><label|bib-Lu2021>Jianfang Lu, Yong Liu<localize|, and
-      >Chi-Wang Shu. <newblock>An oscillation-free discontinuous galerkin
+      >Chi-Wang Shu. <newblock>An oscillation-free discontinuous Galerkin
       method for scalar hyperbolic conservation laws.
       <newblock><with|font-shape|italic|SIAM Journal on Numerical Analysis>,
       59(3):1299\U1324, 2021.<newblock>
@@ -734,14 +734,14 @@
 
       <bibitem*|125><label|bib-Meena_Kumar_Chandrashekar_2017>Asha<nbsp>Kumari
       Meena, Harish Kumar<localize|, and >Praveen Chandrashekar.
-      <newblock>Positivity-preserving high-order discontinuous galerkin
+      <newblock>Positivity-preserving high-order discontinuous Galerkin
       schemes for ten-moment gaussian closure equations.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       339(Supplement C):370\U395, jun 2017.<newblock>
 
       <bibitem*|126><label|bib-Meena2020>Asha<nbsp>Kumari Meena, Rakesh
       Kumar<localize|, and >Praveen Chandrashekar.
-      <newblock>Positivity-preserving finite difference weno scheme for
+      <newblock>Positivity-preserving finite difference WENO scheme for
       ten-moment equations with source term.
       <newblock><with|font-shape|italic|Journal of Scientific Computing>,
       82(1), jan 2020.<newblock>
@@ -749,13 +749,13 @@
       <bibitem*|127><label|bib-Mengaldo2015>G.<nbsp>Mengaldo, D.<nbsp>De
       Grazia, P.<nbsp>E.<nbsp>Vincent<localize|, and
       >S.<nbsp>J.<nbsp>Sherwin. <newblock>On the connections between
-      discontinuous galerkin and flux reconstruction schemes: extension to
+      discontinuous Galerkin and Flux Reconstruction schemes: extension to
       curvilinear meshes. <newblock><with|font-shape|italic|Journal of
       Scientific Computing>, 67(3):1272\U1292, oct 2015.<newblock>
 
       <bibitem*|128><label|bib-moe2017>Scott<nbsp>A.<nbsp>Moe,
       James<nbsp>A.<nbsp>Rossmanith<localize|, and >David<nbsp>C.<nbsp>Seal.
-      <newblock>Positivity-preserving discontinuous galerkin methods with
+      <newblock>Positivity-preserving discontinuous Galerkin methods with
       lax\Uwendroff time discretizations.
       <newblock><with|font-shape|italic|Journal of Scientific Computing>,
       71:44\U70, 2017.<newblock>
@@ -779,12 +779,12 @@
       79(3):1572\U1607, jun 2019.<newblock>
 
       <bibitem*|132><label|bib-Pan2016>Liang Pan, Jiequan Li<localize|, and
-      >Kun Xu. <newblock>A few benchmark test cases for higher-order euler
+      >Kun Xu. <newblock>A few benchmark test cases for higher-order Euler
       solvers. <newblock><with|font-shape|italic|Numerical Mathematics:
       Theory, Methods and Applications>, 10:0, 09 2016.<newblock>
 
       <bibitem*|133><label|bib-Pazner2021>Will Pazner. <newblock>Sparse
-      invariant domain preserving discontinuous galerkin methods with subcell
+      invariant domain preserving discontinuous Galerkin methods with subcell
       convex limiting. <newblock><with|font-shape|italic|Computer Methods in
       Applied Mechanics and Engineering>, 382:113876, 2021.<newblock>
 
@@ -839,7 +839,7 @@
       <bibitem*|142><label|bib-ranocha2023>Hendrik Ranocha, Andrew Winters,
       Guillermo Castro, Lisandro Dalcin, Michael Schlottke-Lakemper, Gregor
       Gassner<localize|, and >Matteo Parsani. <newblock>On error-based step
-      size control for discontinuous galerkin methods for compressible fluid
+      size control for discontinuous Galerkin methods for compressible fluid
       dynamics. <newblock><with|font-shape|italic|Communications on Applied
       Mathematics and Computation>, <localize|page >0, 05 2023.<newblock>
 
@@ -850,7 +850,7 @@
 
       <bibitem*|144><label|bib-Ray2017>Deep Ray<localize| and >Praveen
       Chandrashekar. <newblock>An entropy stable finite volume scheme for the
-      two dimensional navier\Ustokes equations on triangular grids.
+      two dimensional Navier\UStokes equations on triangular grids.
       <newblock><with|font-shape|italic|Applied Mathematics and Computation>,
       314:257\U286, 2017.<newblock>
 
@@ -877,7 +877,7 @@
       Sebastian Hennemann, Florian Hindenlang,
       Andrew<nbsp>R.<nbsp>Winters<localize|, and
       >Gregor<nbsp>J.<nbsp>Gassner. <newblock>An entropy stable nodal
-      discontinuous galerkin method for the resistive mhd equations. part ii:
+      discontinuous Galerkin method for the resistive MHD equations. part II:
       subcell finite volume shock capturing.
       <newblock><with|font-shape|italic|J. Comput. Phys.>, 444:110580,
       2020.<newblock>
@@ -886,20 +886,20 @@
       Sebastian Hennemann, Florian<nbsp>J.<nbsp>Hindenlang,
       Andrew<nbsp>R.<nbsp>Winters<localize|, and
       >Gregor<nbsp>J.<nbsp>Gassner. <newblock>An entropy stable nodal
-      discontinuous galerkin method for the resistive mhd equations. part ii:
+      discontinuous Galerkin method for the resistive mhd equations. part ii:
       subcell finite volume shock capturing.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       444:110580, 2021.<newblock>
 
       <bibitem*|150><label|bib-ramirez2022>Andrés<nbsp>M.<nbsp>Rueda-Ramírez,
       Will Pazner<localize|, and >Gregor<nbsp>J.<nbsp>Gassner.
-      <newblock>Subcell limiting strategies for discontinuous galerkin
+      <newblock>Subcell limiting strategies for discontinuous Galerkin
       spectral element methods. <newblock><with|font-shape|italic|Computers &
       Fluids>, 247:105627, 2022.<newblock>
 
       <bibitem*|151><label|bib-ramirez2021>A Rueda-Ramrez<localize| and >G
       Gassner. <newblock>A subcell finite volume positivity-preserving
-      limiter for DGSEM discretizations of the euler equations.
+      limiter for DGSEM discretizations of the Euler equations.
       <newblock><localize|In ><with|font-shape|italic|14th WCCM-ECCOMAS
       Congress>. CIMNE, 2021.<newblock>
 
@@ -959,7 +959,7 @@
       Academic Press, 1959.<newblock>
 
       <bibitem*|161><label|bib-Shi2003>Jing Shi, Yong-Tao Zhang<localize|,
-      and >Chi-Wang Shu. <newblock>Resolution of high order weno schemes for
+      and >Chi-Wang Shu. <newblock>Resolution of high order WENO schemes for
       complicated flow structures. <newblock><with|font-shape|italic|Journal
       of Computational Physics>, 186:690\U696, 04 2003.<newblock>
 
@@ -1017,7 +1017,7 @@
 
       <bibitem*|171><label|bib-Swanson_Langer_2016>R.<nbsp>C.<nbsp>Swanson<localize|
       and >S.<nbsp>Langer. <newblock>Steady-state laminar flow solutions for
-      naca 0012 airfoil. <newblock><with|font-shape|italic|Computers &
+      NACA0012 airfoil. <newblock><with|font-shape|italic|Computers &
       Fluids>, 126(Supplement C):102\U128, mar 2016.<newblock>
 
       <bibitem*|172><label|bib-Tabarrok1994>B Tabarrok<localize| and >Jichao
@@ -1033,7 +1033,7 @@
       1991.<newblock>
 
       <bibitem*|174><label|bib-Tang2006>Huazhong Tang<localize| and >Tiegang
-      Liu. <newblock>A note on the conservative schemes for the euler
+      Liu. <newblock>A note on the conservative schemes for the Euler
       equations. <newblock><with|font-shape|italic|Journal of Computational
       Physics>, 218(2):451\U459, 2006.<newblock>
 
@@ -1043,7 +1043,7 @@
       Computing>, 17(1/4):609\U618, 2002.<newblock>
 
       <bibitem*|176><label|bib-Titarev2004>V.A.<nbsp>Titarev<localize| and
-      >E.F.<nbsp>Toro. <newblock>Finite-volume weno schemes for
+      >E.F.<nbsp>Toro. <newblock>Finite-volume WENO schemes for
       three-dimensional conservation laws.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       201(1):238\U260, 2004.<newblock>
@@ -1080,7 +1080,7 @@
 
       <bibitem*|182><label|bib-Trojak2021>W.<nbsp>Trojak<localize| and
       >F.<nbsp>D.<nbsp>Witherden. <newblock>A new family of weighted
-      one-parameter flux reconstruction schemes.
+      one-parameter Flux Reconstruction schemes.
       <newblock><with|font-shape|italic|Computers & Fluids>, 222:104918, may
       2021.<newblock>
 
@@ -1100,19 +1100,19 @@
       on Scientific and Statistical Computing>, 5:1\U20, 03 1984.<newblock>
 
       <bibitem*|186><label|bib-Vandenhoeck2019>Ray Vandenhoeck<localize| and
-      >Andrea Lani. <newblock>Implicit high-order flux reconstruction solver
+      >Andrea Lani. <newblock>Implicit high-order Flux Reconstruction solver
       for high-speed compressible flows. <newblock><with|font-shape|italic|Computer
       Physics Communications>, 242:1\U24, sep 2019.<newblock>
 
       <bibitem*|187><label|bib-Vermeire2017>B.C.<nbsp>Vermeire<localize| and
-      >P.E.<nbsp>Vincent. <newblock>On the behaviour of fully-discrete flux
-      reconstruction schemes. <newblock><with|font-shape|italic|Computer
+      >P.E.<nbsp>Vincent. <newblock>On the behaviour of fully-discrete Flux
+      Reconstruction schemes. <newblock><with|font-shape|italic|Computer
       Methods in Applied Mechanics and Engineering>, 315:1053\U1079, mar
       2017.<newblock>
 
       <bibitem*|188><label|bib-Vilar2019>François Vilar. <newblock>A
       posteriori correction of high-order discontinuous Galerkin scheme
-      through subcell finite volume formulation and flux reconstruction.
+      through subcell finite volume formulation and Flux Reconstruction.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       387:245\U279, jun 2019.<newblock>
 
@@ -1124,7 +1124,7 @@
 
       <bibitem*|190><label|bib-Vincent2011>P.<nbsp>E.<nbsp>Vincent,
       P.<nbsp>Castonguay<localize|, and >A.<nbsp>Jameson. <newblock>Insights
-      from von Neumann analysis of high-order flux reconstruction schemes.
+      from von Neumann analysis of high-order Flux Reconstruction schemes.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       230(22):8134\U8154, sep 2011.<newblock>
 
@@ -1159,13 +1159,13 @@
       <bibitem*|195><label|bib-witherden2014>F.D.<nbsp>Witherden,
       A.M.<nbsp>Farrington<localize|, and >P.E.<nbsp>Vincent. <newblock>Pyfr:
       an open source framework for solving advection\Udiffusion type problems
-      on streaming architectures using the flux reconstruction approach.
+      on streaming architectures using the Flux Reconstruction approach.
       <newblock><with|font-shape|italic|Computer Physics Communications>,
       185(11):3028\U3040, 2014.<newblock>
 
       <bibitem*|196><label|bib-Witherden2021>F.D.<nbsp>Witherden<localize|
-      and >P.E.<nbsp>Vincent. <newblock>On nodal point sets for flux
-      reconstruction. <newblock><with|font-shape|italic|Journal of
+      and >P.E.<nbsp>Vincent. <newblock>On nodal point sets for Flux
+      Reconstruction. <newblock><with|font-shape|italic|Journal of
       Computational and Applied Mathematics>, 381:113014, jan 2021.<newblock>
 
       <bibitem*|197><label|bib-Woodward1984>Paul Woodward<localize| and
@@ -1181,7 +1181,7 @@
 
       <bibitem*|199><label|bib-Xu2022>Ziyao Xu<localize| and >Chi-Wang Shu.
       <newblock>Third order maximum-principle-satisfying and
-      positivity-preserving lax-wendroff discontinuous galerkin methods for
+      positivity-preserving Lax-Wendroff discontinuous Galerkin methods for
       hyperbolic conservation laws. <newblock><with|font-shape|italic|Journal
       of Computational Physics>, 470:111591, 2022.<newblock>
 
@@ -1205,12 +1205,12 @@
 
       <bibitem*|203><label|bib-Zhang1990>Tong Zhang<localize| and >Yuxi
       Zheng. <newblock>Conjecture on the structure of solutions of the
-      riemann problem for two-dimensional gas dynamics systems.
-      <newblock><with|font-shape|italic|Siam Journal on Mathematical
+      Riemann problem for two-dimensional gas dynamics systems.
+      <newblock><with|font-shape|italic|SIAM Journal on Mathematical
       Analysis>, 21:593\U630, 1990.<newblock>
 
       <bibitem*|204><label|bib-Zhang1997>Tong Zhang<localize| and >Yuxi
-      Zheng. <newblock>Exact spiral solutions of the two-dimensional euler
+      Zheng. <newblock>Exact spiral solutions of the two-dimensional Euler
       equations. <newblock><with|font-shape|italic|Discrete and Continuous
       Dynamical Systems>, 3(1):117\U133, 1997.<newblock>
 
@@ -1222,13 +1222,13 @@
 
       <bibitem*|206><label|bib-zhang2010c>Xiangxiong Zhang<localize| and
       >Chi-Wang Shu. <newblock>On positivity-preserving high order
-      discontinuous galerkin schemes for compressible euler equations on
+      discontinuous Galerkin schemes for compressible Euler equations on
       rectangular meshes. <newblock><with|font-shape|italic|Journal of
       Computational Physics>, 229(23):8918\U8934, 2010.<newblock>
 
       <bibitem*|207><label|bib-zhang2012>Xiangxiong Zhang<localize| and
       >Chi-Wang Shu. <newblock>Positivity-preserving high order finite
-      difference weno schemes for compressible euler equations.
+      difference WENO schemes for compressible Euler equations.
       <newblock><with|font-shape|italic|Journal of Computational Physics>,
       231(5):2245\U2258, 2012.<newblock>
 
@@ -1244,224 +1244,224 @@
 <\initial>
   <\collection>
     <associate|chapter-nr|10>
-    <associate|page-first|270>
+    <associate|page-first|261>
     <associate|page-medium|paper>
     <associate|section-nr|0>
-    <associate|subsection-nr|3>
+    <associate|subsection-nr|2>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|271>>
-    <associate|bib-Abe2015|<tuple|1|271>>
-    <associate|bib-Abgrall2020|<tuple|2|271>>
-    <associate|bib-Artzi2006|<tuple|24|271>>
-    <associate|bib-Asthana2015|<tuple|5|271>>
-    <associate|bib-Balsara2007|<tuple|20|271>>
-    <associate|bib-Balsara2009a|<tuple|21|271>>
-    <associate|bib-Bassi1997|<tuple|22|271>>
-    <associate|bib-Batten1997|<tuple|23|271>>
-    <associate|bib-Berthon2006|<tuple|26|271>>
-    <associate|bib-Berthon2015|<tuple|27|272>>
-    <associate|bib-Berthon_TMP_2006|<tuple|25|271>>
-    <associate|bib-Bezanson2017|<tuple|29|272>>
-    <associate|bib-Biswas1994|<tuple|31|272>>
-    <associate|bib-Biswas2021|<tuple|30|272>>
-    <associate|bib-Bogacki1989|<tuple|32|272>>
-    <associate|bib-Burbeau2001|<tuple|33|272>>
-    <associate|bib-Burger2017|<tuple|34|272>>
-    <associate|bib-Butcher2016|<tuple|35|272>>
-    <associate|bib-Canuto2007|<tuple|37|272>>
-    <associate|bib-Carpenter1995|<tuple|38|272>>
-    <associate|bib-Carrillo2021|<tuple|39|272>>
-    <associate|bib-Carrillo2021a|<tuple|40|272>>
-    <associate|bib-Castro2008|<tuple|42|272>>
-    <associate|bib-Cenaero2017|<tuple|36|272>>
-    <associate|bib-Chen2016|<tuple|43|272>>
-    <associate|bib-Choe1991|<tuple|44|272>>
-    <associate|bib-Choe1992|<tuple|45|272>>
-    <associate|bib-Cicchino2022|<tuple|46|272>>
-    <associate|bib-Cicchino2022a|<tuple|47|272>>
-    <associate|bib-Clain2011|<tuple|48|272>>
-    <associate|bib-Cockburn1989|<tuple|50|272>>
-    <associate|bib-Cockburn1989a|<tuple|51|272>>
-    <associate|bib-Cockburn1991|<tuple|52|272>>
-    <associate|bib-Cockburn1998a|<tuple|53|272>>
-    <associate|bib-Colella1984|<tuple|55|273>>
-    <associate|bib-Colella1990|<tuple|54|272>>
-    <associate|bib-Cui2023|<tuple|56|273>>
-    <associate|bib-Diot2012|<tuple|59|273>>
-    <associate|bib-Diot2013|<tuple|60|273>>
-    <associate|bib-Dumbser2006|<tuple|67|273>>
-    <associate|bib-Dumbser2007|<tuple|66|273>>
-    <associate|bib-Dumbser2008|<tuple|63|273>>
-    <associate|bib-Dumbser2008a|<tuple|64|273>>
-    <associate|bib-Dumbser2009|<tuple|68|273>>
-    <associate|bib-Dumbser2014|<tuple|62|273>>
-    <associate|bib-Dumbser2018|<tuple|65|273>>
-    <associate|bib-Dumbser2019|<tuple|61|273>>
-    <associate|bib-Einfeldt1988|<tuple|71|273>>
-    <associate|bib-Ellis2016|<tuple|72|273>>
-    <associate|bib-Engquist1981|<tuple|74|273>>
-    <associate|bib-Fambri2017|<tuple|75|273>>
-    <associate|bib-Gassner2011a|<tuple|76|273>>
-    <associate|bib-Gassner2012|<tuple|77|273>>
-    <associate|bib-Gassner_Winters_Hindenlang_Kopriva_2018|<tuple|78|273>>
-    <associate|bib-Ghia1982|<tuple|79|273>>
-    <associate|bib-Glimm1985|<tuple|80|273>>
-    <associate|bib-Gottlieb2001|<tuple|82|273>>
-    <associate|bib-Grazia2014|<tuple|57|273>>
-    <associate|bib-Guermond2016|<tuple|83|273>>
-    <associate|bib-Guo2015|<tuple|84|274>>
-    <associate|bib-Guthrey2019|<tuple|85|274>>
-    <associate|bib-Han2010|<tuple|87|274>>
-    <associate|bib-Harten1983a|<tuple|89|274>>
-    <associate|bib-Harten1987|<tuple|88|274>>
-    <associate|bib-Hirsch1990|<tuple|92|274>>
-    <associate|bib-Huynh2007|<tuple|94|274>>
-    <associate|bib-Jackson2017|<tuple|95|274>>
-    <associate|bib-Jameson2012|<tuple|97|274>>
-    <associate|bib-Jiang1996|<tuple|98|274>>
-    <associate|bib-Jiang2013|<tuple|99|274>>
-    <associate|bib-Kaser2005|<tuple|100|274>>
-    <associate|bib-Kopriva1996|<tuple|106|274>>
-    <associate|bib-Kopriva2002|<tuple|107|274>>
-    <associate|bib-Kopriva2006|<tuple|105|274>>
-    <associate|bib-Kopriva2019|<tuple|104|274>>
-    <associate|bib-Kozdon2018|<tuple|109|274>>
-    <associate|bib-Krivodonova2007|<tuple|110|274>>
-    <associate|bib-Lax1954|<tuple|111|274>>
-    <associate|bib-Lax1960|<tuple|113|274>>
-    <associate|bib-Lax1998|<tuple|112|274>>
-    <associate|bib-LeFloch2002|<tuple|115|275>>
-    <associate|bib-LeVeque1992|<tuple|116|275>>
-    <associate|bib-LeVeque1996|<tuple|117|275>>
-    <associate|bib-Lee2021|<tuple|114|274>>
-    <associate|bib-Levermore_1996|<tuple|118|275>>
-    <associate|bib-Lopez2014|<tuple|121|275>>
-    <associate|bib-Lou2020|<tuple|122|275>>
-    <associate|bib-Lu2021|<tuple|123|275>>
-    <associate|bib-Meena2020|<tuple|126|275>>
-    <associate|bib-Meena_Kumar_Chandrashekar_2017|<tuple|125|275>>
-    <associate|bib-Mengaldo2015|<tuple|127|275>>
-    <associate|bib-Montecinos2020|<tuple|129|275>>
-    <associate|bib-Offner2019|<tuple|131|275>>
-    <associate|bib-Pan2016|<tuple|132|275>>
-    <associate|bib-Pazner2021|<tuple|133|275>>
-    <associate|bib-Peraire2012|<tuple|93|274>>
-    <associate|bib-Peraire2013|<tuple|41|272>>
-    <associate|bib-Persson2006|<tuple|134|275>>
-    <associate|bib-Qiu2003|<tuple|138|275>>
-    <associate|bib-Qiu2005|<tuple|135|275>>
-    <associate|bib-Qiu2005b|<tuple|137|275>>
-    <associate|bib-Qiu2007|<tuple|136|275>>
-    <associate|bib-Rackauckas2017|<tuple|139|275>>
-    <associate|bib-Ramirez2020|<tuple|148|276>>
-    <associate|bib-Ranocha2021|<tuple|140|275>>
-    <associate|bib-Ranocha2022|<tuple|141|275>>
-    <associate|bib-Rasha2021|<tuple|96|274>>
-    <associate|bib-Ray2017|<tuple|144|276>>
-    <associate|bib-Roe1981|<tuple|146|276>>
-    <associate|bib-Romero2016|<tuple|147|276>>
-    <associate|bib-Rosa2018|<tuple|58|273>>
-    <associate|bib-Rueda2021|<tuple|149|276>>
-    <associate|bib-Rusanov1962|<tuple|152|276>>
-    <associate|bib-Ruuth2002|<tuple|153|276>>
-    <associate|bib-Safjan1995|<tuple|154|276>>
-    <associate|bib-Schafer1996|<tuple|156|276>>
-    <associate|bib-Seal2013|<tuple|159|276>>
-    <associate|bib-Shi2003|<tuple|161|276>>
-    <associate|bib-Shu1988|<tuple|162|276>>
-    <associate|bib-Shu1989|<tuple|163|276>>
-    <associate|bib-Sod1978|<tuple|164|276>>
-    <associate|bib-Sonntag2014|<tuple|165|276>>
-    <associate|bib-Spiegel2016|<tuple|166|276>>
-    <associate|bib-Spiteri2002|<tuple|167|276>>
-    <associate|bib-Sun2017|<tuple|170|276>>
-    <associate|bib-Swanson_Langer_2016|<tuple|171|276>>
-    <associate|bib-Tabarrok1994|<tuple|172|277>>
-    <associate|bib-Takayama1991|<tuple|173|277>>
-    <associate|bib-Tang2006|<tuple|174|277>>
-    <associate|bib-Titarev2002|<tuple|175|277>>
-    <associate|bib-Titarev2004|<tuple|176|277>>
-    <associate|bib-Titarev2005|<tuple|177|277>>
-    <associate|bib-Toro1994|<tuple|180|277>>
-    <associate|bib-Toro2001|<tuple|178|277>>
-    <associate|bib-Toro2009|<tuple|181|277>>
-    <associate|bib-Toro2020|<tuple|179|277>>
-    <associate|bib-Trojak2021|<tuple|182|277>>
-    <associate|bib-Tsitouras2011|<tuple|183|277>>
-    <associate|bib-Vandenhoeck2019|<tuple|186|277>>
-    <associate|bib-Vermeire2017|<tuple|187|277>>
-    <associate|bib-Vilar2019|<tuple|188|277>>
-    <associate|bib-Vincent2011|<tuple|190|277>>
-    <associate|bib-Vincent2011a|<tuple|189|277>>
-    <associate|bib-Vincent2015|<tuple|191|277>>
-    <associate|bib-Vincent2016|<tuple|193|277>>
-    <associate|bib-Vincent2022|<tuple|192|277>>
-    <associate|bib-Volker2010|<tuple|168|276>>
-    <associate|bib-Witherden2021|<tuple|196|277>>
-    <associate|bib-Woodward1984|<tuple|197|277>>
-    <associate|bib-Xu2019|<tuple|198|277>>
-    <associate|bib-Xu2022|<tuple|199|277>>
-    <associate|bib-Yee1999|<tuple|200|277>>
-    <associate|bib-Youn1995|<tuple|201|277>>
-    <associate|bib-Zanotti2015|<tuple|202|278>>
-    <associate|bib-Zhang1990|<tuple|203|278>>
-    <associate|bib-Zhang1997|<tuple|204|278>>
-    <associate|bib-Zhang2010b|<tuple|205|278>>
-    <associate|bib-Zorio2017|<tuple|208|278>>
-    <associate|bib-akkurt2022|<tuple|3|271>>
-    <associate|bib-arpit_babbar_2024_10816439|<tuple|7|271>>
-    <associate|bib-attig2011|<tuple|6|271>>
-    <associate|bib-babbar2022|<tuple|18|271>>
-    <associate|bib-babbar2023admissibility|<tuple|19|271>>
-    <associate|bib-babbar2024curved|<tuple|13|271>>
-    <associate|bib-babbar2024equivalence|<tuple|9|271>>
-    <associate|bib-babbar2024generalized|<tuple|11|271>>
-    <associate|bib-babbar2024laxwendroff|<tuple|12|271>>
-    <associate|bib-babbar2024multiderivative|<tuple|14|271>>
-    <associate|bib-berzins1995|<tuple|28|272>>
-    <associate|bib-cockburn2000|<tuple|49|272>>
-    <associate|bib-curvedrepo|<tuple|10|271>>
-    <associate|bib-dzanic2022|<tuple|69|273>>
-    <associate|bib-emery1968|<tuple|73|273>>
-    <associate|bib-godunov1959|<tuple|81|273>>
-    <associate|bib-ha2005|<tuple|86|274>>
-    <associate|bib-hennemann2021|<tuple|90|274>>
-    <associate|bib-hildebrand1973|<tuple|91|274>>
-    <associate|bib-icosahom2023_tmp|<tuple|8|271>>
-    <associate|bib-ketcheson2020|<tuple|101|274>>
-    <associate|bib-klockner2011|<tuple|102|274>>
-    <associate|bib-kopriva2009|<tuple|103|274>>
-    <associate|bib-kopriva2010|<tuple|108|274>>
-    <associate|bib-li2016|<tuple|119|275>>
-    <associate|bib-lohner1987|<tuple|120|275>>
-    <associate|bib-meena2017|<tuple|124|275>>
-    <associate|bib-moe2017|<tuple|128|275>>
-    <associate|bib-naca1951|<tuple|4|271>>
-    <associate|bib-nsrepo|<tuple|15|271>>
-    <associate|bib-obrechkoff1940neue|<tuple|130|275>>
-    <associate|bib-paperrepo|<tuple|16|271>>
-    <associate|bib-ramirez2021|<tuple|151|276>>
-    <associate|bib-ramirez2022|<tuple|150|276>>
-    <associate|bib-ranocha2023|<tuple|142|275>>
-    <associate|bib-raythesis|<tuple|143|276>>
-    <associate|bib-reed1973|<tuple|145|276>>
-    <associate|bib-schaal2015|<tuple|155|276>>
-    <associate|bib-schlottkelakemper2020trixi|<tuple|157|276>>
-    <associate|bib-schlottkelakemper2021purely|<tuple|158|276>>
-    <associate|bib-sedov1959|<tuple|160|276>>
-    <associate|bib-su2|<tuple|70|273>>
-    <associate|bib-subcommittee2014|<tuple|169|276>>
-    <associate|bib-tenkai|<tuple|17|271>>
-    <associate|bib-vanleer1977|<tuple|184|277>>
-    <associate|bib-vanleer1984|<tuple|185|277>>
-    <associate|bib-ware1995|<tuple|194|277>>
-    <associate|bib-witherden2014|<tuple|195|277>>
-    <associate|bib-zhang2010c|<tuple|206|278>>
-    <associate|bib-zhang2012|<tuple|207|278>>
+    <associate|auto-1|<tuple|?|261>>
+    <associate|bib-Abe2015|<tuple|1|261>>
+    <associate|bib-Abgrall2020|<tuple|2|261>>
+    <associate|bib-Artzi2006|<tuple|24|261>>
+    <associate|bib-Asthana2015|<tuple|5|261>>
+    <associate|bib-Balsara2007|<tuple|20|261>>
+    <associate|bib-Balsara2009a|<tuple|21|261>>
+    <associate|bib-Bassi1997|<tuple|22|261>>
+    <associate|bib-Batten1997|<tuple|23|261>>
+    <associate|bib-Berthon2006|<tuple|26|261>>
+    <associate|bib-Berthon2015|<tuple|27|261>>
+    <associate|bib-Berthon_TMP_2006|<tuple|25|261>>
+    <associate|bib-Bezanson2017|<tuple|29|262>>
+    <associate|bib-Biswas1994|<tuple|31|262>>
+    <associate|bib-Biswas2021|<tuple|30|262>>
+    <associate|bib-Bogacki1989|<tuple|32|262>>
+    <associate|bib-Burbeau2001|<tuple|33|262>>
+    <associate|bib-Burger2017|<tuple|34|262>>
+    <associate|bib-Butcher2016|<tuple|35|262>>
+    <associate|bib-Canuto2007|<tuple|37|262>>
+    <associate|bib-Carpenter1995|<tuple|38|262>>
+    <associate|bib-Carrillo2021|<tuple|39|262>>
+    <associate|bib-Carrillo2021a|<tuple|40|262>>
+    <associate|bib-Castro2008|<tuple|42|262>>
+    <associate|bib-Cenaero2017|<tuple|36|262>>
+    <associate|bib-Chen2016|<tuple|43|262>>
+    <associate|bib-Choe1991|<tuple|44|262>>
+    <associate|bib-Choe1992|<tuple|45|262>>
+    <associate|bib-Cicchino2022|<tuple|46|262>>
+    <associate|bib-Cicchino2022a|<tuple|47|262>>
+    <associate|bib-Clain2011|<tuple|48|262>>
+    <associate|bib-Cockburn1989|<tuple|50|262>>
+    <associate|bib-Cockburn1989a|<tuple|51|262>>
+    <associate|bib-Cockburn1991|<tuple|52|262>>
+    <associate|bib-Cockburn1998a|<tuple|53|262>>
+    <associate|bib-Colella1984|<tuple|55|262>>
+    <associate|bib-Colella1990|<tuple|54|262>>
+    <associate|bib-Cui2023|<tuple|56|263>>
+    <associate|bib-Diot2012|<tuple|59|263>>
+    <associate|bib-Diot2013|<tuple|60|263>>
+    <associate|bib-Dumbser2006|<tuple|67|263>>
+    <associate|bib-Dumbser2007|<tuple|66|263>>
+    <associate|bib-Dumbser2008|<tuple|63|263>>
+    <associate|bib-Dumbser2008a|<tuple|64|263>>
+    <associate|bib-Dumbser2009|<tuple|68|263>>
+    <associate|bib-Dumbser2014|<tuple|62|263>>
+    <associate|bib-Dumbser2018|<tuple|65|263>>
+    <associate|bib-Dumbser2019|<tuple|61|263>>
+    <associate|bib-Einfeldt1988|<tuple|71|263>>
+    <associate|bib-Ellis2016|<tuple|72|263>>
+    <associate|bib-Engquist1981|<tuple|74|263>>
+    <associate|bib-Fambri2017|<tuple|75|263>>
+    <associate|bib-Gassner2011a|<tuple|76|263>>
+    <associate|bib-Gassner2012|<tuple|77|263>>
+    <associate|bib-Gassner_Winters_Hindenlang_Kopriva_2018|<tuple|78|263>>
+    <associate|bib-Ghia1982|<tuple|79|263>>
+    <associate|bib-Glimm1985|<tuple|80|263>>
+    <associate|bib-Gottlieb2001|<tuple|82|263>>
+    <associate|bib-Grazia2014|<tuple|57|263>>
+    <associate|bib-Guermond2016|<tuple|83|263>>
+    <associate|bib-Guo2015|<tuple|84|263>>
+    <associate|bib-Guthrey2019|<tuple|85|264>>
+    <associate|bib-Han2010|<tuple|87|264>>
+    <associate|bib-Harten1983a|<tuple|89|264>>
+    <associate|bib-Harten1987|<tuple|88|264>>
+    <associate|bib-Hirsch1990|<tuple|92|264>>
+    <associate|bib-Huynh2007|<tuple|94|264>>
+    <associate|bib-Jackson2017|<tuple|95|264>>
+    <associate|bib-Jameson2012|<tuple|97|264>>
+    <associate|bib-Jiang1996|<tuple|98|264>>
+    <associate|bib-Jiang2013|<tuple|99|264>>
+    <associate|bib-Kaser2005|<tuple|100|264>>
+    <associate|bib-Kopriva1996|<tuple|106|264>>
+    <associate|bib-Kopriva2002|<tuple|107|264>>
+    <associate|bib-Kopriva2006|<tuple|105|264>>
+    <associate|bib-Kopriva2019|<tuple|104|264>>
+    <associate|bib-Kozdon2018|<tuple|109|264>>
+    <associate|bib-Krivodonova2007|<tuple|110|264>>
+    <associate|bib-Lax1954|<tuple|111|264>>
+    <associate|bib-Lax1960|<tuple|113|264>>
+    <associate|bib-Lax1998|<tuple|112|264>>
+    <associate|bib-LeFloch2002|<tuple|115|265>>
+    <associate|bib-LeVeque1992|<tuple|116|265>>
+    <associate|bib-LeVeque1996|<tuple|117|265>>
+    <associate|bib-Lee2021|<tuple|114|264>>
+    <associate|bib-Levermore_1996|<tuple|118|265>>
+    <associate|bib-Lopez2014|<tuple|121|265>>
+    <associate|bib-Lou2020|<tuple|122|265>>
+    <associate|bib-Lu2021|<tuple|123|265>>
+    <associate|bib-Meena2020|<tuple|126|265>>
+    <associate|bib-Meena_Kumar_Chandrashekar_2017|<tuple|125|265>>
+    <associate|bib-Mengaldo2015|<tuple|127|265>>
+    <associate|bib-Montecinos2020|<tuple|129|265>>
+    <associate|bib-Offner2019|<tuple|131|265>>
+    <associate|bib-Pan2016|<tuple|132|265>>
+    <associate|bib-Pazner2021|<tuple|133|265>>
+    <associate|bib-Peraire2012|<tuple|93|264>>
+    <associate|bib-Peraire2013|<tuple|41|262>>
+    <associate|bib-Persson2006|<tuple|134|265>>
+    <associate|bib-Qiu2003|<tuple|138|265>>
+    <associate|bib-Qiu2005|<tuple|135|265>>
+    <associate|bib-Qiu2005b|<tuple|137|265>>
+    <associate|bib-Qiu2007|<tuple|136|265>>
+    <associate|bib-Rackauckas2017|<tuple|139|265>>
+    <associate|bib-Ramirez2020|<tuple|148|266>>
+    <associate|bib-Ranocha2021|<tuple|140|265>>
+    <associate|bib-Ranocha2022|<tuple|141|265>>
+    <associate|bib-Rasha2021|<tuple|96|264>>
+    <associate|bib-Ray2017|<tuple|144|266>>
+    <associate|bib-Roe1981|<tuple|146|266>>
+    <associate|bib-Romero2016|<tuple|147|266>>
+    <associate|bib-Rosa2018|<tuple|58|263>>
+    <associate|bib-Rueda2021|<tuple|149|266>>
+    <associate|bib-Rusanov1962|<tuple|152|266>>
+    <associate|bib-Ruuth2002|<tuple|153|266>>
+    <associate|bib-Safjan1995|<tuple|154|266>>
+    <associate|bib-Schafer1996|<tuple|156|266>>
+    <associate|bib-Seal2013|<tuple|159|266>>
+    <associate|bib-Shi2003|<tuple|161|266>>
+    <associate|bib-Shu1988|<tuple|162|266>>
+    <associate|bib-Shu1989|<tuple|163|266>>
+    <associate|bib-Sod1978|<tuple|164|266>>
+    <associate|bib-Sonntag2014|<tuple|165|266>>
+    <associate|bib-Spiegel2016|<tuple|166|266>>
+    <associate|bib-Spiteri2002|<tuple|167|266>>
+    <associate|bib-Sun2017|<tuple|170|266>>
+    <associate|bib-Swanson_Langer_2016|<tuple|171|266>>
+    <associate|bib-Tabarrok1994|<tuple|172|267>>
+    <associate|bib-Takayama1991|<tuple|173|267>>
+    <associate|bib-Tang2006|<tuple|174|267>>
+    <associate|bib-Titarev2002|<tuple|175|267>>
+    <associate|bib-Titarev2004|<tuple|176|267>>
+    <associate|bib-Titarev2005|<tuple|177|267>>
+    <associate|bib-Toro1994|<tuple|180|267>>
+    <associate|bib-Toro2001|<tuple|178|267>>
+    <associate|bib-Toro2009|<tuple|181|267>>
+    <associate|bib-Toro2020|<tuple|179|267>>
+    <associate|bib-Trojak2021|<tuple|182|267>>
+    <associate|bib-Tsitouras2011|<tuple|183|267>>
+    <associate|bib-Vandenhoeck2019|<tuple|186|267>>
+    <associate|bib-Vermeire2017|<tuple|187|267>>
+    <associate|bib-Vilar2019|<tuple|188|267>>
+    <associate|bib-Vincent2011|<tuple|190|267>>
+    <associate|bib-Vincent2011a|<tuple|189|267>>
+    <associate|bib-Vincent2015|<tuple|191|267>>
+    <associate|bib-Vincent2016|<tuple|193|267>>
+    <associate|bib-Vincent2022|<tuple|192|267>>
+    <associate|bib-Volker2010|<tuple|168|266>>
+    <associate|bib-Witherden2021|<tuple|196|267>>
+    <associate|bib-Woodward1984|<tuple|197|267>>
+    <associate|bib-Xu2019|<tuple|198|267>>
+    <associate|bib-Xu2022|<tuple|199|267>>
+    <associate|bib-Yee1999|<tuple|200|267>>
+    <associate|bib-Youn1995|<tuple|201|267>>
+    <associate|bib-Zanotti2015|<tuple|202|268>>
+    <associate|bib-Zhang1990|<tuple|203|268>>
+    <associate|bib-Zhang1997|<tuple|204|268>>
+    <associate|bib-Zhang2010b|<tuple|205|268>>
+    <associate|bib-Zorio2017|<tuple|208|268>>
+    <associate|bib-akkurt2022|<tuple|3|261>>
+    <associate|bib-arpit_babbar_2024_10816439|<tuple|7|261>>
+    <associate|bib-attig2011|<tuple|6|261>>
+    <associate|bib-babbar2022|<tuple|18|261>>
+    <associate|bib-babbar2023admissibility|<tuple|19|261>>
+    <associate|bib-babbar2024curved|<tuple|13|261>>
+    <associate|bib-babbar2024equivalence|<tuple|9|261>>
+    <associate|bib-babbar2024generalized|<tuple|11|261>>
+    <associate|bib-babbar2024laxwendroff|<tuple|12|261>>
+    <associate|bib-babbar2024multiderivative|<tuple|14|261>>
+    <associate|bib-berzins1995|<tuple|28|262>>
+    <associate|bib-cockburn2000|<tuple|49|262>>
+    <associate|bib-curvedrepo|<tuple|10|261>>
+    <associate|bib-dzanic2022|<tuple|69|263>>
+    <associate|bib-emery1968|<tuple|73|263>>
+    <associate|bib-godunov1959|<tuple|81|263>>
+    <associate|bib-ha2005|<tuple|86|264>>
+    <associate|bib-hennemann2021|<tuple|90|264>>
+    <associate|bib-hildebrand1973|<tuple|91|264>>
+    <associate|bib-icosahom2023_tmp|<tuple|8|261>>
+    <associate|bib-ketcheson2020|<tuple|101|264>>
+    <associate|bib-klockner2011|<tuple|102|264>>
+    <associate|bib-kopriva2009|<tuple|103|264>>
+    <associate|bib-kopriva2010|<tuple|108|264>>
+    <associate|bib-li2016|<tuple|119|265>>
+    <associate|bib-lohner1987|<tuple|120|265>>
+    <associate|bib-meena2017|<tuple|124|265>>
+    <associate|bib-moe2017|<tuple|128|265>>
+    <associate|bib-naca1951|<tuple|4|261>>
+    <associate|bib-nsrepo|<tuple|15|261>>
+    <associate|bib-obrechkoff1940neue|<tuple|130|265>>
+    <associate|bib-paperrepo|<tuple|16|261>>
+    <associate|bib-ramirez2021|<tuple|151|266>>
+    <associate|bib-ramirez2022|<tuple|150|266>>
+    <associate|bib-ranocha2023|<tuple|142|265>>
+    <associate|bib-raythesis|<tuple|143|266>>
+    <associate|bib-reed1973|<tuple|145|266>>
+    <associate|bib-schaal2015|<tuple|155|266>>
+    <associate|bib-schlottkelakemper2020trixi|<tuple|157|266>>
+    <associate|bib-schlottkelakemper2021purely|<tuple|158|266>>
+    <associate|bib-sedov1959|<tuple|160|266>>
+    <associate|bib-su2|<tuple|70|263>>
+    <associate|bib-subcommittee2014|<tuple|169|266>>
+    <associate|bib-tenkai|<tuple|17|261>>
+    <associate|bib-vanleer1977|<tuple|184|267>>
+    <associate|bib-vanleer1984|<tuple|185|267>>
+    <associate|bib-ware1995|<tuple|194|267>>
+    <associate|bib-witherden2014|<tuple|195|267>>
+    <associate|bib-zhang2010c|<tuple|206|268>>
+    <associate|bib-zhang2012|<tuple|207|268>>
   </collection>
 </references>
 
